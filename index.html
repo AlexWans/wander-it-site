@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wander-IT — Votre expertise. Mes outils. Une longueur d'avance.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'wi-blue':  '#B1DCED',
+            'wi-terra': '#743720',
+            'wi-deep':  '#004258',
+            'wi-muted': '#B2CBD4',
+            'wi-bg':    '#F5F3EF',
+            'wi-ink':   '#0B1C22',
+          },
+          fontFamily: {
+            slab: ['"Roboto Slab"', 'Georgia', 'serif'],
+            body: ['Monda', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;600;700;900&family=Monda:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #F5F3EF;
+      color: #0B1C22;
+      font-family: 'Monda', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 9999; opacity: 0.4;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes floatY {
+      0%,100% { transform: translateY(0) rotate(-1.5deg); }
+      50%     { transform: translateY(-4px) rotate(-1.5deg); }
+    }
+
+    .au  { animation: fadeUp 0.75s cubic-bezier(0.22,1,0.36,1) both; }
+    .d1  { animation-delay: 0.08s; }
+    .d2  { animation-delay: 0.18s; }
+    .d3  { animation-delay: 0.30s; }
+    .d4  { animation-delay: 0.44s; }
+    .d5  { animation-delay: 0.58s; }
+    .float { animation: floatY 4.5s ease-in-out infinite; }
+
+    .reveal {
+      opacity: 0; transform: translateY(36px);
+      transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.8s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* Nav */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      padding: 1.25rem 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+    }
+    #nav.s {
+      background: rgba(245,243,239,0.94);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 rgba(0,66,88,0.09);
+    }
+    .nl {
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em;
+      color: #0B1C22; text-decoration: none; opacity: 0.55;
+      position: relative; padding-bottom: 2px;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
+    .nl::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 1px; background: #743720;
+      transition: width 0.25s ease;
+    }
+    .nl:hover { opacity: 1; color: #743720; }
+    .nl:hover::after { width: 100%; }
+    .nl:focus-visible { outline: 2px solid #743720; outline-offset: 3px; }
+
+    /* Buttons */
+    .btn-p {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #743720; color: white; text-decoration: none;
+      font-family: 'Monda', sans-serif; font-size: 0.72rem;
+      font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+      padding: 0.9rem 1.8rem;
+      box-shadow: 0 4px 22px rgba(116,55,32,0.28), 0 1px 4px rgba(116,55,32,0.16);
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-p:hover {
+      background: #8b4228; transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(116,55,32,0.38), 0 2px 8px rgba(116,55,32,0.2);
+    }
+    .btn-p:active { transform: translateY(0); }
+    .btn-p:focus-visible { outline: 2px solid #743720; outline-offset: 3px; }
+
+    .btn-s {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: #0B1C22; text-decoration: none;
+      font-family: 'Monda', sans-serif; font-size: 0.72rem;
+      font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+      padding: 0.9rem 1.8rem; border: 1px solid rgba(11,28,34,0.18);
+      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    }
+    .btn-s:hover { border-color: #004258; color: #004258; background: rgba(0,66,88,0.04); }
+    .btn-s:focus-visible { outline: 2px solid #004258; outline-offset: 3px; }
+
+    /* Service cards */
+    .sc {
+      padding: 2.5rem; border: 1px solid rgba(178,203,212,0.18);
+      background: rgba(178,203,212,0.05); position: relative; overflow: hidden;
+      transition: background 0.3s ease, border-color 0.3s ease,
+                  transform 0.35s cubic-bezier(0.22,1,0.36,1);
+    }
+    .sc:hover {
+      background: rgba(178,203,212,0.14);
+      border-color: rgba(178,203,212,0.35);
+      transform: translateY(-5px);
+    }
+
+    .step {
+      display: flex; gap: 1.5rem;
+      padding: 1.75rem 0; border-bottom: 1px solid rgba(0,66,88,0.08);
+    }
+    .step:last-child { border-bottom: none; }
+
+    h1,h2,h3 { font-family: 'Roboto Slab', Georgia, serif; }
+
+    .hero-h {
+      font-size: clamp(3.2rem,8vw,6.8rem);
+      font-weight: 700; line-height: 1.0; letter-spacing: -0.035em;
+    }
+    .sec-h {
+      font-size: clamp(2rem,4vw,3.2rem);
+      font-weight: 700; line-height: 1.1; letter-spacing: -0.025em;
+    }
+    .lbl {
+      font-size: 0.68rem; text-transform: uppercase;
+      letter-spacing: 0.18em; font-weight: 700; font-family: 'Monda',sans-serif;
+    }
+
+    @media (max-width: 900px) {
+      #nav { padding: 1rem 1.5rem; }
+      .hero-grid, .approach-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+      .hero-right { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" style="display:flex;align-items:center;gap:0.3rem;text-decoration:none">
+    <svg viewBox="374 222 430 300" style="height:52px;width:auto;fill-rule:evenodd;clip-rule:evenodd" aria-label="Wander-IT">
+      <g transform="matrix(1,0,0,1,374,222)" fill="#743720">
+        <path d="M201.505,4.928C234.502,4.61 234.486,4.499 267.5,4.455C274.022,4.447 273.996,4.531 280.5,4.574C283.623,4.594 293.869,3.95 292.246,7.368C292.164,7.542 291.925,7.583 291.786,7.716C291.259,8.222 291.301,8.293 290.509,8.519C290.203,8.607 289.862,8.597 289.581,8.747C289.456,8.814 289.51,9.064 289.38,9.123C289.091,9.253 288.754,9.22 288.44,9.262C287.794,9.349 287.134,9.355 286.502,9.51C286.105,9.608 285.777,9.9 285.384,10.012C285.28,10.042 284.322,10.027 282.505,10.516C282.203,10.597 281.881,10.631 281.603,10.776C281.477,10.841 281.477,11.053 281.351,11.118C280.519,11.545 280.403,11.203 279.603,11.697C279.458,11.786 279.422,11.999 279.278,12.089C278.538,12.555 278.418,12.287 277.703,12.804C277.547,12.917 277.476,13.124 277.322,13.239C277.102,13.403 276.812,13.459 276.597,13.63C276.432,13.761 276.367,13.993 276.204,14.128C275.596,14.631 275.465,14.415 274.885,14.938C274.718,15.088 274.632,15.312 274.469,15.467C274.285,15.642 274.041,15.609 273.464,16.467C273.245,16.793 270.483,19.952 269.415,22.459C268.755,24.01 267.091,26.801 265.233,35.447C264.452,39.083 264,47.208 264.825,50.423C264.978,51.021 268.098,59.65 269.361,63.547C269.806,64.919 269.911,64.875 275.225,80.592C276.171,83.386 277.129,85.588 281.328,98.56C285.318,110.884 287.748,117.889 288.329,119.562C289.241,122.191 289.138,122.221 299.286,152.575C301.197,158.291 301.339,159.45 303.254,164.594C304.821,168.807 307.696,178.816 309.196,182.621C309.866,184.32 312.222,191.714 312.474,192.508C313.915,197.03 314.369,196.859 316.858,205.396C318.55,211.199 320.101,211.407 317.204,223.426C313.82,237.47 313.96,237.488 310.253,251.435C308.149,259.35 307.913,259.261 305.718,267.562C304.859,270.809 303,276.571 301.607,281.532C299.171,290.212 298.529,289.958 297.814,290.817C296.912,291.902 296.772,292.061 295.465,291.558C294.505,291.189 293.386,287.79 292.432,285.529C291.345,282.953 289.184,276.391 286.484,269.506C283.337,261.483 263.742,203.978 259.805,193.386C258.8,190.682 258.859,190.681 247.863,159.373C235.021,122.811 235.005,122.833 221.908,86.352C220.306,81.887 220.435,81.862 218.785,77.397C215.271,67.89 215.497,67.829 211.952,58.336C211.864,58.1 211.902,58.088 210.9,55.357C210.571,54.461 210.713,54.431 210.372,53.547C208.597,48.944 208.78,48.9 206.988,44.325C206.804,43.854 206.843,43.847 204.9,38.363C204.366,36.855 204.438,36.851 203.906,35.362C203.799,35.064 203.748,34.749 203.658,34.446C203.537,34.036 202.794,31.532 201.292,29.665C201.159,29.499 200.929,29.426 200.807,29.252C200.498,28.812 200.322,28.288 200.016,27.846C199.903,27.682 199.685,27.613 199.564,27.454C199.398,27.238 199.33,26.957 199.166,26.739C199.047,26.58 198.846,26.496 198.725,26.337C198.561,26.121 198.492,25.841 198.323,25.63C198.196,25.472 197.966,25.415 197.852,25.248C197.545,24.802 197.386,24.265 197.077,23.82C196.959,23.649 196.724,23.589 196.592,23.428C196.425,23.225 196.361,22.95 196.194,22.748C196.056,22.581 195.83,22.503 195.689,22.338C195.523,22.144 195.454,21.878 195.285,21.687C195.136,21.519 194.899,21.445 194.75,21.278C194.581,21.09 194.515,20.824 194.345,20.637C194.193,20.47 193.952,20.401 193.8,20.234C193.63,20.047 193.567,19.779 193.396,19.594C192.915,19.073 192.834,19.165 192.432,18.564C191.607,17.329 191.254,17.572 190.823,17.155C190.655,16.993 190.596,16.739 190.428,16.577C190.248,16.405 189.98,16.346 189.8,16.176C189.632,16.017 189.57,15.766 189.401,15.608C189.217,15.436 188.948,15.376 188.761,15.207C188.594,15.055 188.527,14.813 188.359,14.663C188.167,14.493 187.895,14.431 187.7,14.264C187.459,14.059 187.611,13.876 186.61,13.355C186.361,13.225 186.065,13.177 185.845,13.002C185.684,12.874 185.672,12.613 185.512,12.483C185.296,12.306 184.982,12.286 184.76,12.118C184.602,11.998 184.559,11.763 184.401,11.643C184.177,11.473 183.872,11.433 183.643,11.27C183.276,11.008 183.393,10.825 182.491,10.52C178.849,9.292 178.765,9.873 171.491,9.646C171.264,9.639 169.168,9.573 168.686,9.237C168.488,9.098 168.487,8.78 168.309,8.617C168.167,8.488 167.8,8.596 167.773,8.406C167.696,7.858 168.131,7.976 168.142,7.435C168.151,6.979 167.799,7.088 167.809,6.629C168.048,6.564 168.31,6.611 168.55,6.545C169.257,6.352 169.633,5.891 169.644,5.887C169.837,5.817 172.278,5.65 172.507,5.634C174.826,5.556 192.243,4.964 201.505,4.928Z"/>
+        <path d="M123.498,6.538C123.703,6.569 126.063,6.932 126.063,6.932C126.272,7.045 126.101,7.488 126.311,7.602C126.418,8.964 127.343,9.51 124.787,11.818C122.156,14.193 122.017,13.993 119.358,16.334C118.028,17.504 116.733,18.519 113.395,22.414C112.211,23.795 112.35,23.883 111.291,25.359C107.924,30.056 107.906,31.619 107.217,34.434C105.517,41.37 105.901,50.865 107.174,55.589C107.849,58.094 112.992,76.412 115.176,82.617C118.327,91.568 118.101,91.623 121.307,100.574C122.244,103.193 122.02,103.263 132.783,133.402C135.65,141.432 158.913,208.464 159.392,210.527C160.376,214.767 158.914,217.645 154.652,233.541C153.644,237.303 144.783,266.107 144.658,266.548C144.244,268.006 143.986,267.921 138.981,284.637C138.829,285.145 137.463,291.443 134.52,291.276C132.84,291.181 131.907,288.713 131.409,287.538C129.52,283.082 123.446,265.344 122.782,263.404C111.873,231.543 109.921,223.585 88.184,159.613C86.323,154.134 83.843,146.64 83.469,145.51C80.637,136.951 80.651,136.964 77.746,128.417C77.339,127.219 73.875,117.029 72.694,113.432C70.753,107.524 70.73,107.549 52.943,55.353C52.755,54.802 50.773,48.985 50.628,48.455C50.212,46.93 50.019,47.014 49.631,45.459C49.245,43.911 49.124,43.964 48.643,42.448C48.457,41.86 48.298,41.26 48.055,40.694C48.013,40.597 47.915,40.676 47.405,39.554C46.693,37.987 43.726,35.335 43.699,35.307C43.531,35.134 43.44,34.896 43.27,34.725C43.103,34.556 42.868,34.465 42.699,34.298C41.083,32.703 41.133,32.653 40.619,32.366C40.391,32.239 40.103,32.212 39.91,32.037C39.736,31.88 39.746,31.578 39.574,31.418C39.388,31.246 39.075,31.259 38.889,31.088C38.712,30.926 38.706,30.63 38.534,30.464C38.35,30.287 38.047,30.275 37.861,30.1C37.691,29.94 37.673,29.658 37.504,29.495C37.316,29.314 37.019,29.281 36.826,29.104C36.662,28.953 36.63,28.691 36.466,28.541C36.272,28.364 35.982,28.321 35.782,28.151C35.617,28.012 35.56,27.772 35.395,27.633C35.192,27.463 34.907,27.413 34.702,27.246C34.508,27.089 34.57,26.822 33.613,26.357C33.369,26.239 33.068,26.222 32.859,26.048C32.687,25.903 32.7,25.609 32.536,25.456C32.343,25.277 32.032,25.268 31.834,25.095C31.666,24.948 31.638,24.682 31.475,24.53C31.286,24.353 31.003,24.304 30.806,24.136C30.639,23.995 30.569,23.762 30.403,23.62C30.202,23.449 29.927,23.383 29.724,23.214C29.562,23.079 29.487,22.857 29.325,22.721C29.123,22.551 28.851,22.48 28.648,22.311C28.41,22.113 28.552,21.942 27.564,21.416C27.326,21.289 27.046,21.235 26.832,21.071C26.664,20.942 26.619,20.693 26.453,20.563C26.24,20.398 25.94,20.376 25.726,20.212C25.559,20.083 25.506,19.842 25.342,19.71C25.132,19.54 24.837,19.499 24.629,19.327C24.219,18.989 24.36,18.836 23.551,18.429C23.301,18.303 23.011,18.246 22.787,18.077C22.627,17.956 22.596,17.712 22.439,17.589C22.219,17.415 21.917,17.372 21.689,17.21C21.375,16.988 21.499,16.825 20.558,16.406C20.291,16.287 19.983,16.251 19.738,16.09C19.587,15.99 19.564,15.754 19.413,15.653C19.168,15.49 18.84,15.486 18.591,15.328C18.449,15.237 18.441,14.976 18.278,14.931C18.09,14.879 17.895,15.152 17.711,15.084C17.543,15.021 17.589,14.719 17.44,14.619C17.191,14.451 16.847,14.478 16.588,14.325C16.447,14.242 16.444,13.98 16.286,13.938C16.092,13.886 15.894,14.152 15.704,14.09C15.542,14.037 15.575,13.746 15.429,13.659C14.608,13.168 14.479,13.6 13.615,13.164C13.492,13.101 13.515,12.878 13.393,12.815C13.38,12.809 13.392,12.813 7.533,11.389C5.758,10.958 5.328,9.941 5.127,9.695C4.836,9.34 4.64,9.365 4.647,8.505C4.662,6.651 7.216,6.473 7.496,6.453C9.462,6.316 85.7,6.426 92.5,6.435C94.98,6.439 115.35,6.468 123.498,6.538Z"/>
+        <path d="M379.499,6.402C389.643,6.139 389.631,5.981 390.513,5.96C395.093,5.851 395.088,6.022 395.486,6.011C395.833,6.002 396.164,5.849 396.509,5.811C397.015,5.756 415.92,5.561 417.479,5.789C422.869,6.577 423.713,6.726 423.83,8.467C423.922,9.829 423.67,9.814 422.593,10.64C422.459,10.742 422.409,10.949 422.253,11.014C422.095,11.081 421.904,10.948 421.74,10.997C421.601,11.04 421.536,11.215 421.403,11.273C420.844,11.521 420.242,11.664 419.681,11.909C419.554,11.965 419.482,12.114 419.354,12.17C418.796,12.416 418.19,12.549 417.639,12.81C417.506,12.873 417.465,13.061 417.335,13.129C416.525,13.552 416.421,13.28 415.629,13.756C415.488,13.84 415.442,14.039 415.301,14.122C415.044,14.272 414.741,14.324 414.465,14.435C413.418,14.855 413.523,15.036 412.495,15.491C410.908,16.194 411.118,16.512 409.444,17.418C408.592,17.878 408.683,17.991 408.328,18.272C407.155,19.198 407.103,19.095 405.929,19.997C405.753,20.132 405.677,20.367 405.513,20.515C405.326,20.684 405.073,20.769 404.887,20.938C403.863,21.868 403.546,22.313 403.449,22.449C403.034,23.032 402.961,22.938 402.462,23.464C402.288,23.648 402.22,23.915 402.052,24.104C401.903,24.271 401.669,24.349 401.523,24.518C401.35,24.718 401.274,24.989 401.108,25.194C400.649,25.762 400.65,25.734 400.22,26.297C399.796,26.854 399.8,26.838 399.378,27.415C396.242,31.709 394.496,35.05 394.293,35.388C389.818,42.827 389.397,54.53 386.68,57.657C386.52,57.842 384.889,59.955 383.355,58.742C383.159,58.587 382.132,58.127 381.672,55.464C381.209,52.78 381.273,52.78 381.228,52.548C380.537,49 380.573,49.015 379.957,45.433C379.351,41.909 378.394,31.092 375.24,26.68C373.182,23.8 373.133,23.863 370.758,21.263C370.591,21.081 370.504,20.833 370.334,20.654C370.175,20.487 369.941,20.403 369.783,20.235C369.614,20.056 369.538,19.803 369.365,19.627C369.204,19.462 368.958,19.395 368.797,19.228C368.625,19.05 368.557,18.788 368.385,18.61C368.219,18.438 367.968,18.364 367.8,18.193C367.634,18.024 367.566,17.774 367.398,17.607C367.223,17.433 366.968,17.357 366.79,17.187C366.623,17.026 366.544,16.788 366.378,16.628C366.202,16.459 365.952,16.381 365.777,16.212C365.609,16.048 365.533,15.804 365.363,15.642C365.185,15.472 364.929,15.401 364.749,15.233C364.582,15.076 364.512,14.832 364.34,14.68C364.148,14.509 363.875,14.449 363.679,14.283C363.328,13.987 363.47,13.825 362.55,13.418C362.269,13.294 361.954,13.243 361.691,13.084C361.56,13.005 361.538,12.799 361.404,12.727C360.542,12.261 358.669,11.821 358.426,11.764C356.687,11.356 356.679,11.41 356.529,11.37C352.999,10.423 352.906,10.887 349.382,9.867C347.37,9.285 346.338,9.288 347.24,7.389C347.825,6.159 350.062,6.33 351.5,6.348C365.501,6.52 365.483,6.478 379.499,6.402Z"/>
+      </g>
+    </svg>
+    <span style="font-family:'Monda',sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;color:#0B1C22">Wander-IT</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:2.5rem">
+    <a href="#portfolio" class="nl">Réalisations</a>
+    <a href="#services" class="nl">Services</a>
+    <a href="#approche" class="nl">À propos</a>
+    <a href="#contact" class="nl">Contact</a>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section style="min-height:100vh;padding:130px 3rem 80px;position:relative;overflow:hidden;display:flex;align-items:center">
+  <!-- Tiles background -->
+  <div id="tiles-bg" style="position:absolute;inset:0;overflow:hidden;z-index:0;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%)"></div>
+  <div style="position:absolute;top:-15%;right:-8%;width:700px;height:700px;background:radial-gradient(circle,rgba(177,220,237,0.38) 0%,transparent 65%);pointer-events:none;z-index:1"></div>
+  <div style="position:absolute;bottom:-25%;left:-12%;width:550px;height:550px;background:radial-gradient(circle,rgba(178,203,212,0.22) 0%,transparent 65%);pointer-events:none;z-index:1"></div>
+
+  <div style="max-width:1240px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:2" class="hero-grid">
+
+    <!-- Copy -->
+    <div>
+      <p class="lbl au d1" style="color:#743720;margin-bottom:1.75rem;opacity:0.8">Solutions Digitales · Wander-IT</p>
+
+      <h1 class="hero-h au d2" style="color:#0B1C22;margin-bottom:0.05em">Votre<br>expertise,</h1>
+      <h1 class="hero-h au d3" style="color:#743720;margin-bottom:0.65rem">nos outils.</h1>
+      <p class="au d3" style="font-family:'Roboto Slab',serif;font-size:clamp(1.1rem,2.2vw,1.45rem);font-weight:300;color:#004258;letter-spacing:-0.01em;line-height:1.35;margin-bottom:1.75rem">
+        Une longueur d'avance.
+      </p>
+      <p class="au d4" style="font-size:0.9rem;color:#4d6870;max-width:420px;line-height:1.9;margin-bottom:2.5rem">
+        Nous accompagnons les indépendants, PME et entreprises dans leur transformation digitale — de l'automatisation des processus au développement sur-mesure.
+      </p>
+      <div class="au d4" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:3rem">
+        <a href="#contact" class="btn-p">
+          Me contacter
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#services" class="btn-s">Voir les services</a>
+      </div>
+      <!-- Stats -->
+      <div class="au d5" style="display:flex;align-items:center;gap:1.5rem">
+        <div>
+          <p style="font-family:'Roboto Slab',serif;font-size:1.65rem;font-weight:700;letter-spacing:-0.04em;color:#0B1C22;line-height:1">4</p>
+          <p class="lbl" style="color:#9ab4bc;font-size:0.62rem;margin-top:0.2rem">Expertises</p>
+        </div>
+        <div style="width:1px;height:2rem;background:rgba(11,28,34,0.12)"></div>
+        <div>
+          <p style="font-family:'Roboto Slab',serif;font-size:1.65rem;font-weight:700;letter-spacing:-0.04em;color:#0B1C22;line-height:1">100%</p>
+          <p class="lbl" style="color:#9ab4bc;font-size:0.62rem;margin-top:0.2rem">Sur-mesure</p>
+        </div>
+        <div style="width:1px;height:2rem;background:rgba(11,28,34,0.12)"></div>
+        <div>
+          <p style="font-family:'Roboto Slab',serif;font-size:1.65rem;font-weight:700;letter-spacing:-0.04em;color:#0B1C22;line-height:1">24h</p>
+          <p class="lbl" style="color:#9ab4bc;font-size:0.62rem;margin-top:0.2rem">Réponse</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photos -->
+    <div class="hero-right" style="position:relative;display:flex;justify-content:center;align-items:center">
+
+      <div style="position:relative;display:flex;gap:1rem;align-items:stretch;padding:1.2rem 1.2rem 1.2rem 0;z-index:1">
+
+        <!-- Photo Alex -->
+        <div style="position:relative;flex:1;min-width:0">
+          <!-- Bottom-left badge -->
+          <div class="float" style="position:absolute;bottom:-1.8rem;left:-1rem;background:#0B1C22;padding:0.8rem 1.25rem;box-shadow:0 8px 28px rgba(11,28,34,0.28);z-index:10">
+            <p class="lbl" style="color:#B1DCED;font-size:0.6rem">Visionnaire</p>
+          </div>
+          <div style="position:relative;overflow:hidden;height:360px">
+            <img src="AlexPicture.jpeg" alt="WANSART Alex" style="width:100%;height:100%;display:block;object-fit:cover;object-position:center top;filter:contrast(1.04) saturate(0.92)">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,66,88,0.65) 0%,transparent 45%);pointer-events:none"></div>
+            <div style="position:absolute;inset:0;background:rgba(177,220,237,0.08);mix-blend-mode:multiply;pointer-events:none"></div>
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1rem">
+              <p style="font-family:'Roboto Slab',serif;font-weight:700;font-size:0.9rem;color:white;letter-spacing:-0.01em">Alex Wansart</p>
+              <p class="lbl" style="color:#B1DCED;font-size:0.58rem;opacity:0.75;margin-top:0.15rem">Solutions Digitales</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo Papa -->
+        <div style="position:relative;flex:1;min-width:0">
+          <div style="position:relative;overflow:hidden;height:360px">
+            <img src="PapaPicture.jpeg" alt="WANSART" style="width:100%;height:100%;display:block;object-fit:cover;object-position:center top;filter:contrast(1.04) saturate(0.92)">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(116,55,32,0.55) 0%,transparent 45%);pointer-events:none"></div>
+            <div style="position:absolute;inset:0;background:rgba(177,220,237,0.06);mix-blend-mode:multiply;pointer-events:none"></div>
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1rem">
+              <p style="font-family:'Roboto Slab',serif;font-weight:700;font-size:0.9rem;color:white;letter-spacing:-0.01em">André Wansart</p>
+              <p class="lbl" style="color:#d4987a;font-size:0.58rem;opacity:0.85;margin-top:0.15rem">Expertise Métier</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating badge top-right -->
+        <div class="float" style="position:absolute;top:-0.6rem;right:-1.1rem;background:#B1DCED;padding:0.8rem 1.25rem;box-shadow:0 8px 28px rgba(0,66,88,0.22);z-index:10">
+          <p class="lbl" style="color:#004258;font-size:0.6rem">Expertise</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- SERVICES -->
+<section id="services" style="background:#004258;padding:6.5rem 3rem;position:relative;overflow:hidden">
+  <div style="position:absolute;top:0;right:0;width:500px;height:500px;background:radial-gradient(ellipse at 100% 0%,rgba(177,220,237,0.09) 0%,transparent 60%);pointer-events:none"></div>
+
+  <div style="max-width:1240px;margin:0 auto">
+    <div class="reveal" style="margin-bottom:3.5rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem">
+      <div>
+        <p class="lbl" style="color:#B1DCED;opacity:0.52;margin-bottom:0.75rem;font-size:0.62rem">Ce que nous faisons</p>
+        <h2 class="sec-h" style="color:white">Nos services</h2>
+      </div>
+      <p style="font-size:0.88rem;color:#B2CBD4;opacity:0.62;max-width:310px;line-height:1.85">Des solutions pragmatiques, livrées rapidement, qui répondent à vos besoins réels.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(177,220,237,0.08)">
+      <div class="sc reveal" style="background:#004258">
+        <div style="width:2.25rem;height:2.25rem;background:rgba(177,220,237,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B1DCED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.72"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 style="font-size:1.2rem;font-weight:700;color:white;margin-bottom:0.6rem;letter-spacing:-0.02em">Automatisation</h3>
+        <p style="font-size:0.85rem;color:#B2CBD4;opacity:0.62;line-height:1.85">Automatisez les tâches répétitives, connectez vos outils, libérez du temps pour ce qui compte vraiment.</p>
+      </div>
+
+      <div class="sc reveal" style="background:#004258;transition-delay:0.08s">
+        <div style="width:2.25rem;height:2.25rem;background:rgba(177,220,237,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B1DCED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.72"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3 style="font-size:1.2rem;font-weight:700;color:white;margin-bottom:0.6rem;letter-spacing:-0.02em">Développement d'Apps</h3>
+        <p style="font-size:0.85rem;color:#B2CBD4;opacity:0.62;line-height:1.85">Applications web et mobiles sur-mesure, pensées pour vos utilisateurs et construites pour durer.</p>
+      </div>
+
+      <div class="sc reveal" style="background:#004258;transition-delay:0.16s">
+        <div style="width:2.25rem;height:2.25rem;background:rgba(177,220,237,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B1DCED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.72"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <h3 style="font-size:1.2rem;font-weight:700;color:white;margin-bottom:0.6rem;letter-spacing:-0.02em">Services Logiciels</h3>
+        <p style="font-size:0.85rem;color:#B2CBD4;opacity:0.62;line-height:1.85">Audit, optimisation et maintenance de vos logiciels existants. Votre stack, maximisée.</p>
+      </div>
+
+      <div class="sc reveal" style="background:#004258;transition-delay:0.24s">
+        <div style="width:2.25rem;height:2.25rem;background:rgba(116,55,32,0.22);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d4987a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3 style="font-size:1.2rem;font-weight:700;color:white;margin-bottom:0.6rem;letter-spacing:-0.02em">Design Web</h3>
+        <p style="font-size:0.85rem;color:#B2CBD4;opacity:0.62;line-height:1.85">Sites qui inspirent confiance et convertissent. Design épuré, identité forte, impact immédiat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- APPROCHE -->
+<section id="approche" style="padding:7rem 3rem;position:relative;overflow:hidden">
+  <div style="position:absolute;top:0;right:0;width:420px;height:420px;background:radial-gradient(circle,rgba(177,220,237,0.22) 0%,transparent 65%);pointer-events:none"></div>
+
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center" class="approach-grid">
+    <div class="reveal">
+      <p class="lbl" style="color:#743720;margin-bottom:1.75rem;font-size:0.62rem">Mon approche</p>
+      <h2 class="sec-h" style="margin-bottom:1.5rem;color:#0B1C22">
+        Pragmatique.<br>
+        <span style="color:#743720">Efficace.</span><br>
+        Sur-mesure.
+      </h2>
+      <p style="font-size:0.9rem;color:#4d6870;line-height:1.9;margin-bottom:2.25rem;max-width:390px">
+        Pas de solutions génériques. Nous prenons le temps de comprendre votre métier, vos contraintes, vos objectifs — et nous livrons ce dont vous avez réellement besoin.
+      </p>
+      <a href="#contact" class="btn-p">
+        Démarrer un projet
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="reveal">
+      <div class="step">
+        <span style="font-family:'Roboto Slab',serif;font-size:0.7rem;font-weight:700;color:#B2CBD4;letter-spacing:0.05em;padding-top:0.15rem;min-width:1.5rem">01</span>
+        <div>
+          <p style="font-family:'Roboto Slab',serif;font-weight:700;font-size:1rem;color:#0B1C22;margin-bottom:0.35rem">Écoute & Analyse</p>
+          <p style="font-size:0.85rem;color:#4d6870;line-height:1.75">Je commence toujours par comprendre votre contexte avant de proposer quoi que ce soit.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span style="font-family:'Roboto Slab',serif;font-size:0.7rem;font-weight:700;color:#B2CBD4;letter-spacing:0.05em;padding-top:0.15rem;min-width:1.5rem">02</span>
+        <div>
+          <p style="font-family:'Roboto Slab',serif;font-weight:700;font-size:1rem;color:#0B1C22;margin-bottom:0.35rem">Conception & Validation</p>
+          <p style="font-size:0.85rem;color:#4d6870;line-height:1.75">On définit ensemble la solution la plus adaptée, sans surengineering inutile.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span style="font-family:'Roboto Slab',serif;font-size:0.7rem;font-weight:700;color:#B2CBD4;letter-spacing:0.05em;padding-top:0.15rem;min-width:1.5rem">03</span>
+        <div>
+          <p style="font-family:'Roboto Slab',serif;font-weight:700;font-size:1rem;color:#0B1C22;margin-bottom:0.35rem">Livraison rapide</p>
+          <p style="font-size:0.85rem;color:#4d6870;line-height:1.75">Itérations courtes, feedback fréquent. Vous voyez l'avancement à chaque étape.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span style="font-family:'Roboto Slab',serif;font-size:0.7rem;font-weight:700;color:#B2CBD4;letter-spacing:0.05em;padding-top:0.15rem;min-width:1.5rem">04</span>
+        <div>
+          <p style="font-family:'Roboto Slab',serif;font-weight:700;font-size:1rem;color:#0B1C22;margin-bottom:0.35rem">Suivi & Optimisation</p>
+          <p style="font-size:0.85rem;color:#4d6870;line-height:1.75">La relation ne s'arrête pas à la livraison. Notre expertise reste disponible pour faire évoluer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PORTFOLIO -->
+<section id="portfolio" style="padding:7rem 3rem;background:#0B1C22;position:relative;overflow:hidden">
+  <div style="position:absolute;top:-10%;left:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(116,55,32,0.18) 0%,transparent 65%);pointer-events:none"></div>
+  <div style="position:absolute;bottom:-15%;right:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(177,220,237,0.08) 0%,transparent 65%);pointer-events:none"></div>
+
+  <div style="max-width:1240px;margin:0 auto">
+    <div class="reveal" style="margin-bottom:3.5rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem">
+      <div>
+        <p class="lbl" style="color:#B1DCED;opacity:0.52;margin-bottom:0.75rem;font-size:0.62rem">Ce que nous avons fait</p>
+        <h2 class="sec-h" style="color:white">Nos réalisations</h2>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2rem">
+
+      <!-- Projet 1 -->
+      <div class="reveal" style="background:#142832;border:1px solid rgba(177,220,237,0.1);overflow:hidden;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease" onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.35)'" onmouseleave="this.style.transform='';this.style.boxShadow=''">
+        <div style="position:relative;overflow:hidden;aspect-ratio:16/9">
+          <img src="https://placehold.co/680x382/004258/B1DCED?text=Projet+1" alt="Projet 1" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease" onmouseenter="this.style.transform='scale(1.04)'" onmouseleave="this.style.transform=''">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,28,34,0.7) 0%,transparent 50%);pointer-events:none"></div>
+          <span style="position:absolute;top:1rem;left:1rem;font-family:'Monda',sans-serif;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#B1DCED;background:rgba(0,66,88,0.7);padding:0.3rem 0.65rem;backdrop-filter:blur(4px)">Automatisation</span>
+        </div>
+        <div style="padding:1.5rem">
+          <h3 style="font-size:1.05rem;font-weight:700;color:white;margin-bottom:0.5rem;letter-spacing:-0.02em">Nom du projet</h3>
+          <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.62;line-height:1.75">Courte description du projet, ce qui a été fait et le résultat obtenu pour le client.</p>
+        </div>
+      </div>
+
+      <!-- Projet 2 -->
+      <div class="reveal" style="background:#142832;border:1px solid rgba(177,220,237,0.1);overflow:hidden;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease;transition-delay:0.08s" onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.35)'" onmouseleave="this.style.transform='';this.style.boxShadow=''">
+        <div style="position:relative;overflow:hidden;aspect-ratio:16/9">
+          <img src="https://placehold.co/680x382/004258/B1DCED?text=Projet+2" alt="Projet 2" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease" onmouseenter="this.style.transform='scale(1.04)'" onmouseleave="this.style.transform=''">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,28,34,0.7) 0%,transparent 50%);pointer-events:none"></div>
+          <span style="position:absolute;top:1rem;left:1rem;font-family:'Monda',sans-serif;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#d4987a;background:rgba(116,55,32,0.5);padding:0.3rem 0.65rem;backdrop-filter:blur(4px)">Web Design</span>
+        </div>
+        <div style="padding:1.5rem">
+          <h3 style="font-size:1.05rem;font-weight:700;color:white;margin-bottom:0.5rem;letter-spacing:-0.02em">Nom du projet</h3>
+          <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.62;line-height:1.75">Courte description du projet, ce qui a été fait et le résultat obtenu pour le client.</p>
+        </div>
+      </div>
+
+      <!-- Projet 3 -->
+      <div class="reveal" style="background:#142832;border:1px solid rgba(177,220,237,0.1);overflow:hidden;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease;transition-delay:0.16s" onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.35)'" onmouseleave="this.style.transform='';this.style.boxShadow=''">
+        <div style="position:relative;overflow:hidden;aspect-ratio:16/9">
+          <img src="https://placehold.co/680x382/004258/B1DCED?text=Projet+3" alt="Projet 3" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease" onmouseenter="this.style.transform='scale(1.04)'" onmouseleave="this.style.transform=''">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,28,34,0.7) 0%,transparent 50%);pointer-events:none"></div>
+          <span style="position:absolute;top:1rem;left:1rem;font-family:'Monda',sans-serif;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#B1DCED;background:rgba(0,66,88,0.7);padding:0.3rem 0.65rem;backdrop-filter:blur(4px)">App Development</span>
+        </div>
+        <div style="padding:1.5rem">
+          <h3 style="font-size:1.05rem;font-weight:700;color:white;margin-bottom:0.5rem;letter-spacing:-0.02em">Nom du projet</h3>
+          <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.62;line-height:1.75">Courte description du projet, ce qui a été fait et le résultat obtenu pour le client.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" style="background:#B1DCED;padding:6.5rem 3rem;position:relative;overflow:hidden">
+  <div style="position:absolute;bottom:-15%;right:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(0,66,88,0.1) 0%,transparent 65%);pointer-events:none"></div>
+  <div style="position:absolute;top:-20%;left:-8%;width:400px;height:400px;background:radial-gradient(circle,rgba(0,66,88,0.06) 0%,transparent 65%);pointer-events:none"></div>
+
+  <div style="max-width:680px;margin:0 auto;text-align:center" class="reveal">
+    <p class="lbl" style="color:#004258;opacity:0.65;margin-bottom:1.5rem;font-size:0.62rem">Parlons de votre projet</p>
+    <h2 class="sec-h" style="color:#0B1C22;margin-bottom:1.25rem">
+      Prêt à prendre<br>
+      <span style="color:#743720">une longueur d'avance ?</span>
+    </h2>
+    <p style="font-size:0.9rem;color:#004258;opacity:0.72;line-height:1.9;margin-bottom:2.5rem;max-width:440px;margin-left:auto;margin-right:auto">
+      Décrivez-nous votre besoin en quelques mots — nous vous répondons sous 24h avec une première analyse.
+    </p>
+
+    <!-- Contact Info Card -->
+    <div id="contact-fields" style="background:#F5F3EF;border:1px solid rgba(0,66,88,0.12);border-radius:1.5rem;padding:1.25rem 1.25rem 1rem;margin-bottom:0.75rem;text-align:left;box-shadow:0 8px 30px rgba(0,0,0,0.15)">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem">
+        <input id="f-nom"      type="text"  placeholder="Nom"       class="cf-input" style="grid-column:1">
+        <input id="f-prenom"   type="text"  placeholder="Prénom"    class="cf-input" style="grid-column:2">
+        <input id="f-societe"  type="text"  placeholder="Société"   class="cf-input" style="grid-column:1 / span 2">
+        <input id="f-tel"      type="tel"   placeholder="Téléphone" class="cf-input" style="grid-column:1">
+        <input id="f-email"    type="email" placeholder="Email *"   class="cf-input" style="grid-column:2">
+      </div>
+    </div>
+
+    <!-- Prompt Box -->
+    <div id="prompt-box" style="background:#F5F3EF;border:1px solid rgba(0,66,88,0.12);border-radius:1.5rem;padding:0.75rem;box-shadow:0 8px 30px rgba(0,0,0,0.15);text-align:left;transition:border-color 0.3s">
+
+      <textarea id="prompt-textarea"
+        placeholder="Décrivez votre projet, besoin ou question..."
+        rows="1"
+        style="width:100%;background:transparent;border:none;outline:none;resize:none;color:#f3f4f6;font-size:0.95rem;line-height:1.6;padding:0.5rem 0.75rem;font-family:inherit;min-height:44px;max-height:200px;overflow-y:auto;box-sizing:border-box;scrollbar-width:thin;scrollbar-color:#444 transparent"
+      ></textarea>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:0.5rem 0.25rem 0.25rem;gap:0.5rem">
+
+        <div style="display:flex;align-items:center;gap:0.25rem">
+
+          <!-- Divider -->
+          <div style="width:1.5px;height:1.5rem;background:linear-gradient(to bottom,transparent,rgba(116,55,32,0.25),transparent);border-radius:9999px;margin:0 0.2rem"></div>
+
+          <!-- Toggle: Projet -->
+          <button id="toggle-projet" onclick="toggleMode('projet')" title="Demande de projet"
+            style="display:flex;align-items:center;gap:0.25rem;height:2rem;padding:0 0.5rem;border-radius:9999px;border:1px solid transparent;background:transparent;cursor:pointer;color:rgba(116,55,32,0.5);font-size:0.75rem;font-family:inherit;transition:all 0.2s;white-space:nowrap;overflow:hidden">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            <span id="label-projet" style="max-width:0;overflow:hidden;opacity:0;transition:max-width 0.25s ease,opacity 0.2s ease;display:inline-block">Projet</span>
+          </button>
+
+          <div style="width:1.5px;height:1.5rem;background:linear-gradient(to bottom,transparent,rgba(116,55,32,0.25),transparent);border-radius:9999px;margin:0 0.2rem"></div>
+
+          <!-- Toggle: Devis -->
+          <button id="toggle-devis" onclick="toggleMode('devis')" title="Demande de devis"
+            style="display:flex;align-items:center;gap:0.25rem;height:2rem;padding:0 0.5rem;border-radius:9999px;border:1px solid transparent;background:transparent;cursor:pointer;color:rgba(116,55,32,0.5);font-size:0.75rem;font-family:inherit;transition:all 0.2s;white-space:nowrap;overflow:hidden">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span id="label-devis" style="max-width:0;overflow:hidden;opacity:0;transition:max-width 0.25s ease,opacity 0.2s ease;display:inline-block">Devis</span>
+          </button>
+
+          <div style="width:1.5px;height:1.5rem;background:linear-gradient(to bottom,transparent,rgba(116,55,32,0.25),transparent);border-radius:9999px;margin:0 0.2rem"></div>
+
+          <!-- Toggle: Support -->
+          <button id="toggle-support" onclick="toggleMode('support')" title="Support / Question"
+            style="display:flex;align-items:center;gap:0.25rem;height:2rem;padding:0 0.5rem;border-radius:9999px;border:1px solid transparent;background:transparent;cursor:pointer;color:rgba(116,55,32,0.5);font-size:0.75rem;font-family:inherit;transition:all 0.2s;white-space:nowrap;overflow:hidden">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span id="label-support" style="max-width:0;overflow:hidden;opacity:0;transition:max-width 0.25s ease,opacity 0.2s ease;display:inline-block">Support</span>
+          </button>
+        </div>
+
+        <!-- Send button — always arrow -->
+        <button id="send-btn" onclick="handleSend()" title="Envoyer"
+          style="width:2rem;height:2rem;border-radius:9999px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;background:#743720;color:white;transition:all 0.2s;flex-shrink:0;opacity:0.5"
+          onmouseenter="this.style.opacity='1';this.style.transform='scale(1.08)'"
+          onmouseleave="this.style.opacity=sendBtnActive?'1':'0.4';this.style.transform='scale(1)'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Feedback -->
+    <div id="send-success" style="display:none;margin-top:1rem;color:#004258;font-size:0.85rem;font-weight:600;background:rgba(0,66,88,0.12);border-radius:0.75rem;padding:0.65rem 1rem">
+      ✓ Message envoyé — nous vous répondons sous 24h.
+    </div>
+    <div id="send-error" style="display:none;margin-top:1rem;color:#7f1d1d;font-size:0.85rem;background:rgba(127,29,29,0.08);border-radius:0.75rem;padding:0.65rem 1rem">
+      ✗ Une erreur s'est produite. Réessayez ou écrivez-nous directement.
+    </div>
+  </div>
+</section>
+
+<style>
+  .cf-input {
+    background: rgba(0,66,88,0.06);
+    border: 1px solid rgba(0,66,88,0.14);
+    border-radius: 0.65rem;
+    color: #743720;
+    font-size: 0.88rem;
+    font-family: inherit;
+    padding: 0.6rem 0.85rem;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .cf-input::placeholder { color: rgba(116,55,32,0.6); }
+  .cf-input:focus { border-color: rgba(116,55,32,0.35); background: rgba(116,55,32,0.05); }
+  #prompt-box:focus-within { border-color: rgba(116,55,32,0.28); }
+  #prompt-textarea { color: #743720 !important; }
+  #prompt-textarea::placeholder { color: rgba(116,55,32,0.6) !important; }
+  #prompt-textarea::-webkit-scrollbar { width: 4px; }
+  #prompt-textarea::-webkit-scrollbar-thumb { background: rgba(0,66,88,0.2); border-radius: 4px; }
+</style>
+
+<script>
+  const textarea = document.getElementById('prompt-textarea');
+  const sendBtn  = document.getElementById('send-btn');
+  let activeMode = null;
+  let sendBtnActive = false;
+
+  // Auto-resize
+  textarea.addEventListener('input', () => {
+    textarea.style.height = 'auto';
+    textarea.style.height = Math.min(textarea.scrollHeight, 200) + 'px';
+    updateBtn();
+  });
+
+  textarea.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); }
+  });
+
+  function updateBtn() {
+    const hasContent = textarea.value.trim() !== '';
+    sendBtnActive = hasContent;
+    sendBtn.style.opacity = hasContent ? '1' : '0.5';
+  }
+
+  function toggleMode(mode) {
+    const colors = { projet:'#004258', devis:'#743720', support:'#004258' };
+    const bgs    = { projet:'rgba(0,66,88,0.1)', devis:'rgba(116,55,32,0.1)', support:'rgba(0,66,88,0.1)' };
+    const placeholders = { projet:'Décrivez votre projet...', devis:'Détaillez votre besoin pour un devis...', support:'Posez votre question...' };
+
+    if (activeMode === mode) {
+      const b = document.getElementById('toggle-'+mode), l = document.getElementById('label-'+mode);
+      b.style.cssText += ';border-color:transparent;background:transparent;color:rgba(116,55,32,0.5)';
+      l.style.maxWidth='0'; l.style.opacity='0';
+      activeMode = null;
+      textarea.placeholder = 'Décrivez votre projet, besoin ou question...';
+      return;
+    }
+    if (activeMode) {
+      const b = document.getElementById('toggle-'+activeMode), l = document.getElementById('label-'+activeMode);
+      b.style.borderColor='transparent'; b.style.background='transparent'; b.style.color='rgba(177,220,237,0.55)';
+      l.style.maxWidth='0'; l.style.opacity='0';
+    }
+    activeMode = mode;
+    const b = document.getElementById('toggle-'+mode), l = document.getElementById('label-'+mode);
+    b.style.borderColor=colors[mode]; b.style.background=bgs[mode]; b.style.color=colors[mode];
+    l.style.maxWidth='5rem'; l.style.opacity='1';
+    textarea.placeholder = placeholders[mode];
+  }
+
+  async function handleSend() {
+    const msg   = textarea.value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    if (!email) { document.getElementById('f-email').focus(); return; }
+    if (!msg)   { textarea.focus(); return; }
+
+    const subject = activeMode
+      ? { projet:'Demande de projet — Wander-IT', devis:'Demande de devis — Wander-IT', support:'Support / Question — Wander-IT' }[activeMode]
+      : 'Contact via site — Wander-IT';
+
+    const body = {
+      access_key: 'REMPLACE_PAR_TA_CLE_WEB3FORMS', // ← voir instructions ci-dessous
+      subject,
+      from_name: (document.getElementById('f-prenom').value + ' ' + document.getElementById('f-nom').value).trim() || 'Visiteur',
+      email,
+      nom:      document.getElementById('f-nom').value,
+      prenom:   document.getElementById('f-prenom').value,
+      societe:  document.getElementById('f-societe').value,
+      telephone:document.getElementById('f-tel').value,
+      message:  msg,
+      // Envoi aux deux adresses via CC
+      cc: 'alexwansart@wander-it.be',
+      to: 'info@wander-it.be',
+    };
+
+    sendBtn.style.opacity = '0.5';
+    sendBtn.style.pointerEvents = 'none';
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      const data = await res.json();
+      if (data.success) {
+        textarea.value = ''; textarea.style.height = 'auto';
+        ['f-nom','f-prenom','f-societe','f-tel','f-email'].forEach(id => document.getElementById(id).value = '');
+        if (activeMode) toggleMode(activeMode);
+        updateBtn();
+        document.getElementById('send-success').style.display = 'block';
+        setTimeout(() => document.getElementById('send-success').style.display = 'none', 5000);
+      } else { throw new Error(); }
+    } catch {
+      document.getElementById('send-error').style.display = 'block';
+      setTimeout(() => document.getElementById('send-error').style.display = 'none', 5000);
+    } finally {
+      sendBtn.style.opacity = sendBtnActive ? '1' : '0.4';
+      sendBtn.style.pointerEvents = 'auto';
+    }
+  }
+</script>
+
+
+<!-- FOOTER -->
+<footer style="background:#0B1C22;padding:2.25rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+  <div style="display:flex;align-items:center;gap:0.75rem">
+    <svg viewBox="372 215 345 308" style="height:22px;width:auto;opacity:0.3" aria-hidden="true">
+      <g transform="matrix(1,0,0,1,374,222)" fill="white">
+        <path d="M201.505,4.928C234.502,4.61 267.5,4.455C280.5,4.574C292.246,7.368C290.509,8.519C286.502,9.51C282.505,10.516C279.603,11.697C277.703,12.804C276.597,13.63C274.885,14.938C273.464,16.467C269.415,22.459C265.233,35.447C264,47.208 264.825,50.423C269.361,63.547C275.225,80.592C281.328,98.56C288.329,119.562C299.286,152.575C303.254,164.594C309.196,182.621C312.474,192.508C316.858,205.396C317.204,223.426C310.253,251.435C305.718,267.562C301.607,281.532C295.465,291.558C292.432,285.529C286.484,269.506C259.805,193.386C247.863,159.373C221.908,86.352C211.952,58.336C201.292,29.665C192.432,18.564C182.491,10.52C171.491,9.646C168.142,7.435C172.507,5.634C201.505,4.928Z"/>
+        <path d="M123.498,6.538C126.063,6.932C124.787,11.818C119.358,16.334C111.291,25.359C107.217,34.434C105.517,41.37 107.174,55.589C115.176,82.617C121.307,100.574C132.783,133.402C159.392,210.527C154.652,233.541C138.981,284.637C134.52,291.276C131.409,287.538C88.184,159.613C77.746,128.417C52.943,55.353C48.643,42.448C43.699,35.307C27.564,21.416C7.533,11.389C4.647,8.505C7.496,6.453C92.5,6.435C123.498,6.538Z"/>
+      </g>
+    </svg>
+    <span style="font-family:'Monda',sans-serif;font-size:0.7rem;color:white;opacity:0.26;letter-spacing:0.1em;text-transform:uppercase">Wander-IT © 2026</span>
+  </div>
+  <p style="font-size:0.7rem;color:white;opacity:0.2;font-family:'Monda',sans-serif">WANSART Alex — Solutions Digitales</p>
+</footer>
+
+
+<script>
+  // Force scroll to top on load/refresh
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+
+  // Instantly reveal hero elements in headless/screenshot environments
+  if (navigator.webdriver) {
+    const s = document.createElement('style');
+    s.textContent = '.au{animation:none!important;opacity:1!important;transform:none!important}';
+    document.head.appendChild(s);
+  }
+
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('s', window.scrollY > 50);
+  }, { passive: true });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
+      const idx = siblings.indexOf(entry.target);
+      setTimeout(() => entry.target.classList.add('in'), idx * 90);
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Tiles background
+  (function() {
+    const container = document.getElementById('tiles-bg');
+    if (!container) return;
+
+    const TILE = 40;
+    const BROWN = 'rgba(116,55,32,';
+
+    function buildGrid() {
+      container.innerHTML = '';
+      const W = container.offsetWidth  || 600;
+      const H = container.offsetHeight || 700;
+      const cols = Math.ceil(W / TILE) + 1;
+      const rows = Math.ceil(H / TILE) + 1;
+
+      const grid = document.createElement('div');
+      grid.style.cssText = `
+        display:grid;
+        grid-template-columns:repeat(${cols},${TILE}px);
+        grid-template-rows:repeat(${rows},${TILE}px);
+        width:${cols*TILE}px;
+        height:${rows*TILE}px;
+        position:absolute;top:0;left:0;
+      `;
+
+      const total = cols * rows;
+      const frag = document.createDocumentFragment();
+
+      for (let i = 0; i < total; i++) {
+        const cell = document.createElement('div');
+        cell.style.cssText = `
+          border-right:1px solid ${BROWN}0.13);
+          border-bottom:1px solid ${BROWN}0.13);
+        `;
+        frag.appendChild(cell);
+      }
+
+      grid.appendChild(frag);
+      container.appendChild(grid);
+    }
+
+    buildGrid();
+    window.addEventListener('resize', () => { clearTimeout(window._tileR); window._tileR = setTimeout(buildGrid, 150); });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+node_modules/
+Screenshots temporaire/
+screenshot.mjs
+serve.mjs
+package.json
+package-lock.json
+*.pdf
+Skills/
