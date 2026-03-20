@@ -108,87 +108,21 @@
     .filter-btn:hover { border-color: rgba(177,220,237,0.35); color: #B2CBD4; }
     .filter-btn.active { background: #743720; border-color: #743720; color: #F5F3EF; }
 
-    /* Carousel */
-    #carousel-track {
-      display: flex;
-      gap: 1.25rem;
-      cursor: grab;
-      user-select: none;
-      -webkit-user-select: none;
-    }
-    #carousel-track.dragging { cursor: grabbing; }
-    #carousel-track.dragging a { pointer-events: none; }
-
     .proj-card {
-      flex: 0 0 320px;
-      width: 320px;
-      aspect-ratio: 3/4;
-      position: relative;
-      overflow: hidden;
-      border-radius: 1rem;
-      text-decoration: none;
       display: block;
+      text-decoration: none;
       background: #142832;
       border: 1px solid rgba(177,220,237,0.1);
-      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease, border-color 0.3s, opacity 0.3s;
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease, border-color 0.3s;
     }
     .proj-card:hover {
-      transform: scale(1.025);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      border-color: rgba(177,220,237,0.25);
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+      border-color: rgba(177,220,237,0.22);
     }
-    .proj-card.hidden { display: none; }
-    .proj-card .proj-img {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.5s ease, opacity 0.3s;
-    }
-    .proj-card:hover .proj-img { transform: scale(1.04); opacity: 0.85; }
-    .proj-card .card-overlay-top {
-      position: absolute; top: 0; left: 0; right: 0;
-      background: linear-gradient(to bottom, rgba(11,28,34,0.65) 0%, transparent 45%);
-      padding: 1.25rem;
-      z-index: 2;
-    }
-    .proj-card .card-overlay-bottom {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(11,28,34,0.9) 0%, transparent 70%);
-      padding: 1.25rem;
-      z-index: 2;
-    }
-    .proj-card .card-tag {
-      display: inline-block;
-      font-family: 'Monda', sans-serif;
-      font-size: 0.58rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.14em;
-      padding: 0.28rem 0.65rem;
-      backdrop-filter: blur(4px);
-      border-radius: 9999px;
-    }
-    .proj-card .card-title {
-      font-family: 'Roboto Slab', serif;
-      font-size: 1.1rem; font-weight: 700;
-      color: white; letter-spacing: -0.02em;
-      line-height: 1.3; margin-bottom: 0.35rem;
-    }
-    .proj-card .card-desc {
-      font-size: 0.78rem; color: #B2CBD4;
-      opacity: 0.75; line-height: 1.65;
-      margin-bottom: 0.85rem;
-      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-    }
-    .proj-card .card-cta {
-      display: inline-flex; align-items: center; gap: 0.3rem;
-      font-size: 0.7rem; font-weight: 700; color: #d4987a;
-      font-family: 'Monda', sans-serif; text-transform: uppercase; letter-spacing: 0.1em;
-    }
-    /* Edge fades */
-    #carousel-wrapper { position: relative; }
-    #carousel-wrapper::before, #carousel-wrapper::after {
-      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 10; pointer-events: none;
-    }
-    #carousel-wrapper::before { left: 0; background: linear-gradient(to right, #0B1C22 0%, transparent 100%); }
-    #carousel-wrapper::after  { right: 0; background: linear-gradient(to left, #0B1C22 0%, transparent 100%); }
+    .proj-card:hover .proj-img { transform: scale(1.04); }
+    .proj-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
   </style>
 </head>
 <body>
@@ -235,57 +169,56 @@
   </div>
 </section>
 
-<!-- CAROUSEL -->
-<section style="padding:0 0 8rem;overflow:hidden">
-  <div id="carousel-wrapper">
-    <div id="carousel-viewport" style="overflow:hidden;padding:0.5rem 0 2rem">
-      <div id="carousel-track" style="padding-left:3rem;padding-right:3rem">
+<!-- GRID -->
+<section style="padding:0 3rem 8rem;max-width:1240px;margin:0 auto">
+  <div id="projects-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:2rem">
 
-        <!-- Projet 1 -->
-        <a href="projet-1.html" class="proj-card" data-cat="automatisation">
-          <img src="https://placehold.co/480x640/004258/B1DCED?text=Projet+1" alt="Projet 1" class="proj-img">
-          <div class="card-overlay-top">
-            <span class="card-tag" style="color:#B1DCED;background:rgba(0,66,88,0.65)">Automatisation</span>
-          </div>
-          <div class="card-overlay-bottom">
-            <div class="card-title">Nom du projet 1</div>
-            <div class="card-desc">Courte description du projet, ce qui a été fait et le résultat obtenu pour le client.</div>
-            <span class="card-cta">Voir le projet <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-          </div>
-        </a>
-
-        <!-- Projet 2 -->
-        <a href="projet-2.html" class="proj-card" data-cat="web">
-          <img src="https://placehold.co/480x640/142832/d4987a?text=Projet+2" alt="Projet 2" class="proj-img">
-          <div class="card-overlay-top">
-            <span class="card-tag" style="color:#d4987a;background:rgba(116,55,32,0.55)">Web Design</span>
-          </div>
-          <div class="card-overlay-bottom">
-            <div class="card-title">Nom du projet 2</div>
-            <div class="card-desc">Courte description du projet, ce qui a été fait et le résultat obtenu pour le client.</div>
-            <span class="card-cta">Voir le projet <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-          </div>
-        </a>
-
-        <!-- Projet 3 -->
-        <a href="projet-3.html" class="proj-card" data-cat="app">
-          <img src="https://placehold.co/480x640/004258/B1DCED?text=Projet+3" alt="Projet 3" class="proj-img">
-          <div class="card-overlay-top">
-            <span class="card-tag" style="color:#B1DCED;background:rgba(0,66,88,0.65)">App Development</span>
-          </div>
-          <div class="card-overlay-bottom">
-            <div class="card-title">Nom du projet 3</div>
-            <div class="card-desc">Courte description du projet, ce qui a été fait et le résultat obtenu pour le client.</div>
-            <span class="card-cta">Voir le projet <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-          </div>
-        </a>
-
+    <!-- Projet 1 -->
+    <a href="projet-1.html" class="proj-card reveal" data-cat="automatisation">
+      <div style="position:relative;overflow:hidden;aspect-ratio:16/9">
+        <img src="https://placehold.co/720x405/004258/B1DCED?text=Projet+1" alt="Projet 1" class="proj-img">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,28,34,0.75) 0%,transparent 55%);pointer-events:none"></div>
+        <span style="position:absolute;top:1rem;left:1rem;font-family:'Monda',sans-serif;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#B1DCED;background:rgba(0,66,88,0.7);padding:0.3rem 0.65rem;backdrop-filter:blur(4px)">Automatisation</span>
       </div>
-    </div>
+      <div style="padding:1.5rem 1.5rem 1.75rem">
+        <h2 style="font-size:1.05rem;font-weight:700;color:white;margin-bottom:0.5rem;letter-spacing:-0.02em">Nom du projet 1</h2>
+        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.7;line-height:1.75;margin-bottom:1.25rem">Courte description du projet, ce qui a été fait et le résultat obtenu pour le client.</p>
+        <span style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.72rem;font-weight:700;color:#743720;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em">Voir le projet <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </div>
+    </a>
+
+    <!-- Projet 2 -->
+    <a href="projet-2.html" class="proj-card reveal" data-cat="web" style="transition-delay:0.08s">
+      <div style="position:relative;overflow:hidden;aspect-ratio:16/9">
+        <img src="https://placehold.co/720x405/004258/B1DCED?text=Projet+2" alt="Projet 2" class="proj-img">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,28,34,0.75) 0%,transparent 55%);pointer-events:none"></div>
+        <span style="position:absolute;top:1rem;left:1rem;font-family:'Monda',sans-serif;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#d4987a;background:rgba(116,55,32,0.5);padding:0.3rem 0.65rem;backdrop-filter:blur(4px)">Web Design</span>
+      </div>
+      <div style="padding:1.5rem 1.5rem 1.75rem">
+        <h2 style="font-size:1.05rem;font-weight:700;color:white;margin-bottom:0.5rem;letter-spacing:-0.02em">Nom du projet 2</h2>
+        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.7;line-height:1.75;margin-bottom:1.25rem">Courte description du projet, ce qui a été fait et le résultat obtenu pour le client.</p>
+        <span style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.72rem;font-weight:700;color:#743720;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em">Voir le projet <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </div>
+    </a>
+
+    <!-- Projet 3 -->
+    <a href="projet-3.html" class="proj-card reveal" data-cat="app" style="transition-delay:0.16s">
+      <div style="position:relative;overflow:hidden;aspect-ratio:16/9">
+        <img src="https://placehold.co/720x405/004258/B1DCED?text=Projet+3" alt="Projet 3" class="proj-img">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,28,34,0.75) 0%,transparent 55%);pointer-events:none"></div>
+        <span style="position:absolute;top:1rem;left:1rem;font-family:'Monda',sans-serif;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#B1DCED;background:rgba(0,66,88,0.7);padding:0.3rem 0.65rem;backdrop-filter:blur(4px)">App Development</span>
+      </div>
+      <div style="padding:1.5rem 1.5rem 1.75rem">
+        <h2 style="font-size:1.05rem;font-weight:700;color:white;margin-bottom:0.5rem;letter-spacing:-0.02em">Nom du projet 3</h2>
+        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.7;line-height:1.75;margin-bottom:1.25rem">Courte description du projet, ce qui a été fait et le résultat obtenu pour le client.</p>
+        <span style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.72rem;font-weight:700;color:#743720;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em">Voir le projet <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </div>
+    </a>
+
   </div>
 
   <!-- Empty state -->
-  <div id="empty-state" style="display:none;text-align:center;padding:5rem 3rem;color:#B2CBD4;opacity:0.45">
+  <div id="empty-state" style="display:none;text-align:center;padding:5rem 0;color:#B2CBD4;opacity:0.45">
     <p style="font-size:0.9rem">Aucun projet dans cette catégorie pour le moment.</p>
   </div>
 </section>
@@ -306,62 +239,6 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // --- Drag-to-scroll carousel ---
-  const track = document.getElementById('carousel-track');
-  const viewport = document.getElementById('carousel-viewport');
-  let isDown = false, startX = 0, scrollLeft = 0, moved = false;
-
-  track.addEventListener('mousedown', (e) => {
-    isDown = true; moved = false;
-    startX = e.pageX - track.offsetLeft;
-    scrollLeft = viewport.scrollLeft;
-    track.classList.add('dragging');
-  });
-  document.addEventListener('mouseup', (e) => {
-    if (!isDown) return;
-    isDown = false;
-    track.classList.remove('dragging');
-  });
-  document.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - track.offsetLeft;
-    const walk = (x - startX) * 1.2;
-    if (Math.abs(walk) > 4) moved = true;
-    viewport.scrollLeft = scrollLeft - walk;
-  });
-
-  // Prevent navigation on drag
-  track.addEventListener('click', (e) => {
-    if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
-  }, true);
-
-  // Touch support
-  let touchStartX = 0, touchScrollLeft = 0;
-  viewport.addEventListener('touchstart', (e) => {
-    touchStartX = e.touches[0].pageX;
-    touchScrollLeft = viewport.scrollLeft;
-  }, { passive: true });
-  viewport.addEventListener('touchmove', (e) => {
-    const dx = touchStartX - e.touches[0].pageX;
-    viewport.scrollLeft = touchScrollLeft + dx;
-  }, { passive: true });
-
-  // Smooth momentum on mouse release
-  let velX = 0, lastX = 0, rafId;
-  document.addEventListener('mousemove', (e) => { velX = e.pageX - lastX; lastX = e.pageX; });
-  document.addEventListener('mouseup', () => {
-    if (!moved) return;
-    cancelAnimationFrame(rafId);
-    let v = -velX * 1.5;
-    function glide() {
-      viewport.scrollLeft += v;
-      v *= 0.92;
-      if (Math.abs(v) > 0.5) rafId = requestAnimationFrame(glide);
-    }
-    glide();
-  });
-
   // --- Filter ---
   function filterProjects(cat, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -370,10 +247,9 @@
     let visible = 0;
     cards.forEach(card => {
       const match = cat === 'tous' || card.dataset.cat === cat;
-      card.classList.toggle('hidden', !match);
+      card.style.display = match ? 'block' : 'none';
       if (match) visible++;
     });
-    viewport.scrollLeft = 0;
     document.getElementById('empty-state').style.display = visible === 0 ? 'block' : 'none';
   }
 </script>
