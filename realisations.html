@@ -52,26 +52,20 @@
       letter-spacing: 0.18em;
     }
     .nl {
-      font-family: 'Monda', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #B2CBD4;
-      text-decoration: none;
-      transition: color 0.2s;
-      position: relative;
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em;
+      color: #B2CBD4; text-decoration: none;
+      position: relative; padding-bottom: 2px;
+      transition: color 0.2s ease;
+    }
+    .nl::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 1.5px; background: #743720; border-radius: 9999px;
+      transition: width 0.25s ease;
     }
     .nl:hover { color: #F5F3EF; }
+    .nl:hover::after { width: 100%; }
     .nl.active { color: #F5F3EF; }
-    .nl.active::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0; right: 0;
-      height: 2px;
-      background: #743720;
-      border-radius: 9999px;
-    }
+    .nl.active::after { width: 100%; }
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.34,1.1,0.64,1); }
     .reveal.visible { opacity: 1; transform: none; }
 
@@ -80,7 +74,10 @@
       text-decoration: none;
       background: #142832;
       border: 1px solid rgba(177,220,237,0.1);
+      border-radius: 1rem;
       overflow: hidden;
+      cursor: pointer;
+      position: relative;
       transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease, border-color 0.3s;
     }
     .proj-card:hover {
@@ -108,21 +105,30 @@
     .filter-btn:hover { border-color: rgba(177,220,237,0.35); color: #B2CBD4; }
     .filter-btn.active { background: #743720; border-color: #743720; color: #F5F3EF; }
 
-    .proj-card {
-      display: block;
-      text-decoration: none;
-      background: #142832;
-      border: 1px solid rgba(177,220,237,0.1);
-      overflow: hidden;
-      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease, border-color 0.3s;
+    /* ── Hamburger ── */
+    #nav-burger { display:none; flex-direction:column; gap:5px; padding:8px; background:none; border:none; cursor:pointer; z-index:501; -webkit-tap-highlight-color:transparent; }
+    .bl { display:block; width:22px; height:2px; background:#F5F3EF; border-radius:2px; transition:transform 0.3s ease, opacity 0.3s ease; }
+    #mobile-menu {
+      display:none; position:fixed; inset:0; z-index:490;
+      background:rgba(11,28,34,0.97); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+      flex-direction:column; align-items:center; justify-content:center; gap:1.75rem; padding:2rem;
     }
-    .proj-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
-      border-color: rgba(177,220,237,0.22);
+    #mobile-menu.open { display:flex; }
+    .mob-link { font-family:'Monda',sans-serif; font-size:1.15rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:rgba(245,243,239,0.62); text-decoration:none; transition:color 0.2s; -webkit-tap-highlight-color:transparent; }
+    .mob-link:hover, .mob-link:focus-visible { color:#F5F3EF; }
+    .mob-cta { display:inline-flex; align-items:center; gap:0.5rem; background:#743720; color:white; text-decoration:none; font-family:'Monda',sans-serif; font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; padding:0.85rem 2rem; border-radius:9999px; margin-top:0.5rem; }
+    body.menu-open { overflow:hidden; }
+    body.menu-open .bl:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    body.menu-open .bl:nth-child(2) { opacity:0; }
+    body.menu-open .bl:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 768px) {
+      #nav-links { display:none !important; }
+      #nav-burger { display:flex !important; }
+      nav, section { padding-left:1.25rem !important; padding-right:1.25rem !important; }
+      #projects-grid { grid-template-columns:1fr !important; }
     }
-    .proj-card:hover .proj-img { transform: scale(1.04); }
-    .proj-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+
   </style>
 </head>
 <body>
@@ -139,13 +145,28 @@
     </svg>
     <span style="font-family:'Monda',sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;color:#F5F3EF">Wander-IT</span>
   </a>
-  <div style="display:flex;align-items:center;gap:2.5rem">
+  <div id="nav-links" style="display:flex;align-items:center;gap:2.5rem">
     <a href="realisations.html" class="nl active">Réalisations</a>
     <a href="index.html#services" class="nl">Services</a>
     <a href="a-propos.html" class="nl">À propos</a>
     <a href="index.html#contact" class="nl">Contact</a>
   </div>
+  <button id="nav-burger" onclick="toggleMenu()" aria-label="Ouvrir le menu" aria-expanded="false">
+    <span class="bl"></span><span class="bl"></span><span class="bl"></span>
+  </button>
 </nav>
+
+<!-- MENU MOBILE -->
+<div id="mobile-menu" aria-hidden="true">
+  <a href="realisations.html" class="mob-link">Réalisations</a>
+  <a href="index.html#services" class="mob-link">Services</a>
+  <a href="a-propos.html" class="mob-link">À propos</a>
+  <a href="index.html#contact" class="mob-link">Contact</a>
+  <a href="index.html#contact" class="mob-cta">
+    Nous contacter
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</div>
 
 <!-- HEADER -->
 <section style="padding:9rem 3rem 5rem;max-width:1240px;margin:0 auto">
@@ -173,91 +194,42 @@
 <section style="padding:0 3rem 8rem;max-width:1240px;margin:0 auto">
   <div id="projects-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:2rem">
 
-    <!-- Projet 1 -->
-    <a href="projet-1.html" class="proj-card reveal" data-cat="automatisation">
-      <div style="position:relative;overflow:hidden;aspect-ratio:16/9">
-        <img src="https://placehold.co/720x405/004258/B1DCED?text=Projet+1" alt="Projet 1" class="proj-img">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,28,34,0.75) 0%,transparent 55%);pointer-events:none"></div>
-        <span style="position:absolute;top:1rem;left:1rem;font-family:'Monda',sans-serif;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#B1DCED;background:rgba(0,66,88,0.7);padding:0.3rem 0.65rem;backdrop-filter:blur(4px)">Automatisation</span>
-      </div>
-      <div style="padding:1.5rem 1.5rem 1.75rem">
-        <h2 style="font-size:1.05rem;font-weight:700;color:white;margin-bottom:0.5rem;letter-spacing:-0.02em">Nom du projet 1</h2>
-        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.7;line-height:1.75;margin-bottom:1.25rem">Courte description du projet, ce qui a été fait et le résultat obtenu pour le client.</p>
-        <span style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.72rem;font-weight:700;color:#743720;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em">Voir le projet <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </div>
-    </a>
-
-    <!-- Projet 2 -->
-    <a href="projet-2.html" class="proj-card reveal" data-cat="web" style="transition-delay:0.08s">
-      <div style="position:relative;overflow:hidden;aspect-ratio:16/9">
-        <img src="https://placehold.co/720x405/004258/B1DCED?text=Projet+2" alt="Projet 2" class="proj-img">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,28,34,0.75) 0%,transparent 55%);pointer-events:none"></div>
-        <span style="position:absolute;top:1rem;left:1rem;font-family:'Monda',sans-serif;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#d4987a;background:rgba(116,55,32,0.5);padding:0.3rem 0.65rem;backdrop-filter:blur(4px)">Web Design</span>
-      </div>
-      <div style="padding:1.5rem 1.5rem 1.75rem">
-        <h2 style="font-size:1.05rem;font-weight:700;color:white;margin-bottom:0.5rem;letter-spacing:-0.02em">Nom du projet 2</h2>
-        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.7;line-height:1.75;margin-bottom:1.25rem">Courte description du projet, ce qui a été fait et le résultat obtenu pour le client.</p>
-        <span style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.72rem;font-weight:700;color:#743720;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em">Voir le projet <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </div>
-    </a>
-
-    <!-- Projet 3 -->
-    <a href="projet-3.html" class="proj-card reveal" data-cat="app" style="transition-delay:0.16s">
-      <div style="position:relative;overflow:hidden;aspect-ratio:16/9">
-        <img src="https://placehold.co/720x405/004258/B1DCED?text=Projet+3" alt="Projet 3" class="proj-img">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,28,34,0.75) 0%,transparent 55%);pointer-events:none"></div>
-        <span style="position:absolute;top:1rem;left:1rem;font-family:'Monda',sans-serif;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#B1DCED;background:rgba(0,66,88,0.7);padding:0.3rem 0.65rem;backdrop-filter:blur(4px)">App Development</span>
-      </div>
-      <div style="padding:1.5rem 1.5rem 1.75rem">
-        <h2 style="font-size:1.05rem;font-weight:700;color:white;margin-bottom:0.5rem;letter-spacing:-0.02em">Nom du projet 3</h2>
-        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.7;line-height:1.75;margin-bottom:1.25rem">Courte description du projet, ce qui a été fait et le résultat obtenu pour le client.</p>
-        <span style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.72rem;font-weight:700;color:#743720;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em">Voir le projet <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </div>
-    </a>
-
-    <!-- Projet 4 -->
-    <a href="projet-4.html" class="proj-card reveal" data-cat="logiciel" style="transition-delay:0.08s">
-      <div style="position:relative;overflow:hidden;aspect-ratio:16/9">
-        <img src="https://placehold.co/720x405/0d2030/B1DCED?text=Projet+4" alt="Projet 4" class="proj-img">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,28,34,0.75) 0%,transparent 55%);pointer-events:none"></div>
-        <span style="position:absolute;top:1rem;left:1rem;font-family:'Monda',sans-serif;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#B1DCED;background:rgba(0,66,88,0.7);padding:0.3rem 0.65rem;backdrop-filter:blur(4px)">Logiciel</span>
-      </div>
-      <div style="padding:1.5rem 1.5rem 1.75rem">
-        <h2 style="font-size:1.05rem;font-weight:700;color:white;margin-bottom:0.5rem;letter-spacing:-0.02em">Nom du projet 4</h2>
-        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.7;line-height:1.75;margin-bottom:1.25rem">Courte description du projet, ce qui a été fait et le résultat obtenu pour le client.</p>
-        <span style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.72rem;font-weight:700;color:#743720;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em">Voir le projet <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </div>
-    </a>
-
-    <!-- Projet 5 -->
-    <a href="projet-5.html" class="proj-card reveal" data-cat="web" style="transition-delay:0.16s">
-      <div style="position:relative;overflow:hidden;aspect-ratio:16/9">
-        <img src="https://placehold.co/720x405/1a1a2e/d4987a?text=Projet+5" alt="Projet 5" class="proj-img">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,28,34,0.75) 0%,transparent 55%);pointer-events:none"></div>
-        <span style="position:absolute;top:1rem;left:1rem;font-family:'Monda',sans-serif;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#d4987a;background:rgba(116,55,32,0.5);padding:0.3rem 0.65rem;backdrop-filter:blur(4px)">Web Design</span>
-      </div>
-      <div style="padding:1.5rem 1.5rem 1.75rem">
-        <h2 style="font-size:1.05rem;font-weight:700;color:white;margin-bottom:0.5rem;letter-spacing:-0.02em">Nom du projet 5</h2>
-        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.7;line-height:1.75;margin-bottom:1.25rem">Courte description du projet, ce qui a été fait et le résultat obtenu pour le client.</p>
-        <span style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.72rem;font-weight:700;color:#743720;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em">Voir le projet <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </div>
-    </a>
-
-    <!-- Projet 6 -->
-    <a href="projet-6.html" class="proj-card reveal" data-cat="automatisation">
-      <div style="position:relative;overflow:hidden;aspect-ratio:16/9">
-        <img src="https://placehold.co/720x405/0a1628/B2CBD4?text=Projet+6" alt="Projet 6" class="proj-img">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,28,34,0.75) 0%,transparent 55%);pointer-events:none"></div>
-        <span style="position:absolute;top:1rem;left:1rem;font-family:'Monda',sans-serif;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#B1DCED;background:rgba(0,66,88,0.7);padding:0.3rem 0.65rem;backdrop-filter:blur(4px)">Automatisation</span>
-      </div>
-      <div style="padding:1.5rem 1.5rem 1.75rem">
-        <h2 style="font-size:1.05rem;font-weight:700;color:white;margin-bottom:0.5rem;letter-spacing:-0.02em">Nom du projet 6</h2>
-        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.7;line-height:1.75;margin-bottom:1.25rem">Courte description du projet, ce qui a été fait et le résultat obtenu pour le client.</p>
-        <span style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.72rem;font-weight:700;color:#743720;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em">Voir le projet <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </div>
-    </a>
+    <!-- Cartes générées depuis projets/data.js -->
 
   </div>
+  <script src="projets/data.js"></script>
+  <script>
+    (function() {
+      const grid  = document.getElementById('projects-grid');
+      const arrow = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
+      PROJETS.forEach((p, i) => {
+        const a = document.createElement('a');
+        a.href         = 'projets/projet.html?id=' + p.id;
+        a.className    = 'proj-card reveal';
+        a.dataset.cat  = p.categorie;
+        if (i % 3 !== 0) a.style.transitionDelay = ((i % 3) * 0.08) + 's';
+        a.innerHTML = `
+          <div style="position:relative;overflow:hidden;aspect-ratio:16/9">
+            <img src="${p.imageGrid}" alt="${p.titre}" class="proj-img">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,28,34,0.75) 0%,transparent 55%);pointer-events:none"></div>
+            <span style="position:absolute;top:1rem;left:1rem;font-family:'Monda',sans-serif;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:${p.tagColor};background:${p.tagBg};padding:0.3rem 0.65rem;backdrop-filter:blur(4px)">${p.categorieLabel}</span>
+          </div>
+          <div style="padding:1.5rem 1.5rem 1.75rem">
+            ${(p.logoClient || (p.logosPartenaires && p.logosPartenaires.length)) ? `
+            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.85rem;flex-wrap:wrap">
+              ${p.logoClient ? `<img src="${p.logoClient}" alt="${p.client}" style="height:18px;width:auto;object-fit:contain;border-radius:2px">` : ''}
+              ${(p.logosPartenaires||[]).map(l => `<img src="${l.src}" alt="${l.alt}" style="height:14px;width:auto;object-fit:contain;opacity:0.7">`).join('')}
+            </div>` : ''}
+            <h2 style="font-size:1.05rem;font-weight:700;color:white;margin-bottom:0.5rem;letter-spacing:-0.02em">${p.titre}</h2>
+            <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.7;line-height:1.75;margin-bottom:1.25rem">${p.accroche}</p>
+            <span style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.72rem;font-weight:700;color:#743720;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em">Voir le projet ${arrow}</span>
+          </div>`;
+        grid.appendChild(a);
+      });
+      // Re-observe new cards for reveal animation
+      if (window._revealObs) document.querySelectorAll('.proj-card.reveal').forEach(el => window._revealObs.observe(el));
+    })();
+  </script>
 
   <!-- Empty state -->
   <div id="empty-state" style="display:none;text-align:center;padding:5rem 0;color:#B2CBD4;opacity:0.45">
@@ -293,6 +265,21 @@
       if (match) visible++;
     });
     document.getElementById('empty-state').style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  function toggleMenu() {
+    const open = document.body.classList.toggle('menu-open');
+    const m = document.getElementById('mobile-menu');
+    m.classList.toggle('open', open);
+    m.setAttribute('aria-hidden', String(!open));
+    document.getElementById('nav-burger').setAttribute('aria-expanded', String(open));
+  }
+  function closeMenu() {
+    document.body.classList.remove('menu-open');
+    const m = document.getElementById('mobile-menu');
+    m.classList.remove('open');
+    m.setAttribute('aria-hidden', 'true');
+    document.getElementById('nav-burger').setAttribute('aria-expanded', 'false');
   }
 </script>
 </body>

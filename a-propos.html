@@ -52,19 +52,50 @@
       letter-spacing: 0.18em;
     }
     .nl {
-      font-family: 'Monda', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #B2CBD4;
-      text-decoration: none;
-      transition: color 0.2s;
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em;
+      color: #B2CBD4; text-decoration: none;
+      position: relative; padding-bottom: 2px;
+      transition: color 0.2s ease;
+    }
+    .nl::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 1.5px; background: #743720; border-radius: 9999px;
+      transition: width 0.25s ease;
     }
     .nl:hover { color: #F5F3EF; }
+    .nl:hover::after { width: 100%; }
     .nl.active { color: #F5F3EF; }
+    .nl.active::after { width: 100%; }
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.34,1.1,0.64,1); }
     .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── Hamburger ── */
+    #nav-burger { display:none; flex-direction:column; gap:5px; padding:8px; background:none; border:none; cursor:pointer; z-index:501; -webkit-tap-highlight-color:transparent; }
+    .bl { display:block; width:22px; height:2px; background:#F5F3EF; border-radius:2px; transition:transform 0.3s ease, opacity 0.3s ease; }
+    #mobile-menu {
+      display:none; position:fixed; inset:0; z-index:490;
+      background:rgba(11,28,34,0.97); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+      flex-direction:column; align-items:center; justify-content:center; gap:1.75rem; padding:2rem;
+    }
+    #mobile-menu.open { display:flex; }
+    .mob-link { font-family:'Monda',sans-serif; font-size:1.15rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:rgba(245,243,239,0.62); text-decoration:none; transition:color 0.2s; -webkit-tap-highlight-color:transparent; }
+    .mob-link:hover, .mob-link:focus-visible { color:#F5F3EF; }
+    .mob-cta { display:inline-flex; align-items:center; gap:0.5rem; background:#743720; color:white; text-decoration:none; font-family:'Monda',sans-serif; font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; padding:0.85rem 2rem; border-radius:9999px; margin-top:0.5rem; }
+    body.menu-open { overflow:hidden; }
+    body.menu-open .bl:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    body.menu-open .bl:nth-child(2) { opacity:0; }
+    body.menu-open .bl:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 768px) {
+      #nav-links { display:none !important; }
+      #nav-burger { display:flex !important; }
+      nav, section, footer { padding-left:1.25rem !important; padding-right:1.25rem !important; }
+      .ap-grid { grid-template-columns:1fr !important; gap:2.5rem !important; }
+      .team-row { grid-template-columns:1fr !important; gap:2rem !important; }
+      .team-photo-wrap { margin-left:0 !important; margin-right:0 !important; max-width:180px; margin:0 auto 1.5rem !important; }
+      .team-accent { display:none !important; }
+      .stat-grid { grid-template-columns:1fr !important; }
+    }
   </style>
 </head>
 <body>
@@ -81,13 +112,28 @@
     </svg>
     <span style="font-family:'Monda',sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;color:#F5F3EF">Wander-IT</span>
   </a>
-  <div style="display:flex;align-items:center;gap:2.5rem">
+  <div id="nav-links" style="display:flex;align-items:center;gap:2.5rem">
     <a href="realisations.html" class="nl">Réalisations</a>
     <a href="index.html#services" class="nl">Services</a>
-    <a href="a-propos.html" class="nl active" style="color:#F5F3EF">À propos</a>
+    <a href="a-propos.html" class="nl active">À propos</a>
     <a href="index.html#contact" class="nl">Contact</a>
   </div>
+  <button id="nav-burger" onclick="toggleMenu()" aria-label="Ouvrir le menu" aria-expanded="false">
+    <span class="bl"></span><span class="bl"></span><span class="bl"></span>
+  </button>
 </nav>
+
+<!-- MENU MOBILE -->
+<div id="mobile-menu" aria-hidden="true">
+  <a href="realisations.html" class="mob-link">Réalisations</a>
+  <a href="index.html#services" class="mob-link">Services</a>
+  <a href="a-propos.html" class="mob-link">À propos</a>
+  <a href="index.html#contact" class="mob-link">Contact</a>
+  <a href="index.html#contact" class="mob-cta">
+    Nous contacter
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</div>
 
 <!-- HERO -->
 <section style="background:#0B1C22;padding:7rem 3rem 3rem;position:relative;overflow:hidden">
@@ -106,7 +152,7 @@
 
 <!-- PRÉSENTATION SOCIÉTÉ -->
 <section style="background:#F5F3EF;padding:6rem 3rem;position:relative">
-  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center">
+  <div class="ap-grid" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center">
 
     <div class="reveal">
       <p class="lbl" style="color:#743720;opacity:0.7;margin-bottom:1rem">La société</p>
@@ -126,7 +172,7 @@
 
     <div class="reveal" style="display:flex;flex-direction:column;gap:1.25rem">
       <!-- Stat cards -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+      <div class="stat-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
         <div style="background:#0B1C22;border-radius:1rem;padding:1.75rem;position:relative;overflow:hidden">
           <div style="position:absolute;top:-20px;right:-20px;width:80px;height:80px;background:radial-gradient(circle,rgba(116,55,32,0.3),transparent);border-radius:50%"></div>
           <p style="font-family:'Roboto Slab',serif;font-size:2.5rem;font-weight:700;color:#743720;line-height:1;margin-bottom:0.4rem">15+</p>
@@ -137,10 +183,6 @@
           <p style="font-family:'Roboto Slab',serif;font-size:2.5rem;font-weight:700;color:#B1DCED;line-height:1;margin-bottom:0.4rem">100%</p>
           <p style="font-size:0.72rem;color:#B2CBD4;opacity:0.7;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Solutions sur mesure</p>
         </div>
-      </div>
-      <div style="background:#743720;border-radius:1rem;padding:1.75rem">
-        <p style="font-size:0.9rem;color:#F5F3EF;line-height:1.75;font-style:italic;opacity:0.9">"La technologie doit simplifier votre quotidien, pas le compliquer. C'est notre boussole à chaque projet."</p>
-        <p style="margin-top:0.65rem;font-size:0.72rem;color:#F5F3EF;opacity:0.6;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">— Wander-IT</p>
       </div>
     </div>
 
@@ -159,17 +201,14 @@
     </div>
 
     <!-- André — photo décalée à gauche -->
-    <div class="reveal" style="display:grid;grid-template-columns:5fr 6fr;gap:5rem;align-items:center;margin-bottom:7rem">
-      <div style="position:relative;margin-left:-3rem">
-        <div style="position:relative;overflow:hidden;border-radius:0 1.5rem 1.5rem 0;aspect-ratio:3/4;background:#0B1C22;box-shadow:0 24px 64px rgba(11,28,34,0.22)">
-          <img src="PapaPicture.jpeg" alt="André Wansart" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
+    <div class="reveal team-row" style="display:grid;grid-template-columns:2fr 8fr;gap:4rem;align-items:center;margin-bottom:6rem">
+      <div class="team-photo-wrap" style="position:relative;margin-left:-1.5rem">
+        <div style="position:relative;overflow:hidden;border-radius:1rem;aspect-ratio:2/3;background:#0B1C22;box-shadow:0 12px 40px rgba(11,28,34,0.18)">
+          <img src="assets/images/PapaPicture.jpeg" alt="André Wansart" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,28,34,0.6) 0%,transparent 55%);pointer-events:none"></div>
-          <div style="position:absolute;bottom:1.5rem;left:1.5rem">
-            <span style="display:inline-block;font-family:'Monda',sans-serif;font-size:0.58rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#B1DCED;background:rgba(0,66,88,0.65);padding:0.28rem 0.75rem;backdrop-filter:blur(4px);border-radius:9999px">Expertise</span>
-          </div>
         </div>
         <!-- Accent -->
-        <div style="position:absolute;top:-1.5rem;right:-1.5rem;width:80px;height:80px;border:2px solid rgba(116,55,32,0.18);border-radius:1rem;z-index:-1"></div>
+        <div class="team-accent" style="position:absolute;top:-1.5rem;right:-1.5rem;width:80px;height:80px;border:2px solid rgba(116,55,32,0.25);border-radius:1rem;z-index:2"></div>
       </div>
       <div>
         <h3 style="font-family:'Roboto Slab',serif;font-size:1.75rem;font-weight:700;color:#0B1C22;letter-spacing:-0.02em;margin-bottom:0.3rem">André Wansart</h3>
@@ -184,7 +223,7 @@
     </div>
 
     <!-- Alex — photo décalée à droite -->
-    <div class="reveal" style="display:grid;grid-template-columns:6fr 5fr;gap:5rem;align-items:center">
+    <div class="reveal team-row" style="display:grid;grid-template-columns:8fr 2fr;gap:4rem;align-items:center">
       <div>
         <h3 style="font-family:'Roboto Slab',serif;font-size:1.75rem;font-weight:700;color:#0B1C22;letter-spacing:-0.02em;margin-bottom:0.3rem">Alex Wansart</h3>
         <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#743720;opacity:0.75;margin-bottom:1.5rem">Co-fondateur · Développement & Innovation</p>
@@ -195,16 +234,13 @@
           C'est 5 ans comme project manager dans le photovoltaïque, en Belgique et en Australie, qui l'ont poussé à développer ses premiers outils de gestion de chantier. Il connaît le terrain, il en a la soif d'apprendre — et il transforme cette expérience en solutions concrètes pour ses clients.
         </p>
       </div>
-      <div style="position:relative;margin-right:-3rem">
-        <div style="position:relative;overflow:hidden;border-radius:1.5rem 0 0 1.5rem;aspect-ratio:3/4;background:#0B1C22;box-shadow:0 24px 64px rgba(11,28,34,0.22)">
-          <img src="AlexPicture.jpeg" alt="Alex Wansart" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
+      <div class="team-photo-wrap" style="position:relative;margin-right:-1.5rem">
+        <div style="position:relative;overflow:hidden;border-radius:1rem;aspect-ratio:2/3;background:#0B1C22;box-shadow:0 12px 40px rgba(11,28,34,0.18)">
+          <img src="assets/images/AlexPicture.jpeg" alt="Alex Wansart" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,28,34,0.6) 0%,transparent 55%);pointer-events:none"></div>
-          <div style="position:absolute;bottom:1.5rem;left:1.5rem">
-            <span style="display:inline-block;font-family:'Monda',sans-serif;font-size:0.58rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#d4987a;background:rgba(116,55,32,0.6);padding:0.28rem 0.75rem;backdrop-filter:blur(4px);border-radius:9999px">Visionnaire</span>
-          </div>
         </div>
         <!-- Accent -->
-        <div style="position:absolute;bottom:-1.5rem;left:-1.5rem;width:80px;height:80px;border:2px solid rgba(116,55,32,0.18);border-radius:1rem;z-index:-1"></div>
+        <div class="team-accent" style="position:absolute;bottom:-1.5rem;left:-1.5rem;width:80px;height:80px;border:2px solid rgba(116,55,32,0.25);border-radius:1rem;z-index:2"></div>
       </div>
     </div>
 
@@ -240,6 +276,22 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+<script>
+  function toggleMenu() {
+    const open = document.body.classList.toggle('menu-open');
+    const m = document.getElementById('mobile-menu');
+    m.classList.toggle('open', open);
+    m.setAttribute('aria-hidden', String(!open));
+    document.getElementById('nav-burger').setAttribute('aria-expanded', String(open));
+  }
+  function closeMenu() {
+    document.body.classList.remove('menu-open');
+    const m = document.getElementById('mobile-menu');
+    m.classList.remove('open');
+    m.setAttribute('aria-hidden', 'true');
+    document.getElementById('nav-burger').setAttribute('aria-expanded', 'false');
+  }
 </script>
 </body>
 </html>
