@@ -18,19 +18,19 @@ window.PROJETS = [
     // ── Apparence des vignettes ──────────────────────────────────────────────
     tagColor:  '#B1DCED',
     tagBg:     'rgba(0,66,88,0.65)',
-    imageCard: '/assets/images/projet-1/outlook-inbox.png',   // ratio 3:4
-    imageGrid: '/assets/images/projet-1/outlook-inbox.png',   // ratio 16:9
+    imageCard: '/assets/images/projet-1/outlook-inbox.webp',   // ratio 3:4
+    imageGrid: '/assets/images/projet-1/outlook-inbox.webp',   // ratio 16:9
 
     // ── Contenu de la page projet ────────────────────────────────────────────
     accroche:  "50 mails/jour traités en full auto — détection de factures & CMR, OCR et intégration directe dans l'ERP Odoo.",
 
     contexte:  "Jost reçoit chaque jour une cinquantaine d'emails entrants dans une boîte Outlook dédiée à la comptabilité fournisseurs. Ces mails transportent des factures et des CMR en pièce jointe, qui devaient jusqu'alors être ouverts, identifiés, lus et saisis manuellement dans leur ERP Odoo — une tâche répétitive représentant 1h30 à 2h de travail quotidien.<br><br>Wander-IT a conçu et déployé un pipeline complet : dès l'arrivée d'un mail, le système analyse la pièce jointe, évalue via un score de confiance s'il s'agit d'une facture ou d'un CMR, OCRise le document pour en extraire les données clés, puis appelle directement l'API Odoo. Lorsque le score est insuffisant, le mail est laissé non lu et flagué pour traitement manuel — moins de 2% des cas.<br><br>Un dashboard dédié permet au client de suivre chaque run en temps réel : mails traités, succès, erreurs et CMR renvoyés — pour un contrôle total à tout moment.",
 
-    logoClient:  '/assets/images/projet-1/logo-jost.jpg',
+    logoClient:  '/assets/images/projet-1/logo-jost.webp',
     logoClientWidth: 26,
     logosPartenaires: [
-      { src: '/assets/images/projet-1/Microsoft_Outlook_Icon_(2025\u2013present).svg.png', alt: 'Outlook', width: 15 },
-      { src: '/assets/images/projet-1/Odoo_Official_Logo.png', alt: 'Odoo', width: 44 },
+      { src: '/assets/images/projet-1/Microsoft_Outlook_Icon_(2025\u2013present).svg.webp', alt: 'Outlook', width: 15 },
+      { src: '/assets/images/projet-1/Odoo_Official_Logo.webp', alt: 'Odoo', width: 44 },
     ],
 
     chiffreCle: { valeur: '~40h', label: 'récupérées<br>chaque mois' },
@@ -48,8 +48,8 @@ window.PROJETS = [
     visuelsEnContexte: true,
     layoutVisuels: 'grid',
     visuels: [
-      '/assets/images/projet-1/Dashboard view.png',
-      '/assets/images/projet-1/outlook-inbox.png',
+      '/assets/images/projet-1/Dashboard view.webp',
+      '/assets/images/projet-1/outlook-inbox.webp',
     ],
   },
 
@@ -67,8 +67,8 @@ window.PROJETS = [
     // ── Apparence des vignettes ──────────────────────────────────────────────
     tagColor:  '#A8D5A2',
     tagBg:     'rgba(20,70,30,0.65)',
-    imageCard: '/assets/images/projet-2/app-detail.png',
-    imageGrid: '/assets/images/projet-2/app-detail.png',
+    imageCard: '/assets/images/projet-2/app-detail.webp',
+    imageGrid: '/assets/images/projet-2/app-detail.webp',
 
     // ── Contenu de la page projet ────────────────────────────────────────────
     accroche:  "800 hectares, 70 000 pieux — une web app sur mesure pour vérifier l'alignement structural en temps réel et proposer automatiquement les corrections.",
@@ -95,10 +95,10 @@ window.PROJETS = [
     ],
 
     visuels: [
-      '/assets/images/projet-2/app-detail.png',
-      '/assets/images/projet-2/app-overview.png',
-      '/assets/images/projet-2/app-tolerance.png',
-      '/assets/images/projet-2/image.png',
+      '/assets/images/projet-2/app-detail.webp',
+      '/assets/images/projet-2/app-overview.webp',
+      '/assets/images/projet-2/app-tolerance.webp',
+      '/assets/images/projet-2/image.webp',
     ],
   },
 
@@ -113,8 +113,8 @@ window.PROJETS = [
 
     tagColor:  '#A8D5A2',
     tagBg:     'rgba(20,70,30,0.65)',
-    imageCard: '/assets/images/projet-3/MockupApp.png',
-    imageGrid: '/assets/images/projet-3/3fQGQIoRGk7.png',
+    imageCard: '/assets/images/projet-3/MockupApp.webp',
+    imageGrid: '/assets/images/projet-3/3fQGQIoRGk7.webp',
 
     accroche:  "Une app mobile sur mesure pour gérer des dizaines de milliers de pieux sur chantier — géolocalisation, encodage terrain et reporting live pour le gestionnaire de projet.",
 
@@ -123,7 +123,7 @@ window.PROJETS = [
     logoClient:  '/assets/images/projet-2/logo-hcb-white.svg',
     logoClientWidth: 60,
     logosPartenaires: [
-      { src: '/assets/images/projet-3/AppSheet Logo.png', alt: 'AppSheet', width: 58 },
+      { src: '/assets/images/projet-3/AppSheet Logo.webp', alt: 'AppSheet', width: 58 },
     ],
 
     chiffreCle: {
@@ -153,7 +153,7 @@ window.PROJETS = [
 
     layoutVisuels: 'grid',
     visuels: [
-      '/assets/images/projet-3/3fQGQIoRGk7.png',
+      '/assets/images/projet-3/3fQGQIoRGk7.webp',
     ],
   },
 
@@ -168,8 +168,8 @@ window.PROJETS = [
 
     tagColor:  '#F5C97A',
     tagBg:     'rgba(120,80,10,0.65)',
-    imageCard: '/assets/images/projet-4/DailyPlan.png',
-    imageGrid: '/assets/images/projet-4/DailyPlan.png',
+    imageCard: '/assets/images/projet-4/DailyPlan.webp',
+    imageGrid: '/assets/images/projet-4/DailyPlan.webp',
 
     accroche: "Fini les plans à l'arrache sur Excel — une application web intuitive avec drag & drop pour allouer équipes, véhicules et tâches en quelques minutes chaque matin.",
 
