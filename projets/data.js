@@ -111,7 +111,7 @@ window.PROJETS = [
 
     tagColor:  '#A8D5A2',
     tagBg:     'rgba(20,70,30,0.65)',
-    imageCard: '/assets/images/projet-3/MockupApp.svg',
+    imageCard: '/assets/images/projet-3/MockupApp.png',
     imageGrid: '/assets/images/projet-3/3fQGQIoRGk7.png',
 
     accroche:  "Une app mobile sur mesure pour gérer des dizaines de milliers de pieux sur chantier — géolocalisation, encodage terrain et reporting live pour le gestionnaire de projet.",
