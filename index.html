@@ -118,15 +118,23 @@
 
     /* Service cards */
     .sc {
-      padding: 2.5rem; border: 1px solid rgba(178,203,212,0.18);
-      background: rgba(178,203,212,0.05); position: relative; overflow: hidden;
-      transition: background 0.3s ease, border-color 0.3s ease,
-                  transform 0.35s cubic-bezier(0.22,1,0.36,1);
+      padding: 2.25rem 2.25rem 2.5rem; border: 1px solid rgba(177,220,237,0.1);
+      border-radius: 1rem; background: linear-gradient(160deg,#0a2535 0%,#072030 100%);
+      position: relative; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.22), 0 1px 0 rgba(177,220,237,0.05) inset;
+      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1),
+                  box-shadow 0.35s ease, border-color 0.3s ease;
+    }
+    .sc::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--sc-accent, rgba(177,220,237,0.3));
+      border-radius: 1rem 1rem 0 0;
+      transition: opacity 0.3s ease;
     }
     .sc:hover {
-      background: rgba(178,203,212,0.14);
-      border-color: rgba(178,203,212,0.35);
       transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.38), 0 0 0 1px rgba(177,220,237,0.18);
+      border-color: rgba(177,220,237,0.22);
     }
 
     /* Timeline */
@@ -405,38 +413,52 @@
       <p style="font-size:0.88rem;color:#B2CBD4;opacity:0.62;max-width:310px;line-height:1.85">Des solutions pragmatiques, livrées rapidement, qui répondent à vos besoins réels.</p>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(177,220,237,0.08)">
-      <div class="sc reveal" style="background:#004258">
-        <div style="width:2.25rem;height:2.25rem;background:rgba(177,220,237,0.12);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B1DCED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem">
+
+      <div class="sc reveal" style="--sc-accent:rgba(177,220,237,0.55)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem">
+          <div style="width:2.5rem;height:2.5rem;background:rgba(177,220,237,0.1);border-radius:0.6rem;display:flex;align-items:center;justify-content:center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B1DCED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;color:#B1DCED;opacity:0.22;letter-spacing:0.1em">01</span>
         </div>
-        <h3 style="font-size:1.2rem;font-weight:700;color:white;margin-bottom:0.6rem;letter-spacing:-0.02em">Automatisation</h3>
-        <p style="font-size:0.85rem;color:#B2CBD4;opacity:0.62;line-height:1.85">Automatisez les tâches répétitives et connectez vos outils — gestion de boîte mail, devis automatiques, publications marketing et plus.</p>
+        <h3 style="font-size:1.1rem;font-weight:700;color:white;margin-bottom:0.65rem;letter-spacing:-0.02em">Automatisation</h3>
+        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0">Automatisez les tâches répétitives et connectez vos outils — gestion de boîte mail, devis automatiques, publications marketing et plus.</p>
       </div>
 
-      <div class="sc reveal" style="background:#004258;transition-delay:0.08s">
-        <div style="width:2.25rem;height:2.25rem;background:rgba(116,55,32,0.18);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d4987a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      <div class="sc reveal" style="--sc-accent:rgba(212,152,122,0.65);transition-delay:0.08s">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem">
+          <div style="width:2.5rem;height:2.5rem;background:rgba(116,55,32,0.2);border-radius:0.6rem;display:flex;align-items:center;justify-content:center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d4987a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;color:#d4987a;opacity:0.22;letter-spacing:0.1em">02</span>
         </div>
-        <h3 style="font-size:1.2rem;font-weight:700;color:white;margin-bottom:0.6rem;letter-spacing:-0.02em">Développement d'Apps</h3>
-        <p style="font-size:0.85rem;color:#B2CBD4;opacity:0.62;line-height:1.85">Applications web et mobiles sur-mesure, pensées pour vos utilisateurs et construites pour durer.</p>
+        <h3 style="font-size:1.1rem;font-weight:700;color:white;margin-bottom:0.65rem;letter-spacing:-0.02em">Développement d'outils</h3>
+        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0">Applications web et mobiles sur-mesure, pensées pour vos utilisateurs et construites pour durer.</p>
       </div>
 
-      <div class="sc reveal" style="background:#004258;transition-delay:0.16s">
-        <div style="width:2.25rem;height:2.25rem;background:rgba(178,203,212,0.14);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e0f0f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><circle cx="9" cy="14" r="1" fill="#e0f0f6"/><circle cx="15" cy="14" r="1" fill="#e0f0f6"/><path d="M9 18h6"/><path d="M12 3v2"/></svg>
+      <div class="sc reveal" style="--sc-accent:rgba(177,220,237,0.35);transition-delay:0.16s">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem">
+          <div style="width:2.5rem;height:2.5rem;background:rgba(177,220,237,0.12);border-radius:0.6rem;display:flex;align-items:center;justify-content:center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e0f0f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><circle cx="9" cy="14" r="1" fill="#e0f0f6"/><circle cx="15" cy="14" r="1" fill="#e0f0f6"/><path d="M9 18h6"/><path d="M12 3v2"/></svg>
+          </div>
+          <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;color:#B1DCED;opacity:0.22;letter-spacing:0.1em">03</span>
         </div>
-        <h3 style="font-size:1.2rem;font-weight:700;color:white;margin-bottom:0.6rem;letter-spacing:-0.02em">Intégration IA</h3>
-        <p style="font-size:0.85rem;color:#B2CBD4;opacity:0.62;line-height:1.85">Intégrez des modèles d'IA directement dans vos systèmes — chatbots, analyse de contenu, génération automatisée et plus.</p>
+        <h3 style="font-size:1.1rem;font-weight:700;color:white;margin-bottom:0.65rem;letter-spacing:-0.02em">Intégration IA</h3>
+        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0">Intégrez des modèles d'IA directement dans vos systèmes — chatbots, analyse de contenu, génération automatisée et plus.</p>
       </div>
 
-      <div class="sc reveal" style="background:#004258;transition-delay:0.24s">
-        <div style="width:2.25rem;height:2.25rem;background:rgba(116,55,32,0.22);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e8b89a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      <div class="sc reveal" style="--sc-accent:rgba(212,152,122,0.45);transition-delay:0.24s">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem">
+          <div style="width:2.5rem;height:2.5rem;background:rgba(116,55,32,0.2);border-radius:0.6rem;display:flex;align-items:center;justify-content:center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e8b89a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;color:#d4987a;opacity:0.22;letter-spacing:0.1em">04</span>
         </div>
-        <h3 style="font-size:1.2rem;font-weight:700;color:white;margin-bottom:0.6rem;letter-spacing:-0.02em">Design Web</h3>
-        <p style="font-size:0.85rem;color:#B2CBD4;opacity:0.62;line-height:1.85">Sites qui inspirent confiance et convertissent. Design épuré, identité forte, impact immédiat.</p>
+        <h3 style="font-size:1.1rem;font-weight:700;color:white;margin-bottom:0.65rem;letter-spacing:-0.02em">Design Web</h3>
+        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0">Sites qui inspirent confiance et convertissent. Design épuré, identité forte, impact immédiat.</p>
       </div>
+
     </div>
   </div>
 </section>
