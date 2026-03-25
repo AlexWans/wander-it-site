@@ -17,6 +17,8 @@
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
+      margin: 0;
+      padding: 0;
       background: #F5F3EF;
       color: #0B1C22;
       font-family: 'Monda', sans-serif;
@@ -290,7 +292,7 @@
   <a href="a-propos.html" class="mob-link">À propos</a>
   <a href="#contact" class="mob-link" onclick="closeMenu()">Contact</a>
   <a href="#contact" class="mob-cta" onclick="closeMenu()">
-    Me contacter
+    Nous contacter
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
   </a>
 </div>
@@ -310,7 +312,7 @@
       <p class="lbl au d1" style="color:#743720;margin-bottom:1.75rem;opacity:0.8">Solutions Digitales · Wander-IT</p>
 
       <h1 class="hero-h au d2" style="color:#0B1C22;margin-bottom:0.05em">Votre<br>expertise,</h1>
-      <h1 class="hero-h au d3" style="color:#743720;margin-bottom:0.65rem">nos outils.</h1>
+      <h1 class="hero-h au d3" style="color:#743720;margin-top:0;margin-bottom:0.65rem">nos outils.</h1>
       <p class="au d3" style="font-family:'Roboto Slab',serif;font-size:clamp(1.1rem,2.2vw,1.45rem);font-weight:300;color:#004258;letter-spacing:-0.01em;line-height:1.35;margin-bottom:1.75rem">
         Une longueur d'avance.
       </p>
@@ -319,7 +321,7 @@
       </p>
       <div class="au d4" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:3rem">
         <a href="#contact" class="btn-p">
-          Me contacter
+          Nous contacter
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="#services" class="btn-s">Voir les services</a>
@@ -351,8 +353,8 @@
         <!-- Photo Alex -->
         <div style="position:relative;flex:1;min-width:0">
           <!-- Bottom-left badge -->
-          <div class="float" style="position:absolute;bottom:-1.8rem;left:-1rem;background:#0B1C22;padding:0.8rem 1.25rem;box-shadow:0 8px 28px rgba(11,28,34,0.28);z-index:10">
-            <p class="lbl" style="color:#B1DCED;font-size:0.6rem">Visionnaire</p>
+          <div class="float" style="position:absolute;bottom:-1.8rem;left:-1rem;background:#0B1C22;padding:0.45rem 1.25rem;box-shadow:0 8px 28px rgba(11,28,34,0.28);z-index:10">
+            <p class="lbl" style="color:#B1DCED;font-size:0.6rem">Sur-mesure</p>
           </div>
           <div style="position:relative;overflow:hidden;height:360px">
             <img src="assets/images/AlexPicture.webp" alt="WANSART Alex" fetchpriority="high" style="width:100%;height:100%;display:block;object-fit:cover;object-position:center top;filter:contrast(1.04) saturate(0.92)">
@@ -379,7 +381,7 @@
         </div>
 
         <!-- Floating badge top-right -->
-        <div class="float" style="position:absolute;top:-0.6rem;right:-1.1rem;background:#B1DCED;padding:0.8rem 1.25rem;box-shadow:0 8px 28px rgba(0,66,88,0.22);z-index:10">
+        <div class="float" style="position:absolute;top:-0.6rem;right:-1.1rem;background:#B1DCED;padding:0.45rem 1.25rem;box-shadow:0 8px 28px rgba(0,66,88,0.22);z-index:10">
           <p class="lbl" style="color:#004258;font-size:0.6rem">Expertise</p>
         </div>
 

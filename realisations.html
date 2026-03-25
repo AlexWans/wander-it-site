@@ -14,6 +14,8 @@
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
+      margin: 0;
+      padding: 0;
       background: #0B1C22;
       color: #F5F3EF;
       font-family: 'Monda', sans-serif;
@@ -151,7 +153,7 @@
 </div>
 
 <!-- HEADER -->
-<section style="padding:9rem 3rem 5rem;max-width:1240px;margin:0 auto">
+<section style="padding:9rem 3rem 5rem;max-width:1240px;margin:0 auto;position:relative;z-index:1">
   <div class="reveal">
     <p class="lbl" style="color:#B1DCED;opacity:0.45;margin-bottom:1rem">Ce que nous avons fait</p>
     <h1 style="font-family:'Roboto Slab',serif;font-size:clamp(2.5rem,6vw,4rem);font-weight:700;line-height:1.1;letter-spacing:-0.03em;color:#F5F3EF;margin-bottom:1.5rem">
@@ -173,7 +175,7 @@
 </section>
 
 <!-- GRID -->
-<section style="padding:0 3rem 8rem;max-width:1240px;margin:0 auto">
+<section style="padding:0 3rem 8rem;max-width:1240px;margin:0 auto;position:relative;z-index:1">
   <div id="projects-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:2rem">
 
     <!-- Cartes générées depuis projets/data.js -->
@@ -214,7 +216,7 @@
   </script>
 
   <!-- Empty state -->
-  <div id="empty-state" style="display:none;text-align:center;padding:5rem 0;color:#B2CBD4;opacity:0.45">
+  <div id="empty-state" style="display:none;text-align:center;padding:5rem 0;color:#4d6870;opacity:0.45">
     <p style="font-size:0.9rem">Aucun projet dans cette catégorie pour le moment.</p>
   </div>
 </section>
