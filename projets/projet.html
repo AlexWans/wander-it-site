@@ -252,7 +252,7 @@
         <div class="reveal" style="display:flex;align-items:center;gap:1.25rem;margin-bottom:1.75rem;flex-wrap:wrap">
           ${p.logoClient ? `<img src="${p.logoClient}" alt="${p.client}" style="height:44px;width:auto;object-fit:contain;display:block;border-radius:4px">` : ''}
           ${(p.logosPartenaires || []).map(l => `
-            <img src="${l.src}" alt="${l.alt}" style="height:28px;width:auto;object-fit:contain;display:block;opacity:0.75">
+            <img src="${l.src}" alt="${l.alt}" style="height:${l.height || 28}px;width:auto;object-fit:contain;display:block;opacity:0.75">
           `).join('')}
         </div>` : ''}
 
@@ -295,9 +295,9 @@
             <p class="lbl" style="color:#B1DCED;opacity:0.45;margin:0 0 0.35rem">Technologies</p>
             <p style="font-size:0.9rem;color:#F5F3EF;font-weight:700;margin:0">${p.technologies}</p>
           </div>
-          ${p.chiffreCle ? `
+          ${p.chiffreCle && !p.hideChiffreCle ? `
           <div class="proj-chiffre" style="margin-left:auto;background:linear-gradient(135deg,rgba(116,55,32,0.18) 0%,rgba(0,66,88,0.22) 100%);border:1px solid rgba(116,55,32,0.3);border-radius:1rem;padding:1.25rem 1.75rem;${p.chiffreCle.points ? '' : 'text-align:right'}">
-            <p class="lbl" style="color:#B1DCED;opacity:0.45;margin:0 0 0.75rem">${p.chiffreCle.points ? 'Plus-value du projet' : 'Gain mensuel estimé'}</p>
+            <p class="lbl" style="color:#B1DCED;opacity:0.45;margin:0 0 0.75rem">${p.chiffreCle.titre || (p.chiffreCle.points ? 'Plus-value du projet' : 'Gain mensuel estimé')}</p>
             ${p.chiffreCle.points ? `
               <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.5rem">
                 ${p.chiffreCle.points.map(pt => `
@@ -315,11 +315,11 @@
       <!-- LAYOUT ARTICLE : contexte + images alternées gauche/droite -->
       <section style="padding:0 3rem 5rem;max-width:960px;margin:0 auto">
         <p class="lbl reveal" style="color:#B1DCED;opacity:0.45;margin:0 0 1rem">Le contexte</p>
-        <h2 class="reveal" style="font-family:'Roboto Slab',serif;font-size:1.75rem;font-weight:700;color:#F5F3EF;margin:0 0 1.75rem;line-height:1.3">Le défi du client</h2>
+        <h2 class="reveal" style="font-family:'Roboto Slab',serif;font-size:1.75rem;font-weight:700;color:#F5F3EF;margin:0 0 1.75rem;line-height:1.3">${p.titreSectionContexte || 'Le défi du client'}</h2>
         ${articleHtml}
         <div class="tech-tags reveal" style="margin:0.5rem 0 4rem">${techTagsHtml}</div>
         <p class="lbl reveal" style="color:#B1DCED;opacity:0.45;margin:0 0 1rem">Résultats</p>
-        <h2 class="reveal" style="font-family:'Roboto Slab',serif;font-size:1.5rem;font-weight:700;color:#F5F3EF;margin:0 0 1.5rem;line-height:1.3">Ce que le client y gagne</h2>
+        <h2 class="reveal" style="font-family:'Roboto Slab',serif;font-size:1.5rem;font-weight:700;color:#F5F3EF;margin:0 0 1.5rem;line-height:1.3">${p.titreSectionGains || 'Ce que le client y gagne'}</h2>
         <ul class="gains-list reveal">${gainsHtml}</ul>
       </section>
       ` : `
@@ -328,7 +328,7 @@
         <div class="reveal proj-content-grid" style="display:grid;grid-template-columns:1fr 380px;gap:5rem;align-items:start">
           <div>
             <p class="lbl" style="color:#B1DCED;opacity:0.45;margin:0 0 1rem">Le contexte</p>
-            <h2 style="font-family:'Roboto Slab',serif;font-size:1.75rem;font-weight:700;color:#F5F3EF;margin:0 0 1.5rem;line-height:1.3">Le défi du client</h2>
+            <h2 style="font-family:'Roboto Slab',serif;font-size:1.75rem;font-weight:700;color:#F5F3EF;margin:0 0 1.5rem;line-height:1.3">${p.titreSectionContexte || 'Le défi du client'}</h2>
             <p style="font-size:0.9rem;color:#B2CBD4;line-height:1.9;margin:0 0 2rem">${p.contexte}</p>
             <div class="tech-tags" style="margin-top:0">${techTagsHtml}</div>
             ${p.visuelsEnContexte && p.visuels && p.visuels[0] ? `
@@ -344,7 +344,7 @@
             </div>` : ''}
             <div style="margin-top:${p.schema ? '2.5rem' : '0'}">
               <p class="lbl" style="color:#B1DCED;opacity:0.45;margin:0 0 1rem">Résultats</p>
-              <h2 style="font-family:'Roboto Slab',serif;font-size:1.5rem;font-weight:700;color:#F5F3EF;margin:0 0 1.5rem;line-height:1.3">Ce que le client y gagne</h2>
+              <h2 style="font-family:'Roboto Slab',serif;font-size:1.5rem;font-weight:700;color:#F5F3EF;margin:0 0 1.5rem;line-height:1.3">${p.titreSectionGains || 'Ce que le client y gagne'}</h2>
               <ul class="gains-list">${gainsHtml}</ul>
             </div>
           </div>
@@ -433,7 +433,7 @@
       <!-- CTA -->
       <section style="padding:4rem 3rem 7rem;text-align:center">
         <p class="lbl reveal" style="color:#B1DCED;opacity:0.45;margin:0 0 1.25rem">Un projet similaire ?</p>
-        <h2 class="reveal" style="font-family:'Roboto Slab',serif;font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;color:#F5F3EF;margin:0 0 2rem">Parlons de votre besoin</h2>
+        <h2 class="reveal" style="font-family:'Roboto Slab',serif;font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;color:#F5F3EF;margin:0 0 2rem">${p.ctaApresVisuels || 'Parlons de votre besoin'}</h2>
         <a href="../index.html#contact" class="reveal"
           style="display:inline-flex;align-items:center;gap:0.6rem;background:#743720;color:#F5F3EF;font-family:'Monda',sans-serif;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;padding:0.85rem 2rem;border-radius:9999px;text-decoration:none;transition:background 0.2s,transform 0.2s,box-shadow 0.2s;box-shadow:0 4px 20px rgba(116,55,32,0.3)"
           onmouseenter="this.style.background='#8f4528';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 30px rgba(116,55,32,0.4)'"

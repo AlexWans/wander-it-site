@@ -54,22 +54,23 @@
     .reveal.visible { opacity: 1; transform: none; }
 
     .proj-card {
-      display: block;
+      display: flex;
+      flex-direction: column;
       text-decoration: none;
-      background: #142832;
-      border: 1px solid rgba(177,220,237,0.1);
+      background: linear-gradient(160deg,#1a3240 0%,#112230 60%,#0e1e2a 100%);
+      border: 1px solid rgba(177,220,237,0.13);
       border-radius: 1rem;
       overflow: hidden;
       cursor: pointer;
-      position: relative;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 1px 0 rgba(177,220,237,0.06) inset;
       transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease, border-color 0.3s;
     }
     .proj-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
-      border-color: rgba(177,220,237,0.22);
+      transform: scale(1.025);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(177,220,237,0.2);
+      border-color: rgba(177,220,237,0.28);
     }
-    .proj-card:hover .proj-img { transform: scale(1.04); }
+    .proj-card:hover .proj-img { transform: scale(1.04); opacity: 0.88; }
     .proj-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
 
     .filter-btn {
@@ -170,7 +171,7 @@
     <button class="filter-btn" onclick="filterProjects('automatisation', this)">Automatisation</button>
     <button class="filter-btn" onclick="filterProjects('web', this)">Web Design</button>
     <button class="filter-btn" onclick="filterProjects('app', this)">App Development</button>
-    <button class="filter-btn" onclick="filterProjects('logiciel', this)">Logiciel</button>
+    <button class="filter-btn" onclick="filterProjects('data', this)">Data & Reporting</button>
   </div>
 </section>
 
@@ -193,20 +194,19 @@
         a.dataset.cat  = p.categorie;
         if (i % 3 !== 0) a.style.transitionDelay = ((i % 3) * 0.08) + 's';
         a.innerHTML = `
-          <div style="position:relative;overflow:hidden;aspect-ratio:16/9">
-            <img src="${p.imageGrid}" alt="${p.titre}" class="proj-img">
-            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,28,34,0.75) 0%,transparent 55%);pointer-events:none"></div>
-            <span style="position:absolute;top:1rem;left:1rem;font-family:'Monda',sans-serif;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:${p.tagColor};background:${p.tagBg};padding:0.3rem 0.65rem;backdrop-filter:blur(4px)">${p.categorieLabel}</span>
+          <div style="position:relative;overflow:hidden;height:187px;flex-shrink:0">
+            <img src="${p.imageCard}" alt="${p.titre}" class="proj-img">
+            <span style="position:absolute;top:1rem;left:1rem;font-family:'Monda',sans-serif;font-size:0.58rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:${p.tagColor};background:${p.tagBg};padding:0.28rem 0.65rem;backdrop-filter:blur(4px);border-radius:9999px;z-index:2">${p.categorieLabel}</span>
           </div>
-          <div style="padding:1.5rem 1.5rem 1.75rem">
+          <div style="padding:1.25rem 1.25rem 1.5rem;display:flex;flex-direction:column;flex:1;min-height:0">
             ${(p.logoClient || (p.logosPartenaires && p.logosPartenaires.length)) ? `
-            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.85rem;flex-wrap:wrap">
+            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.85rem;flex-wrap:wrap;flex-shrink:0;min-height:22px">
               ${p.logoClient ? `<img src="${p.logoClient}" alt="${p.client}" style="height:18px;width:auto;object-fit:contain;border-radius:2px">` : ''}
               ${(p.logosPartenaires||[]).map(l => `<img src="${l.src}" alt="${l.alt}" style="height:14px;width:auto;object-fit:contain;opacity:0.7">`).join('')}
             </div>` : ''}
-            <h2 style="font-size:1.05rem;font-weight:700;color:white;margin-bottom:0.5rem;letter-spacing:-0.02em">${p.titre}</h2>
-            <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.7;line-height:1.75;margin-bottom:1.25rem">${p.accroche}</p>
-            <span style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.72rem;font-weight:700;color:#743720;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em">Voir le projet ${arrow}</span>
+            <div style="font-family:'Roboto Slab',serif;font-size:1rem;font-weight:700;color:white;letter-spacing:-0.02em;line-height:1.3;margin-bottom:0.5rem;flex-shrink:0">${p.titre}</div>
+            <div style="font-size:0.75rem;color:#B2CBD4;line-height:1.6;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1">${p.accroche}</div>
+            <span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.68rem;font-weight:700;color:#d4987a;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em;flex-shrink:0">Voir le projet ${arrow}</span>
           </div>`;
         grid.appendChild(a);
       });

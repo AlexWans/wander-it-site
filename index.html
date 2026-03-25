@@ -521,13 +521,6 @@
 
         <!-- Cartes générées depuis projets/data.js -->
 
-        <!-- CTA "Voir tout" -->
-        <a href="realisations.html" style="flex:0 0 160px;width:160px;aspect-ratio:3/4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.85rem;border-radius:1rem;border:1px dashed rgba(177,220,237,0.2);text-decoration:none;transition:border-color 0.2s,background 0.2s" onmouseenter="this.style.borderColor='rgba(177,220,237,0.4)';this.style.background='rgba(177,220,237,0.04)'" onmouseleave="this.style.borderColor='rgba(177,220,237,0.2)';this.style.background='transparent'">
-          <div style="width:2.5rem;height:2.5rem;border-radius:9999px;border:1px solid rgba(177,220,237,0.3);display:flex;align-items:center;justify-content:center">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B1DCED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </div>
-          <span style="font-family:'Monda',sans-serif;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#B2CBD4;opacity:0.55;text-align:center">Voir tout</span>
-        </a>
 
       </div>
     </div>
@@ -537,8 +530,7 @@
   <script>
     (function() {
       const track = document.getElementById('porto-track');
-      const cta   = track.querySelector('a[href="realisations.html"]');
-      const arrow = `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
+      const arrow =`<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
       PROJETS.forEach(p => {
         const a = document.createElement('a');
         a.href      = 'projets/projet.html?id=' + p.id;
@@ -559,7 +551,7 @@
             <div style="font-size:0.75rem;color:#B2CBD4;line-height:1.6;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1">${p.accroche}</div>
             <span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.68rem;font-weight:700;color:#d4987a;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em;flex-shrink:0">Voir le projet ${arrow}</span>
           </div>`;
-        track.insertBefore(a, cta);
+        track.appendChild(a);
       });
     })();
   </script>

@@ -10,7 +10,7 @@ window.PROJETS = [
     // ── Infos de base ────────────────────────────────────────────────────────
     titre:          'Automatisation Outlook → Odoo',
     client:         'Jost',
-    annee:          '2025',
+    annee:          '2026',
     categorie:      'automatisation',
     categorieLabel: 'Automatisation',
     technologies:   'Python · Claude Vision · API Odoo · 98% de succès',
@@ -59,7 +59,7 @@ window.PROJETS = [
     // ── Infos de base ────────────────────────────────────────────────────────
     titre:          'Vérification d\'alignement de pieux solaires',
     client:         'HCB Solar',
-    annee:          '2025',
+    annee:          '2026',
     categorie:      'app',
     categorieLabel: 'Application Web',
     technologies:   'Python · JavaScript · CSV · Calcul géométrique · Déploiement cloud',
@@ -161,7 +161,7 @@ window.PROJETS = [
     id: 4,
     titre:          "DailyPlan — Allocation d'équipes & ressources",
     client:         'Interne',
-    annee:          '2025',
+    annee:          '2026',
     categorie:      'app',
     categorieLabel: 'Application Web',
     technologies:   'Drag & Drop · Export Image · Météo API · Import CSV',
@@ -197,49 +197,83 @@ window.PROJETS = [
 
   {
     id: 5,
-    titre:          'Nom du projet 5',
-    client:         'Nom du client',
-    annee:          '2025',
+    titre:          'Site web Wander-IT',
+    client:         'Wander-IT',
+    annee:          '2026',
     categorie:      'web',
-    categorieLabel: 'Web Design',
-    technologies:   'Webflow · CMS',
+    categorieLabel: 'Site Web',
+    technologies:   'HTML · CSS · JavaScript · SEO · Hébergement · Google Business',
+
     tagColor:  '#d4987a',
     tagBg:     'rgba(116,55,32,0.55)',
-    imageCard: 'https://placehold.co/420x560/1a1a2e/d4987a?text=Projet+5',
-    imageGrid: 'https://placehold.co/720x405/1a1a2e/d4987a?text=Projet+5',
-    accroche:  "Courte description d'accroche — ce qui a été réalisé, le défi, et l'impact pour le client.",
-    contexte:  "Décrivez ici le contexte du client — son secteur, la problématique rencontrée et pourquoi il a fait appel à Wander-IT.",
+    imageCard: '/assets/images/projet-5/Mignature card.png',
+    imageGrid: '/assets/images/projet-5/AnalyseSpeedWeb.png',
+
+    accroche: "Site vitrine conçu de A à Z — code sur mesure, SEO 100/100, Google Business et hébergement inclus. Aucun abonnement, aucune dépendance : la propriété totale.",
+
+    contexte: "Construire son propre site web quand on est une agence IT, c'est à la fois un exercice de style et une carte de visite permanente. Rien n'a été laissé au hasard : chaque ligne de code, chaque décision de design et chaque paramètre technique a été pensé pour refléter l'identité de Wander-IT et maximiser l'impact en ligne.<br><br>Le site a été développé from scratch — sans Wix, sans Squarespace, sans builder générique. Cette approche garantit une liberté totale sur la structure, les performances et l'évolution future. Le domaine et l'hébergement sont gérés directement par Wander-IT : aucun abonnement tiers, aucune contrainte extérieure.<br><br>Le référencement naturel a été intégré dès la conception : structure sémantique, balises optimisées, vitesse de chargement, compatibilité mobile — tout est calibré pour plaire autant aux moteurs de recherche qu'aux visiteurs. Résultat : 99/100 en performance, 100/100 en accessibilité, bonnes pratiques et SEO sur Google PageSpeed.<br><br>En parallèle, la page Google Business a été créée et optimisée pour assurer une présence locale forte et capter des leads qualifiés directement depuis la recherche Google.<br><br>Sans fioritures — pragmatique, livré en moins d'une semaine.",
+
+    chiffreCle: { valeur: '99 · 100', label: 'Performance · SEO<br>Google PageSpeed' },
+    hideChiffreCle: true,
+    titreSectionContexte: 'Notre site web',
+    titreSectionGains: 'Les plus-values de nos sites',
+
     gains: [
-      "Premier gain mesurable obtenu par le client.",
-      "Deuxième résultat concret.",
-      "Troisième impact positif sur l'activité.",
+      "Visibilité maximale sur Google — score SEO 100/100 et performance 99/100 sur Google PageSpeed Insights.",
+      "100% fonctionnel sur smartphone — l'expérience est identique sur mobile, tablette et desktop.",
+      "Aucun abonnement, aucune dépendance à une plateforme tierce — propriété totale du code, du domaine et de l'hébergement.",
+      "Page Google Business créée et optimisée — présence locale renforcée pour capter des leads depuis la recherche géolocalisée.",
+      "Un site qui nous ressemble vraiment : design sur mesure, optimisé pour le référencement, la performance et la conversion.",
     ],
+    ctaApresVisuels: "Notre site vous plaît ?",
+
     visuels: [
-      'https://placehold.co/1200x700/004258/B1DCED?text=Visuel+1',
+      '/assets/images/projet-5/AnalyseSpeedWeb.png',
     ],
   },
 
   {
     id: 6,
-    titre:          'Nom du projet 6',
-    client:         'Nom du client',
+    titre:          'Rapport de suivi chantier — Looker Studio',
+    client:         'HCB Solar',
     annee:          '2025',
-    categorie:      'automatisation',
-    categorieLabel: 'Automatisation',
-    technologies:   'Make · Airtable · OpenAI',
-    tagColor:  '#B1DCED',
-    tagBg:     'rgba(0,66,88,0.65)',
-    imageCard: 'https://placehold.co/420x560/0a1628/B2CBD4?text=Projet+6',
-    imageGrid: 'https://placehold.co/720x405/0a1628/B2CBD4?text=Projet+6',
-    accroche:  "Courte description d'accroche — ce qui a été réalisé, le défi, et l'impact pour le client.",
-    contexte:  "Décrivez ici le contexte du client — son secteur, la problématique rencontrée et pourquoi il a fait appel à Wander-IT.",
-    gains: [
-      "Premier gain mesurable obtenu par le client.",
-      "Deuxième résultat concret.",
-      "Troisième impact positif sur l'activité.",
+    categorie:      'data',
+    categorieLabel: 'Data & Reporting',
+    technologies:   'Google Sheets · Looker Studio · Data Cleaning · Cartographie',
+
+    tagColor:  '#A8D5A2',
+    tagBg:     'rgba(20,70,30,0.65)',
+    imageCard: '/assets/images/projet-6/Design sans titre-6.png',
+    imageGrid: '/assets/images/projet-6/Design sans titre-6.png',
+
+    accroche: "69 000 pieux, des dizaines d'états différents — un rapport Looker Studio connecté en temps réel à la base de données pour piloter l'avancement du chantier et négocier avec des chiffres.",
+
+    contexte: "Sur un chantier solaire de grande envergure, les données s'accumulent à un rythme effréné : 69 000 pieux, chacun avec un état distinct, des problèmes spécifiques et une évolution quotidienne. Sans structure, cette masse d'informations devient ingérable — et impossible à présenter à un client.<br><br>Wander-IT a d'abord pris en charge le nettoyage et le triage complet des données brutes dans Google Sheets. Chaque entrée a été normalisée, catégorisée et structurée pour être exploitable analytiquement.<br><br>Sur cette base saine, un rapport interactif Looker Studio a été conçu : graphiques d'avancement journalier, comparatifs hier/aujourd'hui, camemberts de répartition par état, et carte géographique interactive permettant de visualiser en un coup d'œil quels blocs sont terminés, en cours ou bloqués — directement superposés sur le terrain réel.<br><br>Le rapport est connecté directement à la base de données : chaque mise à jour se reflète automatiquement, sans intervention manuelle. HCB Solar le partage à son propre client — un outil de négociation et de reporting professionnel qui renforce sa crédibilité et son contrôle sur le projet.",
+
+    logoClient:  '/assets/images/projet-6/logo-hcb-white.svg',
+    logoClientWidth: 60,
+    logosPartenaires: [
+      { src: '/assets/images/projet-6/lookerstudio.jpg', alt: 'Looker Studio', width: 58, height: 44 },
     ],
+
+    chiffreCle: {
+      titre: 'Gain',
+      points: ['Négociation', 'Crédibilité client', 'Vision projet'],
+    },
+
+    gains: [
+      "69 000 pieux tracés en temps réel — chaque état, chaque problème, chaque avancement visible instantanément.",
+      "Rapport mis à jour automatiquement chaque jour via la connexion directe à la base de données — zéro saisie manuelle.",
+      "Carte géographique interactive : visualisez en un coup d'œil l'avancement bloc par bloc sur le terrain réel.",
+      "Comparatif journalier intégré (hier vs aujourd'hui) — idéal pour détecter les ralentissements et piloter les équipes.",
+      "Un outil partagé directement avec le client final : crédibilité renforcée, négociation facilitée, confiance assurée.",
+      "Données brutes nettoyées et structurées — une base saine pour toute analyse présente et future.",
+    ],
+
     visuels: [
-      'https://placehold.co/1200x700/004258/B1DCED?text=Visuel+1',
+      '/assets/images/projet-6/Design sans titre-6.png',
+      '/assets/images/projet-6/Design sans titre-4.png',
+      '/assets/images/projet-6/Design sans titre-5.png',
     ],
   },
 ];
