@@ -386,7 +386,7 @@
         <!-- Photo Papa -->
         <div style="position:relative;flex:1;min-width:0">
           <div style="position:relative;overflow:hidden;height:360px">
-            <img src="assets/images/PapaPicture.jpeg" alt="WANSART" loading="lazy" style="width:100%;height:100%;display:block;object-fit:cover;object-position:center top;filter:contrast(1.04) saturate(0.92)">
+            <img src="assets/images/PapaPicture.jpeg" alt="WANSART" fetchpriority="high" style="width:100%;height:100%;display:block;object-fit:cover;object-position:center top;filter:contrast(1.04) saturate(0.92)">
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(116,55,32,0.55) 0%,transparent 45%);pointer-events:none"></div>
             <div style="position:absolute;inset:0;background:rgba(177,220,237,0.06);mix-blend-mode:multiply;pointer-events:none"></div>
             <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1rem">
@@ -568,8 +568,8 @@
           <div style="padding:1.25rem 1.25rem 1.5rem;display:flex;flex-direction:column;flex:1;min-height:0">
             ${(p.logoClient || (p.logosPartenaires && p.logosPartenaires.length)) ? `
             <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.85rem;flex-wrap:wrap;flex-shrink:0;min-height:22px">
-              ${p.logoClient ? `<img src="${p.logoClient}" alt="${p.client}" loading="lazy" height="18" style="height:18px;width:auto;object-fit:contain;border-radius:2px">` : ''}
-              ${(p.logosPartenaires||[]).map(l => `<img src="${l.src}" alt="${l.alt}" loading="lazy" height="14" style="height:14px;width:auto;object-fit:contain;opacity:0.7">`).join('')}
+              ${p.logoClient ? `<img src="${p.logoClient}" alt="${p.client}" loading="lazy" width="${p.logoClientWidth||60}" height="18" style="height:18px;width:auto;object-fit:contain;border-radius:2px">` : ''}
+              ${(p.logosPartenaires||[]).map(l => `<img src="${l.src}" alt="${l.alt}" loading="lazy" width="${l.width||14}" height="14" style="height:14px;width:auto;object-fit:contain;opacity:0.7">`).join('')}
             </div>` : ''}
             <div style="font-family:'Roboto Slab',serif;font-size:1rem;font-weight:700;color:white;letter-spacing:-0.02em;line-height:1.3;margin-bottom:0.5rem;flex-shrink:0">${p.titre}</div>
             <div style="font-size:0.75rem;color:#B2CBD4;line-height:1.6;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1">${p.accroche}</div>
@@ -877,12 +877,6 @@
 <!-- FOOTER -->
 <footer style="background:#0B1C22;padding:2.25rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
   <div style="display:flex;align-items:center;gap:0.75rem">
-    <svg viewBox="372 215 345 308" style="height:22px;width:auto;opacity:0.3" aria-hidden="true">
-      <g transform="matrix(1,0,0,1,374,222)" fill="white">
-        <path d="M201.505,4.928C234.502,4.61 267.5,4.455C280.5,4.574C292.246,7.368C290.509,8.519C286.502,9.51C282.505,10.516C279.603,11.697C277.703,12.804C276.597,13.63C274.885,14.938C273.464,16.467C269.415,22.459C265.233,35.447C264,47.208 264.825,50.423C269.361,63.547C275.225,80.592C281.328,98.56C288.329,119.562C299.286,152.575C303.254,164.594C309.196,182.621C312.474,192.508C316.858,205.396C317.204,223.426C310.253,251.435C305.718,267.562C301.607,281.532C295.465,291.558C292.432,285.529C286.484,269.506C259.805,193.386C247.863,159.373C221.908,86.352C211.952,58.336C201.292,29.665C192.432,18.564C182.491,10.52C171.491,9.646C168.142,7.435C172.507,5.634C201.505,4.928Z"/>
-        <path d="M123.498,6.538C126.063,6.932C124.787,11.818C119.358,16.334C111.291,25.359C107.217,34.434C105.517,41.37 107.174,55.589C115.176,82.617C121.307,100.574C132.783,133.402C159.392,210.527C154.652,233.541C138.981,284.637C134.52,291.276C131.409,287.538C88.184,159.613C77.746,128.417C52.943,55.353C48.643,42.448C43.699,35.307C27.564,21.416C7.533,11.389C4.647,8.505C7.496,6.453C92.5,6.435C123.498,6.538Z"/>
-      </g>
-    </svg>
     <span style="font-family:'Monda',sans-serif;font-size:0.7rem;color:white;opacity:0.5;letter-spacing:0.1em;text-transform:uppercase">Wander-IT © 2026</span>
   </div>
   <p style="font-size:0.7rem;color:white;opacity:0.5;font-family:'Monda',sans-serif">WANSART Alex — Solutions Digitales</p>

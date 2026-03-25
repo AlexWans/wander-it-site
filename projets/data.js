@@ -27,9 +27,10 @@ window.PROJETS = [
     contexte:  "Jost reçoit chaque jour une cinquantaine d'emails entrants dans une boîte Outlook dédiée à la comptabilité fournisseurs. Ces mails transportent des factures et des CMR en pièce jointe, qui devaient jusqu'alors être ouverts, identifiés, lus et saisis manuellement dans leur ERP Odoo — une tâche répétitive représentant 1h30 à 2h de travail quotidien.<br><br>Wander-IT a conçu et déployé un pipeline complet : dès l'arrivée d'un mail, le système analyse la pièce jointe, évalue via un score de confiance s'il s'agit d'une facture ou d'un CMR, OCRise le document pour en extraire les données clés, puis appelle directement l'API Odoo. Lorsque le score est insuffisant, le mail est laissé non lu et flagué pour traitement manuel — moins de 2% des cas.<br><br>Un dashboard dédié permet au client de suivre chaque run en temps réel : mails traités, succès, erreurs et CMR renvoyés — pour un contrôle total à tout moment.",
 
     logoClient:  '/assets/images/projet-1/logo-jost.jpg',
+    logoClientWidth: 26,
     logosPartenaires: [
-      { src: '/assets/images/projet-1/Microsoft_Outlook_Icon_(2025\u2013present).svg.png', alt: 'Outlook' },
-      { src: '/assets/images/projet-1/Odoo_Official_Logo.png', alt: 'Odoo' },
+      { src: '/assets/images/projet-1/Microsoft_Outlook_Icon_(2025\u2013present).svg.png', alt: 'Outlook', width: 15 },
+      { src: '/assets/images/projet-1/Odoo_Official_Logo.png', alt: 'Odoo', width: 44 },
     ],
 
     chiffreCle: { valeur: '~40h', label: 'récupérées<br>chaque mois' },
@@ -75,6 +76,7 @@ window.PROJETS = [
     contexte:  "HCB Solar exploite des fermes solaires de grande envergure en Australie, dont certaines dépassent les 800 hectares. Sur ces installations, des dizaines de milliers de pieux structurels supportent les trackers solaires — et leur alignement doit respecter des tolérances millimétriques imposées par les normes du secteur.<br><br>Avec 70 000 pieux à contrôler par projet, le service qualité ne pouvait pas s'appuyer sur des outils génériques : il fallait une solution pensée pour leur réalité. Wander-IT a conçu et développé une application web 100% sur mesure : à partir d'un simple fichier CSV contenant les coordonnées X/Y/Z de chaque pieu, l'application calcule automatiquement l'alignement, vérifie chaque condition de tolérance et génère un schéma visuel interactif permettant d'identifier en un coup d'œil les zones hors-tolérance.<br><br>Lorsqu'un problème est détecté, l'application propose plusieurs scénarios de correction — couper tel pieu de X mm, ajuster tel autre de Y mm — et permet d'exporter l'ensemble des résultats en CSV pour un traitement dans Excel, Google Sheets ou tout autre outil métier. L'application est hébergée en ligne, accessible par le client, et maintenue à distance par Wander-IT.",
 
     logoClient:  '/assets/images/projet-2/logo-hcb-white.svg',
+    logoClientWidth: 60,
     logosPartenaires: [],
 
     chiffreCle: {
@@ -119,8 +121,9 @@ window.PROJETS = [
     contexte:  "Sur les chantiers de fermes solaires de grande envergure, le suivi des travaux poste par poste représente un défi logistique majeur. Chaque projet peut compter des dizaines de milliers de pieux à traiter, répartis sur des centaines d'hectares. Sans outil adapté, les employés perdent un temps précieux à se repérer, les données remontent avec du retard, et le gestionnaire de projet navigue à l'aveugle.<br><br>Wander-IT a développé une application mobile sur Google AppSheet, pensée pour une utilisation chantier sur smartphone ou tablette. Grâce à la géolocalisation intégrée, le travailleur est guidé directement vers le pieu qui nécessite une intervention. Il consulte les informations du pieu, réalise son travail, et encode le résultat en temps réel — en quelques secondes, sans paperasse.<br><br>Toutes les données remontent automatiquement dans Google Sheets, offrant au gestionnaire de projet une visibilité live sur l'avancement, la productivité de chaque équipe et les écarts par rapport aux objectifs. Un support sérieux et structuré, directement présentable au client final.<br><br>L'application fonctionne en mode hors-ligne — indispensable sur des chantiers isolés — et intègre des fonctionnalités avancées comme le scan de QR code et l'enregistrement de position GPS.",
 
     logoClient:  '/assets/images/projet-2/logo-hcb-white.svg',
+    logoClientWidth: 60,
     logosPartenaires: [
-      { src: '/assets/images/projet-3/AppSheet Logo.png', alt: 'AppSheet' },
+      { src: '/assets/images/projet-3/AppSheet Logo.png', alt: 'AppSheet', width: 58 },
     ],
 
     chiffreCle: {
