@@ -285,7 +285,7 @@
   </a>
   <div id="nav-links" style="display:flex;align-items:center;gap:2.5rem">
     <a href="realisations.html" class="nl">Réalisations</a>
-    <a href="#services" class="nl">Services</a>
+    <a href="services.html" class="nl">Services</a>
     <a href="a-propos.html" class="nl">À propos</a>
     <a href="#contact" class="nl">Contact</a>
   </div>
@@ -297,7 +297,7 @@
 <!-- MENU MOBILE -->
 <div id="mobile-menu" aria-hidden="true">
   <a href="realisations.html" class="mob-link">Réalisations</a>
-  <a href="#services" class="mob-link" onclick="closeMenu()">Services</a>
+  <a href="services.html" class="mob-link" onclick="closeMenu()">Services</a>
   <a href="a-propos.html" class="mob-link">À propos</a>
   <a href="#contact" class="mob-link" onclick="closeMenu()">Contact</a>
   <a href="#contact" class="mob-cta" onclick="closeMenu()">
@@ -308,7 +308,7 @@
 
 
 <!-- HERO -->
-<section style="min-height:100vh;padding:130px 3rem 80px;position:relative;overflow:hidden;display:flex;align-items:center">
+<section style="min-height:0;padding:72px 3rem 24px;position:relative;overflow:hidden;display:flex;align-items:center">
   <!-- Tiles background -->
   <div id="tiles-bg" style="position:absolute;inset:0;overflow:hidden;z-index:0;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%)"></div>
   <div style="position:absolute;top:-15%;right:-8%;width:700px;height:700px;background:radial-gradient(circle,rgba(177,220,237,0.38) 0%,transparent 65%);pointer-events:none;z-index:1"></div>
@@ -322,35 +322,18 @@
 
       <h1 class="hero-h au d2" style="color:#0B1C22;margin-bottom:0.05em">Votre<br>expertise,</h1>
       <h1 class="hero-h au d3" style="color:#6B3020;margin-top:0;margin-bottom:0.65rem">nos outils.</h1>
-      <p class="au d3" style="font-family:'Roboto Slab',serif;font-size:clamp(1.1rem,2.2vw,1.45rem);font-weight:300;color:#004258;letter-spacing:-0.01em;line-height:1.35;margin-bottom:1.75rem">
+      <p class="au d3" style="font-family:'Roboto Slab',serif;font-size:clamp(1.1rem,2.2vw,1.45rem);font-weight:300;color:#004258;letter-spacing:-0.01em;line-height:1.35;margin-bottom:1rem">
         Une longueur d'avance.
       </p>
-      <p class="au d4" style="font-size:0.9rem;color:#4d6870;max-width:420px;line-height:1.9;margin-bottom:2.5rem">
-        Nous accompagnons les indépendants, PME et entreprises dans leur transformation digitale — de l'automatisation des processus au développement sur-mesure.
+      <p class="au d4" style="font-size:0.9rem;color:#4d6870;max-width:420px;line-height:1.9;margin-bottom:1.5rem">
+        Nous automatisons vos tâches, développons vos outils et intégrons l'IA — pour que votre équipe se concentre sur ce qui compte vraiment.
       </p>
-      <div class="au d4" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:3rem">
+      <div class="au d4" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:0">
         <a href="#contact" class="btn-p">
           Nous contacter
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#services" class="btn-s">Voir les services</a>
-      </div>
-      <!-- Stats -->
-      <div class="au d5" style="display:flex;align-items:center;gap:1.5rem">
-        <div>
-          <p style="font-family:'Roboto Slab',serif;font-size:1.65rem;font-weight:700;letter-spacing:-0.04em;color:#0B1C22;line-height:1">4</p>
-          <p class="lbl" style="color:#9ab4bc;font-size:0.62rem;margin-top:0.2rem">Expertises</p>
-        </div>
-        <div style="width:1px;height:2rem;background:rgba(11,28,34,0.12)"></div>
-        <div>
-          <p style="font-family:'Roboto Slab',serif;font-size:1.65rem;font-weight:700;letter-spacing:-0.04em;color:#0B1C22;line-height:1">100%</p>
-          <p class="lbl" style="color:#9ab4bc;font-size:0.62rem;margin-top:0.2rem">Sur-mesure</p>
-        </div>
-        <div style="width:1px;height:2rem;background:rgba(11,28,34,0.12)"></div>
-        <div>
-          <p style="font-family:'Roboto Slab',serif;font-size:1.65rem;font-weight:700;letter-spacing:-0.04em;color:#0B1C22;line-height:1">24h</p>
-          <p class="lbl" style="color:#9ab4bc;font-size:0.62rem;margin-top:0.2rem">Réponse</p>
-        </div>
+        <a href="services.html" class="btn-s">Voir les services</a>
       </div>
     </div>
 
@@ -451,7 +434,7 @@
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem">
 
-      <div class="sc reveal" style="--sc-accent:rgba(177,220,237,0.55)">
+      <a href="services.html#automatisation" class="sc reveal" style="--sc-accent:rgba(177,220,237,0.55);text-decoration:none;display:block;cursor:pointer">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem">
           <div style="width:2.5rem;height:2.5rem;background:rgba(177,220,237,0.1);border-radius:0.6rem;display:flex;align-items:center;justify-content:center">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B1DCED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
@@ -459,10 +442,11 @@
           <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;color:#B1DCED;opacity:0.22;letter-spacing:0.1em">01</span>
         </div>
         <h3 style="font-size:1.1rem;font-weight:700;color:white;margin-bottom:0.65rem;letter-spacing:-0.02em">Automatisation</h3>
-        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0">Automatisez les tâches répétitives et connectez vos outils — gestion de boîte mail, devis automatiques, publications marketing et plus.</p>
-      </div>
+        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0 0 1.25rem">Automatisez les tâches répétitives et connectez vos outils — gestion de boîte mail, devis automatiques, publications marketing et plus.</p>
+        <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#B1DCED;opacity:0.5;display:flex;align-items:center;gap:0.35rem">En savoir plus <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
 
-      <div class="sc reveal" style="--sc-accent:rgba(212,152,122,0.65)">
+      <a href="services.html#developpement" class="sc reveal" style="--sc-accent:rgba(212,152,122,0.65);text-decoration:none;display:block;cursor:pointer">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem">
           <div style="width:2.5rem;height:2.5rem;background:rgba(116,55,32,0.2);border-radius:0.6rem;display:flex;align-items:center;justify-content:center">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d4987a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
@@ -470,10 +454,11 @@
           <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;color:#6B3020;opacity:0.22;letter-spacing:0.1em">02</span>
         </div>
         <h3 style="font-size:1.1rem;font-weight:700;color:white;margin-bottom:0.65rem;letter-spacing:-0.02em">Développement d'outils</h3>
-        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0">Applications web et mobiles sur-mesure, pensées pour vos utilisateurs et construites pour durer.</p>
-      </div>
+        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0 0 1.25rem">Applications web et mobiles sur-mesure, pensées pour vos utilisateurs et construites pour durer.</p>
+        <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#d4987a;opacity:0.6;display:flex;align-items:center;gap:0.35rem">En savoir plus <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
 
-      <div class="sc reveal" style="--sc-accent:rgba(177,220,237,0.35)">
+      <a href="services.html#intelligence-artificielle" class="sc reveal" style="--sc-accent:rgba(177,220,237,0.35);text-decoration:none;display:block;cursor:pointer">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem">
           <div style="width:2.5rem;height:2.5rem;background:rgba(177,220,237,0.12);border-radius:0.6rem;display:flex;align-items:center;justify-content:center">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e0f0f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><circle cx="9" cy="14" r="1" fill="#e0f0f6"/><circle cx="15" cy="14" r="1" fill="#e0f0f6"/><path d="M9 18h6"/><path d="M12 3v2"/></svg>
@@ -481,10 +466,11 @@
           <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;color:#B1DCED;opacity:0.22;letter-spacing:0.1em">03</span>
         </div>
         <h3 style="font-size:1.1rem;font-weight:700;color:white;margin-bottom:0.65rem;letter-spacing:-0.02em">Intégration IA</h3>
-        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0">Intégrez des modèles d'IA directement dans vos systèmes — chatbots, analyse de contenu, génération automatisée et plus.</p>
-      </div>
+        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0 0 1.25rem">Intégrez des modèles d'IA directement dans vos systèmes — chatbots, analyse de contenu, génération automatisée et plus.</p>
+        <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#B1DCED;opacity:0.5;display:flex;align-items:center;gap:0.35rem">En savoir plus <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
 
-      <div class="sc reveal" style="--sc-accent:rgba(212,152,122,0.45)">
+      <a href="services.html#design-web" class="sc reveal" style="--sc-accent:rgba(212,152,122,0.45);text-decoration:none;display:block;cursor:pointer">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem">
           <div style="width:2.5rem;height:2.5rem;background:rgba(116,55,32,0.2);border-radius:0.6rem;display:flex;align-items:center;justify-content:center">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e8b89a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
@@ -492,8 +478,9 @@
           <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;color:#6B3020;opacity:0.22;letter-spacing:0.1em">04</span>
         </div>
         <h3 style="font-size:1.1rem;font-weight:700;color:white;margin-bottom:0.65rem;letter-spacing:-0.02em">Design Web</h3>
-        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0">Sites qui inspirent confiance et convertissent. Design épuré, identité forte, impact immédiat.</p>
-      </div>
+        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0 0 1.25rem">Sites qui inspirent confiance et convertissent. Design épuré, identité forte, impact immédiat.</p>
+        <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#e8b89a;opacity:0.6;display:flex;align-items:center;gap:0.35rem">En savoir plus <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
 
     </div>
   </div>
