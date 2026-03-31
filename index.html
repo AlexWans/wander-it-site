@@ -308,7 +308,7 @@
 
 
 <!-- HERO -->
-<section style="min-height:0;padding:72px 3rem 24px;position:relative;overflow:hidden;display:flex;align-items:center">
+<section style="min-height:calc(100vh - 120px);padding:90px 3rem 2rem;position:relative;overflow:hidden;display:flex;align-items:center">
   <!-- Tiles background -->
   <div id="tiles-bg" style="position:absolute;inset:0;overflow:hidden;z-index:0;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%)"></div>
   <div style="position:absolute;top:-15%;right:-8%;width:700px;height:700px;background:radial-gradient(circle,rgba(177,220,237,0.38) 0%,transparent 65%);pointer-events:none;z-index:1"></div>
@@ -320,15 +320,15 @@
     <div>
       <p class="lbl au d1" style="color:#6B3020;margin-bottom:1.75rem;opacity:0.8">Solutions Digitales · Wander-IT</p>
 
-      <h1 class="hero-h au d2" style="color:#0B1C22;margin-bottom:0.05em">Votre<br>expertise,</h1>
-      <h1 class="hero-h au d3" style="color:#6B3020;margin-top:0;margin-bottom:0.65rem">nos outils.</h1>
-      <p class="au d3" style="font-family:'Roboto Slab',serif;font-size:clamp(1.1rem,2.2vw,1.45rem);font-weight:300;color:#004258;letter-spacing:-0.01em;line-height:1.35;margin-bottom:1rem">
+      <h1 class="au d2" style="font-family:'Roboto Slab',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:700;line-height:1.05;letter-spacing:-0.03em;color:#0B1C22;margin-bottom:0.05em">Votre<br>expertise,</h1>
+      <h1 class="au d3" style="font-family:'Roboto Slab',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:700;line-height:1.05;letter-spacing:-0.03em;color:#6B3020;margin-top:0;margin-bottom:0.75rem">nos outils.</h1>
+      <p class="au d3" style="font-family:'Roboto Slab',serif;font-size:clamp(1.3rem,2.6vw,1.75rem);font-weight:600;color:#004258;letter-spacing:-0.02em;line-height:1.25;margin-bottom:1rem">
         Une longueur d'avance.
       </p>
-      <p class="au d4" style="font-size:0.9rem;color:#4d6870;max-width:420px;line-height:1.9;margin-bottom:1.5rem">
-        Nous automatisons vos tâches, développons vos outils et intégrons l'IA — pour que votre équipe se concentre sur ce qui compte vraiment.
+      <p class="au d4" style="font-size:1rem;color:#4d6870;max-width:420px;line-height:1.85;margin-bottom:1.5rem">
+        Nous analysons vos process, identifions ce qui peut être automatisé ou développé, et livrons des outils concrets — pour toute entreprise qui veut passer à la vitesse supérieure.
       </p>
-      <div class="au d4" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:0">
+      <div class="au d4" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:3rem">
         <a href="#contact" class="btn-p">
           Nous contacter
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -388,35 +388,72 @@
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 200% at 50% 50%,rgba(177,220,237,0.07) 0%,transparent 70%);pointer-events:none;z-index:0"></div>
   <div style="position:absolute;top:0;bottom:0;left:0;width:80px;background:linear-gradient(to right,#0B1C22,transparent);z-index:2;pointer-events:none"></div>
   <div style="position:absolute;top:0;bottom:0;right:0;width:80px;background:linear-gradient(to left,#0B1C22,transparent);z-index:2;pointer-events:none"></div>
-  <div class="ticker-track" style="position:relative;z-index:1;display:flex;align-items:center;gap:0;white-space:nowrap;width:max-content">
+  <div class="ticker-track" style="position:relative;z-index:1;width:max-content">
     <!-- set repeated twice for seamless loop -->
   </div>
 </div>
 <style>
-  .ticker-track { animation: ticker 55s linear infinite; animation-play-state: running !important; }
-  @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .ticker-track { display:flex; align-items:center; white-space:nowrap; will-change:transform; }
   .tick-item { display:inline-block; padding:0 2rem; font-family:'Monda',sans-serif; font-size:0.62rem; font-weight:700; text-transform:uppercase; letter-spacing:0.2em; color:#B1DCED; text-shadow:0 0 20px rgba(177,220,237,0.4); }
   .tick-dot { display:inline-flex; align-items:center; font-size:0.4rem; color:rgba(177,220,237,0.3); }
 </style>
 <script src="ticker-items.js"></script>
 <script>
-  (function() {
-    const items = TICKER_ITEMS;
-    const track = document.querySelector('.ticker-track');
-    // Double the list for seamless loop
-    [1, 2].forEach(() => {
-      items.forEach(text => {
-        const span = document.createElement('span');
-        span.className = 'tick-item';
-        span.innerHTML = text;
-        const dot = document.createElement('span');
-        dot.className = 'tick-dot';
-        dot.textContent = '◆';
-        track.appendChild(span);
-        track.appendChild(dot);
-      });
+(function() {
+  const track = document.querySelector('.ticker-track');
+  const speed = 0.6; // px per frame
+
+  // Build one set of items
+  function buildSet() {
+    const frag = document.createDocumentFragment();
+    TICKER_ITEMS.forEach(text => {
+      const span = document.createElement('span');
+      span.className = 'tick-item';
+      span.textContent = text;
+      const dot = document.createElement('span');
+      dot.className = 'tick-dot';
+      dot.textContent = '◆';
+      frag.appendChild(span);
+      frag.appendChild(dot);
     });
-  })();
+    return frag;
+  }
+
+  // Insert two copies so we can loop seamlessly
+  track.appendChild(buildSet());
+  track.appendChild(buildSet());
+
+  let pos = 0;
+  let halfWidth = 0;
+  let raf;
+  let lastTime = null;
+
+  function measure() {
+    // Half the total width = width of one set
+    halfWidth = track.scrollWidth / 2;
+  }
+
+  function tick(ts) {
+    if (lastTime !== null) {
+      const delta = ts - lastTime;
+      // Cap delta to avoid huge jumps after tab switch
+      pos += Math.min(delta, 32) * speed * 0.06;
+      if (pos >= halfWidth) pos -= halfWidth;
+      track.style.transform = 'translateX(-' + pos + 'px)';
+    }
+    lastTime = ts;
+    raf = requestAnimationFrame(tick);
+  }
+
+  // Wait for fonts to load before measuring, to avoid wrong width
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
+    measure();
+    raf = requestAnimationFrame(tick);
+  });
+
+  // Re-measure on resize
+  window.addEventListener('resize', measure, { passive: true });
+})();
 </script>
 
 <!-- SERVICES -->
@@ -555,149 +592,69 @@
 
   </div>
 
-  <!-- Carousel -->
-  <div style="position:relative;margin:0 -3rem">
-    <!-- Edge fades -->
-    <div style="position:absolute;top:0;bottom:0;left:0;width:80px;background:linear-gradient(to right,#0B1C22,transparent);z-index:2;pointer-events:none"></div>
-    <div style="position:absolute;top:0;bottom:0;right:0;width:80px;background:linear-gradient(to left,#0B1C22,transparent);z-index:2;pointer-events:none"></div>
-
-    <div id="porto-viewport" style="overflow-x:auto;overflow-y:hidden;padding:0.5rem 0 1rem;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-snap-type:x proximity">
-      <div id="porto-track" style="display:flex;align-items:flex-start;gap:1.25rem;padding-left:0;padding-right:3rem;cursor:grab;user-select:none;-webkit-user-select:none">
-
-        <!-- Cartes générées depuis projets/data.js -->
-
-
-      </div>
-    </div>
+  <!-- Grille projets -->
+  <div style="max-width:1240px;margin:0 auto">
+    <div id="porto-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:1.25rem;align-items:stretch"></div>
   </div>
 
   <script src="projets/data.js"></script>
   <script>
     (function() {
-      const track = document.getElementById('porto-track');
-      const spacer = document.createElement('div');
-      spacer.style.cssText = 'flex-shrink:0;width:' + Math.max(48, window.innerWidth / 2 - 596) + 'px;height:1px;pointer-events:none';
-      track.appendChild(spacer);
-      const arrow =`<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
-      PROJETS.forEach(p => {
+      const grid = document.getElementById('porto-grid');
+      const arrow = `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
+
+      PROJETS.slice(0, 4).forEach(p => {
         const a = document.createElement('a');
-        a.href      = 'projets/projet.html?id=' + p.id;
+        a.href = 'projets/projet.html?id=' + p.id;
         a.className = 'porto-card';
-        a.style.cssText = 'flex:0 0 280px;width:280px;height:420px;border-radius:1rem;text-decoration:none;display:flex;flex-direction:column;background:linear-gradient(160deg,#1a3240 0%,#112230 60%,#0e1e2a 100%);border:1px solid rgba(177,220,237,0.13);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.35),0 1px 0 rgba(177,220,237,0.06) inset;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease,border-color 0.3s';
+        a.style.cssText = 'border-radius:1rem;text-decoration:none;display:flex;flex-direction:column;background:linear-gradient(160deg,#1a3240 0%,#112230 60%,#0e1e2a 100%);border:1px solid rgba(177,220,237,0.13);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.35),0 1px 0 rgba(177,220,237,0.06) inset;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease,border-color 0.3s';
         a.innerHTML = `
-          <div style="position:relative;overflow:hidden;height:187px;flex-shrink:0">
-            <img src="${p.imageCard}" alt="${p.titre}" loading="lazy" width="280" height="187" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease">
-            <span style="position:absolute;top:1rem;left:1rem;font-family:'Monda',sans-serif;font-size:0.58rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:${p.tagColor};background:${p.tagBg};padding:0.28rem 0.65rem;backdrop-filter:blur(4px);border-radius:9999px;z-index:2">${p.categorieLabel}</span>
+          <div style="position:relative;overflow:hidden;height:160px;flex-shrink:0">
+            <img src="${p.imageCard}" alt="${p.titre}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease">
+            <span style="position:absolute;top:0.75rem;left:0.75rem;font-family:'Monda',sans-serif;font-size:0.56rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:${p.tagColor};background:${p.tagBg};padding:0.25rem 0.55rem;backdrop-filter:blur(4px);border-radius:9999px;z-index:2">${p.categorieLabel}</span>
           </div>
-          <div style="padding:1.25rem 1.25rem 1.5rem;display:flex;flex-direction:column;flex:1;min-height:0">
+          <div style="padding:1rem 1rem 1.25rem;display:flex;flex-direction:column;flex:1;min-height:0">
             ${(p.logoClient || (p.logosPartenaires && p.logosPartenaires.length)) ? `
-            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.85rem;flex-wrap:wrap;flex-shrink:0;min-height:22px">
-              ${p.logoClient ? `<img src="${p.logoClient}" alt="${p.client}" loading="lazy" width="${p.logoClientWidth||60}" height="18" style="height:18px;width:auto;object-fit:contain;border-radius:2px">` : ''}
-              ${(p.logosPartenaires||[]).map(l => `<img src="${l.src}" alt="${l.alt}" loading="lazy" width="${l.width||14}" height="14" style="height:14px;width:auto;object-fit:contain;opacity:0.7">`).join('')}
+            <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.7rem;flex-wrap:wrap;flex-shrink:0;min-height:18px">
+              ${p.logoClient ? `<img src="${p.logoClient}" alt="${p.client}" loading="lazy" width="${p.logoClientWidth||60}" height="16" style="height:16px;width:auto;object-fit:contain;border-radius:2px">` : ''}
+              ${(p.logosPartenaires||[]).map(l => `<img src="${l.src}" alt="${l.alt}" loading="lazy" width="${l.width||14}" height="13" style="height:13px;width:auto;object-fit:contain;opacity:0.7">`).join('')}
             </div>` : ''}
-            <div style="font-family:'Roboto Slab',serif;font-size:1rem;font-weight:700;color:white;letter-spacing:-0.02em;line-height:1.3;margin-bottom:0.5rem;flex-shrink:0">${p.titre}</div>
-            <div style="font-size:0.75rem;color:#B2CBD4;line-height:1.6;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1">${p.accroche}</div>
-            <span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.68rem;font-weight:700;color:#6B3020;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em;flex-shrink:0">Voir le projet ${arrow}</span>
+            <div style="font-family:'Roboto Slab',serif;font-size:0.9rem;font-weight:700;color:white;letter-spacing:-0.02em;line-height:1.3;margin-bottom:0.4rem;flex-shrink:0">${p.titre}</div>
+            <div style="font-size:0.72rem;color:#B2CBD4;line-height:1.55;margin-bottom:0.75rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1">${p.accroche}</div>
+            <span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.65rem;font-weight:700;color:#6B3020;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em;flex-shrink:0">Voir le projet ${arrow}</span>
           </div>`;
-        track.appendChild(a);
+        grid.appendChild(a);
       });
+
+      // CTA card
+      const cta = document.createElement('a');
+      cta.href = 'realisations.html';
+      cta.className = 'porto-card porto-cta';
+      cta.style.cssText = 'border-radius:1rem;text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(107,48,32,0.12);border:1px dashed rgba(107,48,32,0.4);overflow:hidden;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease,border-color 0.3s,background 0.3s;min-height:260px';
+      cta.innerHTML = `
+        <div style="text-align:center;padding:2rem 1.5rem">
+          <div style="width:56px;height:56px;border-radius:50%;background:rgba(107,48,32,0.18);border:1px solid rgba(107,48,32,0.35);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-family:'Roboto Slab',serif;font-size:1.5rem;color:#6B3020;font-weight:700">+</div>
+          <div style="font-family:'Roboto Slab',serif;font-size:1rem;font-weight:700;color:white;margin-bottom:0.5rem;line-height:1.3">Voir toutes<br>nos réalisations</div>
+          <div style="font-family:'Monda',sans-serif;font-size:0.65rem;color:#B2CBD4;opacity:0.7">${PROJETS.length} projets au total</div>
+        </div>`;
+      grid.appendChild(cta);
     })();
   </script>
-
-  <!-- Scroll hint -->
-  <div id="scroll-hint" class="scroll-hint" style="padding-left:3rem">
-    <div class="scroll-hint-bar"><div class="scroll-hint-dot"></div></div>
-    <span class="scroll-hint-label">Glisser pour explorer</span>
-  </div>
 </section>
 
 <style>
-  .porto-card:hover { transform: scale(1.025) !important; box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(177,220,237,0.2) !important; border-color: rgba(177,220,237,0.28) !important; }
+  .porto-card:hover { transform: translateY(-4px) scale(1.02) !important; box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(177,220,237,0.2) !important; border-color: rgba(177,220,237,0.28) !important; }
   .porto-card:hover img { transform: scale(1.04) !important; opacity: 0.88 !important; }
-  #porto-track.dragging { cursor: grabbing !important; }
-  #porto-track.dragging .porto-card { pointer-events: none; }
-  .porto-card { scroll-snap-align: start; }
-  #porto-viewport::-webkit-scrollbar { display: none; }
-
-
-  @media (max-width: 768px) {
-    .porto-card {
-      scroll-snap-align: start !important;
-    }
-    #porto-viewport {
-      scroll-snap-type: x mandatory !important;
-      scroll-padding-left: calc(50% - 140px) !important;
-    }
-    #porto-track {
-      padding-left: calc(50% - 140px) !important;
-      padding-right: calc(50% - 140px) !important;
-    }
+  .porto-cta:hover { background: rgba(107,48,32,0.22) !important; border-color: rgba(107,48,32,0.7) !important; }
+  @media (max-width: 900px) {
+    #porto-grid { grid-template-columns: repeat(2,1fr) !important; }
+    .porto-cta { grid-column: 1 / span 2; min-height: 160px !important; }
   }
-
-  /* Scroll hint */
-  .scroll-hint { display:flex; align-items:center; justify-content:center; gap:0.75rem; padding:1.25rem 0 0.5rem; opacity:0.45; }
-  .scroll-hint-bar { width:64px; height:3px; background:rgba(177,220,237,0.15); border-radius:9999px; overflow:hidden; position:relative; }
-  .scroll-hint-dot { position:absolute; top:0; left:0; width:22px; height:100%; background:#6B3020; border-radius:9999px; animation: slideHint 1.6s cubic-bezier(0.4,0,0.2,1) infinite; }
-  @keyframes slideHint { 0%{transform:translateX(0)} 50%{transform:translateX(42px)} 100%{transform:translateX(0)} }
-  .scroll-hint-label { font-family:'Monda',sans-serif; font-size:0.6rem; font-weight:700; text-transform:uppercase; letter-spacing:0.16em; color:#B2CBD4; }
+  @media (max-width: 600px) {
+    #porto-grid { grid-template-columns: 1fr !important; }
+    .porto-cta { grid-column: 1; }
+  }
 </style>
-<script>
-  (function() {
-    const track = document.getElementById('porto-track');
-    const vp    = document.getElementById('porto-viewport');
-    let isDown = false, startX = 0, startSL = 0, velX = 0, lastX = 0, rafId, downTarget = null;
-
-    track.addEventListener('mousedown', e => {
-      isDown = true;
-      startX = e.clientX;
-      startSL = vp.scrollLeft;
-      lastX = e.clientX;
-      downTarget = e.target;
-      cancelAnimationFrame(rafId);
-      track.classList.add('dragging');
-    });
-    document.addEventListener('mouseup', e => {
-      if (!isDown) return;
-      isDown = false;
-      track.classList.remove('dragging');
-      const wasDrag = Math.abs(e.clientX - startX) > 6;
-      if (!wasDrag) {
-        const card = downTarget && downTarget.closest('.porto-card');
-        if (card) window.location.href = card.href;
-      } else {
-        let v = -velX * 1.4;
-        (function glide() { vp.scrollLeft += v; v *= 0.91; if (Math.abs(v) > 0.5) rafId = requestAnimationFrame(glide); })();
-      }
-      downTarget = null;
-    });
-    document.addEventListener('mousemove', e => {
-      velX = e.clientX - lastX; lastX = e.clientX;
-      if (!isDown) return;
-      e.preventDefault();
-      vp.scrollLeft = startSL - (e.clientX - startX);
-    });
-    track.addEventListener('click', e => { if (e.target.closest('.porto-card')) e.preventDefault(); });
-
-    // Align first card with content container on desktop
-    function updateTrackPadding() {
-      if (window.innerWidth > 768) {
-        const pl = Math.max(48, window.innerWidth / 2 - 596);
-        track.style.paddingLeft = pl + 'px';
-      }
-    }
-    updateTrackPadding();
-    window.addEventListener('resize', updateTrackPadding);
-
-    // Touch: native scroll handles it (overflow-x:auto + -webkit-overflow-scrolling:touch)
-
-    // Hide hint after first interaction
-    const hint = document.getElementById('scroll-hint');
-    function hideHint() { if(hint){ hint.style.opacity='0'; hint.style.transition='opacity 0.4s'; setTimeout(()=>hint.style.display='none',400); } }
-    vp.addEventListener('scroll', hideHint, { once: true });
-    track.addEventListener('mousedown', hideHint, { once: true });
-  })();
-</script>
-
 
 
 <!-- CONTACT -->
