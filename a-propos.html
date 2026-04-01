@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-i18n-title="title.about">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,6 +70,12 @@
     body.menu-open .bl:nth-child(2) { opacity:0; }
     body.menu-open .bl:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
 
+    .lang-switch { display:flex; align-items:center; gap:0.4rem; margin-left:1.2rem; }
+    .lang-btn { background:none; border:none; cursor:pointer; font-family:'Monda',sans-serif; font-size:0.64rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:#B2CBD4; padding:0.2rem 0.1rem; transition:color 0.2s ease; }
+    .lang-btn:hover { color:#F5F3EF; }
+    .lang-btn.active { color:#F5F3EF; }
+    .lang-btn:focus-visible { outline:2px solid #6B3020; outline-offset:2px; }
+
     @media (max-width: 768px) {
       #nav-links { display:none !important; }
       #nav-burger { display:flex !important; }
@@ -97,10 +103,17 @@
     <span style="font-family:'Monda',sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;color:#F5F3EF">Wander-IT</span>
   </a>
   <div id="nav-links" style="display:flex;align-items:center;gap:2.5rem">
-    <a href="realisations.html" class="nl">Réalisations</a>
-    <a href="services.html" class="nl">Services</a>
-    <a href="a-propos.html" class="nl active">À propos</a>
+    <a href="realisations.html" class="nl" data-i18n="nav.realisations">Réalisations</a>
+    <a href="services.html" class="nl" data-i18n="nav.services">Services</a>
+    <a href="a-propos.html" class="nl active" data-i18n="nav.about">À propos</a>
     <a href="index.html#contact" class="nl">Contact</a>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">FR</button>
+      <span style="color:#B2CBD4;opacity:0.35">|</span>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      <span style="color:#B2CBD4;opacity:0.35">|</span>
+      <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+    </div>
   </div>
   <button id="nav-burger" onclick="toggleMenu()" aria-label="Ouvrir le menu" aria-expanded="false">
     <span class="bl"></span><span class="bl"></span><span class="bl"></span>
@@ -109,14 +122,21 @@
 
 <!-- MENU MOBILE -->
 <div id="mobile-menu" aria-hidden="true">
-  <a href="realisations.html" class="mob-link">Réalisations</a>
-  <a href="services.html" class="mob-link">Services</a>
-  <a href="a-propos.html" class="mob-link">À propos</a>
+  <a href="realisations.html" class="mob-link" data-i18n="nav.realisations">Réalisations</a>
+  <a href="services.html" class="mob-link" data-i18n="nav.services">Services</a>
+  <a href="a-propos.html" class="mob-link" data-i18n="nav.about">À propos</a>
   <a href="index.html#contact" class="mob-link">Contact</a>
   <a href="index.html#contact" class="mob-cta">
-    Nous contacter
+    <span data-i18n="nav.contact">Nous contacter</span>
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
   </a>
+  <div class="lang-switch" style="margin-left:0;margin-top:0.5rem">
+    <button class="lang-btn active" data-lang="fr" onclick="setLang('fr');closeMenu()">FR</button>
+    <span style="color:#B2CBD4;opacity:0.35">|</span>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMenu()">EN</button>
+    <span style="color:#B2CBD4;opacity:0.35">|</span>
+    <button class="lang-btn" data-lang="de" onclick="setLang('de');closeMenu()">DE</button>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -126,8 +146,8 @@
 
   <div style="max-width:1240px;margin:0 auto">
     <div class="reveal">
-      <p class="lbl" style="color:#B1DCED;opacity:0.45;margin-bottom:1rem">Qui sommes-nous</p>
-      <h1 style="font-family:'Roboto Slab',serif;font-size:clamp(2.5rem,6vw,4rem);font-weight:700;line-height:1.1;letter-spacing:-0.03em;color:#F5F3EF;margin-bottom:2rem">
+      <p class="lbl" data-i18n="about.eyebrow" style="color:#B1DCED;opacity:0.45;margin-bottom:1rem">Qui sommes-nous</p>
+      <h1 data-i18n-html="about.title.html" style="font-family:'Roboto Slab',serif;font-size:clamp(2.5rem,6vw,4rem);font-weight:700;line-height:1.1;letter-spacing:-0.03em;color:#F5F3EF;margin-bottom:2rem">
         À propos de<br><span style="color:#6B3020">Wander-IT</span>
       </h1>
     </div>
@@ -139,8 +159,8 @@
   <div style="max-width:1240px;margin:0 auto">
 
     <div class="reveal" style="margin-bottom:5rem;text-align:center">
-      <p class="lbl" style="color:#6B3020;opacity:0.7;margin-bottom:0.75rem">L'équipe</p>
-      <h2 style="font-family:'Roboto Slab',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:#0B1C22;line-height:1.15;letter-spacing:-0.025em">
+      <p class="lbl" data-i18n="about.team" style="color:#6B3020;opacity:0.7;margin-bottom:0.75rem">L'équipe</p>
+      <h2 data-i18n="about.h2" style="font-family:'Roboto Slab',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:#0B1C22;line-height:1.15;letter-spacing:-0.025em">
         Qui sommes-nous ?
       </h2>
     </div>
@@ -157,11 +177,11 @@
       </div>
       <div>
         <h3 style="font-family:'Roboto Slab',serif;font-size:1.75rem;font-weight:700;color:#0B1C22;letter-spacing:-0.02em;margin-bottom:0.3rem">André Wansart</h3>
-        <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#6B3020;opacity:0.75;margin-bottom:1.5rem">Co-fondateur · Stratégie & Expertise Métier</p>
-        <p style="font-size:0.9rem;color:#4d6870;line-height:1.95;margin-bottom:1.1rem">
+        <p data-i18n="andre.role" style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#6B3020;opacity:0.75;margin-bottom:1.5rem">Co-fondateur · Stratégie & Expertise Métier</p>
+        <p data-i18n="andre.bio1" style="font-size:0.9rem;color:#4d6870;line-height:1.95;margin-bottom:1.1rem">
           Fort de plus de 30 ans d'expérience en tant que Directeur IT, André incarne la rigueur, le pragmatisme et le souci du détail. Sa carrière lui a forgé une compréhension profonde des enjeux métier et des réalités terrain que la technologie doit servir — pas l'inverse.
         </p>
-        <p style="font-size:0.9rem;color:#4d6870;line-height:1.95">
+        <p data-i18n="andre.bio2" style="font-size:0.9rem;color:#4d6870;line-height:1.95">
           Chez Wander-IT, il apporte cette vision stratégique à chaque projet : s'assurer que chaque solution est non seulement techniquement solide, mais qu'elle répond à un vrai besoin et crée une valeur mesurable et durable.
         </p>
       </div>
@@ -171,11 +191,11 @@
     <div class="reveal team-row" style="display:grid;grid-template-columns:8fr 2fr;gap:4rem;align-items:center">
       <div>
         <h3 style="font-family:'Roboto Slab',serif;font-size:1.75rem;font-weight:700;color:#0B1C22;letter-spacing:-0.02em;margin-bottom:0.3rem">Alex Wansart</h3>
-        <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#6B3020;opacity:0.75;margin-bottom:1.5rem">Co-fondateur · Développement & Innovation</p>
-        <p style="font-size:0.9rem;color:#4d6870;line-height:1.95;margin-bottom:1.1rem">
+        <p data-i18n="alex.role" style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#6B3020;opacity:0.75;margin-bottom:1.5rem">Co-fondateur · Développement & Innovation</p>
+        <p data-i18n="alex.bio1" style="font-size:0.9rem;color:#4d6870;line-height:1.95;margin-bottom:1.1rem">
           Ingénieur industriel de formation et polyvalent par nature, Alex est sur tous les fronts technologiques. L'intelligence artificielle ne lui fait pas peur — bien au contraire, il sait précisément comment l'intégrer aux projets de façon intelligente et mesurée, là où elle apporte une vraie valeur.
         </p>
-        <p style="font-size:0.9rem;color:#4d6870;line-height:1.95">
+        <p data-i18n="alex.bio2" style="font-size:0.9rem;color:#4d6870;line-height:1.95">
           C'est 5 ans comme project manager dans le photovoltaïque, en Belgique et en Australie, qui l'ont poussé à développer ses premiers outils de gestion de chantier. Il connaît le terrain, il en a la soif d'apprendre — et il transforme cette expérience en solutions concrètes pour ses clients.
         </p>
       </div>
@@ -197,17 +217,17 @@
   <div class="ap-grid" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center">
 
     <div class="reveal">
-      <p class="lbl" style="color:#6B3020;opacity:0.7;margin-bottom:1rem">La société</p>
-      <h2 style="font-family:'Roboto Slab',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;color:#0B1C22;line-height:1.2;letter-spacing:-0.025em;margin-bottom:1.75rem">
+      <p class="lbl" data-i18n="company.eyebrow" style="color:#6B3020;opacity:0.7;margin-bottom:1rem">La société</p>
+      <h2 data-i18n="company.title" style="font-family:'Roboto Slab',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;color:#0B1C22;line-height:1.2;letter-spacing:-0.025em;margin-bottom:1.75rem">
         Notre mission.
       </h2>
-      <p style="font-size:0.9rem;color:#4d6870;line-height:1.9;margin-bottom:1.25rem">
+      <p data-i18n="company.bio1" style="font-size:0.9rem;color:#4d6870;line-height:1.9;margin-bottom:1.25rem">
         Dans un monde où le digital évolue à une vitesse sans précédent, beaucoup se retrouvent dépassés — non par manque de volonté, mais faute d'un accompagnement ancré dans leur réalité terrain.
       </p>
-      <p style="font-size:0.9rem;color:#4d6870;line-height:1.9;margin-bottom:1.25rem">
+      <p data-i18n="company.bio2" style="font-size:0.9rem;color:#4d6870;line-height:1.9;margin-bottom:1.25rem">
         Chez Wander-IT, nous accompagnons chaque client dans sa propre transition numérique, en partant de son expertise métier. Pas de solutions génériques : nous construisons avec vous, autour de ce que vous connaissez déjà, pour aller là où vous voulez aller.
       </p>
-      <p style="font-size:0.9rem;color:#4d6870;line-height:1.9">
+      <p data-i18n="company.bio3" style="font-size:0.9rem;color:#4d6870;line-height:1.9">
         Notre engagement : rendre la modernité digitale accessible, concrète et durable — quel que soit votre secteur, votre taille ou votre point de départ.
       </p>
     </div>
@@ -218,7 +238,7 @@
         <div style="background:#0B1C22;border-radius:1rem;padding:1.75rem;position:relative;overflow:hidden">
           <div style="position:absolute;top:-20px;right:-20px;width:80px;height:80px;background:radial-gradient(circle,rgba(116,55,32,0.3),transparent);border-radius:50%"></div>
           <p style="font-family:'Roboto Slab',serif;font-size:2.5rem;font-weight:700;color:#6B3020;line-height:1;margin-bottom:0.4rem">15+</p>
-          <p style="font-size:0.72rem;color:#B2CBD4;opacity:0.7;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Années d'expérience combinées</p>
+          <p data-i18n="company.stat" style="font-size:0.72rem;color:#B2CBD4;opacity:0.7;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Années d'expérience combinées</p>
         </div>
       </div>
     </div>
@@ -229,13 +249,13 @@
 <!-- CTA -->
 <section style="background:#0B1C22;padding:5rem 3rem;text-align:center">
   <div class="reveal" style="max-width:560px;margin:0 auto">
-    <p class="lbl" style="color:#B1DCED;opacity:0.4;margin-bottom:1.25rem">Travaillons ensemble</p>
-    <h2 style="font-family:'Roboto Slab',serif;font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;color:#F5F3EF;margin-bottom:2rem;line-height:1.2">Vous avez un projet en tête ?</h2>
+    <p class="lbl" data-i18n="cta.eyebrow" style="color:#B1DCED;opacity:0.4;margin-bottom:1.25rem">Travaillons ensemble</p>
+    <h2 data-i18n="cta.title" style="font-family:'Roboto Slab',serif;font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;color:#F5F3EF;margin-bottom:2rem;line-height:1.2">Vous avez un projet en tête ?</h2>
     <a href="index.html#contact"
       style="display:inline-flex;align-items:center;gap:0.6rem;background:#6B3020;color:#F5F3EF;font-family:'Monda',sans-serif;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;padding:0.85rem 2rem;border-radius:9999px;text-decoration:none;transition:background 0.2s,transform 0.2s,box-shadow 0.2s;box-shadow:0 4px 20px rgba(116,55,32,0.3)"
       onmouseenter="this.style.background='#8f4528';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 30px rgba(116,55,32,0.4)'"
       onmouseleave="this.style.background='#6B3020';this.style.transform='';this.style.boxShadow='0 4px 20px rgba(116,55,32,0.3)'">
-      Nous contacter
+      <span data-i18n="cta.btn">Nous contacter</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </div>
@@ -244,8 +264,10 @@
 <!-- FOOTER -->
 <footer style="background:#071318;padding:2.25rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
   <span style="font-family:'Monda',sans-serif;font-size:0.7rem;color:white;opacity:0.26;letter-spacing:0.1em;text-transform:uppercase">Wander-IT © 2026</span>
-  <p style="font-size:0.7rem;color:white;opacity:0.2;font-family:'Monda',sans-serif">WANSART Alex & André — Solutions Digitales</p>
+  <p data-i18n="footer.both" style="font-size:0.7rem;color:white;opacity:0.2;font-family:'Monda',sans-serif">WANSART Alex & André — Solutions Digitales</p>
 </footer>
+
+<script src="/translations.js"></script>
 
 <script>
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';

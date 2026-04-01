@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-i18n-title="title.index">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -257,6 +257,12 @@
     body.menu-open .bl:nth-child(2) { opacity:0; }
     body.menu-open .bl:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
 
+    .lang-switch { display:flex; align-items:center; gap:0.4rem; margin-left:1.2rem; }
+    .lang-btn { background:none; border:none; cursor:pointer; font-family:'Monda',sans-serif; font-size:0.64rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:#B2CBD4; padding:0.2rem 0.1rem; transition:color 0.2s ease; }
+    .lang-btn:hover { color:#F5F3EF; }
+    .lang-btn.active { color:#F5F3EF; }
+    .lang-btn:focus-visible { outline:2px solid #6B3020; outline-offset:2px; }
+
     @media (max-width: 768px) {
       #nav-links { display:none !important; }
       #nav-burger { display:flex !important; }
@@ -284,10 +290,17 @@
     <span style="font-family:'Monda',sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;color:#F5F3EF">Wander-IT</span>
   </a>
   <div id="nav-links" style="display:flex;align-items:center;gap:2.5rem">
-    <a href="realisations.html" class="nl">Réalisations</a>
-    <a href="services.html" class="nl">Services</a>
-    <a href="a-propos.html" class="nl">À propos</a>
+    <a href="realisations.html" class="nl" data-i18n="nav.realisations">Réalisations</a>
+    <a href="services.html" class="nl" data-i18n="nav.services">Services</a>
+    <a href="a-propos.html" class="nl" data-i18n="nav.about">À propos</a>
     <a href="#contact" class="nl">Contact</a>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">FR</button>
+      <span style="color:#B2CBD4;opacity:0.35">|</span>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      <span style="color:#B2CBD4;opacity:0.35">|</span>
+      <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+    </div>
   </div>
   <button id="nav-burger" onclick="toggleMenu()" aria-label="Ouvrir le menu" aria-expanded="false">
     <span class="bl"></span><span class="bl"></span><span class="bl"></span>
@@ -296,14 +309,21 @@
 
 <!-- MENU MOBILE -->
 <div id="mobile-menu" aria-hidden="true">
-  <a href="realisations.html" class="mob-link">Réalisations</a>
-  <a href="services.html" class="mob-link" onclick="closeMenu()">Services</a>
-  <a href="a-propos.html" class="mob-link">À propos</a>
+  <a href="realisations.html" class="mob-link" data-i18n="nav.realisations">Réalisations</a>
+  <a href="services.html" class="mob-link" onclick="closeMenu()" data-i18n="nav.services">Services</a>
+  <a href="a-propos.html" class="mob-link" data-i18n="nav.about">À propos</a>
   <a href="#contact" class="mob-link" onclick="closeMenu()">Contact</a>
   <a href="#contact" class="mob-cta" onclick="closeMenu()">
-    Nous contacter
+    <span data-i18n="nav.contact">Nous contacter</span>
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
   </a>
+  <div class="lang-switch" style="margin-left:0;margin-top:0.5rem">
+    <button class="lang-btn active" data-lang="fr" onclick="setLang('fr');closeMenu()">FR</button>
+    <span style="color:#B2CBD4;opacity:0.35">|</span>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMenu()">EN</button>
+    <span style="color:#B2CBD4;opacity:0.35">|</span>
+    <button class="lang-btn" data-lang="de" onclick="setLang('de');closeMenu()">DE</button>
+  </div>
 </div>
 
 
@@ -318,22 +338,22 @@
 
     <!-- Copy -->
     <div>
-      <p class="lbl au d1" style="color:#6B3020;margin-bottom:1.75rem;opacity:0.8">Solutions Digitales · Wander-IT</p>
+      <p class="lbl au d1" data-i18n="hero.digital" style="color:#6B3020;margin-bottom:1.75rem;opacity:0.8">Solutions Digitales · Wander-IT</p>
 
-      <h1 class="au d2" style="font-family:'Roboto Slab',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:700;line-height:1.05;letter-spacing:-0.03em;color:#0B1C22;margin-bottom:0.05em">Votre<br>expertise,</h1>
-      <h1 class="au d3" style="font-family:'Roboto Slab',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:700;line-height:1.05;letter-spacing:-0.03em;color:#6B3020;margin-top:0;margin-bottom:0.75rem">nos outils.</h1>
-      <p class="au d3" style="font-family:'Roboto Slab',serif;font-size:clamp(1.3rem,2.6vw,1.75rem);font-weight:600;color:#004258;letter-spacing:-0.02em;line-height:1.25;margin-bottom:1rem">
+      <h1 class="au d2" data-i18n-html="hero.line1" style="font-family:'Roboto Slab',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:700;line-height:1.05;letter-spacing:-0.03em;color:#0B1C22;margin-bottom:0.05em">Votre<br>expertise,</h1>
+      <h1 class="au d3" data-i18n="hero.line2" style="font-family:'Roboto Slab',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:700;line-height:1.05;letter-spacing:-0.03em;color:#6B3020;margin-top:0;margin-bottom:0.75rem">nos outils.</h1>
+      <p class="au d3" data-i18n="hero.title" style="font-family:'Roboto Slab',serif;font-size:clamp(1.3rem,2.6vw,1.75rem);font-weight:600;color:#004258;letter-spacing:-0.02em;line-height:1.25;margin-bottom:1rem">
         Une longueur d'avance.
       </p>
-      <p class="au d4" style="font-size:1rem;color:#4d6870;max-width:420px;line-height:1.85;margin-bottom:1.5rem">
+      <p class="au d4" data-i18n="hero.sub" style="font-size:1rem;color:#4d6870;max-width:420px;line-height:1.85;margin-bottom:1.5rem">
         Nous analysons vos process, identifions ce qui peut être automatisé ou développé, et livrons des outils concrets — pour toute entreprise qui veut passer à la vitesse supérieure.
       </p>
       <div class="au d4" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:3rem">
         <a href="#contact" class="btn-p">
-          Nous contacter
+          <span data-i18n="hero.cta1">Nous contacter</span>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="services.html" class="btn-s">Voir les services</a>
+        <a href="services.html" class="btn-s" data-i18n="hero.cta2">Voir les services</a>
       </div>
     </div>
 
@@ -346,7 +366,7 @@
         <div style="position:relative;flex:1;min-width:0">
           <!-- Bottom-left badge -->
           <div class="float" style="position:absolute;bottom:-1.8rem;left:-1rem;background:#0B1C22;padding:0.45rem 1.25rem;box-shadow:0 8px 28px rgba(11,28,34,0.28);z-index:10">
-            <p class="lbl" style="color:#B1DCED;font-size:0.6rem">Sur-mesure</p>
+            <p class="lbl" data-i18n="hero.badge" style="color:#B1DCED;font-size:0.6rem">Sur-mesure</p>
           </div>
           <div style="position:relative;overflow:hidden;height:360px">
             <img src="assets/images/AlexPicture.webp" alt="WANSART Alex" fetchpriority="high" style="width:100%;height:100%;display:block;object-fit:cover;object-position:center top;filter:contrast(1.04) saturate(0.92)">
@@ -354,7 +374,7 @@
             <div style="position:absolute;inset:0;background:rgba(177,220,237,0.08);mix-blend-mode:multiply;pointer-events:none"></div>
             <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1rem">
               <p style="font-family:'Roboto Slab',serif;font-weight:700;font-size:0.9rem;color:white;letter-spacing:-0.01em">Alex Wansart</p>
-              <p class="lbl" style="color:#B1DCED;font-size:0.58rem;opacity:0.75;margin-top:0.15rem">Solutions Digitales</p>
+              <p class="lbl" data-i18n="hero.alex.role" style="color:#B1DCED;font-size:0.58rem;opacity:0.75;margin-top:0.15rem">Solutions Digitales</p>
             </div>
           </div>
         </div>
@@ -367,14 +387,14 @@
             <div style="position:absolute;inset:0;background:rgba(177,220,237,0.06);mix-blend-mode:multiply;pointer-events:none"></div>
             <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1rem">
               <p style="font-family:'Roboto Slab',serif;font-weight:700;font-size:0.9rem;color:white;letter-spacing:-0.01em">André Wansart</p>
-              <p class="lbl" style="color:#6B3020;font-size:0.58rem;opacity:0.85;margin-top:0.15rem">Expertise Métier</p>
+              <p class="lbl" data-i18n="hero.andre.role" style="color:#F5F3EF;font-size:0.58rem;opacity:0.9;margin-top:0.15rem;text-shadow:0 1px 4px rgba(0,0,0,0.6)">Expertise Métier</p>
             </div>
           </div>
         </div>
 
         <!-- Floating badge top-right -->
         <div class="float" style="position:absolute;top:-0.6rem;right:-1.1rem;background:#B1DCED;padding:0.45rem 1.25rem;box-shadow:0 8px 28px rgba(0,66,88,0.22);z-index:10">
-          <p class="lbl" style="color:#004258;font-size:0.6rem">Expertise</p>
+          <p class="lbl" data-i18n="hero.expertise" style="color:#004258;font-size:0.6rem">Expertise</p>
         </div>
 
       </div>
@@ -403,10 +423,16 @@
   const track = document.querySelector('.ticker-track');
   const speed = 0.6; // px per frame
 
+  function getItems(lang) {
+    if (lang === 'en') return TICKER_ITEMS_EN;
+    if (lang === 'de') return TICKER_ITEMS_DE;
+    return TICKER_ITEMS;
+  }
+
   // Build one set of items
-  function buildSet() {
+  function buildSet(items) {
     const frag = document.createDocumentFragment();
-    TICKER_ITEMS.forEach(text => {
+    items.forEach(text => {
       const span = document.createElement('span');
       span.className = 'tick-item';
       span.textContent = text;
@@ -419,24 +445,18 @@
     return frag;
   }
 
-  // Insert two copies so we can loop seamlessly
-  track.appendChild(buildSet());
-  track.appendChild(buildSet());
-
   let pos = 0;
   let halfWidth = 0;
   let raf;
   let lastTime = null;
 
   function measure() {
-    // Half the total width = width of one set
     halfWidth = track.scrollWidth / 2;
   }
 
   function tick(ts) {
     if (lastTime !== null) {
       const delta = ts - lastTime;
-      // Cap delta to avoid huge jumps after tab switch
       pos += Math.min(delta, 32) * speed * 0.06;
       if (pos >= halfWidth) pos -= halfWidth;
       track.style.transform = 'translateX(-' + pos + 'px)';
@@ -445,11 +465,28 @@
     raf = requestAnimationFrame(tick);
   }
 
-  // Wait for fonts to load before measuring, to avoid wrong width
-  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
-    measure();
-    raf = requestAnimationFrame(tick);
-  });
+  function initTicker(lang) {
+    track.innerHTML = '';
+    pos = 0; lastTime = null;
+    const items = getItems(lang);
+    track.appendChild(buildSet(items));
+    track.appendChild(buildSet(items));
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
+      measure();
+      if (!raf) raf = requestAnimationFrame(tick);
+    });
+  }
+
+  // Expose global rebuild hook for translations.js
+  window.rebuildTicker = function(lang) {
+    cancelAnimationFrame(raf);
+    raf = null;
+    initTicker(lang);
+  };
+
+  // Initial build
+  const initLang = localStorage.getItem('wander_lang') || 'fr';
+  initTicker(initLang);
 
   // Re-measure on resize
   window.addEventListener('resize', measure, { passive: true });
@@ -463,10 +500,10 @@
   <div style="max-width:1240px;margin:0 auto">
     <div class="reveal" style="margin-bottom:3.5rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem">
       <div>
-        <p class="lbl" style="color:#B1DCED;opacity:0.52;margin-bottom:0.75rem;font-size:0.62rem">Ce que nous faisons</p>
-        <h2 class="sec-h" style="color:white">Nos services</h2>
+        <p class="lbl" data-i18n="services.eyebrow" style="color:#B1DCED;opacity:0.52;margin-bottom:0.75rem;font-size:0.62rem">Ce que nous faisons</p>
+        <h2 class="sec-h" data-i18n="services.title" style="color:white">Nos services</h2>
       </div>
-      <p style="font-size:0.88rem;color:#B2CBD4;opacity:0.62;max-width:310px;line-height:1.85">Des solutions pragmatiques, livrées rapidement, qui répondent à vos besoins réels.</p>
+      <p data-i18n="services.sub" style="font-size:0.88rem;color:#B2CBD4;opacity:0.62;max-width:310px;line-height:1.85">Des solutions pragmatiques, livrées rapidement, qui répondent à vos besoins réels.</p>
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem">
@@ -478,9 +515,9 @@
           </div>
           <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;color:#B1DCED;opacity:0.22;letter-spacing:0.1em">01</span>
         </div>
-        <h3 style="font-size:1.1rem;font-weight:700;color:white;margin-bottom:0.65rem;letter-spacing:-0.02em">Automatisation</h3>
-        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0 0 1.25rem">Automatisez les tâches répétitives et connectez vos outils — gestion de boîte mail, devis automatiques, publications marketing et plus.</p>
-        <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#B1DCED;opacity:0.5;display:flex;align-items:center;gap:0.35rem">En savoir plus <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <h3 data-i18n="card.auto.num" style="font-size:1.1rem;font-weight:700;color:white;margin-bottom:0.65rem;letter-spacing:-0.02em">Automatisation</h3>
+        <p data-i18n="card.auto.desc" style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0 0 1.25rem">Automatisez les tâches répétitives et connectez vos outils — gestion de boîte mail, devis automatiques, publications marketing et plus.</p>
+        <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#B1DCED;opacity:0.5;display:flex;align-items:center;gap:0.35rem"><span data-i18n="card.learn">En savoir plus</span> <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
 
       <a href="services.html#developpement" class="sc reveal" style="--sc-accent:rgba(212,152,122,0.65);text-decoration:none;display:block;cursor:pointer">
@@ -490,9 +527,9 @@
           </div>
           <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;color:#6B3020;opacity:0.22;letter-spacing:0.1em">02</span>
         </div>
-        <h3 style="font-size:1.1rem;font-weight:700;color:white;margin-bottom:0.65rem;letter-spacing:-0.02em">Développement d'outils</h3>
-        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0 0 1.25rem">Applications web et mobiles sur-mesure, pensées pour vos utilisateurs et construites pour durer.</p>
-        <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#d4987a;opacity:0.6;display:flex;align-items:center;gap:0.35rem">En savoir plus <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <h3 data-i18n="card.dev.num" style="font-size:1.1rem;font-weight:700;color:white;margin-bottom:0.65rem;letter-spacing:-0.02em">Développement d'outils</h3>
+        <p data-i18n="card.dev.desc" style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0 0 1.25rem">Applications web et mobiles sur-mesure, pensées pour vos utilisateurs et construites pour durer.</p>
+        <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#d4987a;opacity:0.6;display:flex;align-items:center;gap:0.35rem"><span data-i18n="card.learn">En savoir plus</span> <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
 
       <a href="services.html#intelligence-artificielle" class="sc reveal" style="--sc-accent:rgba(177,220,237,0.35);text-decoration:none;display:block;cursor:pointer">
@@ -502,9 +539,9 @@
           </div>
           <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;color:#B1DCED;opacity:0.22;letter-spacing:0.1em">03</span>
         </div>
-        <h3 style="font-size:1.1rem;font-weight:700;color:white;margin-bottom:0.65rem;letter-spacing:-0.02em">Intégration IA</h3>
-        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0 0 1.25rem">Intégrez des modèles d'IA directement dans vos systèmes — chatbots, analyse de contenu, génération automatisée et plus.</p>
-        <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#B1DCED;opacity:0.5;display:flex;align-items:center;gap:0.35rem">En savoir plus <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <h3 data-i18n="card.ai.num" style="font-size:1.1rem;font-weight:700;color:white;margin-bottom:0.65rem;letter-spacing:-0.02em">Intégration IA</h3>
+        <p data-i18n="card.ai.desc" style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0 0 1.25rem">Intégrez des modèles d'IA directement dans vos systèmes — chatbots, analyse de contenu, génération automatisée et plus.</p>
+        <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#B1DCED;opacity:0.5;display:flex;align-items:center;gap:0.35rem"><span data-i18n="card.learn">En savoir plus</span> <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
 
       <a href="services.html#design-web" class="sc reveal" style="--sc-accent:rgba(212,152,122,0.45);text-decoration:none;display:block;cursor:pointer">
@@ -514,9 +551,9 @@
           </div>
           <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;color:#6B3020;opacity:0.22;letter-spacing:0.1em">04</span>
         </div>
-        <h3 style="font-size:1.1rem;font-weight:700;color:white;margin-bottom:0.65rem;letter-spacing:-0.02em">Design Web</h3>
-        <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0 0 1.25rem">Sites qui inspirent confiance et convertissent. Design épuré, identité forte, impact immédiat.</p>
-        <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#e8b89a;opacity:0.6;display:flex;align-items:center;gap:0.35rem">En savoir plus <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <h3 data-i18n="card.design.num" style="font-size:1.1rem;font-weight:700;color:white;margin-bottom:0.65rem;letter-spacing:-0.02em">Design Web</h3>
+        <p data-i18n="card.design.desc" style="font-size:0.82rem;color:#B2CBD4;opacity:0.65;line-height:1.9;margin:0 0 1.25rem">Sites qui inspirent confiance et convertissent. Design épuré, identité forte, impact immédiat.</p>
+        <span style="font-family:'Monda',sans-serif;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#e8b89a;opacity:0.6;display:flex;align-items:center;gap:0.35rem"><span data-i18n="card.learn">En savoir plus</span> <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
 
     </div>
@@ -530,17 +567,17 @@
 
   <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center" class="approach-grid">
     <div class="reveal">
-      <p class="lbl" style="color:#6B3020;margin-bottom:1.75rem;font-size:0.62rem">Notre approche</p>
-      <h2 class="sec-h" style="margin-bottom:1.5rem;color:#0B1C22">
+      <p class="lbl" data-i18n="approach.eyebrow" style="color:#6B3020;margin-bottom:1.75rem;font-size:0.62rem">Notre approche</p>
+      <h2 class="sec-h" data-i18n-html="approach.heading" style="margin-bottom:1.5rem;color:#0B1C22">
         Pragmatique.<br>
         <span style="color:#6B3020">Efficace.</span><br>
         Sur-mesure.
       </h2>
-      <p style="font-size:0.9rem;color:#4d6870;line-height:1.9;margin-bottom:2.25rem;max-width:390px">
+      <p data-i18n="approach.sub" style="font-size:0.9rem;color:#4d6870;line-height:1.9;margin-bottom:2.25rem;max-width:390px">
         Pas de solutions génériques. Nous prenons le temps de comprendre votre métier, vos contraintes, vos objectifs — et nous livrons ce dont vous avez réellement besoin.
       </p>
       <a href="#contact" class="btn-p">
-        Démarrer un projet
+        <span data-i18n="approach.cta">Démarrer un projet</span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -550,26 +587,26 @@
 
       <div class="tl-item">
         <div class="tl-dot"><span class="tl-num">01</span></div>
-        <p class="tl-title">Écoute & Analyse</p>
-        <p class="tl-desc">Nous commençons toujours par comprendre votre contexte avant de proposer quoi que ce soit.</p>
+        <p class="tl-title" data-i18n="step1.title">Écoute & Analyse</p>
+        <p class="tl-desc" data-i18n="step1.desc">Nous commençons toujours par comprendre votre contexte avant de proposer quoi que ce soit.</p>
       </div>
 
       <div class="tl-item">
         <div class="tl-dot"><span class="tl-num">02</span></div>
-        <p class="tl-title">Conception & Validation</p>
-        <p class="tl-desc">On définit ensemble la solution la plus adaptée, sans surengineering inutile.</p>
+        <p class="tl-title" data-i18n="step2.title">Conception & Validation</p>
+        <p class="tl-desc" data-i18n="step2.desc">On définit ensemble la solution la plus adaptée, sans surengineering inutile.</p>
       </div>
 
       <div class="tl-item">
         <div class="tl-dot"><span class="tl-num">03</span></div>
-        <p class="tl-title">Livraison rapide</p>
-        <p class="tl-desc">Itérations courtes, feedback fréquent. Vous voyez l'avancement à chaque étape.</p>
+        <p class="tl-title" data-i18n="step3.title">Livraison rapide</p>
+        <p class="tl-desc" data-i18n="step3.desc">Itérations courtes, feedback fréquent. Vous voyez l'avancement à chaque étape.</p>
       </div>
 
       <div class="tl-item">
         <div class="tl-dot"><span class="tl-num">04</span></div>
-        <p class="tl-title">Suivi & Optimisation</p>
-        <p class="tl-desc">La relation ne s'arrête pas à la livraison. Notre expertise reste disponible pour faire évoluer.</p>
+        <p class="tl-title" data-i18n="step4.title">Suivi & Optimisation</p>
+        <p class="tl-desc" data-i18n="step4.desc">La relation ne s'arrête pas à la livraison. Notre expertise reste disponible pour faire évoluer.</p>
       </div>
 
     </div>
@@ -585,8 +622,8 @@
   <div style="max-width:1240px;margin:0 auto">
     <div class="reveal" style="margin-bottom:3.5rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem">
       <div>
-        <p class="lbl" style="color:#B1DCED;opacity:0.52;margin-bottom:0.75rem;font-size:0.62rem">Ce que nous avons fait</p>
-        <h2 class="sec-h" style="color:white">Nos réalisations</h2>
+        <p class="lbl" data-i18n="real.eyebrow" style="color:#B1DCED;opacity:0.52;margin-bottom:0.75rem;font-size:0.62rem">Ce que nous avons fait</p>
+        <h2 class="sec-h" data-i18n="real.title" style="color:white">Nos réalisations</h2>
       </div>
     </div>
 
@@ -599,29 +636,32 @@
 
   <script src="projets/data.js"></script>
   <script>
-    (function() {
+    function buildIndexCards(lang) {
       const grid = document.getElementById('porto-grid');
+      grid.innerHTML = '';
       const arrow = `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
+      const t = (typeof WANDER_TRANSLATIONS !== 'undefined' && WANDER_TRANSLATIONS[lang]) || (typeof WANDER_TRANSLATIONS !== 'undefined' && WANDER_TRANSLATIONS.fr) || {};
 
       PROJETS.slice(0, 4).forEach(p => {
+        const lp = (lang !== 'fr' && p[lang]) ? Object.assign({}, p, p[lang]) : p;
         const a = document.createElement('a');
         a.href = 'projets/projet.html?id=' + p.id;
         a.className = 'porto-card';
         a.style.cssText = 'border-radius:1rem;text-decoration:none;display:flex;flex-direction:column;background:linear-gradient(160deg,#1a3240 0%,#112230 60%,#0e1e2a 100%);border:1px solid rgba(177,220,237,0.13);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.35),0 1px 0 rgba(177,220,237,0.06) inset;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease,border-color 0.3s';
         a.innerHTML = `
           <div style="position:relative;overflow:hidden;height:160px;flex-shrink:0">
-            <img src="${p.imageCard}" alt="${p.titre}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease">
-            <span style="position:absolute;top:0.75rem;left:0.75rem;font-family:'Monda',sans-serif;font-size:0.56rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:${p.tagColor};background:${p.tagBg};padding:0.25rem 0.55rem;backdrop-filter:blur(4px);border-radius:9999px;z-index:2">${p.categorieLabel}</span>
+            <img src="${p.imageCard}" alt="${lp.titre}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease">
+            <span style="position:absolute;top:0.75rem;left:0.75rem;font-family:'Monda',sans-serif;font-size:0.56rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:${p.tagColor};background:${p.tagBg};padding:0.25rem 0.55rem;backdrop-filter:blur(4px);border-radius:9999px;z-index:2">${lp.categorieLabel}</span>
           </div>
           <div style="padding:1rem 1rem 1.25rem;display:flex;flex-direction:column;flex:1;min-height:0">
             ${(p.logoClient || (p.logosPartenaires && p.logosPartenaires.length)) ? `
             <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.7rem;flex-wrap:wrap;flex-shrink:0;min-height:18px">
-              ${p.logoClient ? `<img src="${p.logoClient}" alt="${p.client}" loading="lazy" width="${p.logoClientWidth||60}" height="16" style="height:16px;width:auto;object-fit:contain;border-radius:2px">` : ''}
+              ${p.logoClient ? `<img src="${p.logoClient}" alt="${lp.client}" loading="lazy" width="${p.logoClientWidth||60}" height="16" style="height:16px;width:auto;object-fit:contain;border-radius:2px">` : ''}
               ${(p.logosPartenaires||[]).map(l => `<img src="${l.src}" alt="${l.alt}" loading="lazy" width="${l.width||14}" height="13" style="height:13px;width:auto;object-fit:contain;opacity:0.7">`).join('')}
             </div>` : ''}
-            <div style="font-family:'Roboto Slab',serif;font-size:0.9rem;font-weight:700;color:white;letter-spacing:-0.02em;line-height:1.3;margin-bottom:0.4rem;flex-shrink:0">${p.titre}</div>
-            <div style="font-size:0.72rem;color:#B2CBD4;line-height:1.55;margin-bottom:0.75rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1">${p.accroche}</div>
-            <span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.65rem;font-weight:700;color:#6B3020;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em;flex-shrink:0">Voir le projet ${arrow}</span>
+            <div style="font-family:'Roboto Slab',serif;font-size:0.9rem;font-weight:700;color:white;letter-spacing:-0.02em;line-height:1.3;margin-bottom:0.4rem;flex-shrink:0">${lp.titre}</div>
+            <div style="font-size:0.72rem;color:#B2CBD4;line-height:1.55;margin-bottom:0.75rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1">${lp.accroche}</div>
+            <span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.65rem;font-weight:700;color:#6B3020;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em;flex-shrink:0">${t['real.proj.view'] || 'Voir le projet'} ${arrow}</span>
           </div>`;
         grid.appendChild(a);
       });
@@ -634,11 +674,12 @@
       cta.innerHTML = `
         <div style="text-align:center;padding:2rem 1.5rem">
           <div style="width:56px;height:56px;border-radius:50%;background:rgba(107,48,32,0.18);border:1px solid rgba(107,48,32,0.35);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-family:'Roboto Slab',serif;font-size:1.5rem;color:#6B3020;font-weight:700">+</div>
-          <div style="font-family:'Roboto Slab',serif;font-size:1rem;font-weight:700;color:white;margin-bottom:0.5rem;line-height:1.3">Voir toutes<br>nos réalisations</div>
-          <div style="font-family:'Monda',sans-serif;font-size:0.65rem;color:#B2CBD4;opacity:0.7">${PROJETS.length} projets au total</div>
+          <div style="font-family:'Roboto Slab',serif;font-size:1rem;font-weight:700;color:white;margin-bottom:0.5rem;line-height:1.3">${(t['real.proj.all'] || 'Voir toutes<br>nos réalisations').replace('<br>', '<br>')}</div>
         </div>`;
       grid.appendChild(cta);
-    })();
+    }
+    window.rebuildCards = buildIndexCards;
+    buildIndexCards(localStorage.getItem('wander_lang') || 'fr');
   </script>
 </section>
 
@@ -663,23 +704,23 @@
   <div style="position:absolute;top:-20%;left:-8%;width:400px;height:400px;background:radial-gradient(circle,rgba(0,66,88,0.06) 0%,transparent 65%);pointer-events:none"></div>
 
   <div style="max-width:680px;margin:0 auto;text-align:center" class="reveal">
-    <p class="lbl" style="color:#004258;opacity:0.65;margin-bottom:1.5rem;font-size:0.62rem">Parlons de votre projet</p>
-    <h2 class="sec-h" style="color:#0B1C22;margin-bottom:1.25rem">
+    <p class="lbl" data-i18n="contact.eyebrow" style="color:#004258;opacity:0.65;margin-bottom:1.5rem;font-size:0.62rem">Parlons de votre projet</p>
+    <h2 class="sec-h" data-i18n-html="contact.heading" style="color:#0B1C22;margin-bottom:1.25rem">
       Prêt à prendre<br>
       <span style="color:#6B3020">une longueur d'avance ?</span>
     </h2>
-    <p style="font-size:0.9rem;color:#004258;opacity:0.72;line-height:1.9;margin-bottom:2.5rem;max-width:440px;margin-left:auto;margin-right:auto">
+    <p data-i18n="contact.sub" style="font-size:0.9rem;color:#004258;opacity:0.72;line-height:1.9;margin-bottom:2.5rem;max-width:440px;margin-left:auto;margin-right:auto">
       Décrivez-nous votre besoin en quelques mots — nous vous répondons sous 24h avec une première analyse.
     </p>
 
     <!-- Contact Info Card -->
     <div id="contact-fields" style="background:#F5F3EF;border:1px solid rgba(0,66,88,0.12);border-radius:1.5rem;padding:1.25rem 1.25rem 1rem;margin-bottom:0.75rem;text-align:left;box-shadow:0 8px 30px rgba(0,0,0,0.15)">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem">
-        <input id="f-nom"      type="text"  placeholder="Nom"       class="cf-input" style="grid-column:1">
-        <input id="f-prenom"   type="text"  placeholder="Prénom"    class="cf-input" style="grid-column:2">
-        <input id="f-societe"  type="text"  placeholder="Société"   class="cf-input" style="grid-column:1 / span 2">
-        <input id="f-tel"      type="tel"   placeholder="Téléphone" class="cf-input" style="grid-column:1">
-        <input id="f-email"    type="email" placeholder="Email *"   class="cf-input" style="grid-column:2">
+        <input id="f-nom"      type="text"  placeholder="Nom"       data-i18n-placeholder="form.nom"     class="cf-input" style="grid-column:1">
+        <input id="f-prenom"   type="text"  placeholder="Prénom"    data-i18n-placeholder="form.prenom"  class="cf-input" style="grid-column:2">
+        <input id="f-societe"  type="text"  placeholder="Société"   data-i18n-placeholder="form.societe" class="cf-input" style="grid-column:1 / span 2">
+        <input id="f-tel"      type="tel"   placeholder="Téléphone" data-i18n-placeholder="form.tel"     class="cf-input" style="grid-column:1">
+        <input id="f-email"    type="email" placeholder="Email *"   data-i18n-placeholder="form.email"   class="cf-input" style="grid-column:2">
       </div>
     </div>
 
@@ -688,6 +729,7 @@
 
       <textarea id="prompt-textarea"
         placeholder="Décrivez votre projet ..."
+        data-i18n-placeholder="form.textarea"
         rows="1"
         style="width:100%;background:transparent;border:none;outline:none;resize:none;color:#f3f4f6;font-size:0.95rem;line-height:1.6;padding:0.5rem 0.75rem;font-family:inherit;min-height:44px;max-height:200px;overflow-y:auto;box-sizing:border-box;scrollbar-width:thin;scrollbar-color:#444 transparent"
       ></textarea>
@@ -703,7 +745,7 @@
           <button id="toggle-projet" onclick="toggleMode('projet')" title="Demande de projet"
             style="display:flex;align-items:center;gap:0.25rem;height:2rem;padding:0 0.5rem;border-radius:9999px;border:1px solid transparent;background:transparent;cursor:pointer;color:rgba(116,55,32,0.5);font-size:0.75rem;font-family:inherit;transition:all 0.2s;white-space:nowrap;overflow:hidden">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-            <span id="label-projet" style="max-width:0;overflow:hidden;opacity:0;transition:max-width 0.25s ease,opacity 0.2s ease;display:inline-block">Projet</span>
+            <span id="label-projet" data-i18n="contact.tab.project" style="max-width:0;overflow:hidden;opacity:0;transition:max-width 0.25s ease,opacity 0.2s ease;display:inline-block">Projet</span>
           </button>
 
           <div style="width:1.5px;height:1.5rem;background:linear-gradient(to bottom,transparent,rgba(116,55,32,0.25),transparent);border-radius:9999px;margin:0 0.2rem"></div>
@@ -712,7 +754,7 @@
           <button id="toggle-devis" onclick="toggleMode('devis')" title="Demande de devis"
             style="display:flex;align-items:center;gap:0.25rem;height:2rem;padding:0 0.5rem;border-radius:9999px;border:1px solid transparent;background:transparent;cursor:pointer;color:rgba(116,55,32,0.5);font-size:0.75rem;font-family:inherit;transition:all 0.2s;white-space:nowrap;overflow:hidden">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            <span id="label-devis" style="max-width:0;overflow:hidden;opacity:0;transition:max-width 0.25s ease,opacity 0.2s ease;display:inline-block">Devis</span>
+            <span id="label-devis" data-i18n="contact.tab.quote" style="max-width:0;overflow:hidden;opacity:0;transition:max-width 0.25s ease,opacity 0.2s ease;display:inline-block">Devis</span>
           </button>
 
           <div style="width:1.5px;height:1.5rem;background:linear-gradient(to bottom,transparent,rgba(116,55,32,0.25),transparent);border-radius:9999px;margin:0 0.2rem"></div>
@@ -721,7 +763,7 @@
           <button id="toggle-support" onclick="toggleMode('support')" title="Support / Question"
             style="display:flex;align-items:center;gap:0.25rem;height:2rem;padding:0 0.5rem;border-radius:9999px;border:1px solid transparent;background:transparent;cursor:pointer;color:rgba(116,55,32,0.5);font-size:0.75rem;font-family:inherit;transition:all 0.2s;white-space:nowrap;overflow:hidden">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-            <span id="label-support" style="max-width:0;overflow:hidden;opacity:0;transition:max-width 0.25s ease,opacity 0.2s ease;display:inline-block">Support</span>
+            <span id="label-support" data-i18n="contact.tab.support" style="max-width:0;overflow:hidden;opacity:0;transition:max-width 0.25s ease,opacity 0.2s ease;display:inline-block">Support</span>
           </button>
         </div>
 
@@ -735,17 +777,104 @@
       </div>
     </div>
 
+    <!-- Mini Générateur d'idée -->
+    <div style="margin-top:0.75rem;background:rgba(0,66,88,0.1);border:1px dashed rgba(0,66,88,0.22);border-radius:1.25rem;padding:0.9rem 1.1rem;display:flex;align-items:center;gap:1.1rem">
+      <button class="gen-btn" id="gen-btn" onclick="triggerGenerator()" title="Générer une idée aléatoire" aria-label="Générer une idée">
+        <span style="font-size:1.1rem;margin-bottom:0.15rem">🎲</span>
+        <span data-i18n-html="contact.random.btn">Idée<br>aléatoire</span>
+      </button>
+      <div style="flex:1;min-width:0">
+        <p id="idea-placeholder" data-i18n="contact.random.hint" style="font-size:0.82rem;color:#004258;opacity:0.55;font-family:'Monda',sans-serif;line-height:1.5;margin:0">Pas d'inspiration ? Cliquez pour une idée de projet.</p>
+        <div id="idea-result" style="display:none">
+          <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.45rem">
+            <span class="cat-tag" id="idea-cat" style="background:#6B3020;margin-bottom:0;flex-shrink:0;white-space:nowrap">Cat</span>
+            <p id="idea-text" style="font-family:'Roboto Slab',serif;font-size:0.85rem;font-weight:600;color:#0B1C22;line-height:1.4;margin:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis"></p>
+          </div>
+          <button onclick="useIdea()" style="font-size:0.62rem;font-family:'Monda',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#6B3020;background:none;border:none;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:0.3rem">
+            <span data-i18n="contact.random.use">Utiliser cette idée</span>
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Feedback -->
-    <div id="send-success" style="display:none;margin-top:1rem;color:#004258;font-size:0.85rem;font-weight:600;background:rgba(0,66,88,0.12);border-radius:0.75rem;padding:0.65rem 1rem">
+    <div id="send-success" data-i18n="contact.success" style="display:none;margin-top:1rem;color:#004258;font-size:0.85rem;font-weight:600;background:rgba(0,66,88,0.12);border-radius:0.75rem;padding:0.65rem 1rem">
       ✓ Message envoyé — nous vous répondons sous 24h.
     </div>
-    <div id="send-error" style="display:none;margin-top:1rem;color:#7f1d1d;font-size:0.85rem;background:rgba(127,29,29,0.08);border-radius:0.75rem;padding:0.65rem 1rem">
+    <div id="send-error" data-i18n="contact.error" style="display:none;margin-top:1rem;color:#7f1d1d;font-size:0.85rem;background:rgba(127,29,29,0.08);border-radius:0.75rem;padding:0.65rem 1rem">
       ✗ Une erreur s'est produite. Réessayez ou écrivez-nous directement.
+    </div>
+
+    <!-- Direct contact -->
+    <div style="margin-top:1.75rem;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap">
+      <a href="mailto:info@wander-it.be" style="display:inline-flex;align-items:center;gap:0.5rem;color:#004258;text-decoration:none;font-family:'Monda',sans-serif;font-size:0.72rem;font-weight:700;opacity:0.65;letter-spacing:0.05em;transition:opacity 0.2s" onmouseenter="this.style.opacity='1'" onmouseleave="this.style.opacity='0.65'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        info@wander-it.be
+      </a>
+      <div style="width:1px;height:1rem;background:rgba(0,66,88,0.25)"></div>
+      <a href="tel:+32470553555" style="display:inline-flex;align-items:center;gap:0.5rem;color:#004258;text-decoration:none;font-family:'Monda',sans-serif;font-size:0.72rem;font-weight:700;opacity:0.65;letter-spacing:0.05em;transition:opacity 0.2s" onmouseenter="this.style.opacity='1'" onmouseleave="this.style.opacity='0.65'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +32 470 55 35 55
+      </a>
     </div>
   </div>
 </section>
 
+
 <style>
+  /* ── Idea Generator (mini) ── */
+  .gen-btn {
+    width: 72px; height: 72px; flex-shrink: 0;
+    border-radius: 50%;
+    background: #6B3020;
+    border: none; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: 'Roboto Slab', serif;
+    font-size: 0.58rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: #F5F3EF; line-height: 1.3;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(116,55,32,0.35), 0 2px 6px rgba(116,55,32,0.2);
+    transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s ease;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .gen-btn::before {
+    content: '';
+    position: absolute; inset: 0; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.15), transparent 60%);
+    pointer-events: none;
+  }
+  .gen-btn:hover:not(:disabled) {
+    transform: scale(1.08);
+    box-shadow: 0 8px 28px rgba(116,55,32,0.5), 0 3px 10px rgba(116,55,32,0.3);
+  }
+  .gen-btn:active:not(:disabled) { transform: scale(0.95); }
+  .gen-btn:disabled { cursor: not-allowed; opacity: 0.75; }
+  @keyframes spinOnce {
+    0%   { transform: rotate(0deg) scale(0.95); }
+    40%  { transform: rotate(180deg) scale(1.04); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+  .gen-btn.spinning { animation: spinOnce 0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
+  @keyframes textFlip {
+    0%   { opacity: 0; transform: translateY(-4px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .idea-text-animate { animation: textFlip 0.12s ease forwards; }
+  .cat-tag {
+    display: inline-block;
+    font-family: 'Monda', sans-serif;
+    font-size: 0.58rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: white; padding: 0.22rem 0.6rem;
+    border-radius: 9999px;
+    transition: background 0.15s ease;
+  }
+
   .cf-input {
     background: rgba(0,66,88,0.06);
     border: 1px solid rgba(0,66,88,0.14);
@@ -801,17 +930,21 @@
     sendBtn.style.opacity = hasContent ? '1' : '0.5';
   }
 
+  function getTextareaPlaceholder() {
+    const T = (typeof WANDER_TRANSLATIONS !== 'undefined' && WANDER_TRANSLATIONS[window.WANDER_LANG || 'fr']) || {};
+    return T['form.textarea'] || 'Décrivez votre projet ...';
+  }
+
   function toggleMode(mode) {
     const colors = { projet:'#004258', devis:'#6B3020', support:'#004258' };
     const bgs    = { projet:'rgba(0,66,88,0.1)', devis:'rgba(116,55,32,0.1)', support:'rgba(0,66,88,0.1)' };
-    const placeholders = { projet:'Décrivez votre projet ...', devis:'Décrivez votre projet ...', support:'Décrivez votre projet ...' };
 
     if (activeMode === mode) {
       const b = document.getElementById('toggle-'+mode), l = document.getElementById('label-'+mode);
       b.style.cssText += ';border-color:transparent;background:transparent;color:rgba(116,55,32,0.5)';
       l.style.maxWidth='0'; l.style.opacity='0';
       activeMode = null;
-      textarea.placeholder = 'Décrivez votre projet ...';
+      textarea.placeholder = getTextareaPlaceholder();
       return;
     }
     if (activeMode) {
@@ -823,7 +956,7 @@
     const b = document.getElementById('toggle-'+mode), l = document.getElementById('label-'+mode);
     b.style.borderColor=colors[mode]; b.style.background=bgs[mode]; b.style.color=colors[mode];
     l.style.maxWidth='5rem'; l.style.opacity='1';
-    textarea.placeholder = placeholders[mode];
+    textarea.placeholder = getTextareaPlaceholder();
   }
 
   async function handleSend() {
@@ -885,8 +1018,10 @@
   <div style="display:flex;align-items:center;gap:0.75rem">
     <span style="font-family:'Monda',sans-serif;font-size:0.7rem;color:white;opacity:0.5;letter-spacing:0.1em;text-transform:uppercase">Wander-IT © 2026</span>
   </div>
-  <p style="font-size:0.7rem;color:white;opacity:0.5;font-family:'Monda',sans-serif">WANSART Alex — Solutions Digitales</p>
+  <p data-i18n="footer.alex" style="font-size:0.7rem;color:white;opacity:0.5;font-family:'Monda',sans-serif">WANSART Alex — Solutions Digitales</p>
 </footer>
+
+<script src="/translations.js"></script>
 
 
 <script>
@@ -1002,6 +1137,165 @@
     m.classList.remove('open');
     m.setAttribute('aria-hidden', 'true');
     document.getElementById('nav-burger').setAttribute('aria-expanded', 'false');
+  }
+</script>
+
+<script>
+  // ── Idea Generator ──
+  const IDEAS_BY_LANG = {
+    fr: [
+      { cat: 'Automatisation', color: '#6B3020', text: 'Automatiser votre gestion de boîte mail avec des réponses intelligentes' },
+      { cat: 'Automatisation', color: '#6B3020', text: 'Générer vos devis automatiquement depuis un formulaire en ligne' },
+      { cat: 'Automatisation', color: '#6B3020', text: 'Synchroniser vos données entre votre CRM et votre ERP en temps réel' },
+      { cat: 'Automatisation', color: '#6B3020', text: 'Planifier et publier automatiquement sur vos réseaux sociaux' },
+      { cat: 'Automatisation', color: '#6B3020', text: 'Automatiser votre reporting hebdomadaire et l\'envoyer par mail' },
+      { cat: 'Automatisation', color: '#6B3020', text: 'Mettre en place des rappels automatiques pour vos clients' },
+      { cat: 'Développement', color: '#004258', text: 'Créer une application de suivi de chantiers pour vos équipes terrain' },
+      { cat: 'Développement', color: '#004258', text: 'Développer un portail client pour le suivi de commandes en temps réel' },
+      { cat: 'Développement', color: '#004258', text: 'Construire un outil de planification interne pour vos équipes' },
+      { cat: 'Développement', color: '#004258', text: 'Créer un dashboard de pilotage de vos performances commerciales' },
+      { cat: 'Développement', color: '#004258', text: 'Développer une app mobile de pointage pour vos techniciens' },
+      { cat: 'Développement', color: '#004258', text: 'Mettre en place une plateforme de réservation en ligne sur mesure' },
+      { cat: 'Développement', color: '#004258', text: 'Connecter votre boutique en ligne à votre logiciel de gestion de stock' },
+      { cat: 'Intégration IA', color: '#2a6b5a', text: 'Intégrer un chatbot IA sur votre site pour répondre aux clients 24/7' },
+      { cat: 'Intégration IA', color: '#2a6b5a', text: 'Analyser automatiquement vos contrats et documents entrants' },
+      { cat: 'Intégration IA', color: '#2a6b5a', text: 'Générer des descriptions de produits en masse avec l\'IA' },
+      { cat: 'Intégration IA', color: '#2a6b5a', text: 'Classifier automatiquement vos demandes entrantes par priorité' },
+      { cat: 'Intégration IA', color: '#2a6b5a', text: 'Générer des résumés automatiques de vos réunions' },
+      { cat: 'Intégration IA', color: '#2a6b5a', text: 'Détecter les anomalies dans vos données financières avec l\'IA' },
+      { cat: 'Design Web', color: '#4d6870', text: 'Refondre votre site avec une identité de marque forte et cohérente' },
+      { cat: 'Design Web', color: '#4d6870', text: 'Créer une landing page qui convertit pour votre prochaine campagne' },
+      { cat: 'Design Web', color: '#4d6870', text: 'Développer un site e-commerce avec une identité visuelle unique' },
+      { cat: 'Design Web', color: '#4d6870', text: 'Concevoir un portfolio interactif qui met en valeur votre expertise' },
+      { cat: 'Design Web', color: '#4d6870', text: 'Créer un site multilingue pour toucher vos clients à l\'international' },
+    ],
+    en: [
+      { cat: 'Automation', color: '#6B3020', text: 'Automate your inbox management with smart automatic replies' },
+      { cat: 'Automation', color: '#6B3020', text: 'Generate quotes automatically from an online form' },
+      { cat: 'Automation', color: '#6B3020', text: 'Synchronise your data between your CRM and ERP in real time' },
+      { cat: 'Automation', color: '#6B3020', text: 'Schedule and automatically publish on your social media channels' },
+      { cat: 'Automation', color: '#6B3020', text: 'Automate your weekly reporting and send it by email' },
+      { cat: 'Automation', color: '#6B3020', text: 'Set up automatic reminders for your clients' },
+      { cat: 'Development', color: '#004258', text: 'Create a site-tracking app for your field teams' },
+      { cat: 'Development', color: '#004258', text: 'Develop a client portal for real-time order tracking' },
+      { cat: 'Development', color: '#004258', text: 'Build an internal planning tool for your teams' },
+      { cat: 'Development', color: '#004258', text: 'Create a dashboard to manage your commercial performance' },
+      { cat: 'Development', color: '#004258', text: 'Develop a mobile time-tracking app for your technicians' },
+      { cat: 'Development', color: '#004258', text: 'Set up a custom online booking platform' },
+      { cat: 'Development', color: '#004258', text: 'Connect your online store to your inventory management software' },
+      { cat: 'AI Integration', color: '#2a6b5a', text: 'Integrate an AI chatbot on your site to answer clients 24/7' },
+      { cat: 'AI Integration', color: '#2a6b5a', text: 'Automatically analyse your incoming contracts and documents' },
+      { cat: 'AI Integration', color: '#2a6b5a', text: 'Generate product descriptions in bulk with AI' },
+      { cat: 'AI Integration', color: '#2a6b5a', text: 'Automatically classify incoming requests by priority' },
+      { cat: 'AI Integration', color: '#2a6b5a', text: 'Generate automatic summaries of your meetings' },
+      { cat: 'AI Integration', color: '#2a6b5a', text: 'Detect anomalies in your financial data with AI' },
+      { cat: 'Web Design', color: '#4d6870', text: 'Redesign your website with a strong, consistent brand identity' },
+      { cat: 'Web Design', color: '#4d6870', text: 'Create a converting landing page for your next campaign' },
+      { cat: 'Web Design', color: '#4d6870', text: 'Develop an e-commerce site with a unique visual identity' },
+      { cat: 'Web Design', color: '#4d6870', text: 'Design an interactive portfolio that showcases your expertise' },
+      { cat: 'Web Design', color: '#4d6870', text: 'Create a multilingual website to reach your international clients' },
+    ],
+    de: [
+      { cat: 'Automatisierung', color: '#6B3020', text: 'Ihre Postfachverwaltung mit intelligenten automatischen Antworten automatisieren' },
+      { cat: 'Automatisierung', color: '#6B3020', text: 'Angebote automatisch aus einem Online-Formular generieren' },
+      { cat: 'Automatisierung', color: '#6B3020', text: 'Daten zwischen Ihrem CRM und ERP in Echtzeit synchronisieren' },
+      { cat: 'Automatisierung', color: '#6B3020', text: 'Automatisch auf Ihren Social-Media-Kanälen planen und veröffentlichen' },
+      { cat: 'Automatisierung', color: '#6B3020', text: 'Ihr wöchentliches Reporting automatisieren und per E-Mail versenden' },
+      { cat: 'Automatisierung', color: '#6B3020', text: 'Automatische Erinnerungen für Ihre Kunden einrichten' },
+      { cat: 'Entwicklung', color: '#004258', text: 'Eine Baustellenverfolgungsapp für Ihre Außendienstteams erstellen' },
+      { cat: 'Entwicklung', color: '#004258', text: 'Ein Kundenportal für Echtzeit-Auftragsverfolgung entwickeln' },
+      { cat: 'Entwicklung', color: '#004258', text: 'Ein internes Planungstool für Ihre Teams aufbauen' },
+      { cat: 'Entwicklung', color: '#004258', text: 'Ein Dashboard zur Steuerung Ihrer Vertriebsleistung erstellen' },
+      { cat: 'Entwicklung', color: '#004258', text: 'Eine mobile Zeiterfassungsapp für Ihre Techniker entwickeln' },
+      { cat: 'Entwicklung', color: '#004258', text: 'Eine maßgeschneiderte Online-Buchungsplattform einrichten' },
+      { cat: 'Entwicklung', color: '#004258', text: 'Ihren Online-Shop mit Ihrer Lagerverwaltungssoftware verbinden' },
+      { cat: 'KI-Integration', color: '#2a6b5a', text: 'Einen KI-Chatbot auf Ihrer Website integrieren, der Kunden 24/7 antwortet' },
+      { cat: 'KI-Integration', color: '#2a6b5a', text: 'Eingehende Verträge und Dokumente automatisch analysieren' },
+      { cat: 'KI-Integration', color: '#2a6b5a', text: 'Produktbeschreibungen in Masse mit KI generieren' },
+      { cat: 'KI-Integration', color: '#2a6b5a', text: 'Eingehende Anfragen automatisch nach Priorität klassifizieren' },
+      { cat: 'KI-Integration', color: '#2a6b5a', text: 'Automatische Zusammenfassungen Ihrer Besprechungen generieren' },
+      { cat: 'KI-Integration', color: '#2a6b5a', text: 'Anomalien in Ihren Finanzdaten mit KI erkennen' },
+      { cat: 'Web-Design', color: '#4d6870', text: 'Ihre Website mit einer starken, konsistenten Markenidentität neu gestalten' },
+      { cat: 'Web-Design', color: '#4d6870', text: 'Eine konvertierende Landing Page für Ihre nächste Kampagne erstellen' },
+      { cat: 'Web-Design', color: '#4d6870', text: 'Eine E-Commerce-Website mit einer einzigartigen visuellen Identität entwickeln' },
+      { cat: 'Web-Design', color: '#4d6870', text: 'Ein interaktives Portfolio gestalten, das Ihre Expertise hervorhebt' },
+      { cat: 'Web-Design', color: '#4d6870', text: 'Eine mehrsprachige Website erstellen, um internationale Kunden zu erreichen' },
+    ],
+  };
+  function getIdeas() { return IDEAS_BY_LANG[window.WANDER_LANG || 'fr'] || IDEAS_BY_LANG.fr; }
+
+  let isAnimating = false;
+  let lastIndex = -1;
+
+  function triggerGenerator() {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    const btn           = document.getElementById('gen-btn');
+    const catEl         = document.getElementById('idea-cat');
+    const textEl        = document.getElementById('idea-text');
+    const resultEl      = document.getElementById('idea-result');
+    const placeholderEl = document.getElementById('idea-placeholder');
+
+    btn.disabled = true;
+    btn.classList.add('spinning');
+    setTimeout(() => btn.classList.remove('spinning'), 560);
+
+    placeholderEl.style.display = 'none';
+    resultEl.style.display = 'block';
+
+    const ideas = getIdeas();
+
+    function getRandomIndex() {
+      let idx;
+      do { idx = Math.floor(Math.random() * ideas.length); } while (idx === lastIndex && ideas.length > 1);
+      return idx;
+    }
+
+    function setIdea(idx, dimmed) {
+      const idea = ideas[idx];
+      catEl.textContent = idea.cat;
+      catEl.style.background = idea.color;
+      textEl.textContent = idea.text;
+      textEl.style.opacity = dimmed ? '0.35' : '1';
+      // During animation: single line to avoid height jumps; on final reveal: wrap normally
+      textEl.style.whiteSpace = dimmed ? 'nowrap' : 'normal';
+      textEl.classList.remove('idea-text-animate');
+      void textEl.offsetWidth;
+      textEl.classList.add('idea-text-animate');
+    }
+
+    const phases = [[55, 1100], [140, 560], [320, 640]];
+
+    function runPhase(pIdx) {
+      if (pIdx >= phases.length) {
+        const finalIdx = getRandomIndex();
+        lastIndex = finalIdx;
+        setIdea(finalIdx, false);
+        setTimeout(() => { btn.disabled = false; isAnimating = false; }, 300);
+        return;
+      }
+      const [interval, duration] = phases[pIdx];
+      const end = Date.now() + duration;
+      function tick() {
+        setIdea(getRandomIndex(), true);
+        if (Date.now() < end) setTimeout(tick, interval);
+        else runPhase(pIdx + 1);
+      }
+      tick();
+    }
+    runPhase(0);
+  }
+
+  function useIdea() {
+    const text = document.getElementById('idea-text').textContent;
+    const ta = document.getElementById('prompt-textarea');
+    if (ta) {
+      ta.value = text;
+      ta.dispatchEvent(new Event('input'));
+      ta.focus();
+      ta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   }
 </script>
 </body>

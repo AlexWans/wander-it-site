@@ -51,6 +51,38 @@ window.PROJETS = [
       '/assets/images/projet-1/Dashboard view.webp',
       '/assets/images/projet-1/outlook-inbox.webp',
     ],
+
+    en: {
+      titre: 'Outlook → Odoo Automation',
+      categorieLabel: 'Automation',
+      technologies: 'Python · Claude Vision · Odoo API · 98% success rate',
+      accroche: "50 emails/day processed automatically — invoice & CMR detection, OCR and direct integration into the Odoo ERP.",
+      contexte: "Jost receives around fifty incoming emails each day in an Outlook inbox dedicated to supplier accounting. These emails carry invoices and CMR documents as attachments, which previously had to be opened, identified, read and manually entered into their Odoo ERP — a repetitive task representing 1.5 to 2 hours of daily work.<br><br>Wander-IT designed and deployed a complete pipeline: as soon as an email arrives, the system analyses the attachment, evaluates via a confidence score whether it is an invoice or a CMR, OCRs the document to extract key data, then calls the Odoo API directly. When the score is insufficient, the email is left unread and flagged for manual processing — less than 2% of cases.<br><br>A dedicated dashboard allows the client to monitor each run in real time: processed emails, successes, errors and returned CMRs — for total control at any time.",
+      gains: [
+        "50 emails processed automatically every day — staff focus on what truly adds value.",
+        "1.5 to 2 hours saved per day, around 35 to 40 hours recovered each month.",
+        "Automatic invoice vs CMR detection with confidence score: below the threshold, the email stays unread and flagged for manual processing (<2% of cases).",
+        "AI fallback on complex cases — no data loss, even on degraded documents.",
+        "Integrated error handling: advertising emails, missing or non-compliant attachments.",
+      ],
+      chiffreCle: { valeur: '~40h', label: 'recovered<br>each month' },
+    },
+
+    de: {
+      titre: 'Outlook → Odoo Automatisierung',
+      categorieLabel: 'Automatisierung',
+      technologies: 'Python · Claude Vision · Odoo API · 98% Erfolgsrate',
+      accroche: "50 E-Mails/Tag vollautomatisch verarbeitet — Erkennung von Rechnungen & CMR, OCR und direkte Integration in das Odoo ERP.",
+      contexte: "Jost erhält täglich rund fünfzig eingehende E-Mails in einem Outlook-Postfach für die Lieferantenbuchhaltung. Diese E-Mails enthalten Rechnungen und CMR-Dokumente als Anhang, die bisher manuell geöffnet, identifiziert und in das Odoo ERP eingegeben werden mussten — eine repetitive Aufgabe von 1,5 bis 2 Stunden täglich.<br><br>Wander-IT hat eine vollständige Pipeline konzipiert: Sobald eine E-Mail eintrifft, analysiert das System den Anhang, bewertet anhand eines Konfidenzwerts, ob es sich um eine Rechnung oder ein CMR handelt, OCRt das Dokument zur Datenextraktion und ruft direkt die Odoo API auf. Bei unzureichendem Wert bleibt die E-Mail ungelesen und wird zur manuellen Bearbeitung markiert — weniger als 2% der Fälle.<br><br>Ein dediziertes Dashboard ermöglicht dem Kunden die Echtzeitüberwachung: verarbeitete E-Mails, Erfolge, Fehler und zurückgesendete CMRs — vollständige Kontrolle zu jederzeit.",
+      gains: [
+        "50 E-Mails täglich automatisch verarbeitet — das Personal konzentriert sich auf wertschöpfende Aufgaben.",
+        "1,5 bis 2 Stunden täglich gespart, rund 35 bis 40 Stunden pro Monat zurückgewonnen.",
+        "Automatische Rechnungs- vs. CMR-Erkennung mit Konfidenzwert: Unterhalb der Schwelle bleibt die E-Mail ungelesen und wird markiert (<2% der Fälle).",
+        "KI-Fallback bei komplexen Fällen — kein Datenverlust, auch bei beschädigten Dokumenten.",
+        "Integrierte Fehlerbehandlung: Werbe-E-Mails, fehlende oder nicht konforme Anhänge.",
+      ],
+      chiffreCle: { valeur: '~40h', label: 'pro Monat<br>zurückgewonnen' },
+    },
   },
 
   {
@@ -100,6 +132,40 @@ window.PROJETS = [
       '/assets/images/projet-2/app-tolerance.webp',
       '/assets/images/projet-2/image.webp',
     ],
+
+    en: {
+      titre: 'Solar Pile Alignment Verification',
+      categorieLabel: 'Web Application',
+      technologies: 'Python · JavaScript · CSV · Geometric Calculation · Cloud Deployment',
+      accroche: "800 hectares, 70,000 piles — a custom web app to verify structural alignment in real time and automatically suggest corrections.",
+      contexte: "HCB Solar operates large-scale solar farms in Australia, some exceeding 800 hectares. Tens of thousands of structural piles support the solar trackers — and their alignment must comply with millimetre-level tolerances imposed by industry standards.<br><br>With 70,000 piles to check per project, the quality department needed a solution built around their reality. Wander-IT designed and developed a 100% custom web application: from a simple CSV file containing the X/Y/Z coordinates of each pile, the application automatically calculates alignment, checks each tolerance condition and generates an interactive visual diagram to identify out-of-tolerance zones at a glance.<br><br>When a problem is detected, the application suggests several correction scenarios — trim a pile by X mm, adjust another by Y mm — and allows exporting all results to CSV for processing in Excel, Google Sheets or any other business tool. The application is hosted online, accessible by the client, and remotely maintained by Wander-IT.",
+      gains: [
+        "70,000 piles checked in seconds — where manual verification would take days.",
+        "Interactive visual diagram: out-of-tolerance zones identified immediately, no technical expertise required.",
+        "Automatic correction proposals — the operator knows exactly what to adjust and by how much.",
+        "CSV export of results for direct integration into existing quality reports.",
+        "Professional visual support for on-site client presentations — credibility and clarity guaranteed.",
+        "Hosted web application, remotely updated by Wander-IT — zero installation, zero maintenance on the client side.",
+      ],
+      chiffreCle: { points: ['Client credibility', 'Operational efficiency', 'Fast big data analysis'] },
+    },
+
+    de: {
+      titre: 'Überprüfung der Solarramm-Ausrichtung',
+      categorieLabel: 'Webanwendung',
+      technologies: 'Python · JavaScript · CSV · Geometrische Berechnung · Cloud-Deployment',
+      accroche: "800 Hektar, 70.000 Rammpfähle — eine maßgeschneiderte Webanwendung zur Echtzeit-Prüfung der Strukturausrichtung mit automatischen Korrekturvorschlägen.",
+      contexte: "HCB Solar betreibt großflächige Solarparks in Australien, von denen einige 800 Hektar überschreiten. Zehntausende Strukturpfähle stützen die Solar-Tracker — ihre Ausrichtung muss millimetergenaue Branchentoleranzen einhalten.<br><br>Mit 70.000 zu prüfenden Pfählen pro Projekt brauchte die Qualitätsabteilung eine auf ihre Realität zugeschnittene Lösung. Wander-IT entwickelte eine 100% maßgeschneiderte Webanwendung: Aus einer einfachen CSV-Datei mit X/Y/Z-Koordinaten berechnet sie automatisch die Ausrichtung, prüft jede Toleranzbedingung und generiert ein interaktives visuelles Diagramm zur sofortigen Identifikation von Außertoleranz-Zonen.<br><br>Bei erkanntem Problem schlägt die Anwendung Korrekturszenarien vor und ermöglicht den CSV-Export für Excel, Google Sheets oder andere Business-Tools. Die Anwendung wird online gehostet und von Wander-IT remote gewartet.",
+      gains: [
+        "70.000 Pfähle in Sekunden geprüft — manuelle Prüfung würde Tage dauern.",
+        "Interaktives visuelles Diagramm: Außertoleranz-Zonen sofort identifiziert, ohne technisches Fachwissen.",
+        "Automatische Korrekturvorschläge — der Bediener weiß genau, was und um wie viel anzupassen ist.",
+        "CSV-Export der Ergebnisse zur direkten Integration in bestehende Qualitätsberichte.",
+        "Professionelle visuelle Unterstützung für Kundenpräsentationen — Glaubwürdigkeit und Klarheit garantiert.",
+        "Gehostete Webanwendung, von Wander-IT remote gewartet — keine Installation, keine Wartung auf Kundenseite.",
+      ],
+      chiffreCle: { points: ['Kundenglaubwürdigkeit', 'Betriebliche Effizienz', 'Schnelle Big-Data-Analyse'] },
+    },
   },
 
   {
@@ -155,6 +221,42 @@ window.PROJETS = [
     visuels: [
       '/assets/images/projet-3/3fQGQIoRGk7.webp',
     ],
+
+    en: {
+      titre: 'Solar Site Tracking on AppSheet',
+      categorieLabel: 'Mobile Application',
+      technologies: 'Google AppSheet · Geolocation · QR Code · Offline mode',
+      accroche: "A custom mobile app to manage tens of thousands of piles on site — geolocation, field encoding and live reporting for the project manager.",
+      contexte: "On large-scale solar farm construction sites, tracking work post by post is a major logistical challenge. Each project can involve tens of thousands of piles spread across hundreds of hectares. Without a suitable tool, workers waste valuable time navigating, data arrives late, and the project manager is flying blind.<br><br>Wander-IT developed a mobile application on Google AppSheet, designed for use on a construction site via smartphone or tablet. With integrated geolocation, the worker is guided directly to the pile requiring intervention. They consult the pile information, complete their work, and encode the result in real time — in seconds, with no paperwork.<br><br>All data automatically syncs to Google Sheets, giving the project manager live visibility on progress, each team's productivity and deviations from targets. Serious, structured support — directly presentable to the end client.<br><br>The application works in offline mode — essential on isolated sites — and includes advanced features such as QR code scanning and GPS position recording.",
+      schemaLabel: 'App visualisation',
+      gains: [
+        "Immediate time saving on site: the worker goes straight to the right pile via geolocation — no confusion, no wasted time.",
+        "Automatic real-time reporting: the manager monitors progress without waiting for end-of-day updates.",
+        "Team productivity tracking with structured data — professional support to present directly to the client.",
+        "Real visibility over large-scale sites: hundreds of hectares, thousands of piles, managed from a Google Sheets dashboard.",
+        "100% configurable application according to project needs — QR code scan, GPS recording, custom forms.",
+        "Native offline mode: data is synchronised as soon as the connection is restored, with no input lost.",
+      ],
+      chiffreCle: { points: ['Efficiency', 'Traceability', 'Live reporting'] },
+    },
+
+    de: {
+      titre: 'Solarbaustellen-Tracking auf AppSheet',
+      categorieLabel: 'Mobile Anwendung',
+      technologies: 'Google AppSheet · Geolokalisierung · QR Code · Offline-Modus',
+      accroche: "Eine maßgeschneiderte mobile App zur Verwaltung von zehntausenden Pfählen auf der Baustelle — Geolokalisierung, Felderfassung und Live-Reporting für den Projektmanager.",
+      contexte: "Auf großflächigen Solarpark-Baustellen ist die postenweise Arbeitsverfolgung eine große logistische Herausforderung. Jedes Projekt kann zehntausende Pfähle umfassen, verteilt über Hunderte von Hektaren. Ohne geeignetes Werkzeug verschwenden Mitarbeiter wertvolle Zeit, Daten kommen verzögert an und der Projektmanager navigiert im Dunkeln.<br><br>Wander-IT entwickelte eine mobile Anwendung auf Google AppSheet für den Einsatz auf der Baustelle via Smartphone oder Tablet. Dank Geolokalisierung wird der Arbeiter direkt zum Einsatzpfahl geführt. Er konsultiert die Pfahlinformationen, erledigt seine Arbeit und erfasst das Ergebnis in Echtzeit — in Sekunden, ohne Papierkram.<br><br>Alle Daten synchronisieren sich automatisch in Google Sheets und geben dem Projektmanager Live-Einblick in Fortschritt, Teamproduktivität und Zielabweichungen. Seriöse, strukturierte Unterstützung — direkt dem Endkunden präsentierbar.<br><br>Die Anwendung funktioniert im Offline-Modus — unverzichtbar auf abgelegenen Baustellen — und umfasst QR-Code-Scan und GPS-Positionserfassung.",
+      schemaLabel: 'App-Visualisierung',
+      gains: [
+        "Sofortige Zeitersparnis: Der Arbeiter geht dank Geolokalisierung direkt zum richtigen Pfahl — keine Verwirrung, kein Zeitverlust.",
+        "Automatisches Echtzeit-Reporting: Der Manager überwacht Fortschritte ohne Tagesend-Updates abzuwarten.",
+        "Teamproduktivitäts-Tracking mit strukturierten Daten — professionelle Unterstützung, direkt dem Kunden präsentierbar.",
+        "Echte Sichtbarkeit über große Baustellen: Hunderte Hektar, tausende Pfähle, vom Google Sheets Dashboard gesteuert.",
+        "100% konfigurierbar — QR-Code-Scan, GPS-Erfassung, maßgeschneiderte Formulare.",
+        "Nativer Offline-Modus: Daten synchronisieren bei Wiederverbindung, ohne Eingabeverlust.",
+      ],
+      chiffreCle: { points: ['Effizienz', 'Rückverfolgbarkeit', 'Live-Reporting'] },
+    },
   },
 
   {
@@ -193,6 +295,42 @@ window.PROJETS = [
     video: '/assets/images/projet-4/DailyApp.mp4',
     visuels: [],
     disponibleSurDemande: true,
+
+    en: {
+      titre: "DailyPlan — Team & Resource Allocation",
+      categorieLabel: 'Web Application',
+      technologies: 'Drag & Drop · Image Export · Weather API · CSV Import',
+      client: 'Internal',
+      accroche: "No more last-minute Excel plans — an intuitive web application with drag & drop to allocate teams, vehicles and tasks in minutes every morning.",
+      contexte: "On large construction sites with many human and material resources, daily planning is a headache. Managers spend valuable time filling Excel spreadsheets, correcting cell formats, coordinating teams and distributing the final plan.<br><br>DailyPlan is a web application designed for resource-intensive construction site managers. With drag & drop, they allocate employees, vehicles and tasks in minutes. The system automatically checks constraints — available seats in vehicles, team headcounts, designated leads — and flags inconsistencies before validation.<br><br>Importing lists (employees, vehicles, tasks) is done via CSV, making the tool adaptable to any site. Once the plan is ready, one click generates an exportable screenshot ready to share on WhatsApp. The day-by-day history and 'copy from yesterday' function further reduce daily entry time.",
+      gains: [
+        "Over 30 minutes saved every morning — the manager heads to the field with a clear plan prepared in a few clicks.",
+        "Zero vehicle overload: the system blocks assignments exceeding the configured capacity.",
+        "Plan instantly shareable on WhatsApp via screenshot — the whole team informed before arriving on site.",
+        "Complete day-by-day history: retrieve any past plan and copy yesterday's schedule to modify it in seconds.",
+        "CSV import for employee, vehicle and task lists — the tool adapts to a new site in minutes.",
+        "Integrated real-time weather for the site location: anticipate disruptions before starting the day.",
+      ],
+      chiffreCle: { points: ['Time saving', 'Zero overload', 'Instant sharing'] },
+    },
+
+    de: {
+      titre: "DailyPlan — Team- & Ressourcenzuweisung",
+      categorieLabel: 'Webanwendung',
+      technologies: 'Drag & Drop · Bildexport · Wetter-API · CSV-Import',
+      client: 'Intern',
+      accroche: "Schluss mit Last-Minute-Excel-Plänen — eine intuitive Webanwendung mit Drag & Drop zur Zuweisung von Teams, Fahrzeugen und Aufgaben in wenigen Minuten jeden Morgen.",
+      contexte: "Auf großen Baustellen mit vielen Mitarbeitern und Materialressourcen ist die tägliche Planung ein Albtraum. Manager verbringen wertvolle Zeit damit, Excel-Tabellen auszufüllen, Teams zu koordinieren und den Endplan zu verteilen.<br><br>DailyPlan ist eine Webanwendung für ressourcenintensive Baustellenleiter. Per Drag & Drop weisen sie in Minuten Mitarbeiter, Fahrzeuge und Aufgaben zu. Das System prüft automatisch Einschränkungen — freie Fahrzeugplätze, Teambesetzung, benannte Vorgesetzte — und meldet Unstimmigkeiten vor der Bestätigung.<br><br>Der Import von Listen (Mitarbeiter, Fahrzeuge, Aufgaben) erfolgt via CSV. Sobald der Plan fertig ist, generiert ein Klick einen Screenshot für WhatsApp. Der Tagesverlauf und 'von gestern kopieren' reduzieren den Erfassungsaufwand weiter.",
+      gains: [
+        "Über 30 Minuten täglich gespart — der Manager geht mit einem klaren Plan auf die Baustelle.",
+        "Null Fahrzeugüberlastung: Das System blockiert Zuweisungen, die die konfigurierte Kapazität überschreiten.",
+        "Plan sofort via Screenshot auf WhatsApp teilbar — das gesamte Team informiert vor Ankunft.",
+        "Vollständiger Tagesverlauf: Vergangene Pläne abrufen und den gestrigen Zeitplan in Sekunden kopieren.",
+        "CSV-Import für Mitarbeiter-, Fahrzeug- und Aufgabenlisten — in Minuten an neue Baustellen anpassbar.",
+        "Integrierte Echtzeit-Wettervorhersage: Störungen antizipieren, bevor der Tag beginnt.",
+      ],
+      chiffreCle: { points: ['Zeitersparnis', 'Null Überlastung', 'Sofortiges Teilen'] },
+    },
   },
 
   {
@@ -230,6 +368,44 @@ window.PROJETS = [
     visuels: [
       '/assets/images/projet-5/AnalyseSpeedWeb.png',
     ],
+
+    en: {
+      titre: 'Wander-IT Website',
+      categorieLabel: 'Website',
+      technologies: 'HTML · CSS · JavaScript · SEO · Hosting · Google Business',
+      accroche: "A website built from scratch — custom code, 99/100 performance, Google Business and hosting included. No subscriptions, no dependencies: total ownership.",
+      titreSectionContexte: 'Our website',
+      titreSectionGains: 'The value our websites deliver',
+      ctaApresVisuels: "Like our website?",
+      contexte: "Building your own website when you are an IT agency is both a style exercise and a permanent business card. Nothing was left to chance: every line of code, every design decision and every technical parameter was thought through to reflect Wander-IT's identity and maximise online impact.<br><br>The site was developed from scratch — without Wix, without Squarespace, without a generic builder. This approach guarantees total freedom over structure, performance and future evolution. Domain and hosting are managed directly by Wander-IT: no third-party subscription, no external constraints.<br><br>SEO was integrated from the outset: semantic structure, optimised tags, loading speed, mobile compatibility — everything calibrated to appeal to both search engines and visitors. Result: 99/100 performance, 100/100 accessibility, best practices and SEO on Google PageSpeed.<br><br>In parallel, the Google Business page was created and optimised to ensure a strong local presence and capture qualified leads directly from Google Search.<br><br>No frills — pragmatic, delivered in under a week.",
+      gains: [
+        "Maximum visibility on Google — 100/100 SEO score and 99/100 performance on Google PageSpeed Insights.",
+        "100% functional on smartphones — identical experience on mobile, tablet and desktop.",
+        "No subscriptions, no dependency on a third-party platform — total ownership of code, domain and hosting.",
+        "Google Business page created and optimised — enhanced local presence for leads from geolocated search.",
+        "A site that truly represents us: custom design, optimised for SEO, performance and conversion.",
+      ],
+      chiffreCle: { valeur: '99 · 100', label: 'Performance · SEO<br>Google PageSpeed' },
+    },
+
+    de: {
+      titre: 'Wander-IT Website',
+      categorieLabel: 'Website',
+      technologies: 'HTML · CSS · JavaScript · SEO · Hosting · Google Business',
+      accroche: "Eine von Grund auf erstellte Website — maßgeschneiderter Code, 99/100 Performance, Google Business und Hosting inklusive. Keine Abonnements, keine Abhängigkeiten: vollständige Eigentümerschaft.",
+      titreSectionContexte: 'Unsere Website',
+      titreSectionGains: 'Der Mehrwert unserer Websites',
+      ctaApresVisuels: "Gefällt Ihnen unsere Website?",
+      contexte: "Die eigene Website zu bauen, wenn man eine IT-Agentur ist, ist sowohl Stilübung als auch permanente Visitenkarte. Nichts wurde dem Zufall überlassen: Jede Codezeile, jede Designentscheidung und jeder technische Parameter wurde durchdacht, um Wander-ITs Identität widerzuspiegeln.<br><br>Die Website wurde von Grund auf entwickelt — ohne Wix, ohne Squarespace, ohne generischen Builder. Domain und Hosting werden direkt von Wander-IT verwaltet: kein Drittanbieter-Abonnement, keine externen Einschränkungen.<br><br>SEO wurde von Anfang an integriert: semantische Struktur, optimierte Tags, Ladegeschwindigkeit, mobile Kompatibilität. Ergebnis: 99/100 Performance, 100/100 Zugänglichkeit, Best Practices und SEO auf Google PageSpeed.<br><br>Parallel dazu wurde die Google-Business-Seite erstellt und optimiert für starke lokale Präsenz und qualifizierte Leads aus der Google-Suche.<br><br>Ohne Schnickschnack — pragmatisch, in weniger als einer Woche geliefert.",
+      gains: [
+        "Maximale Sichtbarkeit bei Google — 100/100 SEO-Score und 99/100 Performance auf Google PageSpeed.",
+        "100% funktional auf Smartphones — identisches Erlebnis auf Mobilgerät, Tablet und Desktop.",
+        "Keine Abonnements, keine Abhängigkeit von Drittanbieter-Plattformen — vollständige Eigentümerschaft.",
+        "Google-Business-Seite erstellt und optimiert — stärkere lokale Präsenz für Leads aus der geolokalisierten Suche.",
+        "Eine Website, die uns wirklich repräsentiert: maßgeschneidertes Design, optimiert für SEO, Performance und Conversion.",
+      ],
+      chiffreCle: { valeur: '99 · 100', label: 'Performance · SEO<br>Google PageSpeed' },
+    },
   },
 
   {
@@ -275,5 +451,39 @@ window.PROJETS = [
       '/assets/images/projet-6/Design sans titre-4.png',
       '/assets/images/projet-6/Design sans titre-5.png',
     ],
+
+    en: {
+      titre: 'Construction Site Report — Looker Studio',
+      categorieLabel: 'Data & Reporting',
+      technologies: 'Google Sheets · Looker Studio · Data Cleaning · Mapping',
+      accroche: "69,000 piles, dozens of different states — a Looker Studio report connected in real time to the database to track site progress and negotiate with hard figures.",
+      contexte: "On a large-scale solar construction site, data accumulates relentlessly: 69,000 piles, each with a distinct state, specific issues and daily evolution. Without structure, this mass of information becomes unmanageable — and impossible to present to a client.<br><br>Wander-IT first handled the complete cleaning and sorting of raw data in Google Sheets. Each entry was normalised, categorised and structured to be analytically usable.<br><br>On this clean foundation, an interactive Looker Studio report was designed: daily progress charts, yesterday/today comparisons, state distribution pie charts, and an interactive geographic map showing which blocks are complete, in progress or blocked — overlaid directly on the actual terrain.<br><br>The report is connected directly to the database: each update is automatically reflected, with no manual intervention. HCB Solar shares it with their own client — a professional reporting and negotiation tool that reinforces their credibility and project control.",
+      gains: [
+        "69,000 piles tracked in real time — every state, every issue, every progression visible instantly.",
+        "Report updated automatically every day via direct database connection — zero manual input.",
+        "Interactive geographic map: visualise block-by-block site progress on the actual terrain at a glance.",
+        "Integrated daily comparison (yesterday vs today) — ideal for detecting slowdowns and managing teams.",
+        "A tool shared directly with the end client: enhanced credibility, easier negotiation, assured trust.",
+        "Raw data cleaned and structured — a solid foundation for all current and future analysis.",
+      ],
+      chiffreCle: { titre: 'Value', points: ['Negotiation', 'Client credibility', 'Project visibility'] },
+    },
+
+    de: {
+      titre: 'Baustellenbericht — Looker Studio',
+      categorieLabel: 'Daten & Reporting',
+      technologies: 'Google Sheets · Looker Studio · Data Cleaning · Kartierung',
+      accroche: "69.000 Pfähle, Dutzende verschiedener Zustände — ein Looker Studio-Bericht in Echtzeit mit der Datenbank verbunden, um den Baustellenfortschritt zu steuern und mit Zahlen zu verhandeln.",
+      contexte: "Auf einer großflächigen Solarbaustelle häufen sich Daten in rasantem Tempo an: 69.000 Pfähle, jeder mit eigenem Zustand, spezifischen Problemen und täglicher Entwicklung. Ohne Struktur wird diese Informationsmasse unkontrollierbar.<br><br>Wander-IT übernahm zunächst die vollständige Bereinigung und Sortierung der Rohdaten in Google Sheets. Jeder Eintrag wurde normalisiert, kategorisiert und strukturiert.<br><br>Auf dieser soliden Basis wurde ein interaktiver Looker Studio-Bericht konzipiert: tägliche Fortschrittsgrafiken, Gestern/Heute-Vergleiche, Zustandsverteilungs-Tortendiagramme und eine interaktive geografische Karte, die zeigt, welche Blöcke fertig, in Bearbeitung oder blockiert sind — direkt auf das tatsächliche Gelände überlagert.<br><br>Der Bericht ist direkt mit der Datenbank verbunden: Jede Aktualisierung spiegelt sich automatisch wider. HCB Solar teilt ihn mit seinem eigenen Kunden — ein professionelles Reporting- und Verhandlungswerkzeug.",
+      gains: [
+        "69.000 Pfähle in Echtzeit verfolgt — jeder Zustand, jedes Problem, jeder Fortschritt sofort sichtbar.",
+        "Bericht täglich automatisch über direkte Datenbankverbindung aktualisiert — null manuelle Eingabe.",
+        "Interaktive geografische Karte: Baustellenfortschritt Block für Block auf dem Gelände auf einen Blick.",
+        "Integrierter Tagesvergleich (gestern vs. heute) — ideal zur Erkennung von Verlangsamungen.",
+        "Direkt mit dem Endkunden geteilt: gesteigerte Glaubwürdigkeit, erleichterte Verhandlung, gesichertes Vertrauen.",
+        "Rohdaten bereinigt und strukturiert — solide Grundlage für alle gegenwärtigen und zukünftigen Analysen.",
+      ],
+      chiffreCle: { titre: 'Nutzen', points: ['Verhandlung', 'Kundenglaubwürdigkeit', 'Projektübersicht'] },
+    },
   },
 ];

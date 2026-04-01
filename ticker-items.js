@@ -25,3 +25,35 @@ const TICKER_ITEMS = [
  // 'Portail client',
   //'Import / export Excel',
 ];
+
+const TICKER_ITEMS_EN = [
+  'Web Application',
+  'CV Screening',
+  'Inbox Automation',
+  'Automatic Quotes',
+  'Site Tracking App',
+  'LinkedIn Post Automation',
+  'Custom Calendar',
+  'Dashboard',
+  'ODOO Integration',
+  'Auto PDF Report',
+  'Newsletter System',
+  'Inventory Management',
+  'Alerts & Notifications',
+];
+
+const TICKER_ITEMS_DE = [
+  'Webanwendung',
+  'Lebenslauf-Screening',
+  'E-Mail-Automatisierung',
+  'Automatische Angebote',
+  'Baustellen-App',
+  'LinkedIn-Post-Automatisierung',
+  'Benutzerdefinierter Kalender',
+  'Dashboard',
+  'ODOO-Integration',
+  'Automatischer PDF-Bericht',
+  'Newsletter-System',
+  'Lagerverwaltung',
+  'Benachrichtigungen & Alarme',
+];

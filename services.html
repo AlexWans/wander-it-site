@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-i18n-title="title.services">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,6 +74,12 @@
     body.menu-open .bl:nth-child(1) { transform:translateY(7px) rotate(45deg); }
     body.menu-open .bl:nth-child(2) { opacity:0; }
     body.menu-open .bl:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+    .lang-switch { display:flex; align-items:center; gap:0.4rem; margin-left:1.2rem; }
+    .lang-btn { background:none; border:none; cursor:pointer; font-family:'Monda',sans-serif; font-size:0.64rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:#B2CBD4; padding:0.2rem 0.1rem; transition:color 0.2s ease; }
+    .lang-btn:hover { color:#F5F3EF; }
+    .lang-btn.active { color:#F5F3EF; }
+    .lang-btn:focus-visible { outline:2px solid #6B3020; outline-offset:2px; }
 
     /* ── Labels ── */
     .lbl {
@@ -274,10 +280,17 @@
     <span style="font-family:'Monda',sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;color:#F5F3EF">Wander-IT</span>
   </a>
   <div id="nav-links" style="display:flex;align-items:center;gap:2.5rem">
-    <a href="realisations.html" class="nl">Réalisations</a>
-    <a href="services.html" class="nl active">Services</a>
-    <a href="a-propos.html" class="nl">À propos</a>
+    <a href="realisations.html" class="nl" data-i18n="nav.realisations">Réalisations</a>
+    <a href="services.html" class="nl active" data-i18n="nav.services">Services</a>
+    <a href="a-propos.html" class="nl" data-i18n="nav.about">À propos</a>
     <a href="index.html#contact" class="nl">Contact</a>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">FR</button>
+      <span style="color:#B2CBD4;opacity:0.35">|</span>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      <span style="color:#B2CBD4;opacity:0.35">|</span>
+      <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+    </div>
   </div>
   <button id="nav-burger" onclick="toggleMenu()" aria-label="Ouvrir le menu" aria-expanded="false">
     <span class="bl"></span><span class="bl"></span><span class="bl"></span>
@@ -286,14 +299,21 @@
 
 <!-- MENU MOBILE -->
 <div id="mobile-menu" aria-hidden="true">
-  <a href="realisations.html" class="mob-link" onclick="closeMenu()">Réalisations</a>
-  <a href="services.html" class="mob-link" onclick="closeMenu()">Services</a>
-  <a href="a-propos.html" class="mob-link" onclick="closeMenu()">À propos</a>
+  <a href="realisations.html" class="mob-link" onclick="closeMenu()" data-i18n="nav.realisations">Réalisations</a>
+  <a href="services.html" class="mob-link" onclick="closeMenu()" data-i18n="nav.services">Services</a>
+  <a href="a-propos.html" class="mob-link" onclick="closeMenu()" data-i18n="nav.about">À propos</a>
   <a href="index.html#contact" class="mob-link" onclick="closeMenu()">Contact</a>
   <a href="index.html#contact" class="mob-cta" onclick="closeMenu()">
-    Nous contacter
+    <span data-i18n="nav.contact">Nous contacter</span>
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
   </a>
+  <div class="lang-switch" style="margin-left:0;margin-top:0.5rem">
+    <button class="lang-btn active" data-lang="fr" onclick="setLang('fr');closeMenu()">FR</button>
+    <span style="color:#B2CBD4;opacity:0.35">|</span>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMenu()">EN</button>
+    <span style="color:#B2CBD4;opacity:0.35">|</span>
+    <button class="lang-btn" data-lang="de" onclick="setLang('de');closeMenu()">DE</button>
+  </div>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -305,11 +325,11 @@
 
   <div style="max-width:1240px;margin:0 auto">
     <div class="reveal">
-      <p class="lbl" style="color:#B1DCED;opacity:0.45;margin-bottom:1rem">Ce que nous proposons</p>
-      <h1 style="font-family:'Roboto Slab',serif;font-size:clamp(2.6rem,7vw,5rem);font-weight:700;line-height:1.05;letter-spacing:-0.03em;color:#F5F3EF;margin-bottom:1.5rem">
+      <p class="lbl" data-i18n="svc.eyebrow" style="color:#B1DCED;opacity:0.45;margin-bottom:1rem">Ce que nous proposons</p>
+      <h1 data-i18n="svc.title" style="font-family:'Roboto Slab',serif;font-size:clamp(2.6rem,7vw,5rem);font-weight:700;line-height:1.05;letter-spacing:-0.03em;color:#F5F3EF;margin-bottom:1.5rem">
         Nos services.
       </h1>
-      <p style="font-size:0.9rem;color:#B2CBD4;line-height:1.85;max-width:520px;opacity:0.8">
+      <p data-i18n="svc.sub" style="font-size:0.9rem;color:#B2CBD4;line-height:1.85;max-width:520px;opacity:0.8">
         Pas de solutions génériques. Chaque projet est analysé, pensé et construit autour de vos réalités terrain — pour un impact concret, durable et mesurable.
       </p>
     </div>
@@ -327,15 +347,15 @@
       <!-- Left: info -->
       <div>
         <span style="font-family:'Roboto Slab',serif;font-size:5rem;font-weight:900;color:#6B3020;opacity:0.1;line-height:1;display:block;margin-bottom:-1.5rem;letter-spacing:-0.04em">01</span>
-        <p class="lbl" style="color:#6B3020;opacity:0.65;margin-bottom:0.75rem">Automatisation</p>
-        <h2 style="font-family:'Roboto Slab',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:#0B1C22;line-height:1.2;letter-spacing:-0.025em;margin-bottom:1.25rem">
+        <p class="lbl" style="color:#6B3020;opacity:0.65;margin-bottom:0.75rem" data-i18n="s1.num">Automatisation</p>
+        <h2 style="font-family:'Roboto Slab',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:#0B1C22;line-height:1.2;letter-spacing:-0.025em;margin-bottom:1.25rem" data-i18n="s1.title">
           Vos outils travaillent pour vous, pas l'inverse.
         </h2>
-        <p style="font-size:0.88rem;color:#4d6870;line-height:1.9;margin-bottom:2rem">
+        <p style="font-size:0.88rem;color:#4d6870;line-height:1.9;margin-bottom:2rem" data-i18n="s1.desc">
           Automatisez les tâches répétitives et connectez vos outils entre eux — gestion de boîte mail, devis automatiques, publications marketing planifiées, synchronisations de données et bien plus. Nous libérons votre équipe des tâches à faible valeur pour qu'elle se concentre sur ce qui compte vraiment.
         </p>
         <a href="index.html#contact" class="btn-contact">
-          Ce service vous intéresse ?
+          <span data-i18n="svc.interest">Ce service vous intéresse ?</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -347,40 +367,40 @@
             <img src="assets/images/projet-1/Microsoft_Outlook_Icon_(2025–present).svg.webp" alt="Outlook" style="height:18px;width:auto">
             <img src="assets/images/Gmail_icon_(2020).svg.png" alt="Gmail" style="height:18px;width:auto">
           </div>
-          <p class="ex-title" style="color:#0B1C22">Gestion de boîte mail</p>
-          <p class="ex-desc" style="color:#4d6870">Réponses automatiques, tri intelligent et suivi des messages entrants sans effort.</p>
-          <p class="ex-gain">↗ ~3h économisées par semaine</p>
+          <p class="ex-title" style="color:#0B1C22" data-i18n="s1.e1.title">Gestion de boîte mail</p>
+          <p class="ex-desc" style="color:#4d6870" data-i18n="s1.e1.desc">Réponses automatiques, tri intelligent et suivi des messages entrants sans effort.</p>
+          <p class="ex-gain" data-i18n="s1.e1.kpi">↗ ~3h économisées par semaine</p>
         </div>
         <div class="ex-card-light">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B3020" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem;opacity:0.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          <p class="ex-title" style="color:#0B1C22">Devis automatiques</p>
-          <p class="ex-desc" style="color:#4d6870">Génération de devis depuis vos formulaires web, sans intervention manuelle.</p>
-          <p class="ex-gain">↗ Délai de réponse réduit de 80%</p>
+          <p class="ex-title" style="color:#0B1C22" data-i18n="s1.e2.title">Devis automatiques</p>
+          <p class="ex-desc" style="color:#4d6870" data-i18n="s1.e2.desc">Génération de devis depuis vos formulaires web, sans intervention manuelle.</p>
+          <p class="ex-gain" data-i18n="s1.e2.kpi">↗ Délai de réponse réduit de 80%</p>
         </div>
         <div class="ex-card-light">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B3020" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem;opacity:0.7"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-          <p class="ex-title" style="color:#0B1C22">Réseaux sociaux</p>
-          <p class="ex-desc" style="color:#4d6870">Publications planifiées et diffusées automatiquement sur tous vos canaux.</p>
-          <p class="ex-gain">↗ Présence constante, 0 effort quotidien</p>
+          <p class="ex-title" style="color:#0B1C22" data-i18n="s1.e3.title">Réseaux sociaux</p>
+          <p class="ex-desc" style="color:#4d6870" data-i18n="s1.e3.desc">Publications planifiées et diffusées automatiquement sur tous vos canaux.</p>
+          <p class="ex-gain" data-i18n="s1.e3.kpi">↗ Présence constante, 0 effort quotidien</p>
         </div>
         <div class="ex-card-light" style="border-color:rgba(113,75,103,0.2);position:relative;overflow:hidden">
           <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,#714B67,rgba(113,75,103,0.15))"></div>
           <img src="assets/images/projet-1/Odoo_Official_Logo.webp" alt="Odoo" style="height:18px;width:auto;margin-bottom:0.6rem;display:block;object-fit:contain;object-position:left">
-          <p class="ex-title" style="color:#0B1C22">Intégration Odoo</p>
-          <p class="ex-desc" style="color:#4d6870">Encodage automatique des factures reçues par mail directement dans Odoo — sans saisie manuelle.</p>
-          <p class="ex-gain">↗ ~40h récupérées par mois</p>
+          <p class="ex-title" style="color:#0B1C22" data-i18n="s1.e4.title">Intégration Odoo</p>
+          <p class="ex-desc" style="color:#4d6870" data-i18n="s1.e4.desc">Encodage automatique des factures reçues par mail directement dans Odoo — sans saisie manuelle.</p>
+          <p class="ex-gain" data-i18n="s1.e4.kpi">↗ ~40h récupérées par mois</p>
         </div>
         <div class="ex-card-light">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B3020" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem;opacity:0.7"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-          <p class="ex-title" style="color:#0B1C22">Rappels clients</p>
-          <p class="ex-desc" style="color:#4d6870">Notifications automatiques envoyées à vos clients au bon moment, sans y penser.</p>
-          <p class="ex-gain">↗ Taux de relance ×3 sans charge supplémentaire</p>
+          <p class="ex-title" style="color:#0B1C22" data-i18n="s1.e5.title">Rappels clients</p>
+          <p class="ex-desc" style="color:#4d6870" data-i18n="s1.e5.desc">Notifications automatiques envoyées à vos clients au bon moment, sans y penser.</p>
+          <p class="ex-gain" data-i18n="s1.e5.kpi">↗ Taux de relance ×3 sans charge supplémentaire</p>
         </div>
         <div class="ex-card-light">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B3020" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem;opacity:0.7"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          <p class="ex-title" style="color:#0B1C22">Reporting hebdo</p>
-          <p class="ex-desc" style="color:#4d6870">Rapports générés et envoyés automatiquement chaque semaine par mail.</p>
-          <p class="ex-gain">↗ 30 min récupérées chaque lundi matin</p>
+          <p class="ex-title" style="color:#0B1C22" data-i18n="s1.e6.title">Reporting hebdo</p>
+          <p class="ex-desc" style="color:#4d6870" data-i18n="s1.e6.desc">Rapports générés et envoyés automatiquement chaque semaine par mail.</p>
+          <p class="ex-gain" data-i18n="s1.e6.kpi">↗ 30 min récupérées chaque lundi matin</p>
         </div>
       </div>
 
@@ -399,15 +419,15 @@
       <!-- Left: info -->
       <div>
         <span style="font-family:'Roboto Slab',serif;font-size:5rem;font-weight:900;color:#B1DCED;opacity:0.1;line-height:1;display:block;margin-bottom:-1.5rem;letter-spacing:-0.04em">02</span>
-        <p class="lbl" style="color:#B1DCED;opacity:0.5;margin-bottom:0.75rem">Développement d'outils</p>
-        <h2 style="font-family:'Roboto Slab',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:#F5F3EF;line-height:1.2;letter-spacing:-0.025em;margin-bottom:1.25rem">
+        <p class="lbl" style="color:#B1DCED;opacity:0.5;margin-bottom:0.75rem" data-i18n="s2.num">Développement d'outils</p>
+        <h2 style="font-family:'Roboto Slab',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:#F5F3EF;line-height:1.2;letter-spacing:-0.025em;margin-bottom:1.25rem" data-i18n="s2.title">
           Des outils pensés pour vos utilisateurs, construits pour durer.
         </h2>
-        <p style="font-size:0.88rem;color:#B2CBD4;line-height:1.9;margin-bottom:2rem;opacity:0.85">
+        <p style="font-size:0.88rem;color:#B2CBD4;line-height:1.9;margin-bottom:2rem;opacity:0.85" data-i18n="s2.desc">
           Applications web et mobiles sur mesure, portails clients, dashboards de pilotage, outils internes — nous concevons des solutions qui s'intègrent à votre flux de travail et évoluent avec votre activité. Chaque détail compte, du premier écran à la dernière ligne de code.
         </p>
         <a href="index.html#contact" class="btn-contact-outline">
-          Ce service vous intéresse ?
+          <span data-i18n="svc.interest">Ce service vous intéresse ?</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -416,39 +436,39 @@
       <div class="ex-grid">
         <div class="ex-card-dark">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(177,220,237,0.6)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          <p class="ex-title" style="color:#F5F3EF">App suivi de chantiers</p>
-          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8">Avancement, photos et documents partagés en temps réel avec vos équipes terrain.</p>
-          <p class="ex-gain ex-gain-dark">↗ Réunions de suivi réduites de moitié</p>
+          <p class="ex-title" style="color:#F5F3EF" data-i18n="s2.e1.title">App suivi de chantiers</p>
+          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8" data-i18n="s2.e1.desc">Avancement, photos et documents partagés en temps réel avec vos équipes terrain.</p>
+          <p class="ex-gain ex-gain-dark" data-i18n="s2.e1.kpi">↗ Réunions de suivi réduites de moitié</p>
         </div>
         <div class="ex-card-dark">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(177,220,237,0.6)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <p class="ex-title" style="color:#F5F3EF">Portail client</p>
-          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8">Espace dédié pour que vos clients suivent leurs commandes et échangent facilement.</p>
-          <p class="ex-gain ex-gain-dark">↗ −60% de questions par mail ou téléphone</p>
+          <p class="ex-title" style="color:#F5F3EF" data-i18n="s2.e2.title">Portail client</p>
+          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8" data-i18n="s2.e2.desc">Espace dédié pour que vos clients suivent leurs commandes et échangent facilement.</p>
+          <p class="ex-gain ex-gain-dark" data-i18n="s2.e2.kpi">↗ −60% de questions par mail ou téléphone</p>
         </div>
         <div class="ex-card-dark">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(177,220,237,0.6)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          <p class="ex-title" style="color:#F5F3EF">Planification d'équipes</p>
-          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8">Outil interne pour organiser missions, ressources et disponibilités en un coup d'œil.</p>
-          <p class="ex-gain ex-gain-dark">↗ Vue complète de l'équipe en 30 secondes</p>
+          <p class="ex-title" style="color:#F5F3EF" data-i18n="s2.e3.title">Planification d'équipes</p>
+          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8" data-i18n="s2.e3.desc">Outil interne pour organiser missions, ressources et disponibilités en un coup d'œil.</p>
+          <p class="ex-gain ex-gain-dark" data-i18n="s2.e3.kpi">↗ Vue complète de l'équipe en 30 secondes</p>
         </div>
         <div class="ex-card-dark">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(177,220,237,0.6)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-          <p class="ex-title" style="color:#F5F3EF">Dashboard commercial</p>
-          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8">Tableau de bord interactif pour piloter vos KPIs et décisions commerciales.</p>
-          <p class="ex-gain ex-gain-dark">↗ Décisions basées sur du réel, pas des estimations</p>
+          <p class="ex-title" style="color:#F5F3EF" data-i18n="s2.e4.title">Dashboard commercial</p>
+          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8" data-i18n="s2.e4.desc">Tableau de bord interactif pour piloter vos KPIs et décisions commerciales.</p>
+          <p class="ex-gain ex-gain-dark" data-i18n="s2.e4.kpi">↗ Décisions basées sur du réel, pas des estimations</p>
         </div>
         <div class="ex-card-dark">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(177,220,237,0.6)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2.5"/></svg>
-          <p class="ex-title" style="color:#F5F3EF">App mobile de pointage</p>
-          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8">Pointage accessible hors ligne pour vos techniciens, synchronisé à la reconnexion.</p>
-          <p class="ex-gain ex-gain-dark">↗ Fini les feuilles Excel en fin de journée</p>
+          <p class="ex-title" style="color:#F5F3EF" data-i18n="s2.e5.title">App mobile de pointage</p>
+          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8" data-i18n="s2.e5.desc">Pointage accessible hors ligne pour vos techniciens, synchronisé à la reconnexion.</p>
+          <p class="ex-gain ex-gain-dark" data-i18n="s2.e5.kpi">↗ Fini les feuilles Excel en fin de journée</p>
         </div>
         <div class="ex-card-dark">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(177,220,237,0.6)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <p class="ex-title" style="color:#F5F3EF">Réservation en ligne</p>
-          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8">Plateforme de prise de rendez-vous sur mesure, adaptée à votre activité.</p>
-          <p class="ex-gain ex-gain-dark">↗ Disponible 24/7, sans secrétariat</p>
+          <p class="ex-title" style="color:#F5F3EF" data-i18n="s2.e6.title">Réservation en ligne</p>
+          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8" data-i18n="s2.e6.desc">Plateforme de prise de rendez-vous sur mesure, adaptée à votre activité.</p>
+          <p class="ex-gain ex-gain-dark" data-i18n="s2.e6.kpi">↗ Disponible 24/7, sans secrétariat</p>
         </div>
       </div>
 
@@ -467,16 +487,16 @@
       <!-- Left: info -->
       <div>
         <span style="font-family:'Roboto Slab',serif;font-size:5rem;font-weight:900;color:#004258;opacity:0.1;line-height:1;display:block;margin-bottom:-1.5rem;letter-spacing:-0.04em">03</span>
-        <p class="lbl" style="color:#004258;opacity:0.65;margin-bottom:0.75rem">Intégration IA</p>
-        <h2 style="font-family:'Roboto Slab',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:#0B1C22;line-height:1.2;letter-spacing:-0.025em;margin-bottom:1.25rem">
+        <p class="lbl" style="color:#004258;opacity:0.65;margin-bottom:0.75rem" data-i18n="s3.num">Intégration IA</p>
+        <h2 style="font-family:'Roboto Slab',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:#0B1C22;line-height:1.2;letter-spacing:-0.025em;margin-bottom:1.25rem" data-i18n="s3.title">
           L'intelligence artificielle, là où elle apporte une vraie valeur.
         </h2>
-        <p style="font-size:0.88rem;color:#4d6870;line-height:1.9;margin-bottom:2rem">
+        <p style="font-size:0.88rem;color:#4d6870;line-height:1.9;margin-bottom:2rem" data-i18n="s3.desc">
           Intégrez des modèles d'IA directement dans vos systèmes existants — chatbots, analyse de documents, génération de contenu, classification automatique. Nous ne suivons pas la mode : nous identifions précisément où l'IA crée un gain concret pour votre équipe et vos clients.
         </p>
         <a href="index.html#contact" class="btn-contact" style="background:#004258;box-shadow:0 4px 20px rgba(0,66,88,0.28)"
           onmouseenter="this.style.background='#005a7a'" onmouseleave="this.style.background='#004258'">
-          Ce service vous intéresse ?
+          <span data-i18n="svc.interest">Ce service vous intéresse ?</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -485,39 +505,39 @@
       <div class="ex-grid">
         <div class="ex-card-light">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#004258" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem;opacity:0.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          <p class="ex-title" style="color:#0B1C22">Chatbot 24/7</p>
-          <p class="ex-desc" style="color:#4d6870">Assistant intelligent qui répond à vos clients à toute heure, sans interruption.</p>
-          <p class="ex-gain" style="color:#004258">↗ 80% des questions résolues sans intervention</p>
+          <p class="ex-title" style="color:#0B1C22" data-i18n="s3.e1.title">Chatbot 24/7</p>
+          <p class="ex-desc" style="color:#4d6870" data-i18n="s3.e1.desc">Assistant intelligent qui répond à vos clients à toute heure, sans interruption.</p>
+          <p class="ex-gain" style="color:#004258" data-i18n="s3.e1.kpi">↗ 80% des questions résolues sans intervention</p>
         </div>
         <div class="ex-card-light">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#004258" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem;opacity:0.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><circle cx="10" cy="14" r="2"/><path d="M20 21l-2-2-2 2"/></svg>
-          <p class="ex-title" style="color:#0B1C22">Analyse de documents</p>
-          <p class="ex-desc" style="color:#4d6870">Lecture et extraction automatique des données clés de vos contrats et courriers.</p>
-          <p class="ex-gain" style="color:#004258">↗ Un document traité en secondes, pas en heures</p>
+          <p class="ex-title" style="color:#0B1C22" data-i18n="s3.e2.title">Analyse de documents</p>
+          <p class="ex-desc" style="color:#4d6870" data-i18n="s3.e2.desc">Lecture et extraction automatique des données clés de vos contrats et courriers.</p>
+          <p class="ex-gain" style="color:#004258" data-i18n="s3.e2.kpi">↗ Un document traité en secondes, pas en heures</p>
         </div>
         <div class="ex-card-light">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#004258" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem;opacity:0.7"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-          <p class="ex-title" style="color:#0B1C22">Génération de contenu</p>
-          <p class="ex-desc" style="color:#4d6870">Descriptions de produits, fiches techniques ou articles générés en masse avec l'IA.</p>
-          <p class="ex-gain" style="color:#004258">↗ 100 fiches produits en quelques minutes</p>
+          <p class="ex-title" style="color:#0B1C22" data-i18n="s3.e3.title">Génération de contenu</p>
+          <p class="ex-desc" style="color:#4d6870" data-i18n="s3.e3.desc">Descriptions de produits, fiches techniques ou articles générés en masse avec l'IA.</p>
+          <p class="ex-gain" style="color:#004258" data-i18n="s3.e3.kpi">↗ 100 fiches produits en quelques minutes</p>
         </div>
         <div class="ex-card-light">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#004258" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem;opacity:0.7"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
-          <p class="ex-title" style="color:#0B1C22">Classification intelligente</p>
-          <p class="ex-desc" style="color:#4d6870">Tri automatique des demandes entrantes par type, urgence et responsable.</p>
-          <p class="ex-gain" style="color:#004258">↗ Temps de triage réduit à zéro</p>
+          <p class="ex-title" style="color:#0B1C22" data-i18n="s3.e4.title">Classification intelligente</p>
+          <p class="ex-desc" style="color:#4d6870" data-i18n="s3.e4.desc">Tri automatique des demandes entrantes par type, urgence et responsable.</p>
+          <p class="ex-gain" style="color:#004258" data-i18n="s3.e4.kpi">↗ Temps de triage réduit à zéro</p>
         </div>
         <div class="ex-card-light">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#004258" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem;opacity:0.7"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
-          <p class="ex-title" style="color:#0B1C22">Résumés de réunions</p>
-          <p class="ex-desc" style="color:#4d6870">Compte-rendu automatique généré après chaque réunion, prêt à partager.</p>
-          <p class="ex-gain" style="color:#004258">↗ Compte-rendu prêt avant la fin de la réunion</p>
+          <p class="ex-title" style="color:#0B1C22" data-i18n="s3.e5.title">Résumés de réunions</p>
+          <p class="ex-desc" style="color:#4d6870" data-i18n="s3.e5.desc">Compte-rendu automatique généré après chaque réunion, prêt à partager.</p>
+          <p class="ex-gain" style="color:#004258" data-i18n="s3.e5.kpi">↗ Compte-rendu prêt avant la fin de la réunion</p>
         </div>
         <div class="ex-card-light">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#004258" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem;opacity:0.7"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          <p class="ex-title" style="color:#0B1C22">Détection d'anomalies</p>
-          <p class="ex-desc" style="color:#4d6870">Identification des écarts inhabituels dans vos données financières ou opérationnelles.</p>
-          <p class="ex-gain" style="color:#004258">↗ Alertes avant que le problème devienne critique</p>
+          <p class="ex-title" style="color:#0B1C22" data-i18n="s3.e6.title">Détection d'anomalies</p>
+          <p class="ex-desc" style="color:#4d6870" data-i18n="s3.e6.desc">Identification des écarts inhabituels dans vos données financières ou opérationnelles.</p>
+          <p class="ex-gain" style="color:#004258" data-i18n="s3.e6.kpi">↗ Alertes avant que le problème devienne critique</p>
         </div>
       </div>
 
@@ -536,15 +556,15 @@
       <!-- Left: info -->
       <div>
         <span style="font-family:'Roboto Slab',serif;font-size:5rem;font-weight:900;color:#6B3020;opacity:0.18;line-height:1;display:block;margin-bottom:-1.5rem;letter-spacing:-0.04em">04</span>
-        <p class="lbl" style="color:#B1DCED;opacity:0.5;margin-bottom:0.75rem">Design Web</p>
-        <h2 style="font-family:'Roboto Slab',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:#F5F3EF;line-height:1.2;letter-spacing:-0.025em;margin-bottom:1.25rem">
+        <p class="lbl" style="color:#B1DCED;opacity:0.5;margin-bottom:0.75rem" data-i18n="s4.num">Design Web</p>
+        <h2 style="font-family:'Roboto Slab',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:#F5F3EF;line-height:1.2;letter-spacing:-0.025em;margin-bottom:1.25rem" data-i18n="s4.title">
           Des sites qui inspirent confiance et convertissent.
         </h2>
-        <p style="font-size:0.88rem;color:#B2CBD4;line-height:1.9;margin-bottom:2rem;opacity:0.85">
+        <p style="font-size:0.88rem;color:#B2CBD4;line-height:1.9;margin-bottom:2rem;opacity:0.85" data-i18n="s4.desc">
           Design épuré, identité de marque forte, impact immédiat. Nous créons des sites vitrine, landing pages, portfolios et e-commerces qui reflètent exactement qui vous êtes — et donnent envie à vos visiteurs de passer à l'action.
         </p>
         <a href="index.html#contact" class="btn-contact-outline">
-          Ce service vous intéresse ?
+          <span data-i18n="svc.interest">Ce service vous intéresse ?</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -553,39 +573,39 @@
       <div class="ex-grid">
         <div class="ex-card-dark">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(177,220,237,0.6)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          <p class="ex-title" style="color:#F5F3EF">Site vitrine</p>
-          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8">Une présence en ligne qui inspire confiance et reflète votre expertise dès le premier regard.</p>
-          <p class="ex-gain ex-gain-dark">↗ Première impression professionnelle dès le 1er clic</p>
+          <p class="ex-title" style="color:#F5F3EF" data-i18n="s4.e1.title">Site vitrine</p>
+          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8" data-i18n="s4.e1.desc">Une présence en ligne qui inspire confiance et reflète votre expertise dès le premier regard.</p>
+          <p class="ex-gain ex-gain-dark" data-i18n="s4.e1.kpi">↗ Première impression professionnelle dès le 1er clic</p>
         </div>
         <div class="ex-card-dark">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(177,220,237,0.6)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-          <p class="ex-title" style="color:#F5F3EF">Landing page</p>
-          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8">Page optimisée pour convertir vos visiteurs en leads qualifiés pour vos campagnes.</p>
-          <p class="ex-gain ex-gain-dark">↗ Taux de conversion jusqu'à ×3 supérieur</p>
+          <p class="ex-title" style="color:#F5F3EF" data-i18n="s4.e2.title">Landing page</p>
+          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8" data-i18n="s4.e2.desc">Page optimisée pour convertir vos visiteurs en leads qualifiés pour vos campagnes.</p>
+          <p class="ex-gain ex-gain-dark" data-i18n="s4.e2.kpi">↗ Taux de conversion jusqu'à ×3 supérieur</p>
         </div>
         <div class="ex-card-dark">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(177,220,237,0.6)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
-          <p class="ex-title" style="color:#F5F3EF">Identité visuelle</p>
-          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8">Refonte complète : logo, charte graphique et guidelines cohérents sur tous vos supports.</p>
-          <p class="ex-gain ex-gain-dark">↗ Cohérence sur tous vos supports, sans effort</p>
+          <p class="ex-title" style="color:#F5F3EF" data-i18n="s4.e3.title">Identité visuelle</p>
+          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8" data-i18n="s4.e3.desc">Refonte complète : logo, charte graphique et guidelines cohérents sur tous vos supports.</p>
+          <p class="ex-gain ex-gain-dark" data-i18n="s4.e3.kpi">↗ Cohérence sur tous vos supports, sans effort</p>
         </div>
         <div class="ex-card-dark">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(177,220,237,0.6)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          <p class="ex-title" style="color:#F5F3EF">Site e-commerce</p>
-          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8">Boutique en ligne avec une identité forte et un parcours d'achat fluide et rassurant.</p>
-          <p class="ex-gain ex-gain-dark">↗ Moins d'abandon panier, plus de confiance client</p>
+          <p class="ex-title" style="color:#F5F3EF" data-i18n="s4.e4.title">Site e-commerce</p>
+          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8" data-i18n="s4.e4.desc">Boutique en ligne avec une identité forte et un parcours d'achat fluide et rassurant.</p>
+          <p class="ex-gain ex-gain-dark" data-i18n="s4.e4.kpi">↗ Moins d'abandon panier, plus de confiance client</p>
         </div>
         <div class="ex-card-dark">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(177,220,237,0.6)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-          <p class="ex-title" style="color:#F5F3EF">Portfolio interactif</p>
-          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8">Mise en valeur de vos réalisations avec une navigation immersive et mémorable.</p>
-          <p class="ex-gain ex-gain-dark">↗ Vos clients se souviennent de vous</p>
+          <p class="ex-title" style="color:#F5F3EF" data-i18n="s4.e5.title">Portfolio interactif</p>
+          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8" data-i18n="s4.e5.desc">Mise en valeur de vos réalisations avec une navigation immersive et mémorable.</p>
+          <p class="ex-gain ex-gain-dark" data-i18n="s4.e5.kpi">↗ Vos clients se souviennent de vous</p>
         </div>
         <div class="ex-card-dark">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(177,220,237,0.6)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:0.6rem"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          <p class="ex-title" style="color:#F5F3EF">Site multilingue</p>
-          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8">Expérience cohérente et soignée pour vos visiteurs dans plusieurs langues.</p>
-          <p class="ex-gain ex-gain-dark">↗ Accessibles à 100% de vos marchés cibles</p>
+          <p class="ex-title" style="color:#F5F3EF" data-i18n="s4.e6.title">Site multilingue</p>
+          <p class="ex-desc" style="color:#B2CBD4;opacity:0.8" data-i18n="s4.e6.desc">Expérience cohérente et soignée pour vos visiteurs dans plusieurs langues.</p>
+          <p class="ex-gain ex-gain-dark" data-i18n="s4.e6.kpi">↗ Accessibles à 100% de vos marchés cibles</p>
         </div>
       </div>
 
@@ -601,11 +621,11 @@
 
   <div style="max-width:1240px;margin:0 auto;text-align:center">
     <div class="reveal">
-      <p class="lbl" style="color:#6B3020;opacity:0.6;margin-bottom:0.75rem">Vous ne savez pas par où commencer ?</p>
-      <h2 style="font-family:'Roboto Slab',serif;font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:700;color:#0B1C22;line-height:1.15;letter-spacing:-0.025em;margin-bottom:0.75rem">
+      <p class="lbl" style="color:#6B3020;opacity:0.6;margin-bottom:0.75rem" data-i18n="idea.eyebrow">Vous ne savez pas par où commencer ?</p>
+      <h2 style="font-family:'Roboto Slab',serif;font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:700;color:#0B1C22;line-height:1.15;letter-spacing:-0.025em;margin-bottom:0.75rem" data-i18n="idea.title">
         Laissez-nous vous inspirer.
       </h2>
-      <p style="font-size:0.88rem;color:#4d6870;line-height:1.85;max-width:480px;margin:0 auto 3.5rem">
+      <p style="font-size:0.88rem;color:#4d6870;line-height:1.85;max-width:480px;margin:0 auto 3.5rem" data-i18n="idea.sub">
         Cliquez sur le bouton ci-dessous — nous piochons une idée de projet au hasard dans notre catalogue. Qui sait, elle pourrait vous correspondre.
       </p>
     </div>
@@ -616,18 +636,18 @@
       <!-- Big round button -->
       <button class="gen-btn" id="gen-btn" onclick="triggerGenerator()" aria-label="Générer une idée aléatoire">
         <span style="font-size:1.4rem;margin-bottom:0.3rem">🎲</span>
-        <span>Générateur<br>d'idée<br>aléatoire</span>
+        <span data-i18n="idea.btn">Générateur<br>d'idée<br>aléatoire</span>
       </button>
 
       <!-- Idea card -->
       <div class="idea-card" id="idea-card" role="region" aria-live="polite" aria-label="Idée générée">
-        <span class="cat-tag" id="idea-cat" style="background:#6B3020">Catégorie</span>
-        <p id="idea-text" style="font-family:'Roboto Slab',serif;font-size:1.05rem;font-weight:600;color:#0B1C22;line-height:1.5;margin-bottom:1.5rem;letter-spacing:-0.01em;min-height:3.2em">
+        <span class="cat-tag" id="idea-cat" style="background:#6B3020" data-i18n="idea.cat">Catégorie</span>
+        <p id="idea-text" style="font-family:'Roboto Slab',serif;font-size:1.05rem;font-weight:600;color:#0B1C22;line-height:1.5;margin-bottom:1.5rem;letter-spacing:-0.01em;min-height:3.2em" data-i18n="idea.placeholder">
           Votre idée apparaîtra ici…
         </p>
         <div class="idea-cta" id="idea-cta">
           <a href="index.html#contact" class="btn-contact" style="font-size:0.7rem;padding:0.75rem 1.5rem">
-            Cette idée m'intéresse — nous contacter
+            <span data-i18n="idea.contact">Cette idée m'intéresse — nous contacter</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -642,13 +662,13 @@
 ════════════════════════════════════════ -->
 <section style="background:#0B1C22;padding:5rem 3rem;text-align:center">
   <div class="reveal" style="max-width:560px;margin:0 auto">
-    <p class="lbl" style="color:#B1DCED;opacity:0.4;margin-bottom:1.25rem">Travaillons ensemble</p>
-    <h2 style="font-family:'Roboto Slab',serif;font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;color:#F5F3EF;margin-bottom:2rem;line-height:1.2">Vous avez un projet en tête ?</h2>
+    <p class="lbl" style="color:#B1DCED;opacity:0.4;margin-bottom:1.25rem" data-i18n="cta.eyebrow">Travaillons ensemble</p>
+    <h2 style="font-family:'Roboto Slab',serif;font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;color:#F5F3EF;margin-bottom:2rem;line-height:1.2" data-i18n="cta.title">Vous avez un projet en tête ?</h2>
     <a href="index.html#contact"
       style="display:inline-flex;align-items:center;gap:0.6rem;background:#6B3020;color:#F5F3EF;font-family:'Monda',sans-serif;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;padding:0.85rem 2rem;border-radius:9999px;text-decoration:none;transition:background 0.2s,transform 0.2s,box-shadow 0.2s;box-shadow:0 4px 20px rgba(116,55,32,0.3)"
       onmouseenter="this.style.background='#8f4528';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 30px rgba(116,55,32,0.4)'"
       onmouseleave="this.style.background='#6B3020';this.style.transform='';this.style.boxShadow='0 4px 20px rgba(116,55,32,0.3)'">
-      Nous contacter
+      <span data-i18n="cta.btn">Nous contacter</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </div>
@@ -657,7 +677,7 @@
 <!-- FOOTER -->
 <footer style="background:#071318;padding:2.25rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
   <span style="font-family:'Monda',sans-serif;font-size:0.7rem;color:white;opacity:0.26;letter-spacing:0.1em;text-transform:uppercase">Wander-IT © 2026</span>
-  <p style="font-size:0.7rem;color:white;opacity:0.2;font-family:'Monda',sans-serif">WANSART Alex & André — Solutions Digitales</p>
+  <p style="font-size:0.7rem;color:white;opacity:0.2;font-family:'Monda',sans-serif" data-i18n="footer.both">WANSART Alex & André — Solutions Digitales</p>
 </footer>
 
 <script>
@@ -800,5 +820,6 @@
     setTimeout(() => runPhase(0), 60);
   }
 </script>
+<script src="/translations.js"></script>
 </body>
 </html>
