@@ -29,13 +29,13 @@ const WANDER_TRANSLATIONS = {
     'services.sub':     'Des solutions pragmatiques, livrées rapidement, qui répondent à vos besoins réels.',
 
     // Service cards (index)
-    'card.auto.num':  '01 Automatisation',
+    'card.auto.num':  'Automatisation',
     'card.auto.desc': 'Automatisez les tâches répétitives et connectez vos outils — gestion de boîte mail, devis automatiques, publications marketing et plus.',
-    'card.dev.num':   '02 Développement d\'outils',
+    'card.dev.num':   'Développement d\'outils',
     'card.dev.desc':  'Applications web et mobiles sur-mesure, pensées pour vos utilisateurs et construites pour durer.',
-    'card.ai.num':    '03 Intégration IA',
+    'card.ai.num':    'Intégration IA',
     'card.ai.desc':   'Intégrez des modèles d\'IA directement dans vos systèmes — chatbots, analyse de contenu, génération automatisée et plus.',
-    'card.design.num': '04 Design Web',
+    'card.design.num': 'Design Web',
     'card.design.desc':'Sites qui inspirent confiance et convertissent. Design épuré, identité forte, impact immédiat.',
     'card.learn':     'En savoir plus',
 
@@ -49,13 +49,13 @@ const WANDER_TRANSLATIONS = {
     'approach.cta':     'Démarrer un projet',
 
     // Process steps
-    'step1.title': '01 Écoute & Analyse',
+    'step1.title': 'Écoute & Analyse',
     'step1.desc':  'Nous commençons toujours par comprendre votre contexte avant de proposer quoi que ce soit.',
-    'step2.title': '02 Conception & Validation',
+    'step2.title': 'Conception & Validation',
     'step2.desc':  'On définit ensemble la solution la plus adaptée, sans surengineering inutile.',
-    'step3.title': '03 Livraison rapide',
+    'step3.title': 'Livraison rapide',
     'step3.desc':  'Itérations courtes, feedback fréquent. Vous voyez l\'avancement à chaque étape.',
-    'step4.title': '04 Suivi & Optimisation',
+    'step4.title': 'Suivi & Optimisation',
     'step4.desc':  'La relation ne s\'arrête pas à la livraison. Notre expertise reste disponible pour faire évoluer.',
 
     // Realisations (index teaser)
@@ -97,7 +97,7 @@ const WANDER_TRANSLATIONS = {
 
     'alex.role': 'Co-fondateur · Développement & Innovation',
     'alex.bio1': 'Ingénieur industriel de formation et polyvalent par nature, Alex est sur tous les fronts technologiques. L\'intelligence artificielle ne lui fait pas peur — bien au contraire, il sait précisément comment l\'intégrer aux projets de façon intelligente et mesurée, là où elle apporte une vraie valeur.',
-    'alex.bio2': 'C\'est 5 ans comme project manager dans le photovoltaïque, en Belgique et en Australie, qui l\'ont poussé à développer ses premiers outils de gestion de chantier. Il connaît le terrain, il en a la soif d\'apprendre — et il transforme cette expérience en solutions concrètes pour ses clients.',
+    'alex.bio2': 'Durant 5 ans sur le terrain comme project manager dans le photovoltaïque, en Belgique et en Australie, il a développé ses premiers outils de gestion de chantier. Il connaît le terrain et transforme cette expérience en solutions concrètes pour ses clients.',
 
     'company.eyebrow': 'La société',
     'company.title':   'Notre mission.',
@@ -117,7 +117,7 @@ const WANDER_TRANSLATIONS = {
     'svc.interest': 'Ce service vous intéresse ?',
 
     // Service 01 — Automatisation
-    's1.num':   '01 Automatisation',
+    's1.num':   'Automatisation',
     's1.title': 'Vos outils travaillent pour vous, pas l\'inverse.',
     's1.desc':  'Automatisez les tâches répétitives et connectez vos outils entre eux — gestion de boîte mail, devis automatiques, publications marketing planifiées, synchronisations de données et bien plus. Nous libérons votre équipe des tâches à faible valeur pour qu\'elle se concentre sur ce qui compte vraiment.',
     's1.e1.title': 'Gestion de boîte mail',
@@ -140,7 +140,7 @@ const WANDER_TRANSLATIONS = {
     's1.e6.kpi':   '↗ 30 min récupérées chaque lundi matin',
 
     // Service 02 — Dev
-    's2.num':   '02 Développement d\'outils',
+    's2.num':   'Développement d\'outils',
     's2.title': 'Des outils pensés pour vos utilisateurs, construits pour durer.',
     's2.desc':  'Applications web et mobiles sur mesure, portails clients, dashboards de pilotage, outils internes — nous concevons des solutions qui s\'intègrent à votre flux de travail et évoluent avec votre activité. Chaque détail compte, du premier écran à la dernière ligne de code.',
     's2.e1.title': 'App suivi de chantiers',
@@ -163,7 +163,7 @@ const WANDER_TRANSLATIONS = {
     's2.e6.kpi':   '↗ Disponible 24/7, sans secrétariat',
 
     // Service 03 — IA
-    's3.num':   '03 Intégration IA',
+    's3.num':   'Intégration IA',
     's3.title': 'L\'intelligence artificielle, là où elle apporte une vraie valeur.',
     's3.desc':  'Intégrez des modèles d\'IA directement dans vos systèmes existants — chatbots, analyse de documents, génération de contenu, classification automatique. Nous ne suivons pas la mode : nous identifions précisément où l\'IA crée un gain concret pour votre équipe et vos clients.',
     's3.e1.title': 'Chatbot 24/7',
@@ -186,7 +186,7 @@ const WANDER_TRANSLATIONS = {
     's3.e6.kpi':   '↗ Alertes avant que le problème devienne critique',
 
     // Service 04 — Design
-    's4.num':   '04 Design Web',
+    's4.num':   'Design Web',
     's4.title': 'Des sites qui inspirent confiance et convertissent.',
     's4.desc':  'Design épuré, identité de marque forte, impact immédiat. Nous créons des sites vitrine, landing pages, portfolios et e-commerces qui reflètent exactement qui vous êtes — et donnent envie à vos visiteurs de passer à l\'action.',
     's4.e1.title': 'Site vitrine',
@@ -302,13 +302,13 @@ const WANDER_TRANSLATIONS = {
     'services.sub':     'Pragmatic solutions, delivered quickly, that meet your real needs.',
 
     // Service cards (index)
-    'card.auto.num':  '01 Automation',
+    'card.auto.num':  'Automation',
     'card.auto.desc': 'Automate repetitive tasks and connect your tools — inbox management, automatic quotes, marketing posts and more.',
-    'card.dev.num':   '02 Tool Development',
+    'card.dev.num':   'Tool Development',
     'card.dev.desc':  'Custom web and mobile applications, designed for your users and built to last.',
-    'card.ai.num':    '03 AI Integration',
+    'card.ai.num':    'AI Integration',
     'card.ai.desc':   'Integrate AI models directly into your systems — chatbots, content analysis, automated generation and more.',
-    'card.design.num': '04 Web Design',
+    'card.design.num': 'Web Design',
     'card.design.desc':'Websites that inspire trust and convert. Clean design, strong identity, immediate impact.',
     'card.learn':     'Learn more',
 
@@ -322,13 +322,13 @@ const WANDER_TRANSLATIONS = {
     'approach.cta':     'Start a project',
 
     // Process steps
-    'step1.title': '01 Listen & Analyse',
+    'step1.title': 'Listen & Analyse',
     'step1.desc':  'We always start by understanding your context before proposing anything.',
-    'step2.title': '02 Design & Validation',
+    'step2.title': 'Design & Validation',
     'step2.desc':  'We define together the most appropriate solution, without unnecessary over-engineering.',
-    'step3.title': '03 Fast Delivery',
+    'step3.title': 'Fast Delivery',
     'step3.desc':  'Short iterations, frequent feedback. You see the progress at every stage.',
-    'step4.title': '04 Follow-up & Optimisation',
+    'step4.title': 'Follow-up & Optimisation',
     'step4.desc':  'The relationship doesn\'t stop at delivery. Our expertise remains available to help you grow.',
 
     // Realisations (index teaser)
@@ -370,7 +370,7 @@ const WANDER_TRANSLATIONS = {
 
     'alex.role': 'Co-founder · Development & Innovation',
     'alex.bio1': 'A versatile industrial engineer by training, Alex is across all technological fronts. Artificial intelligence doesn\'t scare him — quite the opposite; he knows precisely how to integrate it into projects in an intelligent, measured way, where it brings real value.',
-    'alex.bio2': 'It was 5 years as a project manager in the photovoltaic sector, in Belgium and Australia, that pushed him to develop his first site management tools. He knows the field, he has a thirst for learning — and he transforms that experience into concrete solutions for his clients.',
+    'alex.bio2': 'During 5 years on the ground as a project manager in the photovoltaic sector, in Belgium and Australia, he developed his first site management tools. He knows the field and transforms that experience into concrete solutions for his clients.',
 
     'company.eyebrow': 'The company',
     'company.title':   'Our mission.',
@@ -390,7 +390,7 @@ const WANDER_TRANSLATIONS = {
     'svc.interest': 'Interested in this service?',
 
     // Service 01
-    's1.num':   '01 Automation',
+    's1.num':   'Automation',
     's1.title': 'Your tools work for you, not the other way around.',
     's1.desc':  'Automate repetitive tasks and connect your tools — inbox management, automatic quotes, scheduled marketing posts, data synchronisation and much more. We free your team from low-value tasks so they can focus on what really matters.',
     's1.e1.title': 'Inbox management',
@@ -413,7 +413,7 @@ const WANDER_TRANSLATIONS = {
     's1.e6.kpi':   '↗ 30 min saved every Monday morning',
 
     // Service 02
-    's2.num':   '02 Tool Development',
+    's2.num':   'Tool Development',
     's2.title': 'Tools designed for your users, built to last.',
     's2.desc':  'Custom web and mobile applications, client portals, management dashboards, internal tools — we design solutions that integrate into your workflow and evolve with your business. Every detail counts, from the first screen to the last line of code.',
     's2.e1.title': 'Site tracking app',
@@ -436,7 +436,7 @@ const WANDER_TRANSLATIONS = {
     's2.e6.kpi':   '↗ Available 24/7, without a secretary',
 
     // Service 03
-    's3.num':   '03 AI Integration',
+    's3.num':   'AI Integration',
     's3.title': 'Artificial intelligence, where it brings real value.',
     's3.desc':  'Integrate AI models directly into your existing systems — chatbots, document analysis, content generation, automatic classification. We don\'t follow trends: we precisely identify where AI creates a concrete gain for your team and your clients.',
     's3.e1.title': '24/7 Chatbot',
@@ -459,7 +459,7 @@ const WANDER_TRANSLATIONS = {
     's3.e6.kpi':   '↗ Alerts before the problem becomes critical',
 
     // Service 04
-    's4.num':   '04 Web Design',
+    's4.num':   'Web Design',
     's4.title': 'Websites that inspire trust and convert.',
     's4.desc':  'Clean design, strong brand identity, immediate impact. We create showcase sites, landing pages, portfolios and e-commerce sites that exactly reflect who you are — and inspire your visitors to take action.',
     's4.e1.title': 'Showcase website',
@@ -575,13 +575,13 @@ const WANDER_TRANSLATIONS = {
     'services.sub':     'Pragmatische Lösungen, schnell geliefert, die Ihren tatsächlichen Bedürfnissen entsprechen.',
 
     // Service cards (index)
-    'card.auto.num':  '01 Automatisierung',
+    'card.auto.num':  'Automatisierung',
     'card.auto.desc': 'Automatisieren Sie wiederkehrende Aufgaben und verbinden Sie Ihre Tools — Postfachverwaltung, automatische Angebote, Marketing-Posts und mehr.',
-    'card.dev.num':   '02 Tool-Entwicklung',
+    'card.dev.num':   'Tool-Entwicklung',
     'card.dev.desc':  'Maßgeschneiderte Web- und Mobilanwendungen, für Ihre Nutzer konzipiert und für die Dauer gebaut.',
-    'card.ai.num':    '03 KI-Integration',
+    'card.ai.num':    'KI-Integration',
     'card.ai.desc':   'Integrieren Sie KI-Modelle direkt in Ihre Systeme — Chatbots, Inhaltsanalyse, automatisierte Generierung und mehr.',
-    'card.design.num': '04 Web-Design',
+    'card.design.num': 'Web-Design',
     'card.design.desc':'Websites, die Vertrauen wecken und konvertieren. Klares Design, starke Identität, sofortige Wirkung.',
     'card.learn':     'Mehr erfahren',
 
@@ -595,13 +595,13 @@ const WANDER_TRANSLATIONS = {
     'approach.cta':     'Projekt starten',
 
     // Process steps
-    'step1.title': '01 Zuhören & Analysieren',
+    'step1.title': 'Zuhören & Analysieren',
     'step1.desc':  'Wir beginnen immer damit, Ihren Kontext zu verstehen, bevor wir etwas vorschlagen.',
-    'step2.title': '02 Konzeption & Validierung',
+    'step2.title': 'Konzeption & Validierung',
     'step2.desc':  'Wir definieren gemeinsam die passendste Lösung, ohne unnötiges Over-Engineering.',
-    'step3.title': '03 Schnelle Lieferung',
+    'step3.title': 'Schnelle Lieferung',
     'step3.desc':  'Kurze Iterationen, häufiges Feedback. Sie sehen den Fortschritt in jeder Phase.',
-    'step4.title': '04 Begleitung & Optimierung',
+    'step4.title': 'Begleitung & Optimierung',
     'step4.desc':  'Die Beziehung endet nicht mit der Lieferung. Unsere Expertise bleibt verfügbar, um Sie weiterzuentwickeln.',
 
     // Realisations (index teaser)
@@ -643,7 +643,7 @@ const WANDER_TRANSLATIONS = {
 
     'alex.role': 'Mitgründer · Entwicklung & Innovation',
     'alex.bio1': 'Als vielseitiger Wirtschaftsingenieur von Natur aus ist Alex an allen technologischen Fronten aktiv. Künstliche Intelligenz schreckt ihn nicht ab — ganz im Gegenteil; er weiß genau, wie er sie auf intelligente und maßvolle Weise in Projekte integriert, wo sie echten Mehrwert bringt.',
-    'alex.bio2': 'Es waren 5 Jahre als Projektmanager in der Photovoltaikbranche in Belgien und Australien, die ihn dazu brachten, seine ersten Baustellenverwaltungstools zu entwickeln. Er kennt das Feld, er hat Wissensdurst — und er verwandelt diese Erfahrung in konkrete Lösungen für seine Kunden.',
+    'alex.bio2': 'Während 5 Jahren vor Ort als Projektmanager in der Photovoltaikbranche in Belgien und Australien entwickelte er seine ersten Baustellenverwaltungstools. Er kennt das Feld und verwandelt diese Erfahrung in konkrete Lösungen für seine Kunden.',
 
     'company.eyebrow': 'Das Unternehmen',
     'company.title':   'Unsere Mission.',
@@ -663,7 +663,7 @@ const WANDER_TRANSLATIONS = {
     'svc.interest': 'Interessiert Sie dieser Service?',
 
     // Service 01
-    's1.num':   '01 Automatisierung',
+    's1.num':   'Automatisierung',
     's1.title': 'Ihre Werkzeuge arbeiten für Sie, nicht umgekehrt.',
     's1.desc':  'Automatisieren Sie wiederkehrende Aufgaben und verbinden Sie Ihre Tools — Postfachverwaltung, automatische Angebote, geplante Marketing-Posts, Datensynchronisation und vieles mehr. Wir befreien Ihr Team von wenig wertvollen Aufgaben, damit es sich auf das konzentrieren kann, was wirklich zählt.',
     's1.e1.title': 'Postfachverwaltung',
@@ -686,7 +686,7 @@ const WANDER_TRANSLATIONS = {
     's1.e6.kpi':   '↗ 30 Min. jeden Montagmorgen gespart',
 
     // Service 02
-    's2.num':   '02 Tool-Entwicklung',
+    's2.num':   'Tool-Entwicklung',
     's2.title': 'Für Ihre Nutzer konzipierte Werkzeuge, die dauerhaft Bestand haben.',
     's2.desc':  'Maßgeschneiderte Web- und Mobilanwendungen, Kundenportale, Management-Dashboards, interne Tools — wir konzipieren Lösungen, die in Ihren Arbeitsablauf passen und mit Ihrem Unternehmen wachsen. Jedes Detail zählt, vom ersten Bildschirm bis zur letzten Codezeile.',
     's2.e1.title': 'Baustellenverfolgungsapp',
@@ -709,7 +709,7 @@ const WANDER_TRANSLATIONS = {
     's2.e6.kpi':   '↗ 24/7 verfügbar, ohne Sekretariat',
 
     // Service 03
-    's3.num':   '03 KI-Integration',
+    's3.num':   'KI-Integration',
     's3.title': 'Künstliche Intelligenz, dort wo sie echten Mehrwert bringt.',
     's3.desc':  'Integrieren Sie KI-Modelle direkt in Ihre bestehenden Systeme — Chatbots, Dokumentenanalyse, Inhaltsgenerierung, automatische Klassifizierung. Wir folgen keinen Trends: Wir identifizieren genau, wo KI einen konkreten Vorteil für Ihr Team und Ihre Kunden schafft.',
     's3.e1.title': '24/7-Chatbot',
@@ -732,7 +732,7 @@ const WANDER_TRANSLATIONS = {
     's3.e6.kpi':   '↗ Warnmeldungen bevor das Problem kritisch wird',
 
     // Service 04
-    's4.num':   '04 Web-Design',
+    's4.num':   'Web-Design',
     's4.title': 'Websites, die Vertrauen wecken und konvertieren.',
     's4.desc':  'Klares Design, starke Markenidentität, sofortige Wirkung. Wir erstellen Showcase-Websites, Landing Pages, Portfolios und E-Commerce-Websites, die genau widerspiegeln, wer Sie sind — und Ihre Besucher zum Handeln inspirieren.',
     's4.e1.title': 'Präsenzwebsite',
