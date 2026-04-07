@@ -21,6 +21,7 @@ const TICKER_ITEMS = [
  // 'Synchronisation clouds',
   'Gestion de stock',
   'Alerte & notification',
+  'Chatbot',
   //'Signature électronique',
  // 'Portail client',
   //'Import / export Excel',
@@ -40,6 +41,7 @@ const TICKER_ITEMS_EN = [
   'Newsletter System',
   'Inventory Management',
   'Alerts & Notifications',
+  'Chatbot',
 ];
 
 const TICKER_ITEMS_DE = [
@@ -56,4 +58,5 @@ const TICKER_ITEMS_DE = [
   'Newsletter-System',
   'Lagerverwaltung',
   'Benachrichtigungen & Alarme',
+  'Chatbot',
 ];
