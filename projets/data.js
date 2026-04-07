@@ -18,7 +18,7 @@ window.PROJETS = [
     // ── Apparence des vignettes ──────────────────────────────────────────────
     tagColor:  '#B1DCED',
     tagBg:     'rgba(0,66,88,0.65)',
-    imageCard: '/assets/images/projet-1/outlook-inbox.webp',   // ratio 3:4
+    imageCard: '/assets/images/projet-1/miniature-projet-1.webp',   // ratio 3:4
     imageGrid: '/assets/images/projet-1/outlook-inbox.webp',   // ratio 16:9
 
     // ── Contenu de la page projet ────────────────────────────────────────────
