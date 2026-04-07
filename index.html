@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr" data-i18n-title="title.index">
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-MGF3F5DV');</script>
-  <!-- End Google Tag Manager -->
+  <script src="/cookie-consent.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wander-IT — Votre expertise. Nos outils. Une longueur d'avance.</title>
@@ -283,10 +277,6 @@
   </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGF3F5DV"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <!-- NAV -->
 <nav id="nav">
@@ -774,6 +764,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </button>
         </div>
 
+        <!-- Consentement RGPD -->
+        <label style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;padding:0.4rem 0.2rem">
+          <input type="checkbox" id="f-consent" style="margin-top:2px;accent-color:#6B3020;flex-shrink:0">
+          <span style="font-size:0.72rem;color:rgba(107,48,32,0.65);line-height:1.55">
+            <span data-i18n="form.consent">J'accepte que Wander-IT utilise mes données (nom, email, message) pour traiter ma demande. Voir notre</span>
+            <a href="/mentions-legales.html" data-i18n="form.consent.link" style="color:#6B3020;opacity:0.8;text-decoration:underline;margin-left:0.2em">politique de confidentialité</a>.
+          </span>
+        </label>
+
         <!-- Send button — always arrow -->
         <button id="send-btn" onclick="handleSend()" title="Envoyer"
           style="width:2rem;height:2rem;border-radius:9999px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;background:#6B3020;color:white;transition:all 0.2s;flex-shrink:0;opacity:0.5"
@@ -971,6 +970,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const email = document.getElementById('f-email').value.trim();
     if (!email) { document.getElementById('f-email').focus(); return; }
     if (!msg)   { textarea.focus(); return; }
+    const consent = document.getElementById('f-consent');
+    if (consent && !consent.checked) { consent.focus(); consent.reportValidity(); return; }
 
     const subject = activeMode
       ? { projet:'Demande de projet — Wander-IT', devis:'Demande de devis — Wander-IT', support:'Support / Question — Wander-IT' }[activeMode]
@@ -1026,6 +1027,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span style="font-family:'Monda',sans-serif;font-size:0.7rem;color:white;opacity:0.5;letter-spacing:0.1em;text-transform:uppercase">Wander-IT © 2026</span>
   </div>
   <p data-i18n="footer.alex" style="font-size:0.7rem;color:white;opacity:0.5;font-family:'Monda',sans-serif">WANSART Alex — Solutions Digitales</p>
+  <a href="/mentions-legales.html" data-i18n="footer.legal" style="font-size:0.7rem;color:white;opacity:0.4;font-family:'Monda',sans-serif;text-decoration:none;letter-spacing:0.08em;transition:opacity 0.2s" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='0.4'">Mentions légales</a>
 </footer>
 
 <script src="/translations.js"></script>

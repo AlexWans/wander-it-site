@@ -271,6 +271,19 @@ const WANDER_TRANSLATIONS = {
     'filter.app':        'App Development',
     'filter.data':       'Data & Reporting',
     'real.empty':        'Aucun projet dans cette catégorie pour le moment.',
+
+    // ── Légal & cookies
+    'footer.legal':      'Mentions légales',
+    'form.consent':      'J\'accepte que Wander-IT utilise mes données (nom, email, message) pour traiter ma demande. Voir notre',
+    'form.consent.link': 'politique de confidentialité',
+    'cookie.msg':        'Nous utilisons Google Analytics pour mesurer l\'audience de notre site. Vos données restent anonymisées.',
+    'cookie.accept':     'Accepter',
+    'cookie.refuse':     'Refuser',
+    'cookie.policy':     'Politique de confidentialité',
+
+    // ── Mentions légales page
+    'legal.title':       'Mentions légales & Confidentialité',
+    'legal.title.meta':  'Mentions légales — Wander-IT',
   },
 
   en: {
@@ -544,6 +557,19 @@ const WANDER_TRANSLATIONS = {
     'filter.app':        'App Development',
     'filter.data':       'Data & Reporting',
     'real.empty':        'No projects in this category yet.',
+
+    // ── Legal & cookies
+    'footer.legal':      'Legal notice',
+    'form.consent':      'I agree that Wander-IT may use my data (name, email, message) to process my request. See our',
+    'form.consent.link': 'privacy policy',
+    'cookie.msg':        'We use Google Analytics to measure our website audience. Your data remains anonymised.',
+    'cookie.accept':     'Accept',
+    'cookie.refuse':     'Decline',
+    'cookie.policy':     'Privacy policy',
+
+    // ── Legal page
+    'legal.title':       'Legal notice & Privacy',
+    'legal.title.meta':  'Legal notice — Wander-IT',
   },
 
   de: {
@@ -817,6 +843,19 @@ const WANDER_TRANSLATIONS = {
     'filter.app':        'App-Entwicklung',
     'filter.data':       'Daten & Reporting',
     'real.empty':        'Noch keine Projekte in dieser Kategorie.',
+
+    // ── Rechtliches & Cookies
+    'footer.legal':      'Impressum',
+    'form.consent':      'Ich stimme zu, dass Wander-IT meine Daten (Name, E-Mail, Nachricht) zur Bearbeitung meiner Anfrage verwendet. Siehe unsere',
+    'form.consent.link': 'Datenschutzerklärung',
+    'cookie.msg':        'Wir verwenden Google Analytics, um die Nutzung unserer Website zu messen. Ihre Daten bleiben anonymisiert.',
+    'cookie.accept':     'Akzeptieren',
+    'cookie.refuse':     'Ablehnen',
+    'cookie.policy':     'Datenschutzerklärung',
+
+    // ── Impressum-Seite
+    'legal.title':       'Impressum & Datenschutz',
+    'legal.title.meta':  'Impressum — Wander-IT',
   }
 };
 

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr" data-i18n-title="title.realisations">
+<html lang="fr">
 <head>
   <script src="/cookie-consent.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Réalisations — Wander-IT</title>
+  <title>Mentions légales — Wander-IT</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -15,26 +15,23 @@
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      margin: 0;
-      padding: 0;
-      background: #0B1C22;
-      color: #F5F3EF;
+      margin: 0; padding: 0;
+      background: #F5F3EF;
+      color: #0B1C22;
       font-family: 'Monda', sans-serif;
-      line-height: 1.7;
+      line-height: 1.75;
       overflow-x: hidden;
     }
     body::after {
       content: '';
       position: fixed; inset: 0;
-      pointer-events: none; z-index: 9999; opacity: 0.4;
+      pointer-events: none; z-index: 9999; opacity: 0.35;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
     }
     .lbl {
       font-family: 'Monda', sans-serif;
-      font-size: 0.62rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
+      font-size: 0.62rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.18em;
     }
     .nl {
       font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em;
@@ -49,85 +46,64 @@
     }
     .nl:hover { color: #F5F3EF; }
     .nl:hover::after { width: 100%; }
-    .nl.active { color: #F5F3EF; }
-    .nl.active::after { width: 100%; }
-    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.34,1.1,0.64,1); }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    .proj-card {
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      background: linear-gradient(160deg,#1a3240 0%,#112230 60%,#0e1e2a 100%);
-      border: 1px solid rgba(177,220,237,0.13);
-      border-radius: 1rem;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 1px 0 rgba(177,220,237,0.06) inset;
-      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease, border-color 0.3s;
-    }
-    .proj-card:hover {
-      transform: scale(1.025);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(177,220,237,0.2);
-      border-color: rgba(177,220,237,0.28);
-    }
-    .proj-card:hover .proj-img { transform: scale(1.04); opacity: 0.88; }
-    .proj-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
-
-    .filter-btn {
-      font-family: 'Monda', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      padding: 0.45rem 1rem;
-      border-radius: 9999px;
-      border: 1px solid rgba(177,220,237,0.15);
-      background: transparent;
-      color: rgba(178,203,212,0.6);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .filter-btn:hover { border-color: rgba(177,220,237,0.35); color: #B2CBD4; }
-    .filter-btn.active { background: #6B3020; border-color: #6B3020; color: #F5F3EF; }
-
-    .lang-switch { display:flex; align-items:center; gap:0.4rem; margin-left:1.2rem; }
-    .lang-btn { background:none; border:none; cursor:pointer; font-family:'Monda',sans-serif; font-size:0.64rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:#B2CBD4; padding:0.2rem 0.1rem; transition:color 0.2s ease; }
-    .lang-btn:hover { color:#F5F3EF; }
-    .lang-btn.active { color:#F5F3EF; }
-    .lang-btn:focus-visible { outline:2px solid #6B3020; outline-offset:2px; }
-
-    /* ── Hamburger ── */
     #nav-burger { display:none; flex-direction:column; gap:5px; padding:8px; background:none; border:none; cursor:pointer; z-index:501; -webkit-tap-highlight-color:transparent; }
     .bl { display:block; width:22px; height:2px; background:#F5F3EF; border-radius:2px; transition:transform 0.3s ease, opacity 0.3s ease; }
-    #mobile-menu {
-      display:none; position:fixed; inset:0; z-index:490;
-      background:rgba(11,28,34,0.97); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
-      flex-direction:column; align-items:center; justify-content:center; gap:1.75rem; padding:2rem;
-    }
+    #mobile-menu { display:none; position:fixed; inset:0; z-index:490; background:rgba(11,28,34,0.97); backdrop-filter:blur(16px); flex-direction:column; align-items:center; justify-content:center; gap:1.75rem; padding:2rem; }
     #mobile-menu.open { display:flex; }
-    .mob-link { font-family:'Monda',sans-serif; font-size:1.15rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:rgba(245,243,239,0.62); text-decoration:none; transition:color 0.2s; -webkit-tap-highlight-color:transparent; }
-    .mob-link:hover, .mob-link:focus-visible { color:#F5F3EF; }
+    .mob-link { font-family:'Monda',sans-serif; font-size:1.15rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:rgba(245,243,239,0.62); text-decoration:none; transition:color 0.2s; }
+    .mob-link:hover { color:#F5F3EF; }
     .mob-cta { display:inline-flex; align-items:center; gap:0.5rem; background:#6B3020; color:white; text-decoration:none; font-family:'Monda',sans-serif; font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; padding:0.85rem 2rem; border-radius:9999px; margin-top:0.5rem; }
     body.menu-open { overflow:hidden; }
     body.menu-open .bl:nth-child(1) { transform:translateY(7px) rotate(45deg); }
     body.menu-open .bl:nth-child(2) { opacity:0; }
     body.menu-open .bl:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+    .lang-switch { display:flex; align-items:center; gap:0.4rem; margin-left:1.2rem; }
+    .lang-btn { background:none; border:none; cursor:pointer; font-family:'Monda',sans-serif; font-size:0.64rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:#B2CBD4; padding:0.2rem 0.1rem; transition:color 0.2s ease; }
+    .lang-btn:hover { color:#F5F3EF; }
+    .lang-btn.active { color:#F5F3EF; }
+
+    .legal-section { margin-bottom: 3rem; }
+    .legal-section h2 {
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.25rem; font-weight: 700;
+      color: #0B1C22; letter-spacing: -0.02em;
+      margin: 0 0 1rem; padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(107,48,32,0.15);
+    }
+    .legal-section h3 {
+      font-family: 'Monda', sans-serif;
+      font-size: 0.8rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #6B3020; margin: 1.5rem 0 0.4rem;
+    }
+    .legal-section p, .legal-section li {
+      font-size: 0.88rem; color: #4d6870; line-height: 1.85; margin: 0 0 0.6rem;
+    }
+    .legal-section ul { padding-left: 1.2rem; margin: 0 0 0.6rem; }
+    .legal-section a { color: #6B3020; }
+    .info-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 2rem;
+      background: rgba(0,66,88,0.04); border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem; margin: 1rem 0;
+    }
+    .info-row { display: contents; }
+    .info-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #6B3020; opacity: 0.7; }
+    .info-value { font-size: 0.88rem; color: #0B1C22; }
 
     @media (max-width: 768px) {
       #nav-links { display:none !important; }
       #nav-burger { display:flex !important; }
-      nav, section { padding-left:1.25rem !important; padding-right:1.25rem !important; }
-      #projects-grid { grid-template-columns:1fr !important; }
+      nav, section, footer { padding-left:1.25rem !important; padding-right:1.25rem !important; }
+      .info-grid { grid-template-columns: 1fr; }
+      .info-label { margin-top: 0.5rem; }
     }
-
   </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav style="position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(11,28,34,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(177,220,237,0.07)">
-  <a href="index.html" style="display:flex;align-items:center;gap:0.3rem;text-decoration:none">
+<nav style="position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(11,28,34,0.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(177,220,237,0.07)">
+  <a href="/index.html" style="display:flex;align-items:center;gap:0.3rem;text-decoration:none">
     <svg viewBox="374 222 430 300" style="height:28px;width:auto;fill-rule:evenodd;clip-rule:evenodd" aria-label="Wander-IT">
       <g transform="matrix(1,0,0,1,374,222)" fill="#B1DCED">
         <path d="M201.505,4.928C234.502,4.61 234.486,4.499 267.5,4.455C274.022,4.447 273.996,4.531 280.5,4.574C283.623,4.594 293.869,3.95 292.246,7.368C292.164,7.542 291.925,7.583 291.786,7.716C291.259,8.222 291.301,8.293 290.509,8.519C290.203,8.607 289.862,8.597 289.581,8.747C289.456,8.814 289.51,9.064 289.38,9.123C289.091,9.253 288.754,9.22 288.44,9.262C287.794,9.349 287.134,9.355 286.502,9.51C286.105,9.608 285.777,9.9 285.384,10.012C285.28,10.042 284.322,10.027 282.505,10.516C282.203,10.597 281.881,10.631 281.603,10.776C281.477,10.841 281.477,11.053 281.351,11.118C280.519,11.545 280.403,11.203 279.603,11.697C279.458,11.786 279.422,11.999 279.278,12.089C278.538,12.555 278.418,12.287 277.703,12.804C277.547,12.917 277.476,13.124 277.322,13.239C277.102,13.403 276.812,13.459 276.597,13.63C276.432,13.761 276.367,13.993 276.204,14.128C275.596,14.631 275.465,14.415 274.885,14.938C274.718,15.088 274.632,15.312 274.469,15.467C274.285,15.642 274.041,15.609 273.464,16.467C273.245,16.793 270.483,19.952 269.415,22.459C268.755,24.01 267.091,26.801 265.233,35.447C264.452,39.083 264,47.208 264.825,50.423C264.978,51.021 268.098,59.65 269.361,63.547C269.806,64.919 269.911,64.875 275.225,80.592C276.171,83.386 277.129,85.588 281.328,98.56C285.318,110.884 287.748,117.889 288.329,119.562C289.241,122.191 289.138,122.221 299.286,152.575C301.197,158.291 301.339,159.45 303.254,164.594C304.821,168.807 307.696,178.816 309.196,182.621C309.866,184.32 312.222,191.714 312.474,192.508C313.915,197.03 314.369,196.859 316.858,205.396C318.55,211.199 320.101,211.407 317.204,223.426C313.82,237.47 313.96,237.488 310.253,251.435C308.149,259.35 307.913,259.261 305.718,267.562C304.859,270.809 303,276.571 301.607,281.532C299.171,290.212 298.529,289.958 297.814,290.817C296.912,291.902 296.772,292.061 295.465,291.558C294.505,291.189 293.386,287.79 292.432,285.529C291.345,282.953 289.184,276.391 286.484,269.506C283.337,261.483 263.742,203.978 259.805,193.386C258.8,190.682 258.859,190.681 247.863,159.373C235.021,122.811 235.005,122.833 221.908,86.352C220.306,81.887 220.435,81.862 218.785,77.397C215.271,67.89 215.497,67.829 211.952,58.336C211.864,58.1 211.902,58.088 210.9,55.357C210.571,54.461 210.713,54.431 210.372,53.547C208.597,48.944 208.78,48.9 206.988,44.325C206.804,43.854 206.843,43.847 204.9,38.363C204.366,36.855 204.438,36.851 203.906,35.362C203.799,35.064 203.748,34.749 203.658,34.446C203.537,34.036 202.794,31.532 201.292,29.665C201.159,29.499 200.929,29.426 200.807,29.252C200.498,28.812 200.322,28.288 200.016,27.846C199.903,27.682 199.685,27.613 199.564,27.454C199.398,27.238 199.33,26.957 199.166,26.739C199.047,26.58 198.846,26.496 198.725,26.337C198.561,26.121 198.492,25.841 198.323,25.63C198.196,25.472 197.966,25.415 197.852,25.248C197.545,24.802 197.386,24.265 197.077,23.82C196.959,23.649 196.724,23.589 196.592,23.428C196.425,23.225 196.361,22.95 196.194,22.748C196.056,22.581 195.83,22.503 195.689,22.338C195.523,22.144 195.454,21.878 195.285,21.687C195.136,21.519 194.899,21.445 194.75,21.278C194.581,21.09 194.515,20.824 194.345,20.637C194.193,20.47 193.952,20.401 193.8,20.234C193.63,20.047 193.567,19.779 193.396,19.594C192.915,19.073 192.834,19.165 192.432,18.564C191.607,17.329 191.254,17.572 190.823,17.155C190.655,16.993 190.596,16.739 190.428,16.577C190.248,16.405 189.98,16.346 189.8,16.176C189.632,16.017 189.57,15.766 189.401,15.608C189.217,15.436 188.948,15.376 188.761,15.207C188.594,15.055 188.527,14.813 188.359,14.663C188.167,14.493 187.895,14.431 187.7,14.264C187.459,14.059 187.611,13.876 186.61,13.355C186.361,13.225 186.065,13.177 185.845,13.002C185.684,12.874 185.672,12.613 185.512,12.483C185.296,12.306 184.982,12.286 184.76,12.118C184.602,11.998 184.559,11.763 184.401,11.643C184.177,11.473 183.872,11.433 183.643,11.27C183.276,11.008 183.393,10.825 182.491,10.52C178.849,9.292 178.765,9.873 171.491,9.646C171.264,9.639 169.168,9.573 168.686,9.237C168.488,9.098 168.487,8.78 168.309,8.617C168.167,8.488 167.8,8.596 167.773,8.406C167.696,7.858 168.131,7.976 168.142,7.435C168.151,6.979 167.799,7.088 167.809,6.629C168.048,6.564 168.31,6.611 168.55,6.545C169.257,6.352 169.633,5.891 169.644,5.887C169.837,5.817 172.278,5.65 172.507,5.634C174.826,5.556 192.243,4.964 201.505,4.928Z"/>
@@ -138,10 +114,10 @@
     <span style="font-family:'Monda',sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;color:#F5F3EF">Wander-IT</span>
   </a>
   <div id="nav-links" style="display:flex;align-items:center;gap:2.5rem">
-    <a href="realisations.html" class="nl active" data-i18n="nav.realisations">Réalisations</a>
-    <a href="services.html" class="nl" data-i18n="nav.services">Services</a>
-    <a href="a-propos.html" class="nl" data-i18n="nav.about">À propos</a>
-    <a href="index.html#contact" class="nl">Contact</a>
+    <a href="/realisations.html" class="nl" data-i18n="nav.realisations">Réalisations</a>
+    <a href="/services.html" class="nl" data-i18n="nav.services">Services</a>
+    <a href="/a-propos.html" class="nl" data-i18n="nav.about">À propos</a>
+    <a href="/index.html#contact" class="nl">Contact</a>
     <div class="lang-switch">
       <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">FR</button>
       <span style="color:#B2CBD4;opacity:0.35">|</span>
@@ -157,11 +133,11 @@
 
 <!-- MENU MOBILE -->
 <div id="mobile-menu" aria-hidden="true">
-  <a href="realisations.html" class="mob-link" data-i18n="nav.realisations">Réalisations</a>
-  <a href="services.html" class="mob-link" data-i18n="nav.services">Services</a>
-  <a href="a-propos.html" class="mob-link" data-i18n="nav.about">À propos</a>
-  <a href="index.html#contact" class="mob-link">Contact</a>
-  <a href="index.html#contact" class="mob-cta">
+  <a href="/realisations.html" class="mob-link" data-i18n="nav.realisations">Réalisations</a>
+  <a href="/services.html" class="mob-link" data-i18n="nav.services">Services</a>
+  <a href="/a-propos.html" class="mob-link" data-i18n="nav.about">À propos</a>
+  <a href="/index.html#contact" class="mob-link">Contact</a>
+  <a href="/index.html#contact" class="mob-cta">
     <span data-i18n="nav.contact">Nous contacter</span>
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
   </a>
@@ -174,135 +150,165 @@
   </div>
 </div>
 
-<!-- HEADER -->
-<section style="padding:9rem 3rem 5rem;max-width:1240px;margin:0 auto;position:relative;z-index:1">
-  <div class="reveal">
-    <p class="lbl" data-i18n="real.page.eyebrow" style="color:#B1DCED;opacity:0.45;margin-bottom:1rem">Ce que nous avons fait</p>
-    <h1 data-i18n="real.page.title" style="font-family:'Roboto Slab',serif;font-size:clamp(2.5rem,6vw,4rem);font-weight:700;line-height:1.1;letter-spacing:-0.03em;color:#F5F3EF;margin-bottom:1.5rem">
-      Nos réalisations
+<!-- HERO -->
+<section style="background:#0B1C22;padding:7rem 3rem 3rem;position:relative;overflow:hidden">
+  <div style="position:absolute;top:-10%;right:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(116,55,32,0.12) 0%,transparent 65%);pointer-events:none"></div>
+  <div style="max-width:860px;margin:0 auto">
+    <p class="lbl" style="color:#B1DCED;opacity:0.45;margin-bottom:1rem">Wander-IT · Belgium</p>
+    <h1 data-i18n="legal.title" style="font-family:'Roboto Slab',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.1;letter-spacing:-0.03em;color:#F5F3EF;margin-bottom:0.75rem">
+      Mentions légales &amp; Confidentialité
     </h1>
-    <p data-i18n="real.page.sub" style="font-size:0.95rem;color:#B2CBD4;max-width:520px;line-height:1.85">
-      Une sélection de projets livrés pour des indépendants, PME et entreprises. Chaque réalisation est un défi concret, résolu avec nos outils.
-    </p>
-  </div>
-
-  <!-- Filters -->
-  <div class="reveal" style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:2.5rem">
-    <button class="filter-btn active" data-i18n="filter.all" data-filter="tous" onclick="filterProjects('tous', this)">Tous</button>
-    <button class="filter-btn" data-i18n="filter.auto" data-filter="automatisation" onclick="filterProjects('automatisation', this)">Automatisation</button>
-    <button class="filter-btn" data-i18n="filter.design" data-filter="web" onclick="filterProjects('web', this)">Web Design</button>
-    <button class="filter-btn" data-i18n="filter.app" data-filter="app" onclick="filterProjects('app', this)">App Development</button>
-    <button class="filter-btn" data-i18n="filter.data" data-filter="data" onclick="filterProjects('data', this)">Data & Reporting</button>
+    <p style="font-size:0.82rem;color:#B2CBD4;opacity:0.6;font-family:'Monda',sans-serif">Dernière mise à jour : avril 2026</p>
   </div>
 </section>
 
-<!-- GRID -->
-<section style="padding:0 3rem 8rem;max-width:1240px;margin:0 auto;position:relative;z-index:1">
-  <div id="projects-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:2rem">
+<!-- CONTENT -->
+<section style="background:#F5F3EF;padding:4rem 3rem 6rem">
+  <div style="max-width:860px;margin:0 auto">
 
-    <!-- Cartes générées depuis projets/data.js -->
+    <!-- 1. Mentions légales -->
+    <div class="legal-section">
+      <h2>1. Mentions légales</h2>
 
-  </div>
-  <script src="projets/data.js"></script>
-  <script>
-    function buildRealCards(lang) {
-      const grid  = document.getElementById('projects-grid');
-      grid.innerHTML = '';
-      const arrow = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
-      const t = (typeof WANDER_TRANSLATIONS !== 'undefined' && WANDER_TRANSLATIONS[lang]) || (typeof WANDER_TRANSLATIONS !== 'undefined' && WANDER_TRANSLATIONS.fr) || {};
-      PROJETS.forEach((p, i) => {
-        const lp = (lang !== 'fr' && p[lang]) ? Object.assign({}, p, p[lang]) : p;
-        const a = document.createElement('a');
-        a.href         = 'projets/projet.html?id=' + p.id;
-        a.className    = 'proj-card reveal';
-        a.dataset.cat  = p.categorie;
-        if (i % 3 !== 0) a.style.transitionDelay = ((i % 3) * 0.08) + 's';
-        a.innerHTML = `
-          <div style="position:relative;overflow:hidden;height:187px;flex-shrink:0">
-            <img src="${p.imageCard}" alt="${lp.titre}" class="proj-img">
-            <span style="position:absolute;top:1rem;left:1rem;font-family:'Monda',sans-serif;font-size:0.58rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:${p.tagColor};background:${p.tagBg};padding:0.28rem 0.65rem;backdrop-filter:blur(4px);border-radius:9999px;z-index:2">${lp.categorieLabel}</span>
-          </div>
-          <div style="padding:1.25rem 1.25rem 1.5rem;display:flex;flex-direction:column;flex:1;min-height:0">
-            ${(p.logoClient || (p.logosPartenaires && p.logosPartenaires.length)) ? `
-            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.85rem;flex-wrap:wrap;flex-shrink:0;min-height:22px">
-              ${p.logoClient ? `<img src="${p.logoClient}" alt="${lp.client}" style="height:18px;width:auto;object-fit:contain;border-radius:2px">` : ''}
-              ${(p.logosPartenaires||[]).map(l => `<img src="${l.src}" alt="${l.alt}" style="height:14px;width:auto;object-fit:contain;opacity:0.7">`).join('')}
-            </div>` : ''}
-            <div style="font-family:'Roboto Slab',serif;font-size:1rem;font-weight:700;color:white;letter-spacing:-0.02em;line-height:1.3;margin-bottom:0.5rem;flex-shrink:0">${lp.titre}</div>
-            <div style="font-size:0.75rem;color:#B2CBD4;line-height:1.6;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1">${lp.accroche}</div>
-            <span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.68rem;font-weight:700;color:#6B3020;font-family:'Monda',sans-serif;text-transform:uppercase;letter-spacing:0.1em;flex-shrink:0">${t['real.proj.view'] || 'Voir le projet'} ${arrow}</span>
-          </div>`;
-        grid.appendChild(a);
-      });
-      // Observe new cards for reveal animation
-      const cardObs = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); cardObs.unobserve(e.target); } });
-      }, { threshold: 0.08 });
-      document.querySelectorAll('.proj-card.reveal').forEach(el => cardObs.observe(el));
+      <div class="info-grid">
+        <span class="info-label">Société</span>
+        <span class="info-value">Wander-IT</span>
 
-      // Re-apply active filter if any
-      const activeBtn = document.querySelector('.filter-btn.active');
-      if (activeBtn) {
-        const cat = activeBtn.dataset.filter || 'tous';
-        const cards = document.querySelectorAll('.proj-card');
-        cards.forEach(card => { card.style.display = (cat === 'tous' || card.dataset.cat === cat) ? '' : 'none'; });
-      }
-    }
-    window.rebuildCards = buildRealCards;
-    buildRealCards(localStorage.getItem('wander_lang') || 'fr');
-  </script>
+        <span class="info-label">Numéro BCE</span>
+        <span class="info-value">BE 1014.672.854</span>
 
-  <!-- Empty state -->
-  <div id="empty-state" style="display:none;text-align:center;padding:5rem 0;color:#4d6870;opacity:0.45">
-    <p data-i18n="real.empty" style="font-size:0.9rem">Aucun projet dans cette catégorie pour le moment.</p>
+        <span class="info-label">Numéro TVA</span>
+        <span class="info-value">BE 1014.672.854</span>
+
+        <span class="info-label">Adresse</span>
+        <span class="info-value">Meiz 37, 4970 Stavelot, Belgique</span>
+
+        <span class="info-label">Téléphone</span>
+        <span class="info-value"><a href="tel:+32470553555">+32 470 55 35 55</a></span>
+
+        <span class="info-label">Email</span>
+        <span class="info-value"><a href="mailto:info@wander-it.be">info@wander-it.be</a></span>
+
+        <span class="info-label">Site web</span>
+        <span class="info-value">www.wander-it.be</span>
+
+        <span class="info-label">Hébergeur</span>
+        <span class="info-value">Combell NV, Skaldenstraat 121, 9042 Gent, Belgique</span>
+      </div>
+
+      <h3>Responsable de la publication</h3>
+      <p>Alex Wansart — Co-fondateur, Wander-IT</p>
+    </div>
+
+    <!-- 2. Politique de confidentialité -->
+    <div class="legal-section">
+      <h2>2. Politique de confidentialité</h2>
+      <p>Wander-IT respecte votre vie privée et traite vos données personnelles conformément au Règlement Général sur la Protection des Données (RGPD / UE 2016/679) et à la législation belge applicable.</p>
+
+      <h3>Données collectées</h3>
+      <ul>
+        <li><strong>Formulaire de contact :</strong> nom, prénom, société, téléphone, adresse email, message.</li>
+        <li><strong>Analytics (avec votre consentement) :</strong> pages consultées, durée de visite, type d'appareil, source du trafic, adresse IP anonymisée.</li>
+      </ul>
+
+      <h3>Finalités du traitement</h3>
+      <ul>
+        <li>Répondre à vos demandes de contact ou de devis.</li>
+        <li>Améliorer notre site web (analytics, avec consentement uniquement).</li>
+      </ul>
+
+      <h3>Base juridique</h3>
+      <ul>
+        <li><strong>Formulaire de contact :</strong> votre consentement explicite (case à cocher).</li>
+        <li><strong>Analytics :</strong> votre consentement explicite (bandeau cookies).</li>
+      </ul>
+
+      <h3>Durée de conservation</h3>
+      <ul>
+        <li>Données de contact : 3 ans à compter de votre demande.</li>
+        <li>Données analytics : 14 mois (paramètre Google Analytics).</li>
+      </ul>
+
+      <h3>Destinataires des données</h3>
+      <ul>
+        <li><strong>Web3Forms</strong> — service de traitement des formulaires de contact (<a href="https://web3forms.com/privacy" target="_blank" rel="noopener">politique de confidentialité</a>).</li>
+        <li><strong>Google Analytics / Google Tag Manager</strong> — uniquement si vous avez accepté les cookies analytics (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">politique Google</a>).</li>
+        <li><strong>Combell NV</strong> — hébergeur du site.</li>
+      </ul>
+      <p>Aucune donnée n'est vendue ni partagée à des fins commerciales avec des tiers.</p>
+    </div>
+
+    <!-- 3. Politique cookies -->
+    <div class="legal-section">
+      <h2>3. Politique de cookies</h2>
+
+      <h3>Cookies strictement nécessaires</h3>
+      <p>Ces cookies sont indispensables au fonctionnement du site. Ils ne collectent aucune donnée personnelle et ne requièrent pas votre consentement.</p>
+      <ul>
+        <li><strong>wander_lang</strong> — mémorise votre préférence de langue (FR/EN/DE). Durée : 1 an.</li>
+        <li><strong>wander_consent</strong> — mémorise votre choix concernant les cookies analytics. Durée : 1 an.</li>
+      </ul>
+
+      <h3>Cookies analytics (avec consentement)</h3>
+      <p>Ces cookies ne sont déposés que si vous avez cliqué sur « Accepter » dans le bandeau cookies.</p>
+      <ul>
+        <li><strong>Google Analytics 4</strong> (via Google Tag Manager) — mesure l'audience du site. Les adresses IP sont anonymisées. Durée : 14 mois. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Politique Google</a>.</li>
+      </ul>
+
+      <h3>Gérer vos préférences</h3>
+      <p>Vous pouvez modifier votre choix à tout moment en vidant le stockage local de votre navigateur, ou en contactant <a href="mailto:info@wander-it.be">info@wander-it.be</a>.</p>
+    </div>
+
+    <!-- 4. Vos droits -->
+    <div class="legal-section">
+      <h2>4. Vos droits</h2>
+      <p>Conformément au RGPD, vous disposez des droits suivants :</p>
+      <ul>
+        <li><strong>Droit d'accès</strong> — obtenir une copie de vos données.</li>
+        <li><strong>Droit de rectification</strong> — corriger des données inexactes.</li>
+        <li><strong>Droit à l'effacement</strong> — demander la suppression de vos données.</li>
+        <li><strong>Droit de retrait du consentement</strong> — à tout moment, sans effet rétroactif.</li>
+        <li><strong>Droit d'opposition</strong> — vous opposer au traitement de vos données.</li>
+        <li><strong>Droit de réclamation</strong> — auprès de l'Autorité de Protection des Données belge.</li>
+      </ul>
+
+      <h3>Exercer vos droits</h3>
+      <p>Contactez-nous par email : <a href="mailto:info@wander-it.be">info@wander-it.be</a><br>
+      Nous répondons dans un délai de 30 jours.</p>
+
+      <h3>Autorité de contrôle</h3>
+      <p>
+        Autorité de protection des données (APD)<br>
+        Rue de la Presse 35, 1000 Bruxelles<br>
+        <a href="mailto:contact@apd-gba.be">contact@apd-gba.be</a> — <a href="https://www.autoriteprotectiondonnees.be" target="_blank" rel="noopener">autoriteprotectiondonnees.be</a>
+      </p>
+    </div>
+
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer style="background:#071318;padding:2.25rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
   <span style="font-family:'Monda',sans-serif;font-size:0.7rem;color:white;opacity:0.26;letter-spacing:0.1em;text-transform:uppercase">Wander-IT © 2026</span>
-  <p data-i18n="footer.alex" style="font-size:0.7rem;color:white;opacity:0.2;font-family:'Monda',sans-serif">WANSART Alex — Solutions Digitales</p>
-  <a href="/mentions-legales.html" data-i18n="footer.legal" style="font-size:0.7rem;color:white;opacity:0.35;font-family:'Monda',sans-serif;text-decoration:none;letter-spacing:0.08em;transition:opacity 0.2s" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='0.35'">Mentions légales</a>
+  <p data-i18n="footer.both" style="font-size:0.7rem;color:white;opacity:0.2;font-family:'Monda',sans-serif;margin:0">WANSART Alex & André — Solutions Digitales</p>
+  <a href="/mentions-legales.html" data-i18n="footer.legal" style="font-size:0.7rem;color:white;opacity:0.5;font-family:'Monda',sans-serif;text-decoration:none;letter-spacing:0.08em">Mentions légales</a>
 </footer>
 
 <script src="/translations.js"></script>
-
 <script>
-  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-  window.scrollTo(0, 0);
-
-  // Scroll-reveal for header
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // --- Filter ---
-  function filterProjects(cat, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const cards = document.querySelectorAll('.proj-card');
-    let visible = 0;
-    cards.forEach(card => {
-      const match = cat === 'tous' || card.dataset.cat === cat;
-      card.style.display = match ? 'block' : 'none';
-      if (match) visible++;
-    });
-    document.getElementById('empty-state').style.display = visible === 0 ? 'block' : 'none';
-  }
-
   function toggleMenu() {
     const open = document.body.classList.toggle('menu-open');
-    const m = document.getElementById('mobile-menu');
-    m.classList.toggle('open', open);
-    m.setAttribute('aria-hidden', String(!open));
-    document.getElementById('nav-burger').setAttribute('aria-expanded', String(open));
+    const menu = document.getElementById('mobile-menu');
+    const btn  = document.getElementById('nav-burger');
+    menu.classList.toggle('open', open);
+    menu.setAttribute('aria-hidden', !open);
+    btn.setAttribute('aria-expanded', open);
   }
   function closeMenu() {
     document.body.classList.remove('menu-open');
-    const m = document.getElementById('mobile-menu');
-    m.classList.remove('open');
-    m.setAttribute('aria-hidden', 'true');
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.remove('open');
+    menu.setAttribute('aria-hidden', 'true');
     document.getElementById('nav-burger').setAttribute('aria-expanded', 'false');
   }
 </script>
