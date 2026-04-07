@@ -29,7 +29,7 @@ window.PROJETS = [
     logoClient:  '/assets/images/projet-1/logo-jost.webp',
     logoClientWidth: 26,
     logosPartenaires: [
-      { src: '/assets/images/projet-1/Triage automatique.webp', alt: 'Triage automatique', width: 15 },
+      { src: '/assets/images/projet-1/Microsoft_Outlook_Icon_(2025\u2013present).svg.webp', alt: 'Outlook', width: 15 },
       { src: '/assets/images/projet-1/Odoo_Official_Logo.webp', alt: 'Odoo', width: 44 },
     ],
 
