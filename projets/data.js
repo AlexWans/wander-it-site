@@ -486,4 +486,84 @@ window.PROJETS = [
       chiffreCle: { titre: 'Nutzen', points: ['Verhandlung', 'Kundenglaubwürdigkeit', 'Projektübersicht'] },
     },
   },
+
+  {
+    id: 7,
+
+    // ── Infos de base ────────────────────────────────────────────────────────
+    titre:          'Planning du personnel aéroportuaire',
+    client:         null,
+    annee:          '2026',
+    categorie:      'app',
+    categorieLabel: 'Application Web',
+    technologies:   'Python · Algorithme de planification · Optimisation · Export Excel',
+
+    // ── Apparence des vignettes ──────────────────────────────────────────────
+    tagColor:  '#B1DCED',
+    tagBg:     'rgba(0,50,100,0.65)',
+    imageCard: '/assets/images/projet-7/Sicass 1.png',
+    imageGrid: '/assets/images/projet-7/Sicass 2.png',
+
+    // ── Contenu de la page projet ────────────────────────────────────────────
+    accroche: "100+ agents planifiés en 10 minutes — un outil sur mesure pour automatiser le planning des shifts aéroportuaires et optimiser les effectifs par contrainte.",
+
+    contexte: "Sicass gère la planification opérationnelle de plus de 100 agents en charge de l'accueil des arrivées d'avions dans un aéroport. Chaque semaine, les compagnies aériennes transmettent leur planning d'arrivées et le nombre d'agents requis pour chaque vol. Jusqu'alors, construire le planning des shifts était un travail manuel fastidieux représentant plus de 50 heures par mois.<br><br>Wander-IT a conçu et développé une application sur mesure permettant d'automatiser entièrement ce processus. À partir des plannings transmis par les compagnies, le programme génère automatiquement des shifts sans chevauchement, en respectant l'ensemble des contraintes légales et opérationnelles : nombre de jours de travail par semaine, temps de repos minimum entre deux shifts, nombre maximum de jours consécutifs.<br><br>L'outil intègre deux fonctionnalités clés : un bouton d'optimisation qui calcule le nombre minimum d'effectifs nécessaires pour couvrir tous les shifts, et un bouton de rééquilibrage qui distribue équitablement la charge de travail entre tous les agents. L'ensemble du planning est exportable en Excel, prêt à être diffusé aux équipes.",
+
+    logoClient:  null,
+    logosPartenaires: [],
+
+    chiffreCle: {
+      points: ['−50h de planning / mois', '+10 effectifs récupérés'],
+    },
+
+    gains: [
+      "Plus de 50 heures de travail manuel de planning récupérées chaque mois — le planning complet se génère maintenant en moins de 10 minutes.",
+      "Réduction de plus de 10 effectifs par cycle de planning grâce à l'optimisation automatique des shifts.",
+      "Zéro chevauchement de shifts : le système respecte automatiquement toutes les contraintes — jours de travail, temps de repos, maximum de jours consécutifs.",
+      "Planning rééquilibré automatiquement : charge de travail distribuée équitablement entre tous les agents pour une meilleure cohésion d'équipe.",
+      "Export Excel en un clic — le planning est immédiatement prêt à être partagé avec les équipes.",
+      "Paramètres modifiables à la volée : l'outil s'adapte aux nouvelles contraintes légales ou organisationnelles sans redéveloppement.",
+    ],
+
+    visuels: [
+      '/assets/images/projet-7/Sicass 1.png',
+      '/assets/images/projet-7/Sicass 2.png',
+      '/assets/images/projet-7/Sicass 3.png',
+      '/assets/images/projet-7/Sicass 4.png',
+    ],
+
+    en: {
+      titre: 'Airport Staff Scheduling',
+      categorieLabel: 'Web Application',
+      technologies: 'Python · Scheduling Algorithm · Optimisation · Excel Export',
+      accroche: "100+ agents scheduled in 10 minutes — a custom tool to automate airport shift planning and minimise headcount through constraint-based optimisation.",
+      contexte: "Sicass manages the operational scheduling of over 100 agents responsible for handling aircraft arrivals at an airport. Each week, airlines submit their arrival schedules and the number of agents required for each flight. Until now, building the shift schedule was a tedious manual task representing over 50 hours of work per month.<br><br>Wander-IT designed and developed a custom application to fully automate this process. From the schedules submitted by airlines, the program automatically generates non-overlapping shifts, respecting all legal and operational constraints: number of working days per week, minimum rest time between two shifts, maximum consecutive working days.<br><br>The tool includes two key features: an optimisation button that calculates the minimum number of staff needed to cover all shifts, and a rebalancing button that distributes the workload fairly across all agents. The complete schedule is exportable to Excel, ready to share with teams.",
+      gains: [
+        "Over 50 hours of manual scheduling work recovered every month — the full schedule now generates in under 10 minutes.",
+        "Reduction of over 10 headcount per planning cycle through automatic shift optimisation.",
+        "Zero shift overlap: the system automatically enforces all constraints — working days, rest time, maximum consecutive days.",
+        "Automatically rebalanced schedule: workload distributed fairly across all agents for better team cohesion.",
+        "One-click Excel export — the schedule is immediately ready to share with teams.",
+        "On-the-fly adjustable parameters: the tool adapts to new legal or organisational constraints without redevelopment.",
+      ],
+      chiffreCle: { points: ['−50h of scheduling / month', '+10 headcount recovered'] },
+    },
+
+    de: {
+      titre: 'Flughafen-Personalplanung',
+      categorieLabel: 'Webanwendung',
+      technologies: 'Python · Planungsalgorithmus · Optimierung · Excel-Export',
+      accroche: "100+ Agenten in 10 Minuten verplant — ein maßgeschneidertes Tool zur Automatisierung der Flughafen-Schichtplanung und Minimierung des Personalbedarfs.",
+      contexte: "Sicass verwaltet die operative Planung von über 100 Agenten, die für die Betreuung von Flugzeugankünften am Flughafen zuständig sind. Jede Woche übermitteln die Fluggesellschaften ihren Ankunftsplan und die benötigte Agentenzahl je Flug. Bis dahin war die Erstellung des Schichtplans eine mühsame manuelle Aufgabe von über 50 Stunden pro Monat.<br><br>Wander-IT konzipierte und entwickelte eine maßgeschneiderte Anwendung zur vollständigen Automatisierung dieses Prozesses. Aus den von den Fluggesellschaften übermittelten Plänen generiert das Programm automatisch überschneidungsfreie Schichten unter Einhaltung aller gesetzlichen und betrieblichen Einschränkungen: Arbeitstage pro Woche, Mindestruhezeit zwischen zwei Schichten, maximale aufeinanderfolgende Arbeitstage.<br><br>Das Tool umfasst zwei Schlüsselfunktionen: einen Optimierungsknopf, der die Mindestanzahl der benötigten Mitarbeiter berechnet, und einen Ausgleichsknopf, der die Arbeitslast fair auf alle Agenten verteilt. Der komplette Plan ist als Excel exportierbar.",
+      gains: [
+        "Über 50 Stunden manueller Planungsaufwand monatlich zurückgewonnen — der vollständige Plan wird jetzt in unter 10 Minuten generiert.",
+        "Reduktion von über 10 Mitarbeitern pro Planungszyklus durch automatische Schichtoptimierung.",
+        "Null Schichtüberschneidungen: Das System erzwingt automatisch alle Einschränkungen — Arbeitstage, Ruhezeiten, maximale aufeinanderfolgende Tage.",
+        "Automatisch ausgeglichener Plan: Arbeitslast fair auf alle Agenten verteilt für besseren Teamzusammenhalt.",
+        "Excel-Export per Klick — der Plan ist sofort zur Weitergabe bereit.",
+        "Jederzeit anpassbare Parameter: Das Tool passt sich neuen gesetzlichen oder organisatorischen Anforderungen ohne Neuentwicklung an.",
+      ],
+      chiffreCle: { points: ['−50h Planung / Monat', '+10 Mitarbeiter optimiert'] },
+    },
+  },
 ];
