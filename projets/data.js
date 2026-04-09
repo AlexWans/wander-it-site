@@ -501,8 +501,8 @@ window.PROJETS = [
     // ── Apparence des vignettes ──────────────────────────────────────────────
     tagColor:  '#B1DCED',
     tagBg:     'rgba(0,50,100,0.65)',
-    imageCard: '/assets/images/projet-7/Sicass 1.png',
-    imageGrid: '/assets/images/projet-7/Sicass 2.png',
+    imageCard: '/assets/images/projet-7/Projet 7 - 1 .png',
+    imageGrid: '/assets/images/projet-7/Projet 7 - 2.png',
 
     // ── Contenu de la page projet ────────────────────────────────────────────
     accroche: "100+ agents planifiés en 10 minutes — un outil sur mesure pour automatiser le planning des shifts aéroportuaires et optimiser les effectifs par contrainte.",
@@ -526,10 +526,10 @@ window.PROJETS = [
     ],
 
     visuels: [
-      '/assets/images/projet-7/Sicass 1.png',
-      '/assets/images/projet-7/Sicass 2.png',
-      '/assets/images/projet-7/Sicass 3.png',
-      '/assets/images/projet-7/Sicass 4.png',
+      '/assets/images/projet-7/Projet 7 - 1 .png',
+      '/assets/images/projet-7/Projet 7 - 2.png',
+      '/assets/images/projet-7/Projet 7 - 3 .png',
+      '/assets/images/projet-7/Projet 7 - 4.png',
     ],
 
     en: {
