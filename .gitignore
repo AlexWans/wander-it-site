@@ -1,7 +1,8 @@
 node_modules/
-Screenshots temporaire/
-screenshot.mjs
-serve.mjs
+_dev/screenshots/
+**/.DS_Store
+scripts/screenshot.mjs
+scripts/serve.mjs
 package.json
 package-lock.json
 *.pdf

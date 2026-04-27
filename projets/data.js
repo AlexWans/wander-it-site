@@ -566,4 +566,86 @@ window.PROJETS = [
       chiffreCle: { points: ['−50h Planung / Monat', '+10 Mitarbeiter optimiert'] },
     },
   },
+
+  {
+    id: 8,
+
+    // ── Infos de base ────────────────────────────────────────────────────────
+    titre:          'Automatisation des factures fournisseurs par IA',
+    client:         'Jost',
+    annee:          '2026',
+    categorie:      'automatisation',
+    categorieLabel: 'Automatisation',
+    technologies:   'Python · Vision IA · Odoo · Multi-pays',
+
+    // ── Apparence des vignettes ──────────────────────────────────────────────
+    tagColor:  '#B1DCED',
+    tagBg:     'rgba(0,66,88,0.65)',
+    imageCard: '/assets/images/projet-8/Supplier.png',
+    imageGrid: '/assets/images/projet-8/Supplier.png',
+
+    // ── Contenu de la page projet ────────────────────────────────────────────
+    accroche: "250 mails par jour traités automatiquement — un pipeline IA bout en bout qui lit les emails, trie les documents, extrait les données et importe directement dans Odoo, sans intervention humaine.",
+
+    contexte: "Chaque jour, des dizaines de factures fournisseurs arrivent par email dans les boîtes de Jost Group — en PDF, dans des formats différents, parfois en plusieurs langues, parfois groupées dans un seul fichier, réparties entre plusieurs entités en Belgique, France, Suisse et Roumanie. Les équipes comptables passaient des heures à les ouvrir, lire, recopier, valider et importer dans Odoo.<br><br>Wander-IT a conçu et déployé un pipeline d'automatisation bout en bout. Le système récupère les emails entrants et soumet chaque pièce jointe à un premier modèle IA qui classifie en quelques centièmes de seconde : facture, note de crédit, rappel de paiement, bon de livraison ou publicité. Seules les factures avancent dans le pipeline.<br><br>Un modèle de vision lit ensuite chaque PDF — même scanné ou mal formaté — et en extrait automatiquement le numéro de TVA fournisseur et client, les montants HT/TVA/TTC, la devise, la date, le numéro de facture, l'IBAN et les conditions de paiement. Le système identifie l'entité Jost destinataire, retrouve le fournisseur dans Odoo par numéro de TVA, crée la facture avec toutes ses lignes et le PDF original en pièce jointe — prête à valider en un clic. L'email est ensuite déplacé dans le bon dossier : TRAITE-IA, RAPPEL, PUB ou PEPPOL.<br><br>Un dashboard temps réel permet de suivre chaque run : type de document, niveau de confiance, statut Peppol, alertes. En production chez Jost Group depuis avril 2026 — plusieurs entités, plusieurs pays, plusieurs centaines de factures par mois traitées sans intervention humaine.",
+
+    logoClient:  '/assets/images/projet-1/logo-jost.webp',
+    logoClientWidth: 26,
+    logosPartenaires: [
+      { src: '/assets/images/projet-1/Microsoft_Outlook_Icon_(2025–present).svg.webp', alt: 'Outlook', width: 15 },
+      { src: '/assets/images/projet-1/Odoo_Official_Logo.webp', alt: 'Odoo', width: 44 },
+    ],
+
+    chiffreCle: { valeur: '~60h', label: 'récupérées<br>chaque mois' },
+
+    gains: [
+      "60 heures de saisie manuelle récupérées chaque mois — les équipes comptables valident au lieu de recopier.",
+      "Zéro retard de paiement : les factures arrivent dans Odoo en quelques minutes, prêtes à valider en un clic.",
+      "Moins d'erreurs de saisie : l'extraction IA élimine les fautes de frappe, doublons et oublis.",
+      "Triage intelligent : facture, note de crédit, rappel, bon de livraison ou publicité — classifiés en quelques centièmes de seconde.",
+      "Gestion multi-sociétés et multi-pays : entités belges, françaises, suisses et roumaines avec règles fiscales propres à chaque pays.",
+      "Conformité Peppol B2B (Belgique depuis mars 2026) et e-Factura (Roumanie) — le système détecte et gère automatiquement les factures électroniques réglementées.",
+      "Dashboard de monitoring temps réel : chaque traitement est tracé avec son type, son niveau de confiance et son statut.",
+    ],
+
+    visuels: [
+      '/assets/images/projet-8/Supplier.png',
+    ],
+
+    en: {
+      titre: 'AI Supplier Invoice Automation',
+      categorieLabel: 'Automation',
+      technologies: 'Python · AI Vision · Odoo · Multi-country',
+      accroche: "250 emails per day processed automatically — an end-to-end AI pipeline that reads emails, sorts documents, extracts data and imports directly into Odoo, without human intervention.",
+      contexte: "Every day, dozens of supplier invoices land by email in Jost Group's inboxes — as PDFs, in varying formats, sometimes in multiple languages, sometimes bundled in a single file, spread across entities in Belgium, France, Switzerland and Romania. Accounting teams spent hours opening, reading, re-entering, validating and importing them into Odoo.<br><br>Wander-IT designed and deployed an end-to-end automation pipeline. The system retrieves incoming emails and submits each attachment to a first AI model that classifies it in milliseconds: invoice, credit note, payment reminder, delivery note or advertisement. Only invoices advance through the pipeline.<br><br>An AI vision model then reads each PDF — even scanned or poorly formatted — and automatically extracts the supplier and client VAT number, amounts ex-VAT/VAT/incl. VAT, currency, date, invoice number, IBAN and payment terms. The system identifies the correct Jost entity, finds the supplier in Odoo by VAT number, creates the invoice with all its lines and the original PDF attached — ready to validate in one click. The email is then moved to the right folder: PROCESSED-AI, REMINDER, AD or PEPPOL.<br><br>A real-time dashboard tracks every run: document type, confidence level, Peppol status, alerts. Live at Jost Group since April 2026 — multiple entities, multiple countries, hundreds of invoices per month processed without human intervention.",
+      gains: [
+        "60 hours of manual data entry recovered every month — accounting teams validate instead of re-typing.",
+        "Zero payment delays: invoices land in Odoo within minutes, ready to validate in one click.",
+        "Fewer errors: AI extraction eliminates typos, duplicates and oversights.",
+        "Intelligent triage: invoice, credit note, reminder, delivery note or ad — classified in milliseconds.",
+        "Multi-entity and multi-country management: Belgian, French, Swiss and Romanian entities with country-specific tax rules.",
+        "Peppol B2B compliance (Belgium since March 2026) and e-Factura (Romania) — the system automatically detects and handles regulated electronic invoices.",
+        "Real-time monitoring dashboard: every processing step is tracked with its type, confidence level and status.",
+      ],
+      chiffreCle: { valeur: '~60h', label: 'recovered<br>each month' },
+    },
+
+    de: {
+      titre: 'KI-Automatisierung von Lieferantenrechnungen',
+      categorieLabel: 'Automatisierung',
+      technologies: 'Python · KI-Vision · Odoo · Mehrere Länder',
+      accroche: "250 E-Mails pro Tag vollautomatisch verarbeitet — eine durchgängige KI-Pipeline, die E-Mails liest, Dokumente sortiert, Daten extrahiert und direkt in Odoo importiert, ohne menschliches Eingreifen.",
+      contexte: "Täglich treffen Dutzende von Lieferantenrechnungen per E-Mail in den Postfächern der Jost Group ein — als PDFs, in verschiedenen Formaten, manchmal in mehreren Sprachen, manchmal in einer Datei gebündelt, verteilt auf Gesellschaften in Belgien, Frankreich, der Schweiz und Rumänien. Die Buchhaltungsteams verbrachten Stunden damit, sie zu öffnen, zu lesen, einzutippen, zu validieren und in Odoo zu importieren.<br><br>Wander-IT hat eine durchgängige Automatisierungspipeline konzipiert und eingeführt. Das System ruft eingehende E-Mails ab und übergibt jeden Anhang einem KI-Modell, das in Millisekunden klassifiziert: Rechnung, Gutschrift, Zahlungserinnerung, Lieferschein oder Werbung. Nur Rechnungen durchlaufen die Pipeline weiter.<br><br>Ein KI-Visionsmodell liest anschließend jedes PDF — auch gescannte oder schlecht formatierte — und extrahiert automatisch: USt-IdNr. des Lieferanten und Kunden, Beträge netto/USt/brutto, Währung, Datum, Rechnungsnummer, IBAN und Zahlungsbedingungen. Das System identifiziert die zuständige Jost-Gesellschaft, findet den Lieferanten in Odoo anhand der USt-IdNr. und erstellt die Rechnung mit allen Positionen und dem Original-PDF als Anhang — bereit zur Validierung mit einem Klick.",
+      gains: [
+        "60 Stunden manueller Dateneingabe pro Monat zurückgewonnen — Buchhaltungsteams validieren statt abzutippen.",
+        "Null Zahlungsverzögerungen: Rechnungen landen innerhalb von Minuten in Odoo, bereit zur Validierung per Klick.",
+        "Weniger Fehler: KI-Extraktion eliminiert Tippfehler, Duplikate und Versäumnisse.",
+        "Intelligentes Triage: Rechnung, Gutschrift, Erinnerung, Lieferschein oder Werbung — in Millisekunden klassifiziert.",
+        "Multi-Gesellschaft und Multi-Land: belgische, französische, schweizerische und rumänische Einheiten mit länderspezifischen Steuerregeln.",
+        "Peppol B2B-Konformität (Belgien seit März 2026) und e-Factura (Rumänien) — das System erkennt und verarbeitet automatisch gesetzlich geregelte elektronische Rechnungen.",
+        "Echtzeit-Monitoring-Dashboard: Jeder Verarbeitungsschritt wird mit Typ, Konfidenzniveau und Status protokolliert.",
+      ],
+      chiffreCle: { valeur: '~60h', label: 'pro Monat<br>zurückgewonnen' },
+    },
+  },
 ];
