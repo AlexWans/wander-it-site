@@ -64,6 +64,10 @@ const WANDER_TRANSLATIONS = {
     'real.proj.view': 'Voir le projet',
     'real.proj.all':  'Voir toutes<br>nos réalisations',
 
+    // Confiance / Partenaires
+    'trust.eyebrow':  'Partenaires & clients',
+    'trust.title':    'Ils nous ont fait confiance',
+
     // ── Contact form
     'contact.eyebrow': 'Parlons de votre projet',
     'contact.heading': 'Prêt à prendre<br><span style="color:#6B3020">une longueur d\'avance ?</span>',
@@ -350,6 +354,10 @@ const WANDER_TRANSLATIONS = {
     'real.proj.view': 'See the project',
     'real.proj.all':  'See all<br>our projects',
 
+    // Confiance / Partenaires
+    'trust.eyebrow':  'Partners & clients',
+    'trust.title':    'They put their trust in us',
+
     // ── Contact form
     'contact.eyebrow': 'Let\'s talk about your project',
     'contact.heading': 'Ready to get<br><span style="color:#6B3020">one step ahead?</span>',
@@ -635,6 +643,10 @@ const WANDER_TRANSLATIONS = {
     'real.title':     'Unsere Referenzen',
     'real.proj.view': 'Projekt ansehen',
     'real.proj.all':  'Alle<br>Referenzen ansehen',
+
+    // Confiance / Partenaires
+    'trust.eyebrow':  'Partner & Kunden',
+    'trust.title':    'Sie haben uns vertraut',
 
     // ── Contact form
     'contact.eyebrow': 'Sprechen wir über Ihr Projekt',
