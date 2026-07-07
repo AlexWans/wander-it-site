@@ -66,7 +66,7 @@ const WANDER_TRANSLATIONS = {
 
     // Confiance / Partenaires
     'trust.eyebrow':  'Partenaires & clients',
-    'trust.title':    'Ils nous ont fait confiance',
+    'trust.title':    'Ils nous font confiance',
 
     // ── Contact form
     'contact.eyebrow': 'Parlons de votre projet',
