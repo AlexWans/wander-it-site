@@ -661,10 +661,11 @@ window.PROJETS = [
     technologies:   'Python · IA · Odoo · SharePoint · Excel',
 
     // ── Apparence des vignettes ──────────────────────────────────────────────
-    tagColor:  '#B1DCED',
-    tagBg:     'rgba(0,66,88,0.65)',
-    imageCard: '/assets/images/projet-10/resol.webp',
-    imageGrid: '/assets/images/projet-10/resol.webp',
+    tagColor:    '#B1DCED',
+    tagBg:       'rgba(0,66,88,0.65)',
+    imageCard:   '/assets/images/projet-10/resol.webp',
+    imageCardFit: 'contain',
+    imageGrid:   '/assets/images/projet-10/resol.webp',
 
     // ── Contenu de la page projet ────────────────────────────────────────────
     accroche:  "Automatisation complète de la boîte mail RFQ — chaque demande de devis est lue, analysée par IA et intégrée simultanément dans Odoo, SharePoint et l'arborescence projet.",
