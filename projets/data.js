@@ -648,4 +648,84 @@ window.PROJETS = [
       chiffreCle: { valeur: '~60h', label: 'pro Monat<br>zurückgewonnen' },
     },
   },
+
+  {
+    id: 10,
+
+    // ── Infos de base ────────────────────────────────────────────────────────
+    titre:          'Automatisation des demandes de devis (RFQ)',
+    client:         'Re.Sol / Avasco Solar Ground',
+    annee:          '2026',
+    categorie:      'automatisation',
+    categorieLabel: 'Automatisation',
+    technologies:   'Python · IA · Odoo · SharePoint · Excel',
+
+    // ── Apparence des vignettes ──────────────────────────────────────────────
+    tagColor:  '#B1DCED',
+    tagBg:     'rgba(0,66,88,0.65)',
+    imageCard: '/assets/images/projet-10/resol.webp',
+    imageGrid: '/assets/images/projet-10/resol.webp',
+
+    // ── Contenu de la page projet ────────────────────────────────────────────
+    accroche:  "Automatisation complète de la boîte mail RFQ — chaque demande de devis est lue, analysée par IA et intégrée simultanément dans Odoo, SharePoint et l'arborescence projet.",
+
+    contexte:  "Re.Sol Avasco Solar Ground, basée au Luxembourg, est spécialisée dans les structures photovoltaïques au sol et les carports. Convaincue par l'importance de l'innovation, elle a choisi de moderniser la gestion de ses demandes de devis entrants (RFQ — Request for Quotation).<br><br>Chaque nouvelle demande arrivait par email et nécessitait une lecture manuelle, un tri, puis une saisie dans plusieurs outils — un processus répétitif et chronophage pour les ingénieurs en charge des devis.<br><br>Wander-IT a automatisé l'intégralité du flux : un script surveille la boîte mail RFQ, lit et pré-trie les emails entrants, puis soumet chaque demande à une analyse par IA qui en extrait les informations clés nécessaires à la réalisation d'un devis. Les ingénieurs reçoivent une demande déjà analysée et structurée — leur temps est consacré à la réalisation du devis, pas à sa préparation.<br><br>Les données extraites alimentent ensuite trois destinations en parallèle : l'arborescence projet sur le serveur (avec pièces jointes et résumé IA inclus), une opportunité créée automatiquement dans Odoo, et une ligne de suivi dans le fichier Excel centralisé sur SharePoint. Tout est tracé, tout est synchronisé, sans intervention humaine.",
+
+    logoClient:  null,
+    logosPartenaires: [],
+
+    chiffreCle: {
+      valeur: null,
+      label: null,
+      points: ['Gain de temps', 'Zéro saisie manuelle', 'Triple intégration'],
+    },
+
+    gains: [
+      "Traitement automatique de chaque demande RFQ dès réception — plus aucune saisie manuelle pour les ingénieurs.",
+      "Analyse IA des emails : les informations clés pour le devis sont extraites et structurées automatiquement.",
+      "Triple intégration simultanée : serveur, Odoo et SharePoint alimentés en un seul run.",
+      "Les ingénieurs traitent des demandes déjà qualifiées — leur temps est consacré à la réalisation du devis, pas à sa préparation.",
+      "Arborescence projet créée automatiquement avec pièces jointes et résumé IA — zéro manipulation manuelle.",
+      "Suivi centralisé dans SharePoint : visibilité en temps réel sur toutes les opportunités en cours.",
+    ],
+
+    layoutVisuels: 'grid',
+    visuels: [
+      '/assets/images/projet-10/resol.webp',
+    ],
+
+    en: {
+      titre: 'RFQ Email Automation',
+      categorieLabel: 'Automation',
+      technologies: 'Python · AI · Odoo · SharePoint · Excel',
+      accroche: "Full automation of the RFQ inbox — every quote request is read, AI-analysed and simultaneously fed into Odoo, SharePoint and the project folder structure.",
+      contexte: "Re.Sol Avasco Solar Ground, based in Luxembourg, specialises in ground-mounted photovoltaic structures and carports. Committed to innovation, they chose to modernise the management of their incoming quote requests (RFQ — Request for Quotation).<br><br>Each new request arrived by email and required manual reading, sorting and entry into multiple tools — a repetitive, time-consuming process for the engineers handling quotes.<br><br>Wander-IT automated the entire flow: a script monitors the RFQ inbox, reads and pre-sorts incoming emails, then submits each request to an AI analysis that extracts the key information needed to produce a quote. Engineers receive an already-analysed, structured request — their time is spent on the quote itself, not on preparation.<br><br>The extracted data then feeds three destinations simultaneously: the project folder on the server (with attachments and AI summary included), an opportunity automatically created in Odoo, and a tracking line in the centralised Excel file on SharePoint. Everything is tracked, everything is synchronised, without human intervention.",
+      gains: [
+        "Automatic processing of every RFQ request on receipt — no more manual entry for engineers.",
+        "AI email analysis: key information for the quote is automatically extracted and structured.",
+        "Simultaneous triple integration: server, Odoo and SharePoint fed in a single run.",
+        "Engineers handle already-qualified requests — their time goes to producing the quote, not preparing it.",
+        "Project folder automatically created with attachments and AI summary — zero manual handling.",
+        "Centralised tracking in SharePoint: real-time visibility over all ongoing opportunities.",
+      ],
+      chiffreCle: { points: ['Time saving', 'Zero manual entry', 'Triple integration'] },
+    },
+
+    de: {
+      titre: 'Angebotsanfragen-Automatisierung (RFQ)',
+      categorieLabel: 'Automatisierung',
+      technologies: 'Python · KI · Odoo · SharePoint · Excel',
+      accroche: "Vollständige Automatisierung des RFQ-Postfachs — jede Angebotsanfrage wird gelesen, per KI analysiert und gleichzeitig in Odoo, SharePoint und die Projektordnerstruktur eingespielt.",
+      contexte: "Re.Sol Avasco Solar Ground mit Sitz in Luxemburg ist auf bodenmontierte Photovoltaikstrukturen und Carports spezialisiert. Überzeugt von Innovation entschied sich das Unternehmen, das Management seiner eingehenden Angebotsanfragen (RFQ) zu modernisieren.<br><br>Jede neue Anfrage kam per E-Mail und erforderte manuelles Lesen, Sortieren und Eintragen in mehrere Tools — ein repetitiver, zeitaufwändiger Prozess für die Angebotsingenieure.<br><br>Wander-IT automatisierte den gesamten Ablauf: Ein Skript überwacht das RFQ-Postfach, liest und vorsortiert eingehende E-Mails, dann unterzieht eine KI-Analyse jede Anfrage und extrahiert die für die Angebotserstellung nötigen Schlüsselinformationen. Ingenieure erhalten eine bereits analysierte, strukturierte Anfrage — ihre Zeit gilt dem Angebot, nicht der Vorbereitung.<br><br>Die extrahierten Daten speisen gleichzeitig drei Ziele: den Projektordner auf dem Server (mit Anhängen und KI-Zusammenfassung), eine automatisch in Odoo erstellte Opportunity und eine Zeile im zentralen Excel-Tracking auf SharePoint.",
+      gains: [
+        "Automatische Verarbeitung jeder RFQ-Anfrage beim Eingang — keine manuelle Eingabe mehr für Ingenieure.",
+        "KI-E-Mail-Analyse: Schlüsselinformationen für das Angebot werden automatisch extrahiert und strukturiert.",
+        "Gleichzeitige dreifache Integration: Server, Odoo und SharePoint in einem einzigen Durchlauf.",
+        "Ingenieure bearbeiten bereits qualifizierte Anfragen — ihre Zeit gilt dem Angebot, nicht der Vorbereitung.",
+        "Projektordner automatisch mit Anhängen und KI-Zusammenfassung erstellt — null manuelle Bearbeitung.",
+        "Zentrales Tracking in SharePoint: Echtzeit-Überblick über alle laufenden Opportunities.",
+      ],
+      chiffreCle: { points: ['Zeitersparnis', 'Null manuelle Eingabe', 'Dreifache Integration'] },
+    },
+  },
 ];
