@@ -3,84 +3,98 @@
 
   <url>
     <loc>https://wander-it.be/</loc>
-    <lastmod>2026-07-07</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://wander-it.be/a-propos.html</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://wander-it.be/a-propos</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://wander-it.be/realisations.html</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://wander-it.be/realisations</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://wander-it.be/projets/projet.html?id=1</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://wander-it.be/services</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wander-it.be/projets/projet?id=1</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://wander-it.be/projets/projet.html?id=2</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://wander-it.be/projets/projet?id=2</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://wander-it.be/projets/projet.html?id=3</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://wander-it.be/projets/projet?id=3</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://wander-it.be/projets/projet.html?id=4</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://wander-it.be/projets/projet?id=4</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://wander-it.be/projets/projet.html?id=5</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://wander-it.be/projets/projet?id=5</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://wander-it.be/projets/projet.html?id=6</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://wander-it.be/projets/projet?id=6</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://wander-it.be/projets/projet.html?id=7</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://wander-it.be/projets/projet?id=7</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://wander-it.be/projets/projet.html?id=8</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://wander-it.be/projets/projet?id=8</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://wander-it.be/projets/projet.html?id=10</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://wander-it.be/projets/projet?id=10</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://wander-it.be/projets/projet?id=11</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

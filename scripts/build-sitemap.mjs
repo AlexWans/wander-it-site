@@ -15,12 +15,16 @@ const projets = eval(match[1]);
 // Garder uniquement les vrais projets (pas les placeholders)
 const vraisProjets = projets.filter(p => !p.imageCard.includes('placehold.co'));
 
+// URLs sans .html : cleanUrls est actif dans vercel.json, donc /a-propos.html
+// redirige en 308 vers /a-propos. Le sitemap et les canonical doivent pointer
+// vers l'URL réellement servie, pas vers celle qui redirige.
 const pages = [
-  { loc: '/',                  priority: '1.0' },
-  { loc: '/a-propos.html',     priority: '0.8' },
-  { loc: '/realisations.html', priority: '0.8' },
+  { loc: '/',             priority: '1.0' },
+  { loc: '/a-propos',     priority: '0.8' },
+  { loc: '/realisations', priority: '0.8' },
+  { loc: '/services',     priority: '0.8' },
   ...vraisProjets.map(p => ({
-    loc: `/projets/projet.html?id=${p.id}`,
+    loc: `/projets/projet?id=${p.id}`,
     priority: '0.7',
   })),
 ];
