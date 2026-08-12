@@ -1,3 +1,11 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.wander-it.be" }],
+      "destination": "https://wander-it.be/:path*",
+      "permanent": true
+    }
+  ]
 }
