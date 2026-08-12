@@ -733,7 +733,7 @@ window.PROJETS = [
     id: 11,
 
     // ── Infos de base ────────────────────────────────────────────────────────
-    titre:          'Fieldy — le Géoportail wallon en un rapport',
+    titre:          'Fieldy — Le Géoportail wallon revisité',
     client:         'Wander-IT',
     annee:          '2026',
     categorie:      'app',
@@ -754,22 +754,26 @@ window.PROJETS = [
     logoClient:  null,
     logosPartenaires: [],
 
+    // Projet interne : pas de « défi client », pas de section « Résultats »
+    titreSectionContexte: 'Pourquoi Fieldy',
+    hideGains: true,
+
     chiffreCle: {
       valeur: null,
       label: null,
-      points: ['Données officielles', 'Rapport en quelques instants', "Paiement à l'acte"],
+      titre:  'Validation du projet',
+      points: ['Automatisation de WalOnMap', 'Rapports PDF auto', 'Paiements en ligne'],
     },
 
-    gains: [
-      "Une référence cadastrale ou un point sur la carte suffit — plus besoin de savoir quelle couche du Géoportail répond à quelle question.",
-      "Un rapport PDF structuré et partageable, avec analyse par thème, verdict et surface cadastrale.",
-      "Des centaines de couches WalOnMap exploitées automatiquement, sans manipulation manuelle.",
-      "Génération en série possible : ce qui vaut pour une parcelle vaut pour 1 000 — agences immobilières, bureaux d'études, constructeurs.",
-      "Chaîne de paiement en ligne complète et éprouvée en production, vérifiée côté serveur avant chaque livraison.",
-      "Données officielles de la Région wallonne, interrogées en direct — jamais une copie qui vieillit.",
-    ],
+    encartCta: {
+      eyebrow: 'Essai gratuit',
+      titre:   'Essayez Fieldy gratuitement',
+      texte:   "La carte est en accès libre : naviguez, activez les surcouches et repérez votre parcelle. Seul le rapport PDF est payant, à l'acte.",
+      btn:     'Ouvrir Fieldy',
+      url:     'https://fieldy.wander-it.be',
+    },
 
-    layoutVisuels: 'grid',
+    layoutVisuels: 'carousel',
     visuels: [
       '/assets/images/projet-11/carte-composite.webp',
       '/assets/images/projet-11/rapport-pdf.webp',
@@ -777,37 +781,37 @@ window.PROJETS = [
     ],
 
     en: {
-      titre: 'Fieldy — the Walloon geoportal in a single report',
+      titre: 'Fieldy — the Walloon geoportal, revisited',
+      titreSectionContexte: 'Why Fieldy',
       categorieLabel: 'Web Application',
       technologies: 'Python · Flask · WalOnMap (WMS/REST) · ReportLab · Mollie',
       accroche: "Looking for land, or working in real estate? Then you have probably already lost hours on the Walloon geoportal. So have I. That is exactly why I built Fieldy.",
       contexte: "All the information is already on WalOnMap: flood risk, zoning plan, parcel boundaries, aerial imagery… Official, public and free data.<br><br>The problem is how much of it there is, and how complex it gets. With hundreds of different layers, you have to know which ones to look for, understand what they mean, switch them on one by one and cross-reference the results. You end up spending more time hunting for the right data than actually analysing the plot.<br><br>Fieldy automates all of it. Enter a parcel's GPS coordinates, or simply browse the map to find the right plot. Fieldy then queries the Walloon Region's services automatically, overlays the relevant data, identifies the parcel and generates a structured PDF report with a per-theme analysis, a verdict and the cadastral area.<br><br>What used to take half an hour of clicking becomes a complete report in moments.<br><br>Beyond Fieldy — the project mainly let me validate two technical building blocks.<br><br>Automating geoportal data. The data can be retrieved, cross-referenced and exported automatically. What works for one parcel works for 100 or 1,000: batch reports, custom formats, full automation for a real-estate agency, an engineering firm or a builder.<br><br>End-to-end online payment. Fieldy uses Mollie to handle payment creation, redirection, notification and server-side verification before delivery. No account, no subscription: you pay only for what you need.<br><br>Fieldy is both a working tool and a proof of concept: turning complex public data into an automated, scalable and monetisable service.",
-      gains: [
-        "A cadastral reference or a point on the map is enough — no need to know which geoportal layer answers which question.",
-        "A structured, shareable PDF report with per-theme analysis, verdict and cadastral area.",
-        "Hundreds of WalOnMap layers exploited automatically, with no manual handling.",
-        "Batch generation is possible: what works for one parcel works for 1,000 — agencies, engineering firms, builders.",
-        "A complete online payment chain, proven in production and verified server-side before every delivery.",
-        "Official Walloon Region data, queried live — never an ageing copy.",
-      ],
-      chiffreCle: { points: ['Official data', 'Report in moments', 'Pay per report'] },
+      chiffreCle: { titre: 'Project validation', points: ['WalOnMap automation', 'Automated PDF reports', 'Online payments'] },
+      encartCta: {
+        eyebrow: 'Free trial',
+        titre:   'Try Fieldy for free',
+        texte:   'The map is freely accessible: browse, switch the overlays on and find your plot. Only the PDF report is paid, per report.',
+        btn:     'Open Fieldy',
+        url:     'https://fieldy.wander-it.be',
+      },
     },
 
     de: {
-      titre: 'Fieldy — das wallonische Geoportal in einem Bericht',
+      titre: 'Fieldy — das wallonische Geoportal, neu gedacht',
+      titreSectionContexte: 'Warum Fieldy',
       categorieLabel: 'Web-Anwendung',
       technologies: 'Python · Flask · WalOnMap (WMS/REST) · ReportLab · Mollie',
       accroche: "Sie suchen ein Grundstück oder arbeiten in der Immobilienbranche? Dann haben Sie im wallonischen Geoportal wahrscheinlich schon viel Zeit verloren. Ich auch. Genau deshalb habe ich Fieldy entwickelt.",
       contexte: "Alle Informationen sind bereits auf WalOnMap verfügbar: Hochwassergefahr, Sektorenplan, Parzellengrenzen, Orthofoto… Offizielle, öffentliche und kostenlose Daten.<br><br>Das Problem ist ihre Menge und Komplexität. Bei Hunderten verschiedener Ebenen muss man wissen, welche man sucht, verstehen, was sie aussagen, sie einzeln aktivieren und die Informationen abgleichen. Am Ende verbringt man mehr Zeit mit der Suche nach den richtigen Daten als mit der eigentlichen Analyse der Parzelle.<br><br>Fieldy automatisiert diese ganze Arbeit. Man gibt die GPS-Koordinaten einer Parzelle ein oder navigiert einfach frei über die Karte. Fieldy fragt dann automatisch die Dienste der Wallonischen Region ab, überlagert die relevanten Daten, identifiziert die Parzelle und erzeugt einen strukturierten PDF-Bericht mit Analyse je Thema, Fazit und Katasterfläche.<br><br>Was früher eine halbe Stunde Handarbeit kostete, wird zu einem vollständigen Bericht in wenigen Augenblicken.<br><br>Über Fieldy hinaus — das Projekt hat mir vor allem erlaubt, zwei interessante technische Bausteine zu validieren.<br><br>Die Auswertung von Geoportaldaten automatisieren. Die Daten lassen sich automatisch abrufen, verknüpfen und exportieren. Was für eine Parzelle funktioniert, funktioniert für 100 oder 1 000: Serienberichte, individuelle Formate, vollständige Automatisierung für Immobilienagenturen, Ingenieurbüros oder Bauunternehmen.<br><br>Online-Zahlung von Anfang bis Ende integrieren. Fieldy nutzt Mollie für Zahlungserstellung, Weiterleitung, Benachrichtigung und serverseitige Prüfung vor der Auslieferung. Kein Konto, kein Abonnement: man zahlt nur, was man braucht.<br><br>Fieldy ist zugleich ein konkretes Werkzeug und ein Machbarkeitsnachweis: komplexe öffentliche Daten in einen automatisierten, skalierbaren und monetarisierbaren Dienst verwandeln.",
-      gains: [
-        "Eine Katasterreferenz oder ein Punkt auf der Karte genügt — kein Vorwissen über Geoportal-Ebenen nötig.",
-        "Ein strukturierter, teilbarer PDF-Bericht mit Analyse je Thema, Fazit und Katasterfläche.",
-        "Hunderte WalOnMap-Ebenen automatisch ausgewertet, ohne manuelle Bearbeitung.",
-        "Serienerstellung möglich: Was für eine Parzelle gilt, gilt für 1 000 — Agenturen, Ingenieurbüros, Bauunternehmen.",
-        "Vollständige Online-Zahlungskette, in Produktion erprobt und vor jeder Auslieferung serverseitig geprüft.",
-        "Offizielle Daten der Wallonischen Region, live abgefragt — nie eine veraltete Kopie.",
-      ],
-      chiffreCle: { points: ['Offizielle Daten', 'Bericht in Augenblicken', 'Zahlung pro Bericht'] },
+      chiffreCle: { titre: 'Projekt-Validierung', points: ['WalOnMap-Automatisierung', 'Automatische PDF-Berichte', 'Online-Zahlungen'] },
+      encartCta: {
+        eyebrow: 'Kostenlos testen',
+        titre:   'Fieldy kostenlos ausprobieren',
+        texte:   'Die Karte ist frei zugänglich: navigieren, Ebenen einblenden und die Parzelle finden. Nur der PDF-Bericht ist kostenpflichtig — pro Bericht.',
+        btn:     'Fieldy öffnen',
+        url:     'https://fieldy.wander-it.be',
+      },
     },
   },
 ];
