@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wander-it.be/sitemap.xml

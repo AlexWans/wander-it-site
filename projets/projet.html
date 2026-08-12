@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="page-title">Projet — Wander-IT</title>
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -255,6 +256,14 @@
   const p   = PROJETS.find(x => x.id === id);
   const lp  = (_lang !== 'fr' && p && p[_lang]) ? Object.assign({}, p, p[_lang]) : p;
   const app = document.getElementById('app');
+
+  // Canonique : une seule URL par projet, sur le domaine sans www
+  if (p) {
+    const canon = document.createElement('link');
+    canon.rel  = 'canonical';
+    canon.href = `https://wander-it.be/projets/projet.html?id=${p.id}`;
+    document.head.appendChild(canon);
+  }
 
   if (!p) {
     document.title = _t['proj.notfound'] + ' — Wander-IT';
