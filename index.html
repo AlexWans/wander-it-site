@@ -663,15 +663,18 @@
       <div class="trust-tile">
         <img src="assets/images/Partenaire/logo-hcb-dark.svg" alt="HCB Solar" loading="lazy" width="150" height="45">
       </div>
+      <div class="trust-tile">
+        <img class="logo-lions" src="assets/images/Partenaire/lions-club.webp" alt="Lions Clubs International" loading="lazy" width="67" height="62">
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  .trust-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
+  .trust-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1.25rem; }
   .trust-tile {
     display:flex; align-items:center; justify-content:center;
-    min-height:100px; padding:1.15rem 1.9rem;
+    min-height:100px; padding:1.15rem 1.25rem;
     background:#FFFFFF; border:1px solid rgba(11,28,34,0.07); border-radius:1rem;
     box-shadow: 0 1px 2px rgba(11,28,34,0.04), 0 12px 30px -14px rgba(107,48,32,0.16);
     transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease, border-color 0.35s ease;
@@ -681,14 +684,26 @@
     object-fit: contain; opacity: 0.9; transition: opacity 0.35s ease;
   }
   .trust-tile img.logo-jost { max-height: 66px; }
+  /* Logo quasi carré (ratio 1.07) : à 44px de haut il pèserait visuellement
+     deux fois moins que les logos larges. On lui donne plus de hauteur. */
+  .trust-tile img.logo-lions { max-height: 62px; }
   .trust-tile:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(11,28,34,0.05), 0 24px 46px -16px rgba(107,48,32,0.3);
     border-color: rgba(107,48,32,0.22);
   }
   .trust-tile:hover img, .trust-tile:hover svg { opacity: 1; }
-  @media (max-width: 900px) { .trust-grid { grid-template-columns: repeat(2,1fr); } }
-  @media (max-width: 520px) { .trust-grid { grid-template-columns: 1fr; } #confiance { padding: 0.5rem 1.5rem 4rem; } }
+  @media (max-width: 900px) {
+    .trust-grid { grid-template-columns: repeat(2,1fr); }
+    /* Nombre impair de logos : la dernière tuile se retrouve seule sur sa ligne.
+       On la centre au lieu de la laisser collée à gauche. */
+    .trust-grid > :last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 0.625rem); }
+  }
+  @media (max-width: 520px) {
+    .trust-grid { grid-template-columns: 1fr; }
+    .trust-grid > :last-child:nth-child(odd) { width: auto; justify-self: stretch; }
+    #confiance { padding: 0.5rem 1.5rem 4rem; }
+  }
 </style>
 
 
