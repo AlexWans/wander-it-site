@@ -237,7 +237,34 @@
     @media (max-width: 900px) {
       #nav { padding: 1rem 1.5rem; }
       .hero-grid, .approach-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
-      .hero-right { display: none !important; }
+      /* display:contents fait remonter les enfants du bloc texte au niveau de la
+         grille : on peut alors glisser les portraits entre l'accroche et le
+         paragraphe avec order, sans toucher au DOM ni au desktop. gap:0 pour
+         garder le rythme vertical porté par les marges d'origine. */
+      .hero-grid { gap: 0 !important; }
+      .hero-copy { display: contents; }
+      .hero-sub, .hero-cta-row { order: 2; }
+      /* Resserrage vertical mobile : purement de l'espacement, pour que les
+         portraits ET les boutons tiennent dans le premier écran. */
+      .hero-section              { padding-top: 70px !important; }
+      [data-i18n="hero.digital"] { margin-bottom: 1.1rem !important; }
+      [data-i18n="hero.title"]   { margin-bottom: 0.7rem !important; }
+      .hero-sub                  { margin-bottom: 1.1rem !important; line-height: 1.7 !important; }
+
+      /* Héros mobile : paire de portraits intercalée entre l'accroche et le
+         paragraphe, pour que les visages soient vus sans scroller. Cadrage 3:4
+         à toutes les largeurs. Les badges flottants sont retirés : leurs
+         décalages négatifs déborderaient hors de la page. */
+      .hero-right    { display: flex !important; order: 1; margin: 0.2rem 0 1.6rem; }
+      .hero-photos   { width: 100%; max-width: 420px; padding: 0 !important; gap: 0.6rem !important; }
+      .hero-photo-box{ height: auto !important; aspect-ratio: 3 / 4; }
+      .hero-badge    { display: none !important; }
+      /* Légendes : à 0.58rem le rôle tombait sous 10px. On remonte un peu et on
+         resserre l'interlettrage pour que le libellé tienne sur une ligne. */
+      .hero-cap          { padding: 0.9rem 0.7rem !important; }
+      .hero-cap p        { font-size: 0.92rem !important; }
+      .hero-cap p.lbl    { font-size: 0.6rem !important; letter-spacing: 0.09em !important; }
+      .hero-cta-row  { margin-bottom: 0 !important; }
     }
 
     /* ── Hamburger ── */
@@ -331,7 +358,7 @@
 
 
 <!-- HERO -->
-<section style="min-height:calc(100vh - 120px);padding:90px 3rem 2rem;position:relative;overflow:hidden;display:flex;align-items:center">
+<section class="hero-section" style="min-height:calc(100vh - 120px);padding:90px 3rem 2rem;position:relative;overflow:hidden;display:flex;align-items:center">
   <!-- Tiles background -->
   <div id="tiles-bg" style="position:absolute;inset:0;overflow:hidden;z-index:0;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%)"></div>
   <div style="position:absolute;top:-15%;right:-8%;width:700px;height:700px;background:radial-gradient(circle,rgba(177,220,237,0.38) 0%,transparent 65%);pointer-events:none;z-index:1"></div>
@@ -340,7 +367,7 @@
   <div style="max-width:1240px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:2" class="hero-grid">
 
     <!-- Copy -->
-    <div>
+    <div class="hero-copy">
       <p class="lbl au d1" data-i18n="hero.digital" style="color:#6B3020;margin-bottom:1.75rem;opacity:0.8">Solutions Digitales · Wander-IT</p>
 
       <h1 class="au d2" data-i18n-html="hero.line1" style="font-family:'Roboto Slab',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:700;line-height:1.05;letter-spacing:-0.03em;color:#0B1C22;margin-bottom:0.05em">Votre<br>expertise,</h1>
@@ -348,10 +375,10 @@
       <p class="au d3" data-i18n="hero.title" style="font-family:'Roboto Slab',serif;font-size:clamp(1.3rem,2.6vw,1.75rem);font-weight:600;color:#004258;letter-spacing:-0.02em;line-height:1.25;margin-bottom:1rem">
         Une longueur d'avance.
       </p>
-      <p class="au d4" data-i18n="hero.sub" style="font-size:1rem;color:#4d6870;max-width:420px;line-height:1.85;margin-bottom:1.5rem">
+      <p class="au d4 hero-sub" data-i18n="hero.sub" style="font-size:1rem;color:#4d6870;max-width:420px;line-height:1.85;margin-bottom:1.5rem">
         Nous analysons vos process, identifions ce qui peut être automatisé ou développé, et livrons des outils concrets — pour toute entreprise qui veut passer à la vitesse supérieure.
       </p>
-      <div class="au d4" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:3rem">
+      <div class="au d4 hero-cta-row" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:3rem">
         <a href="#contact" class="btn-p">
           <span data-i18n="hero.cta1">Nous contacter</span>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -363,19 +390,19 @@
     <!-- Photos -->
     <div class="hero-right" style="position:relative;display:flex;justify-content:center;align-items:center">
 
-      <div style="position:relative;display:flex;gap:1rem;align-items:stretch;padding:1.2rem 1.2rem 1.2rem 0;z-index:1">
+      <div class="hero-photos" style="position:relative;display:flex;gap:1rem;align-items:stretch;padding:1.2rem 1.2rem 1.2rem 0;z-index:1">
 
         <!-- Photo Alex -->
         <div style="position:relative;flex:1;min-width:0">
           <!-- Bottom-left badge -->
-          <div class="float" style="position:absolute;bottom:-1.8rem;left:-1rem;background:#0B1C22;padding:0.45rem 1.25rem;box-shadow:0 8px 28px rgba(11,28,34,0.28);z-index:10">
+          <div class="float hero-badge" style="position:absolute;bottom:-1.8rem;left:-1rem;background:#0B1C22;padding:0.45rem 1.25rem;box-shadow:0 8px 28px rgba(11,28,34,0.28);z-index:10">
             <p class="lbl" data-i18n="hero.badge" style="color:#B1DCED;font-size:0.6rem">Sur-mesure</p>
           </div>
-          <div style="position:relative;overflow:hidden;height:360px">
-            <img src="assets/images/AlexPicture.webp" alt="WANSART Alex" fetchpriority="high" style="width:100%;height:100%;display:block;object-fit:cover;object-position:center top;filter:contrast(1.04) saturate(0.92)">
+          <div class="hero-photo-box" style="position:relative;overflow:hidden;height:360px">
+            <img src="assets/images/AlexPicture.webp" alt="Alex Wansart" fetchpriority="high" style="width:100%;height:100%;display:block;object-fit:cover;object-position:center top;filter:contrast(1.04) saturate(0.92)">
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,66,88,0.65) 0%,transparent 45%);pointer-events:none"></div>
             <div style="position:absolute;inset:0;background:rgba(177,220,237,0.08);mix-blend-mode:multiply;pointer-events:none"></div>
-            <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1rem">
+            <div class="hero-cap" style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1rem">
               <p style="font-family:'Roboto Slab',serif;font-weight:700;font-size:0.9rem;color:white;letter-spacing:-0.01em">Alex Wansart</p>
               <p class="lbl" data-i18n="hero.alex.role" style="color:#B1DCED;font-size:0.58rem;opacity:0.75;margin-top:0.15rem">Solutions Digitales</p>
             </div>
@@ -384,11 +411,11 @@
 
         <!-- Photo Papa -->
         <div style="position:relative;flex:1;min-width:0">
-          <div style="position:relative;overflow:hidden;height:360px">
-            <img src="assets/images/PapaPicture.webp" alt="WANSART" fetchpriority="high" style="width:100%;height:100%;display:block;object-fit:cover;object-position:center top;filter:contrast(1.04) saturate(0.92)">
+          <div class="hero-photo-box" style="position:relative;overflow:hidden;height:360px">
+            <img src="assets/images/PapaPicture.webp" alt="André Wansart" fetchpriority="high" style="width:100%;height:100%;display:block;object-fit:cover;object-position:center top;filter:contrast(1.04) saturate(0.92)">
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(116,55,32,0.55) 0%,transparent 45%);pointer-events:none"></div>
             <div style="position:absolute;inset:0;background:rgba(177,220,237,0.06);mix-blend-mode:multiply;pointer-events:none"></div>
-            <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1rem">
+            <div class="hero-cap" style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1rem">
               <p style="font-family:'Roboto Slab',serif;font-weight:700;font-size:0.9rem;color:white;letter-spacing:-0.01em">André Wansart</p>
               <p class="lbl" data-i18n="hero.andre.role" style="color:#F5F3EF;font-size:0.58rem;opacity:0.9;margin-top:0.15rem;text-shadow:0 1px 4px rgba(0,0,0,0.6)">Expertise Métier</p>
             </div>
@@ -396,7 +423,7 @@
         </div>
 
         <!-- Floating badge top-right -->
-        <div class="float" style="position:absolute;top:-0.6rem;right:-1.1rem;background:#B1DCED;padding:0.45rem 1.25rem;box-shadow:0 8px 28px rgba(0,66,88,0.22);z-index:10">
+        <div class="float hero-badge" style="position:absolute;top:-0.6rem;right:-1.1rem;background:#B1DCED;padding:0.45rem 1.25rem;box-shadow:0 8px 28px rgba(0,66,88,0.22);z-index:10">
           <p class="lbl" data-i18n="hero.expertise" style="color:#004258;font-size:0.6rem">Expertise</p>
         </div>
 
