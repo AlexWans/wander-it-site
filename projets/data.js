@@ -880,4 +880,68 @@ window.PROJETS = [
       ]
     }
   },
+  {
+    "id": 13,
+    "titre": "Offgrid — assistant IA et cartes 100 % hors ligne",
+    "client": null,
+    "annee": "2026",
+    "categorie": "app",
+    "categorieLabel": "Application locale",
+    "technologies": "Python · FastAPI · Next.js · Ollama · SQLite · MapLibre · OpenStreetMap",
+    "tagColor": "#B1DCED",
+    "tagBg": "rgba(0,66,88,0.65)",
+    "imageCard": "/assets/images/projet-13/card.webp",
+    "imageGrid": "/assets/images/projet-13/grid.webp",
+    "accroche": "Par les temps qui courent, il peut être légitime de se préparer au pire, par exemple à une panne globale d&#39;internet. Offgrid réunit sur un ordinateur portable un assistant IA, des encyclopédies, vos documents et une carte topographique qui fonctionnent sans aucune connexion.",
+    "contexte": "La plupart des outils numériques cessent de fonctionner dès que le réseau disparaît, et les assistants IA du cloud supposent d&#39;envoyer ses questions et ses documents à l&#39;extérieur. Offgrid est un projet interne de Wander-IT qui prend le problème à l&#39;envers : tout doit fonctionner wifi coupé, sur un simple ordinateur portable, avec une batterie limitée.<br><br>Le cœur de l&#39;outil est un assistant IA qui tourne localement. Il rédige, traduit et explique, et consulte d&#39;abord les bases locales quand une source peut l&#39;aider : des encyclopédies hors ligne (Wikipédia, un corpus médical, des guides de réparation, des guides de voyage) et les documents déposés par l&#39;utilisateur, en PDF, Word ou texte. Chaque réponse cite ses sources, cliquables, avec le fichier et la page pour les documents personnels.<br><br>Une carte topographique de la Belgique et du Luxembourg est embarquée, avec courbes de niveau, relief ombré et toponymes. Elle calcule un itinéraire à pied, à vélo ou en voiture, affiche son profil d&#39;altitude, importe et exporte des traces GPX, et montre environ 3 500 points d&#39;eau avec leur potabilité. L&#39;assistant sait s&#39;en servir : il situe un lieu, calcule un trajet ou trouve la source d&#39;eau la plus proche.<br><br>L&#39;outil surveille la batterie et bascule de lui-même sur un modèle plus sobre sous 20 %. Aucun appel réseau n&#39;est émis à l&#39;exécution, et une fonctionnalité n&#39;est considérée comme terminée que si elle passe un test wifi coupé. Un modèle local reste moins puissant que ceux du cloud, mais aucune donnée ne quitte la machine : le même principe s&#39;applique aux sociétés qui traitent des documents confidentiels ou travaillent sur des sites sans connexion.",
+    "logoClient": null,
+    "logosPartenaires": [],
+    "hideChiffreCle": true,
+    "hideGains": false,
+    "gains": [
+      "Fonctionne entièrement sans internet : aucun appel réseau à l&#39;exécution, vérifié par un test wifi coupé.",
+      "Aucune donnée ne quitte la machine : questions, documents et positions restent locaux.",
+      "Réponses sourcées : l&#39;assistant cite l&#39;article d&#39;encyclopédie, ou le fichier et la page du document.",
+      "Carte topographique de la Belgique et du Luxembourg avec itinéraires à pied, à vélo et en voiture, et profil d&#39;altitude.",
+      "Environ 3 500 points d&#39;eau recensés avec leur potabilité.",
+      "Sobriété : bascule automatique sur un modèle économe quand la batterie passe sous 20 %."
+    ],
+    "layoutVisuels": "carousel",
+    "visuels": [
+      "/assets/images/projet-13/visuel-1.webp",
+      "/assets/images/projet-13/visuel-2.webp",
+      "/assets/images/projet-13/visuel-3.webp",
+      "/assets/images/projet-13/visuel-4.webp"
+    ],
+    "en": {
+      "titre": "Offgrid — a fully offline AI assistant and maps",
+      "categorieLabel": "Local application",
+      "technologies": "Python · FastAPI · Next.js · Ollama · SQLite · MapLibre · OpenStreetMap",
+      "accroche": "In times like these, it can be reasonable to prepare for the worst, such as a global internet outage. Offgrid brings together on a laptop an AI assistant, encyclopedias, your own documents and a topographic map that all work with no connection at all.",
+      "contexte": "Most digital tools stop working as soon as the network goes down, and cloud AI assistants require sending your questions and documents elsewhere. Offgrid is an internal Wander-IT project that turns the problem around: everything has to work with Wi-Fi off, on an ordinary laptop, with limited battery.<br><br>The core of the tool is an AI assistant that runs locally. It writes, translates and explains, and looks first in the local knowledge bases whenever a source can help: offline encyclopedias (Wikipedia, a medical corpus, repair guides, travel guides) and the documents the user has added, in PDF, Word or plain text. Every answer cites its sources, which can be clicked, with the file and page for personal documents.<br><br>A topographic map of Belgium and Luxembourg is built in, with contour lines, hillshading and place names. It computes a route on foot, by bike or by car, shows its elevation profile, imports and exports GPX tracks, and displays about 3,500 water points with their drinkability. The assistant can use it: it locates a place, computes a route or finds the nearest water source.<br><br>The tool watches the battery and switches by itself to a lighter model below 20%. No network call is made at runtime, and a feature only counts as finished once it passes a test with Wi-Fi off. A local model remains less capable than cloud models, but no data leaves the machine: the same principle applies to companies that handle confidential documents or work on sites without a connection.",
+      "gains": [
+        "Works entirely without internet: no network call at runtime, checked by a Wi-Fi-off test.",
+        "No data leaves the machine: questions, documents and positions stay local.",
+        "Sourced answers: the assistant cites the encyclopedia article, or the file and page of the document.",
+        "Topographic map of Belgium and Luxembourg with routes on foot, by bike and by car, and an elevation profile.",
+        "About 3,500 water points listed with their drinkability.",
+        "Low power use: automatic switch to a lighter model when the battery drops below 20%."
+      ]
+    },
+    "de": {
+      "titre": "Offgrid — KI-Assistent und Karten, vollständig offline",
+      "categorieLabel": "Lokale Anwendung",
+      "technologies": "Python · FastAPI · Next.js · Ollama · SQLite · MapLibre · OpenStreetMap",
+      "accroche": "In Zeiten wie diesen kann es berechtigt sein, sich auf das Schlimmste vorzubereiten, etwa auf einen weltweiten Internetausfall. Offgrid vereint auf einem Laptop einen KI-Assistenten, Enzyklopädien, eigene Dokumente und eine topografische Karte, die ganz ohne Verbindung funktionieren.",
+      "contexte": "Die meisten digitalen Werkzeuge funktionieren nicht mehr, sobald das Netz ausfällt, und KI-Assistenten aus der Cloud setzen voraus, dass Fragen und Dokumente nach außen gesendet werden. Offgrid ist ein internes Projekt von Wander-IT, das die Frage umdreht: Alles muss bei ausgeschaltetem WLAN funktionieren, auf einem gewöhnlichen Laptop, mit begrenzter Akkulaufzeit.<br><br>Das Herzstück ist ein KI-Assistent, der lokal läuft. Er schreibt, übersetzt und erklärt und greift zuerst auf die lokalen Wissensbestände zurück, wenn eine Quelle weiterhilft: Offline-Enzyklopädien (Wikipedia, ein medizinisches Korpus, Reparaturanleitungen, Reiseführer) und die vom Nutzer abgelegten Dokumente als PDF, Word oder Text. Jede Antwort nennt ihre anklickbaren Quellen, bei eigenen Dokumenten mit Datei und Seite.<br><br>Eine topografische Karte von Belgien und Luxemburg ist integriert, mit Höhenlinien, Schummerung und Ortsnamen. Sie berechnet eine Route zu Fuß, mit dem Fahrrad oder mit dem Auto, zeigt das Höhenprofil, importiert und exportiert GPX-Tracks und zeigt rund 3.500 Wasserstellen mit Angabe der Trinkbarkeit. Der Assistent kann sie nutzen: Er verortet einen Ort, berechnet eine Strecke oder findet die nächste Wasserstelle.<br><br>Das Tool überwacht den Akku und wechselt unter 20 % selbstständig auf ein sparsameres Modell. Zur Laufzeit erfolgt kein einziger Netzwerkzugriff, und eine Funktion gilt erst als fertig, wenn sie einen Test bei ausgeschaltetem WLAN besteht. Ein lokales Modell bleibt weniger leistungsfähig als Cloud-Modelle, aber keine Daten verlassen das Gerät: Dasselbe Prinzip gilt für Unternehmen, die vertrauliche Dokumente verarbeiten oder an Standorten ohne Verbindung arbeiten.",
+      "gains": [
+        "Funktioniert vollständig ohne Internet: kein Netzwerkzugriff zur Laufzeit, geprüft durch einen Test bei ausgeschaltetem WLAN.",
+        "Keine Daten verlassen das Gerät: Fragen, Dokumente und Positionen bleiben lokal.",
+        "Antworten mit Quellen: Der Assistent nennt den Enzyklopädie-Artikel oder Datei und Seite des Dokuments.",
+        "Topografische Karte von Belgien und Luxemburg mit Routen zu Fuß, mit dem Fahrrad und mit dem Auto sowie Höhenprofil.",
+        "Rund 3.500 Wasserstellen mit Angabe der Trinkbarkeit.",
+        "Sparsam: automatischer Wechsel auf ein sparsameres Modell, wenn der Akku unter 20 % fällt."
+      ]
+    }
+  },
 ];
