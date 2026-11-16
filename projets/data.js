@@ -814,4 +814,70 @@ window.PROJETS = [
       },
     },
   },
+  {
+    "id": 12,
+    "titre": "Dossiers techniques de petites constructions générés par IA",
+    "client": null,
+    "annee": "2026",
+    "categorie": "automatisation",
+    "categorieLabel": "Automatisation",
+    "technologies": "JavaScript · Modèle paramétrique · Dessin vectoriel · PDF A3 · Géoportail de Wallonie · IA",
+    "tagColor": "#B1DCED",
+    "tagBg": "rgba(0,66,88,0.65)",
+    "imageCard": "/assets/images/projet-12/card.webp",
+    "imageGrid": "/assets/images/projet-12/grid.webp",
+    "accroche": "Faire dessiner par un architecte le dossier complet d&#39;un abri ou d&#39;une grange coûte cher pour un si petit ouvrage. Ici, quelques phrases de description suffisent : l&#39;outil produit tout le dossier, des vues 3D au plan d&#39;implantation et à la liste d&#39;achat et de coupes, à partir d&#39;un croquis ou d&#39;une photo.",
+    "contexte": "Construire un abri, une grange ou un carport demande, avant le premier coup de scie, des plans cotés, la liste des pièces à débiter et celle du bois à commander. Confier ce dossier à un architecte ou à un bureau de dessin coûte cher pour un ouvrage de cette taille. Le dessiner soi-même prend des heures, et la moindre modification oblige à reprendre chaque planche et à recompter chaque quantité.<br><br>Wander-IT a développé en interne un outil qui part d&#39;une simple description de l&#39;ouvrage, un croquis ou une photo. Un assistant IA pose les quelques questions qui changent le dessin (usage, emprise, hauteurs, type de toiture, matériaux disponibles), puis écrit un modèle paramétrique unique : toutes les dimensions sont déclarées en tête, et chaque pièce est positionnée par calcul à partir de ces paramètres.<br><br>Tout le dossier est dérivé de ce modèle. Il comprend la vue d&#39;ensemble en 3D, orientable à la souris, les plans d&#39;ossature et de charpente, les élévations et les coupes cotées, le repérage des pièces, la liste de débit, le plan de débit qui répartit les coupes dans les longueurs du commerce en indiquant les chutes, la liste d&#39;achat rédigée avec les sections courantes chez les négociants belges, et les étapes de montage. Le résultat sort en planches A3 vectorielles, en HTML et en PDF. Pour un projet en Wallonie, l&#39;outil récupère la parcelle cadastrale sur le Géoportail et dessine le plan d&#39;implantation avec les distances aux limites.<br><br>L&#39;outil annonce ses limites sur chaque dossier : les sections relèvent d&#39;un pré-dimensionnement par règles usuelles, sans note de calcul, et il ne remplace pas l&#39;architecte quand le permis d&#39;urbanisme en exige un. Le même principe s&#39;applique à toute entreprise qui redessine et rechiffre chaque demande à partir d&#39;une gamme de produits.",
+    "logoClient": null,
+    "logosPartenaires": [],
+    "hideChiffreCle": true,
+    "hideGains": false,
+    "gains": [
+      "Un dossier complet à partir d&#39;une description : vues 3D, plans, élévations, coupes, listes et étapes de montage.",
+      "Une seule source de vérité : modifier une dimension met à jour toutes les planches, toutes les cotes et toutes les quantités.",
+      "Plan de débit qui répartit les coupes dans les longueurs du commerce et affiche les chutes.",
+      "Liste d&#39;achat lisible telle quelle au comptoir d&#39;un négociant en bois belge.",
+      "Plan d&#39;implantation sur la parcelle cadastrale pour les projets en Wallonie.",
+      "Limites affichées sur chaque dossier : pré-dimensionnement à faire valider, permis d&#39;urbanisme à vérifier."
+    ],
+    "layoutVisuels": "carousel",
+    "visuels": [
+      "/assets/images/projet-12/visuel-1.webp",
+      "/assets/images/projet-12/visuel-2.webp",
+      "/assets/images/projet-12/visuel-3.webp",
+      "/assets/images/projet-12/visuel-4.webp",
+      "/assets/images/projet-12/visuel-5.webp",
+      "/assets/images/projet-12/visuel-6.webp"
+    ],
+    "en": {
+      "titre": "AI-generated technical drawings for small buildings",
+      "categorieLabel": "Automation",
+      "technologies": "JavaScript · Parametric model · Vector drawing · A3 PDF · Walloon Geoportal · AI",
+      "accroche": "Having an architect draw the full set for a shelter or a barn is expensive for such a small structure. Here, a few sentences of description are enough: the tool produces the whole set, from 3D views to the site plan and the shopping list, out of a single model.",
+      "contexte": "Before the first saw cut, building a shelter, a barn or a carport takes dimensioned drawings, a cutting list and a list of timber to order. Having an architect or a drafting office produce this set is expensive for a structure of this size. Drawing it yourself takes hours, and the slightest change means reworking every sheet and recounting every quantity.<br><br>Wander-IT built an in-house tool that starts from a plain description of the structure. An AI assistant asks the few questions that change the design (use, footprint, heights, roof type, available materials), then writes a single parametric model: every dimension is declared at the top, and each part is positioned by calculation from those parameters.<br><br>The whole set is derived from that model. It includes a 3D overview that can be rotated with the mouse, framing and roof plans, dimensioned elevations and sections, part numbering, the cutting list, a cutting plan that fits the cuts into commercial lengths and shows the offcuts, a shopping list written with the timber sizes Belgian merchants commonly stock, and the assembly steps. The output is a set of vector A3 sheets, in HTML and PDF. For a project in Wallonia, the tool fetches the cadastral parcel from the regional Geoportal and draws the site plan with the distances to the boundaries.<br><br>Three sets have been produced: a sheep shelter, a barn and a garage-workshop. The tool states its limits on every set: the timber sizes are a preliminary sizing based on rules of thumb, without structural calculations, and it does not replace the architect when planning permission requires one. The same principle applies to any company that redraws and re-quotes each request from a product range.",
+      "gains": [
+        "A complete drawing set from a description: 3D views, plans, elevations, sections, lists and assembly steps.",
+        "A single source of truth: changing one dimension updates every sheet, every dimension and every quantity.",
+        "A cutting plan that fits the cuts into commercial lengths and shows the offcuts.",
+        "A shopping list that can be read as is at the counter of a Belgian timber merchant.",
+        "A site plan on the cadastral parcel for projects in Wallonia.",
+        "Limits stated on every set: preliminary sizing to be validated, planning permission to be checked."
+      ]
+    },
+    "de": {
+      "titre": "KI-generierte Planunterlagen für kleine Bauwerke",
+      "categorieLabel": "Automatisierung",
+      "technologies": "JavaScript · Parametrisches Modell · Vektorzeichnung · PDF A3 · Geoportal der Wallonie · KI",
+      "accroche": "Die vollständigen Unterlagen für einen Unterstand oder eine Scheune von einem Architekten zeichnen zu lassen, ist für ein so kleines Bauwerk teuer. Hier genügen wenige Sätze Beschreibung: Das Tool erstellt alle Unterlagen, von den 3D-Ansichten über den Lageplan bis zur Einkaufsliste, aus einem einzigen Modell.",
+      "contexte": "Wer einen Unterstand, eine Scheune oder einen Carport bauen will, braucht vor dem ersten Sägeschnitt bemaßte Pläne, eine Zuschnittliste und eine Liste des zu bestellenden Holzes. Diese Unterlagen bei einem Architekten oder Zeichenbüro in Auftrag zu geben, ist für ein Bauwerk dieser Größe teuer. Sie selbst zu zeichnen kostet Stunden, und bei der kleinsten Änderung muss jedes Blatt überarbeitet und jede Menge neu gezählt werden.<br><br>Wander-IT hat intern ein Tool entwickelt, das von einer einfachen Beschreibung des Bauwerks ausgeht. Ein KI-Assistent stellt die wenigen Fragen, die die Zeichnung verändern (Nutzung, Grundfläche, Höhen, Dachform, verfügbare Materialien), und schreibt dann ein einziges parametrisches Modell: Alle Maße stehen am Anfang, und jedes Bauteil wird aus diesen Parametern berechnet und positioniert.<br><br>Sämtliche Unterlagen werden aus diesem Modell abgeleitet. Dazu gehören die 3D-Gesamtansicht, die sich mit der Maus drehen lässt, die Pläne von Tragwerk und Dachstuhl, bemaßte Ansichten und Schnitte, die Positionsnummern der Bauteile, die Zuschnittliste, der Zuschnittplan, der die Schnitte auf handelsübliche Längen verteilt und die Reststücke ausweist, die Einkaufsliste mit den bei belgischen Holzhändlern gängigen Querschnitten sowie die Montageschritte. Das Ergebnis sind vektorbasierte A3-Blätter als HTML und PDF. Für ein Projekt in der Wallonie ruft das Tool die Katasterparzelle aus dem regionalen Geoportal ab und zeichnet den Lageplan mit den Abständen zu den Grenzen.<br><br>Drei Dossiers sind bisher entstanden: ein Schafunterstand, eine Scheune und eine Garage mit Werkstatt. Das Tool nennt in jedem Dossier seine Grenzen: Die Querschnitte sind eine Vorbemessung nach üblichen Faustregeln, ohne statische Berechnung, und es ersetzt nicht den Architekten, wenn die Baugenehmigung einen verlangt. Dasselbe Prinzip lässt sich auf jedes Unternehmen übertragen, das jede Anfrage auf Basis seiner Produktpalette neu zeichnet und neu kalkuliert.",
+      "gains": [
+        "Vollständige Unterlagen aus einer Beschreibung: 3D-Ansichten, Pläne, Ansichten, Schnitte, Listen und Montageschritte.",
+        "Eine einzige Datenquelle: Die Änderung eines Maßes aktualisiert alle Blätter, alle Maße und alle Mengen.",
+        "Zuschnittplan, der die Schnitte auf handelsübliche Längen verteilt und die Reststücke ausweist.",
+        "Einkaufsliste, die sich unverändert an der Theke eines belgischen Holzhändlers verwenden lässt.",
+        "Lageplan auf der Katasterparzelle für Projekte in der Wallonie.",
+        "In jedem Dossier ausgewiesene Grenzen: Vorbemessung zur Prüfung, Baugenehmigung zu klären."
+      ]
+    }
+  },
 ];
