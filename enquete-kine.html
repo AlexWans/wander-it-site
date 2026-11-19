@@ -218,7 +218,7 @@
 
     <fieldset class="q paper-hide" id="q-pain_points">
       <legend>Qu'est-ce qui vous dérange le plus&nbsp;?</legend>
-      <p class="help">Trois choix au maximum.</p>
+      <p class="help">Trois choix au maximum, et un champ libre en dessous pour le reste.</p>
       <div class="opts">
         <label class="opt"><input type="checkbox" name="pain_points" value="prix"><span>Le prix</span></label>
         <label class="opt"><input type="checkbox" name="pain_points" value="support"><span>Le support difficile à joindre</span></label>
@@ -231,6 +231,10 @@
         <label class="opt"><input type="checkbox" name="pain_points" value="mobile"><span>L'usage à domicile ou sur téléphone</span></label>
         <label class="opt"><input type="checkbox" name="pain_points" value="contrat"><span>Le contrat et la difficulté de changer</span></label>
         <label class="opt"><input type="checkbox" name="pain_points" value="rien"><span>Rien de particulier</span></label>
+      </div>
+      <div class="field">
+        <label for="pain_other">Autre chose&nbsp;? Dites-le avec vos mots</label>
+        <textarea id="pain_other" name="pain_other" maxlength="300" rows="2" placeholder="Ce qui n'est pas dans la liste"></textarea>
       </div>
       <p class="err" role="alert"></p>
     </fieldset>
@@ -341,7 +345,7 @@
   var questions = Array.prototype.slice.call(form.querySelectorAll('fieldset.q'));
   // Which block shows the error of each field named by the API.
   var BLOCK_OF = {
-    software_other: 'software', contact_email: 'contact', contact_first_name: 'contact',
+    software_other: 'software', pain_other: 'pain_points', contact_email: 'contact', contact_first_name: 'contact',
     contact_phone: 'contact', postal_code: 'contact',
   };
   // Field to focus when the contact block holds the error.
@@ -449,6 +453,7 @@
       put('tenure', value('tenure'));
       put('satisfaction', value('satisfaction') ? Number(value('satisfaction')) : '');
       put('likes', text('likes'));
+      put('pain_other', text('pain_other'));
       put('monthly_price', value('monthly_price'));
       data.pain_points = Array.prototype.map.call(
         form.querySelectorAll('input[name="pain_points"]:checked'), function (b) { return b.value; });
