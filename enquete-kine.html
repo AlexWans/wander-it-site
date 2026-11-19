@@ -104,6 +104,7 @@
     .contact { border-top: 1px solid var(--line); padding: 1.75rem 0 0.5rem; }
     .contact h2 { font-family: 'Roboto Slab', serif; font-weight: 700; font-size: 1.2rem; margin: 0 0 0.3rem; }
     .contact p { margin: 0 0 0.9rem; color: var(--slate); font-size: 0.95rem; }
+    .optional { font-weight: 400; color: var(--slate); }
 
     .send {
       display: block; width: 100%; margin-top: 1.75rem; padding: 1rem 1.25rem; border: 0; border-radius: 0.4rem;
@@ -287,15 +288,14 @@
 
     <section class="contact" id="q-contact">
       <h2>Et si vous testiez la première version&nbsp;?</h2>
-      <p>Facultatif. Vos réponses restent anonymes si vous ne cochez rien.</p>
-      <label class="opt"><input type="checkbox" id="contact_ok" name="contact_ok"><span>Je veux bien être recontacté pour donner mon avis sur une première version</span></label>
-      <div id="contact-fields" hidden>
+      <p>Laissez votre adresse si vous voulez être recontacté pour donner votre avis sur une première version. Sans elle, vos réponses restent anonymes.</p>
+      <div id="contact-fields">
         <div class="field">
-          <label for="contact_first_name">Prénom</label>
+          <label for="contact_first_name">Prénom <span class="optional">(facultatif)</span></label>
           <input type="text" id="contact_first_name" name="contact_first_name" maxlength="80" autocomplete="given-name">
         </div>
         <div class="field">
-          <label for="contact_email">Adresse mail</label>
+          <label for="contact_email">Adresse mail <span class="optional">(facultatif)</span></label>
           <input type="email" id="contact_email" name="contact_email" maxlength="254" autocomplete="email" inputmode="email">
         </div>
       </div>
@@ -330,8 +330,6 @@
   var send = document.getElementById('send');
   var formError = document.getElementById('form-error');
   var otherWrap = document.getElementById('software-other-wrap');
-  var contactFields = document.getElementById('contact-fields');
-  var contactOk = document.getElementById('contact_ok');
   var questions = Array.prototype.slice.call(form.querySelectorAll('fieldset.q'));
   // Which block shows the error of each field named by the API.
   var BLOCK_OF = { software_other: 'software', contact_email: 'contact', contact_first_name: 'contact' };
@@ -389,7 +387,6 @@
     var other = value('software') === 'autre';
     otherWrap.hidden = !other;
     if (!other) document.getElementById('software_other').value = '';
-    contactFields.hidden = !contactOk.checked;
   }
 
   function limitPains(changed) {
@@ -419,7 +416,7 @@
   form.addEventListener('input', updateProgress);
 
   function payload() {
-    var data = { software: value('software'), switch_intent: value('switch_intent'), contact_ok: contactOk.checked };
+    var data = { software: value('software'), switch_intent: value('switch_intent'), contact_ok: text('contact_email') !== '' };
     var paper = onPaper();
     function put(key, val) { if (val !== '' && val !== null && val !== undefined) data[key] = val; }
     put('software_other', data.software === 'autre' ? text('software_other') : '');
@@ -453,8 +450,10 @@
     else if (value('software') === 'autre' && !text('software_other')) fail('software', 'Indiquez le nom de votre logiciel.');
     if (!onPaper() && !value('satisfaction')) fail('satisfaction', 'Donnez une note de 1 à 5.');
     if (!value('switch_intent')) fail('switch_intent', 'Choisissez une réponse.');
-    if (contactOk.checked && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text('contact_email'))) {
-      fail('contact', 'Indiquez une adresse mail valide, ou décochez la case.');
+    // Contact details are optional: an address is only checked when one is given.
+    var mail = text('contact_email');
+    if (mail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
+      fail('contact', 'Cette adresse mail ne semble pas valide. Corrigez-la, ou laissez le champ vide.');
     }
     return first;
   }
@@ -462,7 +461,9 @@
   function scrollTo(key) {
     var el = block(key); if (!el) return;
     el.scrollIntoView({ block: 'center' });
-    var focusable = el.querySelector('input:not([type="hidden"]), textarea');
+    var focusable = key === 'contact'
+      ? document.getElementById('contact_email')
+      : el.querySelector('input:not([type="hidden"]), textarea');
     if (focusable) focusable.focus({ preventScroll: true });
   }
 
