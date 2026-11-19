@@ -87,12 +87,12 @@
     .rate:focus-within { outline: 2px solid var(--rust); outline-offset: 2px; }
     .scale-ends { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--slate); margin-top: 0.4rem; }
 
-    input[type="text"], input[type="email"], textarea {
+    input[type="text"], input[type="email"], input[type="tel"], textarea {
       width: 100%; font: inherit; color: var(--ink); background: #fff;
       border: 1.5px solid var(--line); border-radius: 0.4rem; padding: 0.7rem 0.85rem;
     }
     textarea { resize: vertical; min-height: 5.5rem; }
-    input[type="text"]:focus, input[type="email"]:focus, textarea:focus { outline: 2px solid var(--rust); outline-offset: 1px; border-color: var(--ink); }
+    input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, textarea:focus { outline: 2px solid var(--rust); outline-offset: 1px; border-color: var(--ink); }
     .other { margin-top: 0.5rem; }
     .field { display: grid; gap: 0.3rem; margin-top: 0.8rem; }
     .field label { font-size: 0.9rem; font-weight: 700; }
@@ -288,7 +288,7 @@
 
     <section class="contact" id="q-contact">
       <h2>Et si vous testiez la première version&nbsp;?</h2>
-      <p>Laissez votre adresse si vous voulez être recontacté pour donner votre avis sur une première version. Sans elle, vos réponses restent anonymes.</p>
+      <p>Laissez une adresse mail ou un numéro si vous voulez être recontacté pour donner votre avis sur une première version. Sans cela, vos réponses restent anonymes.</p>
       <div id="contact-fields">
         <div class="field">
           <label for="contact_first_name">Prénom <span class="optional">(facultatif)</span></label>
@@ -297,6 +297,14 @@
         <div class="field">
           <label for="contact_email">Adresse mail <span class="optional">(facultatif)</span></label>
           <input type="email" id="contact_email" name="contact_email" maxlength="254" autocomplete="email" inputmode="email">
+        </div>
+        <div class="field">
+          <label for="contact_phone">Téléphone <span class="optional">(facultatif)</span></label>
+          <input type="tel" id="contact_phone" name="contact_phone" maxlength="30" autocomplete="tel" inputmode="tel">
+        </div>
+        <div class="field">
+          <label for="postal_code">Code postal du cabinet <span class="optional">(facultatif)</span></label>
+          <input type="text" id="postal_code" name="postal_code" maxlength="4" autocomplete="postal-code" inputmode="numeric" style="max-width:8rem">
         </div>
       </div>
       <p class="err" role="alert"></p>
@@ -332,7 +340,12 @@
   var otherWrap = document.getElementById('software-other-wrap');
   var questions = Array.prototype.slice.call(form.querySelectorAll('fieldset.q'));
   // Which block shows the error of each field named by the API.
-  var BLOCK_OF = { software_other: 'software', contact_email: 'contact', contact_first_name: 'contact' };
+  var BLOCK_OF = {
+    software_other: 'software', contact_email: 'contact', contact_first_name: 'contact',
+    contact_phone: 'contact', postal_code: 'contact',
+  };
+  // Field to focus when the contact block holds the error.
+  var contactFocus = 'contact_email';
 
   // Anonymous visit count: lets Alex know the response rate without any cookie.
   try { fetch(API + '/api/survey/kine/view', { method: 'POST', keepalive: true }).catch(function () {}); } catch (e) {}
@@ -405,18 +418,27 @@
     }
   }
 
+  function isTyped(el) { return el.tagName === 'TEXTAREA' || (el.tagName === 'INPUT' && el.type !== 'radio' && el.type !== 'checkbox'); }
+
   form.addEventListener('change', function (event) {
     var target = event.target;
     if (target.name === 'pain_points') limitPains(target);
-    else if (target.name) setError(target.name, '');
+    // Typed fields clear their error while typing (below), never here: `change`
+    // fires on blur, i.e. while « Envoyer » is being tapped, and a message that
+    // vanishes at that instant moves the button away from the finger.
+    else if (target.name && !isTyped(target)) setError(target.name, '');
     applyBranches();
     paintOptions();
     updateProgress();
   });
-  form.addEventListener('input', updateProgress);
+  form.addEventListener('input', function (event) {
+    var target = event.target;
+    if (target.name && isTyped(target)) setError(target.name, '');
+    updateProgress();
+  });
 
   function payload() {
-    var data = { software: value('software'), switch_intent: value('switch_intent'), contact_ok: text('contact_email') !== '' };
+    var data = { software: value('software'), switch_intent: value('switch_intent'), contact_ok: text('contact_email') !== '' || text('contact_phone') !== '' };
     var paper = onPaper();
     function put(key, val) { if (val !== '' && val !== null && val !== undefined) data[key] = val; }
     put('software_other', data.software === 'autre' ? text('software_other') : '');
@@ -436,9 +458,17 @@
     if (data.contact_ok) {
       put('contact_first_name', text('contact_first_name'));
       put('contact_email', text('contact_email'));
+      put('contact_phone', text('contact_phone'));
     }
+    // The practice postal code is not a contact detail: it goes with anonymous answers too.
+    put('postal_code', text('postal_code'));
     put('hp_check', document.getElementById('hp_check').value);
     return data;
+  }
+
+  function validPhone(value) {
+    var digits = value.replace(/\D/g, '').length;
+    return /^\+?[0-9 ()./-]+$/.test(value) && digits >= 8 && digits <= 15;
   }
 
   // Returns the key of the first block that still needs an answer, or null.
@@ -453,7 +483,14 @@
     // Contact details are optional: an address is only checked when one is given.
     var mail = text('contact_email');
     if (mail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
+      contactFocus = 'contact_email';
       fail('contact', 'Cette adresse mail ne semble pas valide. Corrigez-la, ou laissez le champ vide.');
+    } else if (text('contact_phone') && !validPhone(text('contact_phone'))) {
+      contactFocus = 'contact_phone';
+      fail('contact', 'Ce numéro de téléphone ne semble pas valide. Corrigez-le, ou laissez le champ vide.');
+    } else if (text('postal_code') && !/^\d{4}$/.test(text('postal_code'))) {
+      contactFocus = 'postal_code';
+      fail('contact', 'Le code postal doit compter 4 chiffres. Corrigez-le, ou laissez le champ vide.');
     }
     return first;
   }
@@ -462,7 +499,7 @@
     var el = block(key); if (!el) return;
     el.scrollIntoView({ block: 'center' });
     var focusable = key === 'contact'
-      ? document.getElementById('contact_email')
+      ? document.getElementById(contactFocus)
       : el.querySelector('input:not([type="hidden"]), textarea');
     if (focusable) focusable.focus({ preventScroll: true });
   }
@@ -472,7 +509,7 @@
     document.getElementById('progress-text').textContent = '';
     document.getElementById('progress-fill').style.width = '100%';
     document.getElementById('thanks-detail').textContent = leftContact
-      ? 'Je vous écrirai quand une première version sera prête à être essayée, et pas avant.'
+      ? 'Je vous recontacterai quand une première version sera prête à être essayée, et pas avant.'
       : 'Vous ne recevrez pas d\'autre message de ma part.';
     var thanks = document.getElementById('thanks');
     thanks.hidden = false;
