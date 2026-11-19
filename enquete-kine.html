@@ -156,7 +156,7 @@
 
 <main>
   <h1>Votre logiciel de cabinet, vu par vous</h1>
-  <p class="promise">2 minutes, 10 questions, réponses anonymes.</p>
+  <p class="promise">2 minutes, 11 questions, réponses anonymes.</p>
   <p class="intro">Je m'appelle Alex, je travaille chez Wander IT à Stavelot. Nous préparons un logiciel pour kinés et nous voulons d'abord comprendre ce qui vous manque.</p>
 
   <form id="survey" method="post" novalidate>
@@ -282,6 +282,13 @@
       <legend id="change-legend">Si vous pouviez changer une seule chose, ce serait quoi&nbsp;?</legend>
       <label class="hp" for="one_change">La chose à changer</label>
       <textarea id="one_change" name="one_change" maxlength="1000" rows="3" placeholder="Dites-le avec vos mots"></textarea>
+      <p class="err" role="alert"></p>
+    </fieldset>
+
+    <fieldset class="q" id="q-ideal_features">
+      <legend>Quelles fonctionnalités aimeriez-vous trouver dans le logiciel idéal&nbsp;?</legend>
+      <label class="hp" for="ideal_features">Les fonctionnalités du logiciel idéal</label>
+      <textarea id="ideal_features" name="ideal_features" maxlength="1000" rows="4" placeholder="Tout ce qui vous ferait gagner du temps ou vous simplifierait la vie"></textarea>
       <p class="err" role="alert"></p>
     </fieldset>
 
@@ -449,6 +456,7 @@
     put('practice_size', value('practice_size'));
     put('efact_status', value('efact_status'));
     put('one_change', text('one_change'));
+    put('ideal_features', text('ideal_features'));
     if (!paper) {
       put('tenure', value('tenure'));
       put('satisfaction', value('satisfaction') ? Number(value('satisfaction')) : '');
